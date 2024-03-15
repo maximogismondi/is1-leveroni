@@ -1,0 +1,172 @@
+
+
+----STARTUP---- (13 March 2024 14:18:49) as C:\CUIS\windows64\CuisUniversity-6169.image!
+
+
+ObjectBuilder create: #AlanTuring asChildOf: DenotativeObject collaboratorNames: '' in: 'Form2'!
+
+!classDefinition: #AlanTuring category: #Form2 stamp: 'mg 3/13/2024 14:19:34'!
+DenotativeObject subclass: #AlanTuring
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form2'!
+
+!classDefinition: 'AlanTuring class' category: #Form2 stamp: 'mg 3/13/2024 14:19:34'!
+AlanTuring class
+	instanceVariableNames: ''!
+
+AlanTuring fechaDeNacimiento!
+
+AlanTuring printString.!
+
+AlanTuring fechaDeNacimiento!
+!AlanTuring class methodsFor: 'info personal' stamp: 'mg 3/13/2024 15:26:32'!
+fechaDeNacimiento
+	self shouldBeImplemented.! !
+!AlanTuring class methodsFor: 'info personal' stamp: 'mg 3/13/2024 15:27:14' prior: 50526831!
+fechaDeNacimiento
+	^June/23/1912! !
+
+AlanTuring fechaDeNacimiento !
+
+ObjectBuilder create: #JohnVonNeumann asChildOf: DenotativeObject collaboratorNames: '' in: 'Form2'!
+
+!classDefinition: #JohnVonNeumann category: #Form2 stamp: 'mg 3/13/2024 15:30:39'!
+DenotativeObject subclass: #JohnVonNeumann
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form2'!
+
+!classDefinition: 'JohnVonNeumann class' category: #Form2 stamp: 'mg 3/13/2024 15:30:39'!
+JohnVonNeumann class
+	instanceVariableNames: ''!
+!JohnVonNeumann class methodsFor: '-- all --' stamp: 'mg 3/13/2024 15:30:52'!
+fechaDeNacimiento
+	^December/28/1903! !
+
+JohnVonNeumann fechaDeNacimiento inspect!
+
+JohnVonNeumann fechaDeNacimiento inspect!
+
+ObjectBuilder create: #AlanKay asChildOf: DenotativeObject collaboratorNames: '' in: 'Form2'!
+
+!classDefinition: #AlanKay category: #Form2 stamp: 'mg 3/13/2024 15:33:06'!
+DenotativeObject subclass: #AlanKay
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form2'!
+
+!classDefinition: 'AlanKay class' category: #Form2 stamp: 'mg 3/13/2024 15:33:06'!
+AlanKay class
+	instanceVariableNames: ''!
+!AlanKay class methodsFor: '-- all --' stamp: 'mg 3/13/2024 15:33:37'!
+fechaDeNacimiento
+	^May/17/1940! !
+
+JohnVonNeumann fechaDeNacimiento!
+
+AlanKay fechaDeNacimiento!
+
+ObjectBuilder create: #AdeleGoldberg asChildOf: DenotativeObject collaboratorNames: '' in: 'Form2'!
+
+!classDefinition: #AdeleGoldberg category: #Form2 stamp: 'mg 3/13/2024 15:34:11'!
+DenotativeObject subclass: #AdeleGoldberg
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form2'!
+
+!classDefinition: 'AdeleGoldberg class' category: #Form2 stamp: 'mg 3/13/2024 15:34:11'!
+AdeleGoldberg class
+	instanceVariableNames: ''!
+!AdeleGoldberg class methodsFor: '-- all --' stamp: 'mg 3/13/2024 15:34:48'!
+fechaDeNacimiento
+	^July/22/1945! !
+
+AdeleGoldberg  fechaDeNacimiento !
+
+AlanTuring fechaDeNacimiento !
+
+AdeleGoldberg  fechaDeNacimiento.!
+
+----QUIT----(13 March 2024 15:42:33) CuisUniversity-6169.image priorSource: 6245038!
+
+----STARTUP---- (13 March 2024 22:07:08) as C:\CUIS\windows64\CuisUniversity-6169.image!
+
+
+#fechaDeNacimiento asMessage sendTo: JohnVonNeumann.!
+
+#fechaDeNacimiento asMessage.!
+
+self sendTo: AlanTuring.!
+
+self sendTo: JohnVonNeumann.!
+
+self sendTo: AlanKay.!
+
+self fullName !
+
+self numArgs !
+
+self argument!
+
+self arguments!
+
+AlanTuring methodNamed: #fechaDeNacimiento.!
+
+JohnVonNeumann methodNamed: #fechaDeNacimiento.!
+
+JohnVonNeumann methodNamed: #fechaDeNacimiento.!
+
+AlanTuring methodNamed: #fechaDeNacimiento.!
+
+self sourceCode.!
+
+self sourceCode.!
+
+self sourceCode.!
+
+self sourceCode.!
+
+self sourceCode.!
+
+self linesOfCode.!
+
+AlanTuring!
+
+#fechaDeNacimiento!
+
+#fechaDeNacimiento!
+
+self fechaDeNacimiento !
+
+AlanTuring fechaDeNacimiento !
+
+AlanTuring  messages!
+
+AlanTuring  messages!
+
+AlanTuring!
+
+AlanTuring methodNamed: #fechaDeNacimiento.!
+
+self valueWithReceiver: AlanTuring arguments: #().!
+
+self valueWithReceiver: AlanTuring arguments: #().!
+
+self valueWithReceiver: JohnVonNeumann arguments: #().!
+
+self arguments: #()!
+
+self arguments: #()!
+
+JohnVonNeumann methodNamed: #fechaDeNacimiento!
+
+self valueWithReceiver: JohnVonNeumann arguments: #().!
+
+self valueWithReceiver: AlanTuring arguments: #().!
+
+----QUIT----(13 March 2024 23:46:28) CuisUniversity-6169.image priorSource: 6248043!
