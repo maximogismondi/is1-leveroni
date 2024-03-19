@@ -1,0 +1,335 @@
+
+
+----STARTUP---- (18 March 2024 23:47:48) as G:\is1-leveroni\cuis\windows64\CuisUniversity-6169.image!
+
+
+----End fileIn of \is1-leveroni\forms\forms1-2-3.st----!
+!AlanKay class methodsFor: '-- all --' stamp: 'mg 3/18/2024 23:52:56'!
+esMayorQue: unaPersona
+	| diferenciaDeEdad |
+	diferenciaDeEdad := self fechaDeNacimiento distanceTo: unaPersona fechaDeNacimiento.
+	^diferenciaDeEdad positive! !
+
+!classDefinition: 'AdeleGoldberg class' category: #Form2 stamp: 'mg 3/18/2024 23:57:25'!
+AdeleGoldberg class
+	instanceVariableNames: 'colegaDeTrabajo'!
+!AdeleGoldberg class methodsFor: '-- all --' stamp: 'mg 3/18/2024 23:59:38'!
+esMenorQueSuColega
+    ^colegaDeTrabajo esMayorQue: self! !
+
+AdeleGoldberg  esMenorQueSuColega !
+!AdeleGoldberg class methodsFor: '-- all --' stamp: 'mg 3/19/2024 00:01:56'!
+colegaDeTrabajo
+     ^colegaDeTrabajo! !
+
+AdeleGoldberg colegaDeTrabajo!
+!AdeleGoldberg class methodsFor: '--** private fileout/in **--' stamp: 'mg 3/19/2024 00:13:58' overrides: 50513977!
+initializeCollaboratorsFromFile
+	"Auto generated method for loading purposes - Do not modify it"
+
+	colegaDeTrabajo := AlanKay.! !
+
+!methodRemoval: AdeleGoldberg class #initializeCollaboratorsFromFile stamp: 'mg 3/19/2024 00:13:58'!
+initializeCollaboratorsFromFile
+	"Auto generated method for loading purposes - Do not modify it"
+
+	colegaDeTrabajo := AlanKay.!
+
+‘Hola’ size.!
+
+‘Hola’ size.!
+
+‘Hola’ size.!
+
+100 factorial !
+
+'Hola'!
+
+'Hola' size!
+
+100 factorial. !
+
+'hola' size even.!
+
+'hola' size odd.!
+
+10 + 20.!
+
+true & false.!
+
+‘Hola’ at: 1.!
+
+'Hola' at: 1.!
+
+
+3 between: 1 and: 5.
+Array with: 1 with: 10 with: 100.
+'Hola gente!!' copyFrom: 2 to: 8.!
+
+March distanceTo: December.!
+
+March distanceTo: December. 9 * months .!
+
+9 * months .!
+
+3 between: 1 and: 5.!
+
+Array with: 1 with: 10 with: 100.!
+
+3 between: 1 and: 5.!
+
+'Hola' size + 'Chau' size.!
+
+'hola', 'chau'.!
+
+'hola', 'chau'. 'holachau' .!
+
+'hola', 'chau' size.!
+
+'hola', 'chau' size.!
+
+'hola', 'chau'.!
+
+'hola', 'chau' size.!
+
+'hola gente!!' copyFrom: 'hola' size + 1 to: 11.!
+
+('hola', 'chau') size.!
+
+'hola' size next!
+
+'hola' size!
+
+4 nextObject !
+
+4 nextInstance !
+
+4 size!
+
+'hola' size even!
+
+6+2*5.!
+
+(6+2)*5.!
+
+hola!
+
+AlanTuring hola.!
+!AlanTuring class methodsFor: '-- all --' stamp: 'mg 3/19/2024 00:32:37' overrides: 50514465!
+doesNotUnderstand: aMessage
+	^'No entiendo lo que me decis con ', aMessage asString! !
+
+AlanTuring hola.!
+
+AlanTuring  chau!
+
+AlanTuring  doesNotUnderstand!
+
+AlanTuring  doesNotUnderstand: aaa!
+
+AlanTuring  doesNotUnderstand: hola!
+
+AlanTuring  doesNotUnderstand: hola asMessage!
+
+AlanTuring  doesNotUnderstand: #hola!
+
+AlanTuring  hola!
+
+AlanTuring  hola!
+
+AlanTuring  hola!
+!AdeleGoldberg class methodsFor: '--** private fileout/in **--' stamp: 'mg 3/19/2024 00:39:27' overrides: 50513977!
+initializeCollaboratorsFromFile
+	"Auto generated method for loading purposes - Do not modify it"
+
+	colegaDeTrabajo := AlanKay.! !
+
+!methodRemoval: AdeleGoldberg class #initializeCollaboratorsFromFile stamp: 'mg 3/19/2024 00:39:27'!
+initializeCollaboratorsFromFile
+	"Auto generated method for loading purposes - Do not modify it"
+
+	colegaDeTrabajo := AlanKay.!
+
+DenotativeObject subclass: #CloneOfJohnVonNeumann
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form5'!
+
+!classDefinition: #CloneOfJohnVonNeumann category: 'Form5' stamp: 'mg 3/19/2024 01:06:05'!
+DenotativeObject subclass: #CloneOfJohnVonNeumann
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form5'!
+
+CloneOfJohnVonNeumann class
+	instanceVariableNames: ''!
+
+!classDefinition: 'CloneOfJohnVonNeumann class' category: 'Form5' stamp: 'mg 3/19/2024 01:06:05'!
+CloneOfJohnVonNeumann class
+	instanceVariableNames: ''!
+!CloneOfJohnVonNeumann class methodsFor: '-- all --' stamp: 'mg 3/19/2024 01:06:05'!
+fechaDeNacimiento
+	^December/28/1903! !
+
+(June/23/2019) = (June/23/2019).!
+
+(June/23/2019) == (June/23/2019).!
+
+100 factorial = 100 factorial.!
+
+100 factorial == 100 factorial.!
+
+('ho','la') = ('ho','la').  !
+
+('ho','la') == ('ho', 'la').!
+!AdeleGoldberg class methodsFor: '--** private fileout/in **--' stamp: 'mg 3/19/2024 01:09:39' overrides: 50513977!
+initializeCollaboratorsFromFile
+	"Auto generated method for loading purposes - Do not modify it"
+
+	colegaDeTrabajo := AlanKay.! !
+
+!methodRemoval: AdeleGoldberg class #initializeCollaboratorsFromFile stamp: 'mg 3/19/2024 01:09:39'!
+initializeCollaboratorsFromFile
+	"Auto generated method for loading purposes - Do not modify it"
+
+	colegaDeTrabajo := AlanKay.!
+
+#messageList!
+
+self messageList!
+
+#messageList size!
+
+list!
+
+list size!
+
+self selection: #fail.!
+
+self setSelectionIndex: 1.!
+
+self setSelectionIndex: 1.!
+
+self setSelectionIndex: 1.!
+
+self setSelectionIndex: 3.!
+
+self setSelectionIndex: 1. true .!
+
+self setSelectionIndex: 3. true .!
+
+self selection: #fail.!
+
+self!
+
+self browse !
+
+self !
+
+DenotativeObject Browser list!
+
+self send.!
+
+self send. !
+
+self send.!
+
+self send.!
+
+self send.!
+
+self send.!
+
+self send.!
+
+self send.!
+
+self send.!
+
+self send.!
+
+self send.!
+
+self send.!
+
+self send.!
+
+AlanKay  esMayorQue:  JohnVonNeumann !
+!AdeleGoldberg class methodsFor: '--** private fileout/in **--' stamp: 'mg 3/19/2024 01:29:50' overrides: 50513977!
+initializeCollaboratorsFromFile
+	"Auto generated method for loading purposes - Do not modify it"
+
+	colegaDeTrabajo := AlanKay.! !
+
+!methodRemoval: AdeleGoldberg class #initializeCollaboratorsFromFile stamp: 'mg 3/19/2024 01:29:50'!
+initializeCollaboratorsFromFile
+	"Auto generated method for loading purposes - Do not modify it"
+
+	colegaDeTrabajo := AlanKay.!
+
+10 factorial.!
+
+[ 10 factorial ].!
+
+[ 10 factorial ] value.!
+
+[ :anInteger | anInteger factorial ] value: 10.!
+
+[ :anInteger | anInteger factorial ] value: 100.!
+
+factorialBlock := [ :anInteger | anInteger factorial ].!
+
+factorialBlock value: 10.!
+
+factorialSumBlock := [ :anIntegerToFact1 :anIntegerToFact2 | anIntegerToFact1 factorial + anIntegerToFact2 factorial ].!
+
+factorialSumBlock value: 10 value: 20.!
+
+factorialSumBlock valueWithArguments: #(10 20)!
+
+plusTenByTwentyBlock := [ :anAdder | 	| anAdderPlusTen | anAdderPlusTen := anAdder + 10. anAdderPlusTen * 20 ].!
+
+plusTenByTwentyBlock value: 5.!
+
+plusTenByTwentyBlock value: 100.!
+
+sum := 0.!
+
+5 timesRepeat: [ sum := sum + 10 ].!
+
+sum.!
+
+sum := 0.!
+
+sum. 50 .!
+
+[ sum < 50 ] whileTrue: [ sum := sum + 10 ].!
+
+sum.!
+
+10 > 5 ifTrue: [ 'Si!! Diez es mayor a cinco' ] ifFalse: [ 'No, no lo es' ].!
+
+sum := 0.!
+
+#(1 2 3 4 5) do: [ :anInteger | sum := sum + anInteger ].!
+
+sum!
+
+#(1 2 3 4 5) inject: 0 into: [ :acum :anInteger | acum + anInteger ]!
+!AdeleGoldberg class methodsFor: '--** private fileout/in **--' stamp: 'mg 3/19/2024 01:44:39' overrides: 50513977!
+initializeCollaboratorsFromFile
+	"Auto generated method for loading purposes - Do not modify it"
+
+	colegaDeTrabajo := AlanKay.! !
+
+!methodRemoval: AdeleGoldberg class #initializeCollaboratorsFromFile stamp: 'mg 3/19/2024 01:44:39'!
+initializeCollaboratorsFromFile
+	"Auto generated method for loading purposes - Do not modify it"
+
+	colegaDeTrabajo := AlanKay.!
+
+----SNAPSHOT----(19 March 2024 01:44:43) CuisUniversity-6169.image priorSource: 6245038!
+
+----QUIT----(19 March 2024 01:44:49) CuisUniversity-6169.image priorSource: 6255303!
