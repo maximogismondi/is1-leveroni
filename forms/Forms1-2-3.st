@@ -1,13 +1,13 @@
-!classDefinition: #AdeleGoldberg category: #Form2!
+!classDefinition: #AdeleGoldberg category: #Forms1-2-3!
 DenotativeObject subclass: #AdeleGoldberg
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
-	category: 'Form2'!
+	category: 'Forms1-2-3'!
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'AdeleGoldberg class' category: #Form2!
+!classDefinition: 'AdeleGoldberg class' category: #Forms1-2-3!
 AdeleGoldberg class
 	instanceVariableNames: ''!
 
@@ -16,16 +16,16 @@ fechaDeNacimiento
 	^July/22/1945! !
 
 
-!classDefinition: #AlanKay category: #Form2!
+!classDefinition: #AlanKay category: #Forms1-2-3!
 DenotativeObject subclass: #AlanKay
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
-	category: 'Form2'!
+	category: 'Forms1-2-3'!
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'AlanKay class' category: #Form2!
+!classDefinition: 'AlanKay class' category: #Forms1-2-3!
 AlanKay class
 	instanceVariableNames: ''!
 
@@ -34,16 +34,16 @@ fechaDeNacimiento
 	^May/17/1940! !
 
 
-!classDefinition: #AlanTuring category: #Form2!
+!classDefinition: #AlanTuring category: #Forms1-2-3!
 DenotativeObject subclass: #AlanTuring
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
-	category: 'Form2'!
+	category: 'Forms1-2-3'!
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'AlanTuring class' category: #Form2!
+!classDefinition: 'AlanTuring class' category: #Forms1-2-3!
 AlanTuring class
 	instanceVariableNames: ''!
 
@@ -52,16 +52,16 @@ fechaDeNacimiento
 	^June/23/1912! !
 
 
-!classDefinition: #JohnVonNeumann category: #Form2!
+!classDefinition: #JohnVonNeumann category: #Forms1-2-3!
 DenotativeObject subclass: #JohnVonNeumann
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
-	category: 'Form2'!
+	category: 'Forms1-2-3'!
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'JohnVonNeumann class' category: #Form2!
+!classDefinition: 'JohnVonNeumann class' category: #Forms1-2-3!
 JohnVonNeumann class
 	instanceVariableNames: ''!
 
