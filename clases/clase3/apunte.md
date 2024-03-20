@@ -20,7 +20,7 @@ Son mensajes que no llevan parámetros. Por ejemplo si tenemos un objeto `Person
 
 ### Mensajes binarios
 
-Estos son binarios porque trabajan con 2 colaboradores, el objeto receptor y el parámetro. Estos se limitan a un solo parámetro y el nombre del mensaje es un operador. Por ejemplo si tenemos un objeto `Numero` y le enviamos el mensaje `+ 5` este es un mensaje binario. Siendo el objeto receptor el `Numero` y el parámetro el `5` y el mensaje el `+`.
+Estos son binarios porque trabajan con 2 colaboradores, el objeto receptor y el parámetro. Estos se limitan a un solo parámetro y el nombre del mensaje es una serie de operadores. Por ejemplo si tenemos un objeto `Numero` y le enviamos el mensaje `+ 5` este es un mensaje binario. Siendo el objeto receptor el `Numero` y el parámetro el `5` y el mensaje el `+`.
 
 ### Mensajes de palabra clave (keyword)
 
@@ -85,3 +85,49 @@ Hace referencia a la nada, es decir, a la ausencia de un objeto.
 ## Morphs
 
 Son objetos que se utilizan para representar elementos gráficos en la pantalla. Estos objetos son muy utilizados en el entorno de desarrollo de Smalltalk.
+
+## Características de las Smalltalk
+
+### Sincronicas
+
+Los mensajes se envían de manera sincrónica, es decir, el emisor espera a que el receptor termine de ejecutar el método para continuar con su ejecución.
+
+### Dirigidas
+
+Los mensajes siempre tienen un emisor y un receptor.
+
+### Siempre devuelven un valor
+
+Los métodos siempre devuelve algo, si no se especifica un valor de retorno, se devuelve `self`.
+
+### Receptor desconoce al emisor
+
+El receptor no sabe nada del emisor, solo sabe que le llega un mensaje y que debe ejecutar un método en respuesta a ese mensaje.
+
+## Comparación de objetos
+
+### Igualdad
+
+Se dice que 2 objetos son iguales si tienen el mismo valor. En Smalltalk, la igualdad se define por el método `=`.
+
+### Identidad
+
+Se dice que 2 objetos son idénticos si son el mismo objeto, es decir, si apuntan a la misma dirección de memoria. En Smalltalk, la identidad se define por el método `==`.
+
+## Closure
+
+Conjunto de colaboraciones, que a diferencia de los métodos, no tienen un nombre y se ejecutan en el contexto de un objeto.
+
+Un closure no está asociado a un objeto en particular, sino que se ejecuta en el contexto de un objeto. Eso significa que un closure puede acceder a los colaboradores internos del objeto en el que se ejecuta y al mismo objeto llamando a `self`.
+
+Los closures se pueden evaluar con el mensaje `value` y se pueden pasar como parámetros a otros métodos, es decir pueden colaborar. Cuando se evalúa un closure, se ejecuta el código que contiene y se devuelve el valor de la última colaboración que se ejecuta.
+
+Se bindean al contexto lexical en el que se crean, es decir, que pueden acceder a las variables que se encuentran en el mismo contexto en el que se crean y estas variables contextuales "viven" siempre y cuando el closure exista.
+
+### Partial Closure
+
+Es un closure que retorna el valor de la última colaboración que se ejecuta.
+
+### Full Closure
+
+Es un closure que retorna SIEMPRE la última colaboracíón.
