@@ -333,3 +333,237 @@ initializeCollaboratorsFromFile
 ----SNAPSHOT----(19 March 2024 01:44:43) CuisUniversity-6169.image priorSource: 6245038!
 
 ----QUIT----(19 March 2024 01:44:49) CuisUniversity-6169.image priorSource: 6255303!
+
+----STARTUP---- (21 March 2024 00:03:06) as C:\GITHUB\is1-leveroni\cuis\windows64\CuisUniversity-6169.image!
+
+
+----End fileIn of \GITHUB\is1-leveroni\forms\form8.st----!
+
+!classDefinition: #Eminencia category: #AprendiendoObjetosConClases stamp: 'mg 3/21/2024 00:05:07'!
+Object subclass: #Eminencia
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'AprendiendoObjetosConClases'!
+!Eminencia methodsFor: '-- all --' stamp: 'mg 3/21/2024 00:05:07'!
+esMayorQue: unaPersona
+	| diferenciaDeEdad |
+	diferenciaDeEdad := self fechaDeNacimiento distanceTo: unaPersona fechaDeNacimiento.
+	^diferenciaDeEdad positive! !
+!Eminencia methodsFor: '-- all --' stamp: 'mg 3/21/2024 00:05:07'!
+fechaDeNacimiento
+	^May/17/1940! !
+
+alanKay := Eminencia new!
+
+alanKay!
+
+new!
+
+Eminencia!
+
+Eminencia!
+
+this new!
+
+adeleGoldberg := Eminencia new!
+
+1!
+
+self fechaDeNacimiento!
+
+self fechaDeNacimiento!
+
+!classDefinition: #Eminencia category: #AprendiendoObjetosConClases stamp: 'mg 3/21/2024 00:15:57'!
+Object subclass: #Eminencia
+	instanceVariableNames: 'fechaDeNacimiento'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'AprendiendoObjetosConClases'!
+!Eminencia methodsFor: '-- all --' stamp: 'mg 3/21/2024 00:15:54' prior: 50527001!
+fechaDeNacimiento
+    ^fechaDeNacimiento! !
+
+!classDefinition: #Eminencia category: #AprendiendoObjetosConClases stamp: 'mg 3/21/2024 00:16:32'!
+Object subclass: #Eminencia
+	instanceVariableNames: 'fechaDeNacimiento nombre'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'AprendiendoObjetosConClases'!
+!Eminencia methodsFor: 'nil' stamp: 'mg 3/21/2024 00:16:44' overrides: 16932297!
+initialize
+
+    nombre := 'Alan Kay'.
+    fechaDeNacimiento := May/17/1940! !
+
+alanKay := Eminencia new.!
+
+alanKay := Eminencia new.!
+
+basicNew!
+
+basicNew!
+!Eminencia methodsFor: 'nil' stamp: 'mg 3/21/2024 00:22:03'!
+inicializarCon: unNombre y: unaFechaDeNacimiento
+
+    nombre := unNombre.
+    fechaDeNacimiento := unaFechaDeNacimiento.! !
+
+adeleGoldberg := Eminencia new inicializarCon: 'Adele Goldberg' y: July/22/1945!
+!Eminencia class methodsFor: 'nil' stamp: 'mg 3/21/2024 00:24:47'!
+llamada: unNombre nacidaEl: unaFecha
+
+	^self new inicializarCon: unNombre y: unaFecha! !
+
+Eminencia llamada: 'Alan Kay' nacidaEl: May/17/1940!
+
+Eminencia llamada: 'Alan Kay' nacidaEl: May/17/1940!
+
+Eminencia llamada: 'Alan Kay' nacidaEl: May/17/1940!
+
+Object subclass: #Auto
+	instanceVariableNames: 'fechaDeNacimiento nombre'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'AprendiendoObjetosConClases'!
+
+!classDefinition: #Auto category: #AprendiendoObjetosConClases stamp: 'mg 3/21/2024 00:37:42'!
+Object subclass: #Auto
+	instanceVariableNames: 'fechaDeNacimiento nombre'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'AprendiendoObjetosConClases'!
+
+Object subclass: #Auto
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'AprendiendoObjetosConClases'!
+
+!classDefinition: #Auto category: #AprendiendoObjetosConClases stamp: 'mg 3/21/2024 00:37:49'!
+Object subclass: #Auto
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'AprendiendoObjetosConClases'!
+!Auto methodsFor: 'nil' stamp: 'mg 3/21/2024 00:38:45'!
+abrirBaúl! !
+!Auto methodsFor: 'as yet unclassified' stamp: 'mg 3/21/2024 00:38:55'!
+cantidadDeRuedas
+	^4! !
+
+Object subclass: #Moto
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'AprendiendoObjetosConClases'!
+
+!classDefinition: #Moto category: #AprendiendoObjetosConClases stamp: 'mg 3/21/2024 00:39:30'!
+Object subclass: #Moto
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'AprendiendoObjetosConClases'!
+
+Moto class
+	instanceVariableNames: ''!
+
+!classDefinition: 'Moto class' category: #AprendiendoObjetosConClases stamp: 'mg 3/21/2024 00:39:30'!
+Moto class
+	instanceVariableNames: ''!
+!Moto methodsFor: 'as yet unclassified' stamp: 'mg 3/21/2024 00:39:30'!
+abrirBaúl! !
+!Moto methodsFor: 'as yet unclassified' stamp: 'mg 3/21/2024 00:39:30'!
+cantidadDeRuedas
+	^4! !
+!Moto methodsFor: 'as yet unclassified' stamp: 'mg 3/21/2024 00:39:33' prior: 50527110!
+cantidadDeRuedas
+	^2! !
+
+!classDefinition: #Vehículo category: #AprendiendoObjetosConClases stamp: 'mg 3/21/2024 00:40:07'!
+Object subclass: #Vehículo
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'AprendiendoObjetosConClases'!
+
+!classDefinition: #Auto category: #AprendiendoObjetosConClases stamp: 'mg 3/21/2024 00:40:07'!
+Vehículo subclass: #Auto
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'AprendiendoObjetosConClases'!
+
+Vehículo subclass: #Vehículo
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'AprendiendoObjetosConClases'!
+
+Vehículo subclass: #Moto
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'AprendiendoObjetosConClases'!
+
+!classDefinition: #Moto category: #AprendiendoObjetosConClases stamp: 'mg 3/21/2024 00:40:30'!
+Vehículo subclass: #Moto
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'AprendiendoObjetosConClases'!
+
+Vehículo subclasses!
+
+!classDefinition: #Vehículo category: #AprendiendoObjetosConClases stamp: 'mg 3/21/2024 00:42:20'!
+Object subclass: #Vehículo
+	instanceVariableNames: 'combustible'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'AprendiendoObjetosConClases'!
+!Vehículo methodsFor: 'nil' stamp: 'mg 3/21/2024 00:42:19'!
+cargarCombustible: cantidadCombustibleACargar
+	combustible := cantidadCombustibleACargar ! !
+
+self cargarCombustible: 100!
+!Vehículo methodsFor: 'nil' stamp: 'mg 3/21/2024 00:45:07'!
+cantidadDeRuedas
+	self subclassResponsibility! !
+
+self subclassResponsability!
+
+self subclassResponsability!
+
+Vehículo  subclassResponsibility !
+
+self subclassResponsability!
+
+Vehículo subclassResponsability!
+
+Vehículo subclassResponsability!
+
+1 class.!
+
+Number subclasses.!
+
+Number allSubclasses. !
+
+Integer superclass.!
+
+Number allSubclasses.  !
+
+Integer superclass. !
+
+Number superclass!
+
+Number superclass superclass !
+
+Number superclass superclass  !
+
+Number superclass superclass  superclass !
+
+Number superclass superclass  superclass superclass.!
+
+Number superclass superclass  superclass superclass superclass!
+
+Object !
