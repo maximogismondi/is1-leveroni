@@ -567,3 +567,594 @@ Number superclass superclass  superclass superclass.!
 Number superclass superclass  superclass superclass superclass!
 
 Object !
+
+----STARTUP---- (22 March 2024 19:35:28) as C:\GITHUB\is1-leveroni\cuis\windows64\CuisUniversity-6169.image!
+
+
+----End fileIn of C:\GITHUB\is1-leveroni\ejs\combatientes\Ejercicio01-codigoInicial.st----!
+
+Object subclass: #CombateTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Ejercicio01'!
+
+!classDefinition: #CombateTest category: #Ejercicio01 stamp: 'mg 3/22/2024 19:48:47'!
+Object subclass: #CombateTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Ejercicio01'!
+
+!classDefinition: #Combate category: #Ejercicio01 stamp: 'mg 3/22/2024 19:55:56'!
+Object subclass: #Combate
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Ejercicio01'!
+!CombateTest methodsFor: 'nil' stamp: 'mg 3/22/2024 19:55:44'!
+test01_xxx
+	|bando1 bando2 combate ganador|
+	bando1 := {Combatiente new}.
+	bando2 := {}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	ganador := combate xxx
+	
+	self assert:  ganador = bando1
+	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 19:56:34' prior: 50527463!
+test01_xxx
+	|bando1 bando2 combate ganador|
+	bando1 := {Combatiente new}.
+	bando2 := {}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	ganador := combate xxx
+	
+	^self assert:  ganador = bando1
+	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 19:57:13' prior: 50527473!
+test01_xxx
+	|bando1 bando2 combate ganador|
+	bando1 := {Combatiente new}.
+	bando2 := {}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	ganador := combate xxx.
+	
+	self assert:  ganador = bando1
+	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 19:57:24' prior: 50527483!
+test01_xxx
+	|bando1 bando2 combate ganador|
+	bando1 := {Combatiente new}.
+	bando2 := {}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	ganador := combate xxx.
+	
+	self assert:  (ganador = bando1)
+	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 19:57:27' prior: 50527493!
+test01_xxx
+	|bando1 bando2 combate ganador|
+	bando1 := {Combatiente new}.
+	bando2 := {}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	ganador := combate xxx.
+	
+	self assert:  ganador = bando1
+	! !
+
+!testRun: #CombatientesTest #test01PuedoDefinirleUnaEstrategiaADavid stamp: 'mg 3/22/2024 19:57:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test01PuedoDefinirleUnaEstrategiaADavid stamp: 'mg 3/22/2024 19:57:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test02EnfocarseEnElMasSanoAtacaAlMenosDañado stamp: 'mg 3/22/2024 19:57:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test03EnfocarseEnElMasSanoAtacaAlMenosDañadoNoImportaElOrden stamp: 'mg 3/22/2024 19:57:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test04EnfocarseEnElMasHeridoAtacaAlMasDañado stamp: 'mg 3/22/2024 19:57:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_01_GoliatEmpiezaSano stamp: 'mg 3/22/2024 19:57:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_02_GoliatNoEstaSanoSiRecibeDaño stamp: 'mg 3/22/2024 19:57:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_03_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/22/2024 19:57:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_04_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/22/2024 19:57:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_05_GoliatPuedeRecibirDañoMultiplesVeces stamp: 'mg 3/22/2024 19:57:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_06_DavidPuedeAtacarAAlguien stamp: 'mg 3/22/2024 19:57:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_07_DavidPuedeAtacarEnemigosAsignados stamp: 'mg 3/22/2024 19:57:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_08_DavidNoAtacaAUnEnemigoNoAsignado stamp: 'mg 3/22/2024 19:57:30'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 19:57:47' prior: 50527503!
+test01_xxx
+	|bando1 bando2 combate ganador|
+	
+	bando1 := {Combatiente new}.
+	bando2 := {}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	ganador := combate xxx.
+	
+	self assert:  ganador = bando1
+	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 19:57:51' prior: 50527559!
+test01_xxx
+	|bando1 bando2 combate ganador|
+	
+	bando1 := {Combatiente new}.
+	bando2 := {}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	ganador := combate xxx.
+	
+	self assert:  ganador = bando1.
+	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 19:58:17' prior: 50527569!
+test01_xxx
+	|bando1 bando2 combate ganador|
+	
+	bando1 := {Combatiente new}.
+	bando2 := {}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	ganador := combate xxx.
+	
+	self assert:  ganador == bando1.
+	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 19:58:24' prior: 50527579!
+test01_xxx
+	|bando1 bando2 combate ganador|
+	
+	bando1 := {Combatiente new}.
+	bando2 := {}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	ganador := combate xxx.
+	
+	self assert:  True
+	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 19:58:51' prior: 50527589!
+test01_xxx
+
+	|bando1 bando2 combate ganador|
+	
+	bando1 := {Combatiente new}.
+	bando2 := {}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	ganador := combate xxx.
+	
+	self assert:  ganador = bando1.
+	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 19:59:33' prior: 50527598!
+test01_xxx
+	|bando1 bando2 combate ganador|
+	
+	bando1 := {Combatiente new}.
+	bando2 := {}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	ganador := combate xxx.
+	
+	self assert:  ganador = bando1.
+	! !
+
+TestCase subclass: #CombateTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Ejercicio01'!
+
+!classDefinition: #CombateTest category: #Ejercicio01 stamp: 'mg 3/22/2024 20:02:26'!
+TestCase subclass: #CombateTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Ejercicio01'!
+
+!testRun: #CombateTest #test01_xxx stamp: 'mg 3/22/2024 20:02:30'!
+ERROR!
+!Combate class methodsFor: 'instance creation' stamp: 'mg 3/22/2024 20:07:28'!
+entre: bando1 y: bando2 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeEntre: bando1 y: bando2 ! !
+!Combate class methodsFor: 'instance creation' stamp: 'mg 3/22/2024 20:07:47' prior: 50527631!
+entre: bando1 y: bando2 
+	^self new initializeEntre: bando1 y: bando2 ! !
+
+!testRun: #CombateTest #test01_xxx stamp: 'mg 3/22/2024 20:08:01'!
+ERROR!
+
+!testRun: #CombateTest #test01_xxx stamp: 'mg 3/22/2024 20:08:01'!
+ERROR!
+
+!classDefinition: #Combate category: #Ejercicio01 stamp: 'mg 3/22/2024 20:08:35'!
+Object subclass: #Combate
+	instanceVariableNames: 'bando1_CHANGE_ME'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Ejercicio01'!
+
+!classDefinition: #Combate category: #Ejercicio01 stamp: 'mg 3/22/2024 20:08:35'!
+Object subclass: #Combate
+	instanceVariableNames: 'bando1_CHANGE_ME bando2_CHANGE_ME'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Ejercicio01'!
+!Combate methodsFor: 'initialization' stamp: 'mg 3/22/2024 20:08:35'!
+initializeEntre: bando1 y: bando2 
+	self shouldBeImplemented.
+	bando1_CHANGE_ME := bando1.
+	bando2_CHANGE_ME := bando2.! !
+
+Object subclass: #Combate
+	instanceVariableNames: 'bando1 bando2'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Ejercicio01'!
+
+Object subclass: #Combate
+	instanceVariableNames: 'primerBando segundoBando'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Ejercicio01'!
+
+!classDefinition: #Combate category: #Ejercicio01 stamp: 'mg 3/22/2024 20:11:25'!
+Object subclass: #Combate
+	instanceVariableNames: 'primerBando segundoBando'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Ejercicio01'!
+!Combate methodsFor: 'initialization' stamp: 'mg 3/22/2024 20:11:40' prior: 50527664!
+initializeEntre: bando1 y: bando2 
+	
+	primerBando := bando1.
+	segundoBando := bando2.! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 20:12:41' prior: 50527608!
+test01_xxx
+	|bando1 bando2 combate ganador|
+	
+	bando1 := {Combatiente new}.
+	bando2 := {}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	ganador := combate ganador.
+	
+	self assert:  ganador = bando1.
+	! !
+
+!testRun: #CombateTest #test01_xxx stamp: 'mg 3/22/2024 20:12:45'!
+ERROR!
+!Combate methodsFor: 'getters' stamp: 'mg 3/22/2024 20:13:23'!
+ganador
+	self shouldBeImplemented.! !
+!Combate methodsFor: 'getters' stamp: 'mg 3/22/2024 20:14:18' prior: 50527704!
+ganador
+	^primerBando ! !
+
+!testRun: #CombateTest #test01_xxx stamp: 'mg 3/22/2024 20:14:28'!
+PASSED!
+
+!testRun: #CombateTest #test01_xxx stamp: 'mg 3/22/2024 20:14:35'!
+PASSED!
+
+!testRun: #CombateTest #test01_xxx stamp: 'mg 3/22/2024 20:14:35'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 20:16:53'!
+test01
+	|bando1 bando2 combate ganador|
+	
+	bando1 := {Combatiente new}.
+	bando2 := {}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	ganador := combate ganador.
+	
+	self assert:  ganador = bando1.
+	! !
+
+!methodRemoval: CombateTest #test01_xxx stamp: 'mg 3/22/2024 20:17:02'!
+test01_xxx
+	|bando1 bando2 combate ganador|
+	
+	bando1 := {Combatiente new}.
+	bando2 := {}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	ganador := combate ganador.
+	
+	self assert:  ganador = bando1.
+	!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 20:17:16' prior: 50527719!
+test01
+	|bando1 bando2 combate ganador|
+	
+	bando1 := {Combatiente new, Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	ganador := combate ganador.
+	
+	self assert:  ganador = bando1.
+	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 20:17:33' prior: 50527737!
+test01
+	|bando1 bando2 combate ganador|
+	
+	bando1 := {Combatiente new, Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	ganador := combate ganador.
+	
+	self assert:  ganador = bando1.
+	! !
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/22/2024 20:18:16'!
+ERROR!
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/22/2024 20:19:01'!
+ERROR!
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/22/2024 20:19:01'!
+ERROR!
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/22/2024 20:19:11'!
+ERROR!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 20:19:29' prior: 50527748!
+test01
+	|bando1 bando2 combate ganador|
+	
+	bando1 := {Combatiente new Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	ganador := combate ganador.
+	
+	self assert:  ganador = bando1.
+	! !
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/22/2024 20:19:32'!
+ERROR!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 20:20:03' prior: 50527768!
+test01
+	|bando1 bando2 combate ganador|
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	ganador := combate ganador.
+	
+	self assert:  ganador = bando1.
+	! !
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/22/2024 20:20:45'!
+ERROR!
+!Combate methodsFor: 'public' stamp: 'mg 3/22/2024 20:21:05'!
+desarollar
+	self shouldBeImplemented.! !
+!Combate methodsFor: 'public' stamp: 'mg 3/22/2024 20:21:09' prior: 50527795!
+desarollar
+	! !
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/22/2024 20:21:12'!
+PASSED!
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/22/2024 20:21:12'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 20:21:20'!
+test02
+	|bando1 bando2 combate ganador|
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	ganador := combate ganador.
+	
+	self assert:  ganador = bando1.
+	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 20:21:28' prior: 50527807!
+test02
+	|bando1 bando2 combate ganador|
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	ganador := combate ganador.
+	
+	self assert:  ganador = bando1.
+	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 20:21:39' prior: 50527819!
+test02
+	|bando1 bando2 combate ganador|
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	ganador := combate ganador.
+	
+	self assert:  ganador = bando2.
+	! !
+
+!testRun: #CombateTest #test02 stamp: 'mg 3/22/2024 20:21:41'!
+FAILURE!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 20:50:59'!
+test001
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	self deny: bando1 first estaSano.
+	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 20:51:13' prior: 50527844!
+test001
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	self deny: bando1 first estaSano.
+	self deny: bando2 first estaSano.	! !
+
+!testRun: #CombateTest #test001 stamp: 'mg 3/22/2024 20:51:18'!
+FAILURE!
+
+!testRun: #CombateTest #test001 stamp: 'mg 3/22/2024 20:51:27'!
+FAILURE!
+
+!testRun: #CombateTest #test001 stamp: 'mg 3/22/2024 20:51:31'!
+FAILURE!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 20:51:51' prior: 50527854!
+test001
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	self deny: bando1 first estaSano.
+	self deny: bando2 first estaSano.	! !
+!Combate class methodsFor: 'instance creation' stamp: 'mg 3/22/2024 20:53:25' prior: 50527640!
+entre: bando1 y: bando2 
+	bando1 first asignarEnemigos: bando2.
+	bando2 first asignarEnemigos: bando1.
+
+	^self new initializeEntre: bando1 y: bando2 ! !
+!Combate methodsFor: 'public' stamp: 'mg 3/22/2024 20:54:27' prior: 50527799!
+desarollar
+	primerBando first atacar .
+	segundoBando first atacar .
+	! !
+!Combate methodsFor: 'public' stamp: 'mg 3/22/2024 20:54:29' prior: 50527891!
+desarollar
+	primerBando first atacar.
+	segundoBando first atacar.
+	! !
+
+!testRun: #CombateTest #test001 stamp: 'mg 3/22/2024 20:54:49'!
+PASSED!
+
+!testRun: #CombateTest #test001 stamp: 'mg 3/22/2024 20:54:49'!
+PASSED!
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/22/2024 20:54:49'!
+PASSED!
+
+!testRun: #CombateTest #test02 stamp: 'mg 3/22/2024 20:54:49'!
+FAILURE!
+
+!testRun: #CombateTest #test02 stamp: 'mg 3/22/2024 20:54:49'!
+FAILURE!
+
+!methodRemoval: CombateTest #test01 stamp: 'mg 3/22/2024 20:59:44'!
+test01
+	|bando1 bando2 combate ganador|
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	ganador := combate ganador.
+	
+	self assert:  ganador = bando1.
+	!
+
+!methodRemoval: CombateTest #test02 stamp: 'mg 3/22/2024 20:59:47'!
+test02
+	|bando1 bando2 combate ganador|
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	ganador := combate ganador.
+	
+	self assert:  ganador = bando2.
+	!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/22/2024 21:00:41'!
+test01
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	self deny: bando1 first estaSano.
+	self deny: bando2 first estaSano.	! !
+
+!methodRemoval: CombateTest #test001 stamp: 'mg 3/22/2024 21:00:41'!
+test001
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	self deny: bando1 first estaSano.
+	self deny: bando2 first estaSano.	!
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/22/2024 21:00:46'!
+PASSED!
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/22/2024 21:00:46'!
+PASSED!
