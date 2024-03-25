@@ -1158,3 +1158,3032 @@ PASSED!
 
 !testRun: #CombateTest #test01 stamp: 'mg 3/22/2024 21:00:46'!
 PASSED!
+
+----STARTUP---- (25 March 2024 14:42:49) as G:\is1-leveroni\cuis\windows64\CuisUniversity-6169.image!
+
+
+!classRemoval: #JohnVonNeumann stamp: 'mg 3/25/2024 14:43:40'!
+DenotativeObject subclass: #JohnVonNeumann
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form8'!
+
+!classRemoval: #CloneOfJohnVonNeumann stamp: 'mg 3/25/2024 14:43:40'!
+DenotativeObject subclass: #CloneOfJohnVonNeumann
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form8'!
+
+!classRemoval: #AlanTuring stamp: 'mg 3/25/2024 14:43:40'!
+DenotativeObject subclass: #AlanTuring
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form8'!
+
+!classRemoval: #AlanKay stamp: 'mg 3/25/2024 14:43:40'!
+DenotativeObject subclass: #AlanKay
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form8'!
+
+!classRemoval: #AdeleGoldberg stamp: 'mg 3/25/2024 14:43:40'!
+DenotativeObject subclass: #AdeleGoldberg
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form8'!
+
+----End fileIn of G:\is1-leveroni\ejs\combatientes\Ejercicio01.st----!
+
+!methodRemoval: Combate #ganador stamp: 'mg 3/25/2024 14:44:30'!
+ganador
+	^primerBando !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 14:44:44' prior: 50527180!
+test01
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	self deny: bando1 first estaSano.
+	self deny: bando2 first estaSano.	! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 14:45:06' prior: 50527342!
+desarollar
+	primerBando first atacar.
+	segundoBando first atacar.
+	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 14:45:15'!
+test02
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	self deny: bando1 first estaSano.
+	self deny: bando2 first estaSano.	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 14:45:53' prior: 50527511!
+test02
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new.}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	self deny: bando1 first estaSano.
+	self deny: bando2 first estaSano.	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 14:46:02' prior: 50527522!
+test02
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	self deny: bando1 first estaSano.
+	self deny: bando2 first estaSano.	! !
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/25/2024 14:46:50'!
+PASSED!
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/25/2024 14:46:50'!
+PASSED!
+
+!testRun: #CombateTest #test02 stamp: 'mg 3/25/2024 14:46:50'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 14:48:53' prior: 50527495!
+test01
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	self deny: bando1 first estaSano.
+	self deny: bando2 first estaSano.	! !
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/25/2024 14:49:09'!
+PASSED!
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/25/2024 14:49:09'!
+PASSED!
+
+!testRun: #CombateTest #test02 stamp: 'mg 3/25/2024 14:49:09'!
+PASSED!
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/25/2024 14:49:19'!
+PASSED!
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/25/2024 14:49:19'!
+PASSED!
+
+!testRun: #CombateTest #test02 stamp: 'mg 3/25/2024 14:49:20'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 14:50:02' prior: 50527553!
+test01
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	self Assert: bando1 first estaSano.
+	self deny: bando2 first estaSano.	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 14:50:17' prior: 50527578!
+test01
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	self assert: bando1 first estaSano.
+	self deny: bando2 first estaSano.	! !
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/25/2024 14:50:17'!
+FAILURE!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 14:52:18' prior: 50527589!
+test01
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	self deny: bando1 first estaSano.
+	self deny: bando2 first estaSano.	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 14:52:32' prior: 50527534!
+test02
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	self deny: bando1 last estaSano.
+	self deny: bando2 last estaSano.	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 14:52:58' prior: 50527614!
+test02
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	self deny: bando1 first estaSano.
+	self deny: bando2 first estaSano.	
+	self deny: bando1 last estaSano.
+	self deny: bando2 last estaSano.	! !
+
+!testRun: #CombateTest #test02 stamp: 'mg 3/25/2024 14:52:59'!
+FAILURE!
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 14:56:09' prior: 50527506!
+desarollar
+	primerBando do: []
+	
+	primerBando first atacar.
+	segundoBando first atacar.
+	! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 14:56:43' prior: 50527642!
+desarollar
+	primerBando do: [:combatiente | combatiente atacar]
+	
+	primerBando first atacar.
+	segundoBando first atacar.
+	! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 14:57:05' prior: 50527648!
+desarollar
+	primerBando do: [:combatiente | combatiente atacar].
+
+	segundoBando do: [:combatiente | combatiente atacar]
+	! !
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/25/2024 14:57:08'!
+PASSED!
+
+!testRun: #CombateTest #test02 stamp: 'mg 3/25/2024 14:57:08'!
+FAILURE!
+
+!testRun: #CombateTest #test02 stamp: 'mg 3/25/2024 14:57:08'!
+FAILURE!
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 14:57:22' prior: 50527655!
+desarollar
+	primerBando do: [:combatiente | combatiente atacar].
+	segundoBando do: [:combatiente | combatiente atacar]
+	! !
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/25/2024 14:57:30'!
+PASSED!
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/25/2024 14:57:30'!
+PASSED!
+
+!testRun: #CombateTest #test02 stamp: 'mg 3/25/2024 14:57:30'!
+FAILURE!
+
+!testRun: #CombateTest #test02 stamp: 'mg 3/25/2024 14:57:30'!
+FAILURE!
+!Combate class methodsFor: 'instance creation' stamp: 'mg 3/25/2024 14:58:48' prior: 50527355!
+entre: bando1 y: bando2 
+	bando1 do: [ :combatiente | combatiente  asignarEnemigos: bando2 ].
+	bando2 do: [ :combatiente | combatiente  asignarEnemigos: bando1 ].
+
+	^self new initializeEntre: bando1 y: bando2 ! !
+!Combate class methodsFor: 'instance creation' stamp: 'mg 3/25/2024 14:59:00' prior: 50527685!
+entre: bando1 y: bando2 
+	bando1 do: [ :combatiente | combatiente  asignarEnemigos: bando2 ].
+	bando2 do: [ :combatiente | combatiente  asignarEnemigos: bando1 ].
+	
+	^self new initializeEntre: bando1 y: bando2 ! !
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/25/2024 14:59:11'!
+PASSED!
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/25/2024 14:59:11'!
+PASSED!
+
+!testRun: #CombateTest #test02 stamp: 'mg 3/25/2024 14:59:11'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:00:01' prior: 50527626!
+test02
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	bando1 do: [ :combatiente | self deny: combatiente first estaSano.	 ].
+	
+	
+	self deny: bando1 last estaSano.
+	self deny: bando2 last estaSano.	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:00:12' prior: 50527712!
+test02
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	bando1 do: [ :combatiente | self deny: combatiente first estaSano.	 ].
+	bando2 do: [ :combatiente | self deny: combatiente first estaSano.	 ].! !
+
+!testRun: #CombateTest #test02 stamp: 'mg 3/25/2024 15:00:15'!
+ERROR!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:00:31' prior: 50527727!
+test02
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	bando1 do: [ :combatiente | self deny: combatiente estaSano.	 ].
+	bando2 do: [ :combatiente | self deny: combatiente estaSano.	 ].! !
+
+!testRun: #CombateTest #test02 stamp: 'mg 3/25/2024 15:00:32'!
+PASSED!
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/25/2024 15:00:32'!
+PASSED!
+
+!testRun: #CombateTest #test02 stamp: 'mg 3/25/2024 15:00:32'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:00:37'!
+test03
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	bando1 do: [ :combatiente | self deny: combatiente estaSano.	 ].
+	bando2 do: [ :combatiente | self deny: combatiente estaSano.	 ].! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:01:04'!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	bando1 do: [ :combatiente | self deny: combatiente estaSano.	 ].
+	bando2 do: [ :combatiente | self deny: combatiente estaSano.	 ].! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:01:37' prior: 50527778!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	bando1 do: [ :combatiente | self deny: combatiente estaSano.	 ].
+	bando2 do: [ :combatiente | self deny: combatiente estaSano.	 ].! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 15:02:36'!
+desarollarRonda
+	primerBando do: [:combatiente | combatiente atacar].
+	segundoBando do: [:combatiente | combatiente atacar]
+	! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 15:03:06' prior: 50527669!
+desarollar
+	self desarollarRonda
+	! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 15:03:07' prior: 50527811!
+desarollar
+	self desarollarRonda.
+	! !
+
+!methodRemoval: CombateTest #test03 stamp: 'mg 3/25/2024 15:03:20'!
+test03
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	bando1 do: [ :combatiente | self deny: combatiente estaSano.	 ].
+	bando2 do: [ :combatiente | self deny: combatiente estaSano.	 ].!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 15:03:24'!
+PASSED!
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/25/2024 15:03:24'!
+PASSED!
+
+!testRun: #CombateTest #test02 stamp: 'mg 3/25/2024 15:03:24'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 15:03:24'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:03:42' prior: 50527792!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollarRonda.
+	
+	bando1 do: [ :combatiente | self deny: combatiente estaSano.	 ].
+	bando2 do: [ :combatiente | self deny: combatiente estaSano.	 ].! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:04:19' prior: 50527842!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	bando1 do: [ :combatiente | self deny: combatiente estaSano.	 ].
+	bando2 do: [ :combatiente | self deny: combatiente estaSano.	 ].! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:05:27' prior: 50527856!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar. 
+	
+	bando1 do: [ :combatiente | self deny: combatiente estaSano.	 ].
+	bando2 do: [ :combatiente | self deny: combatiente estaSano.	 ].! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:05:46' prior: 50527869!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar. 
+	
+	bando1 do: [ :combatiente | self deny: combatiente 	 ].
+	bando2 do: [ :combatiente | self deny: combatiente estaSano.	 ].! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:06:54' prior: 50527882!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar. 
+	
+	self assert: bando1 first dan.
+	self deny: bando2 first estaSano.	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:07:39' prior: 50527895!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar. 
+	
+	self assert: bando1 first dañoRecibido .
+	self deny: bando2 first estaSano.	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:08:31' prior: 50527906!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar. 
+	
+	self assert: bando1 first estaDañadoPor: 8 .
+	self deny: bando2 first estaSano.	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:08:39' prior: 50527918!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar. 
+	
+	self assert: bando1 first estaDañadoPor: 8 .
+	self deny: bando2 first estaSano.	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:08:54' prior: 50527930!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar. 
+	
+	self assert: bando1 first estaDañadoPor: 8.
+	self deny: bando2 first estaSano.	! !
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 15:08:59'!
+ERROR!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:09:17' prior: 50527942!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar. 
+	
+	self assert: bando1 first estaDañadoPor: 8.
+	self deny: bando2 first estaSano.	! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:09:25' prior: 50527956!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar. 
+	
+	self assert: bando1 first estaDañadoPor: 8.
+	self assert: bando2 first estaDañadoPor: 8.! !
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 15:09:28'!
+ERROR!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:09:40' prior: 50527968!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar. 
+	
+	self assert: (bando1 first estaDañadoPor: 8).
+	self assert: (bando2 first estaDañadoPor: 8).! !
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 15:09:43'!
+FAILURE!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:11:52' prior: 50527983!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollarRondas: 2. 
+	
+	self assert: (bando1 first estaDañadoPor: 8).
+	self assert: (bando2 first estaDañadoPor: 8).! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 15:12:57'!
+desarollarRondas: rondas
+	rondas timesRepeat: [
+		primerBando do: [:combatiente | combatiente atacar].
+		segundoBando do: [:combatiente | combatiente atacar]
+	]! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 15:13:12' prior: 50528010!
+desarollarRondas: cantidadRondas
+	cantidadRondas timesRepeat: [
+		primerBando do: [:combatiente | combatiente atacar].
+		segundoBando do: [:combatiente | combatiente atacar]
+	]! !
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 15:13:16'!
+PASSED!
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/25/2024 15:13:16'!
+PASSED!
+
+!testRun: #CombateTest #test02 stamp: 'mg 3/25/2024 15:13:16'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 15:13:16'!
+PASSED!
+
+!methodRemoval: Combate #desarollarRondas: stamp: 'mg 3/25/2024 15:14:03'!
+desarollarRondas: cantidadRondas
+	cantidadRondas timesRepeat: [
+		primerBando do: [:combatiente | combatiente atacar].
+		segundoBando do: [:combatiente | combatiente atacar]
+	]!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:14:19' prior: 50527998!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar. 
+	
+	self assert: (bando1 first estaDañadoPor: 8).
+	self assert: (bando2 first estaDañadoPor: 8).! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:17:52' prior: 50528045!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollarRonda. 	combate desarollarRonda. 
+	
+	
+	self assert: (bando1 first estaDañadoPor: 8).
+	self assert: (bando2 first estaDañadoPor: 8).! !
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 15:18:07'!
+PASSED!
+
+!testRun: #CombateTest #test01 stamp: 'mg 3/25/2024 15:18:07'!
+PASSED!
+
+!testRun: #CombateTest #test02 stamp: 'mg 3/25/2024 15:18:07'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 15:18:07'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:18:24'!
+test04_hasta_la_muerte
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollarRonda. 	combate desarollarRonda. 
+	
+	
+	self assert: (bando1 first estaDañadoPor: 8).
+	self assert: (bando2 first estaDañadoPor: 8).! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:18:50'!
+test04_hastaLaMuerte
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollarRonda. 	combate desarollarRonda. 
+	
+	
+	self assert: (bando1 first estaDañadoPor: 8).
+	self assert: (bando2 first estaDañadoPor: 8).! !
+
+!methodRemoval: CombateTest #test04_hasta_la_muerte stamp: 'mg 3/25/2024 15:18:50'!
+test04_hasta_la_muerte
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollarRonda. 	combate desarollarRonda. 
+	
+	
+	self assert: (bando1 first estaDañadoPor: 8).
+	self assert: (bando2 first estaDañadoPor: 8).!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:19:25'!
+test01_ataquesCruzados
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	self deny: bando1 first estaSano.
+	self deny: bando2 first estaSano.	! !
+
+!methodRemoval: CombateTest #test01 stamp: 'mg 3/25/2024 15:19:25'!
+test01
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	self deny: bando1 first estaSano.
+	self deny: bando2 first estaSano.	!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:19:52'!
+test02_atacanTodosLosCombatienetes
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	bando1 do: [ :combatiente | self deny: combatiente estaSano.	 ].
+	bando2 do: [ :combatiente | self deny: combatiente estaSano.	 ].! !
+
+!methodRemoval: CombateTest #test02 stamp: 'mg 3/25/2024 15:19:52'!
+test02
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	bando1 do: [ :combatiente | self deny: combatiente estaSano.	 ].
+	bando2 do: [ :combatiente | self deny: combatiente estaSano.	 ].!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:20:05'!
+test02_atacanTodosLosCombatientes
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	bando1 do: [ :combatiente | self deny: combatiente estaSano.	 ].
+	bando2 do: [ :combatiente | self deny: combatiente estaSano.	 ].! !
+
+!methodRemoval: CombateTest #test02_atacanTodosLosCombatienetes stamp: 'mg 3/25/2024 15:20:05'!
+test02_atacanTodosLosCombatienetes
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar.
+	
+	bando1 do: [ :combatiente | self deny: combatiente estaSano.	 ].
+	bando2 do: [ :combatiente | self deny: combatiente estaSano.	 ].!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:20:41' prior: 50528092!
+test04_hastaLaMuerte
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollarRonda. 	combate desarollarRonda. 
+	
+	
+	self deny: (bando1 first estaMuerto).
+	self assert: (bando2 first estaMuerto).! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:20:50' prior: 50528196!
+test04_hastaLaMuerte
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self deny: (bando1 first estaMuerto).
+	self assert: (bando2 first estaMuerto).! !
+
+!testRun: #CombateTest #test04_hastaLaMuerte stamp: 'mg 3/25/2024 15:20:57'!
+ERROR!
+
+!testRun: #CombateTest #test04_hastaLaMuerte stamp: 'mg 3/25/2024 15:21:07'!
+ERROR!
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 15:21:38'!
+estaMuerto
+	self shouldBeImplemented.! !
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 15:21:57' prior: 50528225!
+estaMuerto
+	self dañoRecibido = 20. ! !
+
+!testRun: #CombateTest #test04_hastaLaMuerte stamp: 'mg 3/25/2024 15:22:10'!
+ERROR!
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 15:25:46' prior: 50527815!
+desarollar
+	segundoBando first estaMuerto whileFalse: [
+		self desarollarRonda.
+	]
+	
+	! !
+
+!testRun: #CombateTest #test04_hastaLaMuerte stamp: 'mg 3/25/2024 15:25:49'!
+ERROR!
+
+!testRun: #CombateTest #test04_hastaLaMuerte stamp: 'mg 3/25/2024 15:26:05'!
+ERROR!
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 15:26:42' prior: 50528236!
+desarollar
+	(segundoBando first estaMuerto) whileFalse: [
+		self desarollarRonda.
+	]
+	
+	! !
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/25/2024 15:26:45'!
+ERROR!
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 15:27:05' prior: 50528229!
+estaMuerto
+	^dañoRecibido = 20. ! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 15:27:12' prior: 50528247!
+desarollar
+	segundoBando first estaMuerto whileFalse: [
+		self desarollarRonda.
+	]
+	
+	! !
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/25/2024 15:27:15'!
+ERROR!
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 15:27:42' prior: 50528260!
+desarollar
+	[segundoBando first estaMuerto] whileFalse: [
+		self desarollarRonda.
+	]
+	
+	! !
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 15:27:45'!
+PASSED!
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 3/25/2024 15:27:45'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/25/2024 15:27:45'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 15:27:45'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerte stamp: 'mg 3/25/2024 15:27:45'!
+FAILURE!
+
+!testRun: #CombateTest #test04_hastaLaMuerte stamp: 'mg 3/25/2024 15:27:45'!
+FAILURE!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:28:08' prior: 50528057!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollarRonda. 	combate desarollarRonda. 
+	
+	
+	self assert: (bando2 first estaDañadoPor: 8).! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:28:21' prior: 50528292!
+test03_rondas
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollarRonda. 	combate desarollarRonda. 
+	
+	
+	self assert: (bando1 first estaDañadoPor: 8).
+	self assert: (bando2 first estaDañadoPor: 8).! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:28:24' prior: 50528209!
+test04_hastaLaMuerte
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self assert: (bando2 first estaMuerto).! !
+
+!testRun: #CombateTest #test04_hastaLaMuerte stamp: 'mg 3/25/2024 15:28:24'!
+PASSED!
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 3/25/2024 15:28:24'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/25/2024 15:28:24'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 15:28:24'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerte stamp: 'mg 3/25/2024 15:28:24'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:30:03'!
+test04_hastaLaMuertexxx
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self assert: (bando2 first estaMuerto).! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:31:09'!
+test04_hastaLaMuerteCombatienteBando2
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self assert: (bando2 first estaMuerto).! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:31:30'!
+test05_
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self assert: (bando2 first estaMuerto).! !
+
+!methodRemoval: CombateTest #test04_hastaLaMuertexxx stamp: 'mg 3/25/2024 15:31:49'!
+test04_hastaLaMuertexxx
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self assert: (bando2 first estaMuerto).!
+
+!methodRemoval: CombateTest #test04_hastaLaMuerte stamp: 'mg 3/25/2024 15:31:53'!
+test04_hastaLaMuerte
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self assert: (bando2 first estaMuerto).!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:32:21' prior: 50528362!
+test05_
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self deny: (bando1 first estaMuerto )! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:32:22' prior: 50528393!
+test05_
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self deny: (bando1 first estaMuerto)! !
+
+!testRun: #CombateTest #test05_ stamp: 'mg 3/25/2024 15:32:23'!
+FAILURE!
+!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 15:34:03'!
+test_09_NoAtacaSiEstaMuerto
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	5 timesRepeat: [
+    		david atacar.
+	].
+	
+	self assert: goliat estaSano.
+! !
+!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 15:34:26'!
+test_10_NoAtacaSiEstaMuerto
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	5 timesRepeat: [
+    		david atacar.
+	].
+	
+	self assert: goliat estaSano.
+! !
+
+!methodRemoval: CombatientesTest #test_09_NoAtacaSiEstaMuerto stamp: 'mg 3/25/2024 15:34:26'!
+test_09_NoAtacaSiEstaMuerto
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	5 timesRepeat: [
+    		david atacar.
+	].
+	
+	self assert: goliat estaSano.
+!
+!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 15:35:08'!
+test_09_MuereCuandoRecibe20DeDaño
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	self deny: goliat estaMuerto.
+
+	5 timesRepeat: [
+    		david atacar.
+	].
+	
+	self assert: goliat estaSano.
+! !
+!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 15:35:18' prior: 50528442!
+test_09_MuereCuandoRecibe20DeDaño
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	self deny: goliat estaMuerto.
+
+	5 timesRepeat: [
+    		david atacar.
+	].
+	self assert: goliat estaMuerto.
+! !
+!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 15:35:42' prior: 50528453!
+test_09_MuereCuandoRecibe20DeDaño
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	david asignarEnemigos: {goliat}.
+	
+	self deny: goliat estaMuerto.
+
+	5 timesRepeat: [
+    		david atacar.
+	].
+	self assert: goliat estaMuerto.
+! !
+!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 15:35:48' prior: 50528464!
+test_09_MuereCuandoRecibe20DeDaño
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	
+	self deny: goliat estaMuerto.
+
+	david asignarEnemigos: {goliat}.
+
+	5 timesRepeat: [
+    		david atacar.
+	].
+	self assert: goliat estaMuerto.
+! !
+!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 15:35:55' prior: 50528424!
+test_10_NoAtacaSiEstaMuerto
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	david asignarEnemigos: {goliat}.
+
+	5 timesRepeat: [
+    		david atacar.
+	].
+	
+	self assert: goliat estaSano.
+! !
+!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 15:36:35' prior: 50528488!
+test_10_NoAtacaSiEstaMuerto
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	david asignarEnemigos: {goliat}.
+
+	5 timesRepeat: [
+    		david atacar.
+	].
+	
+	goliat asignarEnemigos: {david}.
+	goliat atacar.
+	
+	self assert: (david estaSano)
+! !
+!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 15:36:39' prior: 50528498!
+test_10_NoAtacaSiEstaMuerto
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	david asignarEnemigos: {goliat}.
+
+	5 timesRepeat: [
+    		david atacar.
+	].
+	
+	goliat asignarEnemigos: {david}.
+	goliat atacar.
+	
+	self assert: david estaSano
+! !
+
+!testRun: #CombatientesTest #test_10_NoAtacaSiEstaMuerto stamp: 'mg 3/25/2024 15:36:41'!
+FAILURE!
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 15:37:41' prior: 50527433!
+atacar
+	| victimaElegida |
+	self estaMuerto ifTrue: [^self].
+
+	enemigos isEmpty ifTrue: [^self].
+
+	victimaElegida := self elegirVictima.
+	self atacarA: victimaElegida.
+! !
+
+!testRun: #CombatientesTest #test_10_NoAtacaSiEstaMuerto stamp: 'mg 3/25/2024 15:37:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test01PuedoDefinirleUnaEstrategiaADavid stamp: 'mg 3/25/2024 15:37:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test02EnfocarseEnElMasSanoAtacaAlMenosDañado stamp: 'mg 3/25/2024 15:37:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test03EnfocarseEnElMasSanoAtacaAlMenosDañadoNoImportaElOrden stamp: 'mg 3/25/2024 15:37:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test04EnfocarseEnElMasHeridoAtacaAlMasDañado stamp: 'mg 3/25/2024 15:37:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_01_GoliatEmpiezaSano stamp: 'mg 3/25/2024 15:37:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_02_GoliatNoEstaSanoSiRecibeDaño stamp: 'mg 3/25/2024 15:37:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_03_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/25/2024 15:37:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_04_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/25/2024 15:37:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_05_GoliatPuedeRecibirDañoMultiplesVeces stamp: 'mg 3/25/2024 15:37:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_06_DavidPuedeAtacarAAlguien stamp: 'mg 3/25/2024 15:37:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_07_DavidPuedeAtacarEnemigosAsignados stamp: 'mg 3/25/2024 15:37:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_08_DavidNoAtacaAUnEnemigoNoAsignado stamp: 'mg 3/25/2024 15:37:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_09_MuereCuandoRecibe20DeDaño stamp: 'mg 3/25/2024 15:37:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_10_NoAtacaSiEstaMuerto stamp: 'mg 3/25/2024 15:37:46'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:38:27'!
+test05_CombatienteBando1ViveSiMatoAlBando2
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self deny: (bando1 first estaMuerto)! !
+
+!methodRemoval: CombateTest #test05_ stamp: 'mg 3/25/2024 15:38:27'!
+test05_
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self deny: (bando1 first estaMuerto)!
+
+!testRun: #CombateTest #test05_CombatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/25/2024 15:38:30'!
+PASSED!
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 3/25/2024 15:38:30'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/25/2024 15:38:30'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 15:38:30'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerteCombatienteBando2 stamp: 'mg 3/25/2024 15:38:30'!
+PASSED!
+
+!testRun: #CombateTest #test05_CombatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/25/2024 15:38:30'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:39:25'!
+test06_combateTerminaCuandoTodosLosDelBandoMueren
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self deny: (bando1 first estaMuerto)! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:39:29'!
+test06_combateTerminaCuandoTodosLosDeUnBandoMueren
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self deny: (bando1 first estaMuerto)! !
+
+!methodRemoval: CombateTest #test06_combateTerminaCuandoTodosLosDelBandoMueren stamp: 'mg 3/25/2024 15:39:32'!
+test06_combateTerminaCuandoTodosLosDelBandoMueren
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self deny: (bando1 first estaMuerto)!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:40:13' prior: 50528635!
+test06_combateTerminaCuandoTodosLosDeUnBandoMueren
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self assert: (bando2 first estaMuerto).
+	self assert: (bando2 last estaMuerto)! !
+
+!testRun: #CombateTest #test06_combateTerminaCuandoTodosLosDeUnBandoMueren stamp: 'mg 3/25/2024 15:40:14'!
+PASSED!
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 3/25/2024 15:40:14'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/25/2024 15:40:14'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 15:40:14'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerteCombatienteBando2 stamp: 'mg 3/25/2024 15:40:14'!
+PASSED!
+
+!testRun: #CombateTest #test05_CombatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/25/2024 15:40:14'!
+PASSED!
+
+!testRun: #CombateTest #test06_combateTerminaCuandoTodosLosDeUnBandoMueren stamp: 'mg 3/25/2024 15:40:14'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:41:20' prior: 50528658!
+test06_combateTerminaCuandoTodosLosDeUnBandoMueren
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new.}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self assert: (bando2 first estaMuerto).
+	self assert: (bando2 last estaMuerto)! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:42:23' prior: 50528694!
+test06_combateTerminaCuandoTodosLosDeUnBandoMueren
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.	
+
+	
+	combate desarollar . 
+	
+	
+	self assert: (bando2 first estaMuerto).
+	self assert: (bando2 last estaMuerto)! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:44:35' prior: 50528708!
+test06_combateTerminaCuandoTodosLosDeUnBandoMueren
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	bando1 do: [:combatiente | combatiente enfocarseEnElMasHerido ].
+	
+	combate := Combate entre: bando1 y: bando2.	
+
+	
+	combate desarollar . 
+	
+	
+	self assert: (bando2 first estaMuerto).
+	self assert: (bando2 last estaMuerto)! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:45:48' prior: 50528722!
+test06_combateTerminaCuandoTodosLosDeUnBandoMueren
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	bando1 do: [:combatiente | combatiente enfocarseEnElMasHerido ].
+	
+	combate := Combate entre: bando1 y: bando2.
+
+	
+	combate desarollar . 
+	
+	
+	bando2 do: [:combatiente | self assert: combatiente estaMuerto ].! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 15:47:43' prior: 50528269!
+desarollar
+	[segundoBando last estaMuerto] whileFalse: [
+		self desarollarRonda.
+	]
+	
+	! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 15:50:47' prior: 50528753!
+desarollar
+	[segundoBando allSatisfy: [:combatiente | combatiente estaMuerto ]] whileFalse: [
+		self desarollarRonda.
+	]
+	
+	! !
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 3/25/2024 15:50:53'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/25/2024 15:50:54'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 15:50:54'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerteCombatienteBando2 stamp: 'mg 3/25/2024 15:50:54'!
+PASSED!
+
+!testRun: #CombateTest #test05_CombatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/25/2024 15:50:54'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:52:54' prior: 50528738!
+test06_combateTerminaCuandoTodosLosDeUnBandoMueren
+	|bando1 bando2 combate |
+		^self.
+
+	! !
+
+!testRun: #CombateTest #test06_combateTerminaCuandoTodosLosDeUnBandoMueren stamp: 'mg 3/25/2024 15:53:03'!
+PASSED!
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 3/25/2024 15:53:03'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/25/2024 15:53:03'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 15:53:03'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerteCombatienteBando2 stamp: 'mg 3/25/2024 15:53:03'!
+PASSED!
+
+!testRun: #CombateTest #test05_CombatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/25/2024 15:53:03'!
+PASSED!
+
+!testRun: #CombateTest #test06_combateTerminaCuandoTodosLosDeUnBandoMueren stamp: 'mg 3/25/2024 15:53:03'!
+PASSED!
+
+----STARTUP---- (25 March 2024 15:53:32) as G:\is1-leveroni\cuis\windows64\CuisUniversity-6169.image!
+
+
+!classRemoval: #JohnVonNeumann stamp: 'mg 3/25/2024 15:53:38'!
+DenotativeObject subclass: #JohnVonNeumann
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form8'!
+
+!classRemoval: #CloneOfJohnVonNeumann stamp: 'mg 3/25/2024 15:53:38'!
+DenotativeObject subclass: #CloneOfJohnVonNeumann
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form8'!
+
+!classRemoval: #AlanTuring stamp: 'mg 3/25/2024 15:53:38'!
+DenotativeObject subclass: #AlanTuring
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form8'!
+
+!classRemoval: #AlanKay stamp: 'mg 3/25/2024 15:53:38'!
+DenotativeObject subclass: #AlanKay
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form8'!
+
+!classRemoval: #AdeleGoldberg stamp: 'mg 3/25/2024 15:53:39'!
+DenotativeObject subclass: #AdeleGoldberg
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form8'!
+
+----End fileIn of G:\is1-leveroni\cuis\windows64-UserFiles\FileOuts\Ejercicio01.st----!
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 15:55:55' prior: 50529102!
+desarollar
+	[primerBando allSatisfy: [:combatiente | combatiente estaMuerto ]] whileFalse: [
+		self desarollarRonda.
+	]
+	
+	! !
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 15:57:21' prior: 50529249!
+estaMuerto
+	^dañoRecibido >= 20. ! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 15:57:48' prior: 50529273!
+desarollar
+	[segundoBando allSatisfy: [:combatiente | combatiente estaMuerto ]] whileFalse: [
+		self desarollarRonda.
+	]
+	
+	! !
+
+!testRun: #CombatientesTest #test_06_DavidPuedeAtacarAAlguien stamp: 'mg 3/25/2024 15:58:00'!
+PASSED!
+
+!testRun: #CombatientesTest #test_06_DavidPuedeAtacarAAlguien stamp: 'mg 3/25/2024 15:58:02'!
+PASSED!
+
+!testRun: #CombatientesTest #test01PuedoDefinirleUnaEstrategiaADavid stamp: 'mg 3/25/2024 15:58:02'!
+PASSED!
+
+!testRun: #CombatientesTest #test02EnfocarseEnElMasSanoAtacaAlMenosDañado stamp: 'mg 3/25/2024 15:58:02'!
+PASSED!
+
+!testRun: #CombatientesTest #test03EnfocarseEnElMasSanoAtacaAlMenosDañadoNoImportaElOrden stamp: 'mg 3/25/2024 15:58:02'!
+PASSED!
+
+!testRun: #CombatientesTest #test04EnfocarseEnElMasHeridoAtacaAlMasDañado stamp: 'mg 3/25/2024 15:58:03'!
+PASSED!
+
+!testRun: #CombatientesTest #test_01_GoliatEmpiezaSano stamp: 'mg 3/25/2024 15:58:03'!
+PASSED!
+
+!testRun: #CombatientesTest #test_02_GoliatNoEstaSanoSiRecibeDaño stamp: 'mg 3/25/2024 15:58:03'!
+PASSED!
+
+!testRun: #CombatientesTest #test_03_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/25/2024 15:58:03'!
+PASSED!
+
+!testRun: #CombatientesTest #test_04_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/25/2024 15:58:03'!
+PASSED!
+
+!testRun: #CombatientesTest #test_05_GoliatPuedeRecibirDañoMultiplesVeces stamp: 'mg 3/25/2024 15:58:03'!
+PASSED!
+
+!testRun: #CombatientesTest #test_06_DavidPuedeAtacarAAlguien stamp: 'mg 3/25/2024 15:58:03'!
+PASSED!
+
+!testRun: #CombatientesTest #test_07_DavidPuedeAtacarEnemigosAsignados stamp: 'mg 3/25/2024 15:58:03'!
+PASSED!
+
+!testRun: #CombatientesTest #test_08_DavidNoAtacaAUnEnemigoNoAsignado stamp: 'mg 3/25/2024 15:58:03'!
+PASSED!
+
+!testRun: #CombatientesTest #test_09_MuereCuandoRecibe20DeDaño stamp: 'mg 3/25/2024 15:58:03'!
+PASSED!
+
+!testRun: #CombatientesTest #test_10_NoAtacaSiEstaMuerto stamp: 'mg 3/25/2024 15:58:03'!
+PASSED!
+
+!testRun: #CombateTest #test05_CombatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/25/2024 15:58:10'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:58:32' prior: 50528915!
+test06_combateTerminaCuandoTodosLosDeUnBandoMueren
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	combate := Combate entre: bando1 y: bando2.
+
+	bando1 do: [:combatiente | combatiente enfocarseEnElMasHerido ].
+	
+	combate desarollar . 
+	
+	
+	bando2 do: [:combatiente | self assert: combatiente estaMuerto ].! !
+
+		segundoBando  first dañoRecibido.!
+
+		segundoBando last dañoRecibido. 60 .!
+!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 16:02:15'!
+test_11_NoSeEnfocaSiEstaMuerto
+
+	| david goliat isaac |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	isaac := 	Combatiente new.
+	david asignarEnemigos: {goliat}.
+
+	5 timesRepeat: [
+    		david atacar.
+	].
+	
+	goliat asignarEnemigos: {david}.
+	goliat atacar.
+	
+	self assert: david estaSano
+! !
+!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 16:02:27' prior: 50529368!
+test_11_NoSeEnfocaSiEstaMuerto
+
+	| david goliat isaac |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	isaac := 	Combatiente new.
+	david asignarEnemigos: {goliat, isaac}.
+
+	5 timesRepeat: [
+    		david atacar.
+	].
+	
+	goliat asignarEnemigos: {david}.
+	goliat atacar.
+	
+	self assert: david estaSano
+! !
+!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 16:02:47' prior: 50529381!
+test_11_NoSeEnfocaSiEstaMuerto
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	david asignarEnemigos: {goliat}.
+
+	6 timesRepeat: [
+    		david atacar.
+	].
+	
+	goliat asignarEnemigos: {david}.
+	goliat atacar.
+	
+	self assert: david estaSano
+! !
+!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 16:03:39' prior: 50529394!
+test_11_NoSeEnfocaSiEstaMuerto
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	david asignarEnemigos: {goliat}.
+
+	6 timesRepeat: [
+    		david atacar.
+	].
+		
+	self assert: goliat 
+! !
+!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 16:04:00' prior: 50529406!
+test_11_NoSeEnfocaSiEstaMuerto
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	david asignarEnemigos: {goliat}.
+
+	6 timesRepeat: [
+    		david atacar.
+	].
+		
+	self assert: (goliat estaDañadoPor: 20).
+! !
+!CombatientesTest methodsFor: 'tests-estrategia' stamp: 'mg 3/25/2024 16:04:41'!
+test05_NoSeEnfocaSiEstaMuerto
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	david asignarEnemigos: {goliat}.
+
+	6 timesRepeat: [
+    		david atacar.
+	].
+		
+	self assert: (goliat estaDañadoPor: 20).
+! !
+
+!methodRemoval: CombatientesTest #test_11_NoSeEnfocaSiEstaMuerto stamp: 'mg 3/25/2024 16:04:41'!
+test_11_NoSeEnfocaSiEstaMuerto
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	david asignarEnemigos: {goliat}.
+
+	6 timesRepeat: [
+    		david atacar.
+	].
+		
+	self assert: (goliat estaDañadoPor: 20).
+!
+
+!testRun: #CombatientesTest #test05_NoSeEnfocaSiEstaMuerto stamp: 'mg 3/25/2024 16:04:48'!
+FAILURE!
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:07:10' prior: 50529237!
+enfocarseEnElMasSano
+	estrategia := [:candidatos | candidatos filter: [:candidato | candidato estaMuerto negated ] 
+		
+		detectMin: [:combatiente | combatiente dañoRecibido]].
+! !
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:07:24' prior: 50529450!
+enfocarseEnElMasSano
+	estrategia := [:candidatos | candidatos filter: [:candidato | candidato estaMuerto negated ] 		detectMin: [:combatiente | combatiente dañoRecibido]].
+! !
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:07:26' prior: 50529459!
+enfocarseEnElMasSano
+	estrategia := [:candidatos | candidatos filter: [:candidato | candidato estaMuerto negated ] 	detectMin: [:combatiente | combatiente dañoRecibido]].
+! !
+
+!testRun: #CombatientesTest #test05_NoSeEnfocaSiEstaMuerto stamp: 'mg 3/25/2024 16:07:38'!
+ERROR!
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:08:10' prior: 50529468!
+enfocarseEnElMasSano
+	estrategia := [:candidatos | (candidatos filter: [:candidato | candidato estaMuerto negated ]) 	detectMin: [:combatiente | combatiente dañoRecibido]].
+! !
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:09:12' prior: 50529480!
+enfocarseEnElMasSano
+	estrategia := [:candidatos | (candidatos select: [:candidato | candidato estaMuerto negated ]) 	detectMin: [:combatiente | combatiente dañoRecibido]].
+! !
+!CombatientesTest methodsFor: 'tests-estrategia' stamp: 'mg 3/25/2024 16:09:38'!
+test05NoSeEnfocaSiEstaMuerto
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	david asignarEnemigos: {goliat}.
+
+	6 timesRepeat: [
+    		david atacar.
+	].
+		
+	self assert: (goliat estaDañadoPor: 20).
+! !
+
+!methodRemoval: CombatientesTest #test05_NoSeEnfocaSiEstaMuerto stamp: 'mg 3/25/2024 16:09:38'!
+test05_NoSeEnfocaSiEstaMuerto
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	david asignarEnemigos: {goliat}.
+
+	6 timesRepeat: [
+    		david atacar.
+	].
+		
+	self assert: (goliat estaDañadoPor: 20).
+!
+
+!testRun: #CombatientesTest #test05NoSeEnfocaSiEstaMuerto stamp: 'mg 3/25/2024 16:09:41'!
+ERROR!
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:10:08' prior: 50529489!
+enfocarseEnElMasSano
+	estrategia := [:candidatos | (candidatos select: [:candidato | candidato estaMuerto not ]) 	detectMin: [:combatiente | combatiente dañoRecibido]].
+! !
+
+!testRun: #CombatientesTest #test05NoSeEnfocaSiEstaMuerto stamp: 'mg 3/25/2024 16:10:23'!
+ERROR!
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:11:21' prior: 50529207!
+atacar
+	| victimaElegida |
+	self estaMuerto ifTrue: [^self].
+
+	victimaElegida := self elegirVictima.
+	
+
+	self atacarA: victimaElegida.
+! !
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:11:35' prior: 50529534!
+atacar
+	| victimaElegida |
+	self estaMuerto ifTrue: [^self].
+
+	victimaElegida := self elegirVictima.
+	
+
+	self atacarA: victimaElegida.
+! !
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 3/25/2024 16:11:36'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/25/2024 16:11:36'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 16:11:36'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerteCombatienteBando2 stamp: 'mg 3/25/2024 16:11:36'!
+PASSED!
+
+!testRun: #CombateTest #test05_CombatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/25/2024 16:11:36'!
+PASSED!
+
+!testRun: #CombateTest #test06_combateTerminaCuandoTodosLosDeUnBandoMueren stamp: 'mg 3/25/2024 16:11:36'!
+ERROR!
+
+!testRun: #CombatientesTest #test01PuedoDefinirleUnaEstrategiaADavid stamp: 'mg 3/25/2024 16:11:36'!
+PASSED!
+
+!testRun: #CombatientesTest #test02EnfocarseEnElMasSanoAtacaAlMenosDañado stamp: 'mg 3/25/2024 16:11:36'!
+PASSED!
+
+!testRun: #CombatientesTest #test03EnfocarseEnElMasSanoAtacaAlMenosDañadoNoImportaElOrden stamp: 'mg 3/25/2024 16:11:36'!
+PASSED!
+
+!testRun: #CombatientesTest #test04EnfocarseEnElMasHeridoAtacaAlMasDañado stamp: 'mg 3/25/2024 16:11:36'!
+PASSED!
+
+!testRun: #CombatientesTest #test05NoSeEnfocaSiEstaMuerto stamp: 'mg 3/25/2024 16:11:36'!
+ERROR!
+
+!testRun: #CombatientesTest #test_01_GoliatEmpiezaSano stamp: 'mg 3/25/2024 16:11:36'!
+PASSED!
+
+!testRun: #CombatientesTest #test_02_GoliatNoEstaSanoSiRecibeDaño stamp: 'mg 3/25/2024 16:11:36'!
+PASSED!
+
+!testRun: #CombatientesTest #test_03_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/25/2024 16:11:37'!
+PASSED!
+
+!testRun: #CombatientesTest #test_04_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/25/2024 16:11:37'!
+PASSED!
+
+!testRun: #CombatientesTest #test_05_GoliatPuedeRecibirDañoMultiplesVeces stamp: 'mg 3/25/2024 16:11:37'!
+PASSED!
+
+!testRun: #CombatientesTest #test_06_DavidPuedeAtacarAAlguien stamp: 'mg 3/25/2024 16:11:37'!
+PASSED!
+
+!testRun: #CombatientesTest #test_07_DavidPuedeAtacarEnemigosAsignados stamp: 'mg 3/25/2024 16:11:37'!
+PASSED!
+
+!testRun: #CombatientesTest #test_08_DavidNoAtacaAUnEnemigoNoAsignado stamp: 'mg 3/25/2024 16:11:37'!
+ERROR!
+
+!testRun: #CombatientesTest #test_09_MuereCuandoRecibe20DeDaño stamp: 'mg 3/25/2024 16:11:37'!
+PASSED!
+
+!testRun: #CombatientesTest #test_10_NoAtacaSiEstaMuerto stamp: 'mg 3/25/2024 16:11:37'!
+PASSED!
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:11:49' prior: 50529542!
+atacar
+	| victimaElegida |
+	self estaMuerto ifTrue: [^self].
+
+	enemigos isEmpty ifTrue: [^self].
+
+	victimaElegida := self elegirVictima.
+	
+
+	self atacarA: victimaElegida.
+! !
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 3/25/2024 16:11:50'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/25/2024 16:11:50'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 16:11:50'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerteCombatienteBando2 stamp: 'mg 3/25/2024 16:11:50'!
+PASSED!
+
+!testRun: #CombateTest #test05_CombatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/25/2024 16:11:50'!
+PASSED!
+
+!testRun: #CombateTest #test06_combateTerminaCuandoTodosLosDeUnBandoMueren stamp: 'mg 3/25/2024 16:11:50'!
+ERROR!
+
+!testRun: #CombatientesTest #test01PuedoDefinirleUnaEstrategiaADavid stamp: 'mg 3/25/2024 16:11:50'!
+PASSED!
+
+!testRun: #CombatientesTest #test02EnfocarseEnElMasSanoAtacaAlMenosDañado stamp: 'mg 3/25/2024 16:11:50'!
+PASSED!
+
+!testRun: #CombatientesTest #test03EnfocarseEnElMasSanoAtacaAlMenosDañadoNoImportaElOrden stamp: 'mg 3/25/2024 16:11:50'!
+PASSED!
+
+!testRun: #CombatientesTest #test04EnfocarseEnElMasHeridoAtacaAlMasDañado stamp: 'mg 3/25/2024 16:11:50'!
+PASSED!
+
+!testRun: #CombatientesTest #test05NoSeEnfocaSiEstaMuerto stamp: 'mg 3/25/2024 16:11:50'!
+ERROR!
+
+!testRun: #CombatientesTest #test_01_GoliatEmpiezaSano stamp: 'mg 3/25/2024 16:11:50'!
+PASSED!
+
+!testRun: #CombatientesTest #test_02_GoliatNoEstaSanoSiRecibeDaño stamp: 'mg 3/25/2024 16:11:50'!
+PASSED!
+
+!testRun: #CombatientesTest #test_03_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/25/2024 16:11:50'!
+PASSED!
+
+!testRun: #CombatientesTest #test_04_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/25/2024 16:11:50'!
+PASSED!
+
+!testRun: #CombatientesTest #test_05_GoliatPuedeRecibirDañoMultiplesVeces stamp: 'mg 3/25/2024 16:11:50'!
+PASSED!
+
+!testRun: #CombatientesTest #test_06_DavidPuedeAtacarAAlguien stamp: 'mg 3/25/2024 16:11:50'!
+PASSED!
+
+!testRun: #CombatientesTest #test_07_DavidPuedeAtacarEnemigosAsignados stamp: 'mg 3/25/2024 16:11:50'!
+PASSED!
+
+!testRun: #CombatientesTest #test_08_DavidNoAtacaAUnEnemigoNoAsignado stamp: 'mg 3/25/2024 16:11:50'!
+PASSED!
+
+!testRun: #CombatientesTest #test_09_MuereCuandoRecibe20DeDaño stamp: 'mg 3/25/2024 16:11:51'!
+PASSED!
+
+!testRun: #CombatientesTest #test_10_NoAtacaSiEstaMuerto stamp: 'mg 3/25/2024 16:11:51'!
+PASSED!
+
+!testRun: #CombatientesTest #test05NoSeEnfocaSiEstaMuerto stamp: 'mg 3/25/2024 16:12:13'!
+ERROR!
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:12:59' prior: 50529620!
+atacar
+	| victimaElegida |
+	self estaMuerto ifTrue: [^self].
+
+	enemigos isEmpty ifTrue: [^self].
+
+	victimaElegida := self elegirVictima.
+	victimaElegida 
+
+	self atacarA: victimaElegida.
+! !
+
+!testRun: #CombateTest #test06_combateTerminaCuandoTodosLosDeUnBandoMueren stamp: 'mg 3/25/2024 16:12:59'!
+ERROR!
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:14:03' prior: 50529702!
+atacar
+	| victimaElegida |
+	self estaMuerto ifTrue: [^self].
+
+	enemigos isEmpty ifTrue: [^self].
+
+	victimaElegida := self elegirVictima.
+	victimaElegida isNil.
+
+	self atacarA: victimaElegida.
+! !
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 3/25/2024 16:14:04'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/25/2024 16:14:04'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 16:14:04'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerteCombatienteBando2 stamp: 'mg 3/25/2024 16:14:04'!
+PASSED!
+
+!testRun: #CombateTest #test05_CombatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/25/2024 16:14:04'!
+PASSED!
+
+!testRun: #CombateTest #test06_combateTerminaCuandoTodosLosDeUnBandoMueren stamp: 'mg 3/25/2024 16:14:04'!
+ERROR!
+
+!testRun: #CombatientesTest #test01PuedoDefinirleUnaEstrategiaADavid stamp: 'mg 3/25/2024 16:14:04'!
+PASSED!
+
+!testRun: #CombatientesTest #test02EnfocarseEnElMasSanoAtacaAlMenosDañado stamp: 'mg 3/25/2024 16:14:04'!
+PASSED!
+
+!testRun: #CombatientesTest #test03EnfocarseEnElMasSanoAtacaAlMenosDañadoNoImportaElOrden stamp: 'mg 3/25/2024 16:14:04'!
+PASSED!
+
+!testRun: #CombatientesTest #test04EnfocarseEnElMasHeridoAtacaAlMasDañado stamp: 'mg 3/25/2024 16:14:04'!
+PASSED!
+
+!testRun: #CombatientesTest #test05NoSeEnfocaSiEstaMuerto stamp: 'mg 3/25/2024 16:14:04'!
+ERROR!
+
+!testRun: #CombatientesTest #test_01_GoliatEmpiezaSano stamp: 'mg 3/25/2024 16:14:04'!
+PASSED!
+
+!testRun: #CombatientesTest #test_02_GoliatNoEstaSanoSiRecibeDaño stamp: 'mg 3/25/2024 16:14:05'!
+PASSED!
+
+!testRun: #CombatientesTest #test_03_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/25/2024 16:14:05'!
+PASSED!
+
+!testRun: #CombatientesTest #test_04_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/25/2024 16:14:05'!
+PASSED!
+
+!testRun: #CombatientesTest #test_05_GoliatPuedeRecibirDañoMultiplesVeces stamp: 'mg 3/25/2024 16:14:05'!
+PASSED!
+
+!testRun: #CombatientesTest #test_06_DavidPuedeAtacarAAlguien stamp: 'mg 3/25/2024 16:14:05'!
+PASSED!
+
+!testRun: #CombatientesTest #test_07_DavidPuedeAtacarEnemigosAsignados stamp: 'mg 3/25/2024 16:14:05'!
+PASSED!
+
+!testRun: #CombatientesTest #test_08_DavidNoAtacaAUnEnemigoNoAsignado stamp: 'mg 3/25/2024 16:14:05'!
+PASSED!
+
+!testRun: #CombatientesTest #test_09_MuereCuandoRecibe20DeDaño stamp: 'mg 3/25/2024 16:14:05'!
+PASSED!
+
+!testRun: #CombatientesTest #test_10_NoAtacaSiEstaMuerto stamp: 'mg 3/25/2024 16:14:05'!
+PASSED!
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:15:44' prior: 50529715!
+atacar
+	| victimaElegida |
+	self estaMuerto ifTrue: [^self].
+
+	enemigos isEmpty ifTrue: [^self].
+
+	victimaElegida := self elegirVictima.
+	(victimaElegida == nil) ifTrue: [^self].
+
+	self atacarA: victimaElegida.
+! !
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 3/25/2024 16:15:46'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/25/2024 16:15:46'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 16:15:46'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerteCombatienteBando2 stamp: 'mg 3/25/2024 16:15:46'!
+PASSED!
+
+!testRun: #CombateTest #test05_CombatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/25/2024 16:15:46'!
+PASSED!
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:16:49' prior: 50529795!
+atacar
+	| victimaElegida |
+	self estaMuerto ifTrue: [^self].
+	
+	victimaElegida := self elegirVictima.
+	(victimaElegida == nil) ifTrue: [^self].
+
+	self atacarA: victimaElegida.
+! !
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 3/25/2024 16:16:51'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/25/2024 16:16:51'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 16:16:51'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerteCombatienteBando2 stamp: 'mg 3/25/2024 16:16:51'!
+PASSED!
+
+!testRun: #CombateTest #test05_CombatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/25/2024 16:16:51'!
+PASSED!
+
+----STARTUP---- (25 March 2024 16:17:53) as G:\is1-leveroni\cuis\windows64\CuisUniversity-6169.image!
+
+
+!classRemoval: #JohnVonNeumann stamp: 'mg 3/25/2024 16:17:59'!
+DenotativeObject subclass: #JohnVonNeumann
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form8'!
+
+!classRemoval: #CloneOfJohnVonNeumann stamp: 'mg 3/25/2024 16:17:59'!
+DenotativeObject subclass: #CloneOfJohnVonNeumann
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form8'!
+
+!classRemoval: #AlanTuring stamp: 'mg 3/25/2024 16:17:59'!
+DenotativeObject subclass: #AlanTuring
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form8'!
+
+!classRemoval: #AlanKay stamp: 'mg 3/25/2024 16:17:59'!
+DenotativeObject subclass: #AlanKay
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form8'!
+
+!classRemoval: #AdeleGoldberg stamp: 'mg 3/25/2024 16:18:00'!
+DenotativeObject subclass: #AdeleGoldberg
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Form8'!
+
+----SNAPSHOT----(25 March 2024 16:18:06) CuisUniversity-6169.image priorSource: 6255393!
+
+----End fileIn of G:\is1-leveroni\cuis\windows64-UserFiles\FileOuts\Ejercicio01.st----!
+
+!testRun: #CombatientesTest #test01PuedoDefinirleUnaEstrategiaADavid stamp: 'mg 3/25/2024 16:18:31'!
+PASSED!
+
+!testRun: #CombatientesTest #test02EnfocarseEnElMasSanoAtacaAlMenosDañado stamp: 'mg 3/25/2024 16:18:32'!
+PASSED!
+
+!testRun: #CombatientesTest #test03EnfocarseEnElMasSanoAtacaAlMenosDañadoNoImportaElOrden stamp: 'mg 3/25/2024 16:18:33'!
+PASSED!
+
+!testRun: #CombatientesTest #test04EnfocarseEnElMasHeridoAtacaAlMasDañado stamp: 'mg 3/25/2024 16:18:34'!
+PASSED!
+
+!testRun: #CombatientesTest #test05NoSeEnfocaSiEstaMuerto stamp: 'mg 3/25/2024 16:18:36'!
+PASSED!
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:19:30' prior: 50530280!
+enfocarseEnElMasHerido
+	estrategia := [:candidatos | (candidatos select: [:candidato | candidato estaMuerto not ]) 	detectMax: [:combatiente | combatiente dañoRecibido]].
+! !
+
+!testRun: #CombatientesTest #test01PuedoDefinirleUnaEstrategiaADavid stamp: 'mg 3/25/2024 16:19:42'!
+PASSED!
+
+!testRun: #CombatientesTest #test02EnfocarseEnElMasSanoAtacaAlMenosDañado stamp: 'mg 3/25/2024 16:19:42'!
+PASSED!
+
+!testRun: #CombatientesTest #test03EnfocarseEnElMasSanoAtacaAlMenosDañadoNoImportaElOrden stamp: 'mg 3/25/2024 16:19:42'!
+PASSED!
+
+!testRun: #CombatientesTest #test04EnfocarseEnElMasHeridoAtacaAlMasDañado stamp: 'mg 3/25/2024 16:19:42'!
+PASSED!
+
+!testRun: #CombatientesTest #test05NoSeEnfocaSiEstaMuerto stamp: 'mg 3/25/2024 16:19:42'!
+PASSED!
+
+!testRun: #CombatientesTest #test_01_GoliatEmpiezaSano stamp: 'mg 3/25/2024 16:19:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_02_GoliatNoEstaSanoSiRecibeDaño stamp: 'mg 3/25/2024 16:19:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_03_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/25/2024 16:19:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_04_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/25/2024 16:19:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_05_GoliatPuedeRecibirDañoMultiplesVeces stamp: 'mg 3/25/2024 16:19:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_06_DavidPuedeAtacarAAlguien stamp: 'mg 3/25/2024 16:19:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_07_DavidPuedeAtacarEnemigosAsignados stamp: 'mg 3/25/2024 16:19:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_08_DavidNoAtacaAUnEnemigoNoAsignado stamp: 'mg 3/25/2024 16:19:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_09_MuereCuandoRecibe20DeDaño stamp: 'mg 3/25/2024 16:19:46'!
+PASSED!
+
+!testRun: #CombatientesTest #test_10_NoAtacaSiEstaMuerto stamp: 'mg 3/25/2024 16:19:46'!
+PASSED!
+
+!testRun: #CombateTest #test06_combateTerminaCuandoTodosLosDeUnBandoMueren stamp: 'mg 3/25/2024 16:19:57'!
+PASSED!
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 3/25/2024 16:19:57'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/25/2024 16:19:57'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 16:19:57'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerteCombatienteBando2 stamp: 'mg 3/25/2024 16:19:57'!
+PASSED!
+
+!testRun: #CombateTest #test05_CombatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/25/2024 16:19:57'!
+PASSED!
+
+!testRun: #CombateTest #test06_combateTerminaCuandoTodosLosDeUnBandoMueren stamp: 'mg 3/25/2024 16:19:57'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:20:50'!
+test06_finalizaCuandoMuereAlgunBando
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new. Combatiente new}.
+	bando2 := {Combatiente new. Combatiente new}.
+	combate := Combate entre: bando1 y: bando2.
+
+	bando1 do: [:combatiente | combatiente enfocarseEnElMasHerido ].
+	
+	combate desarollar . 
+	
+	
+	bando2 do: [:combatiente | self assert: combatiente estaMuerto ].! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:21:13' prior: 50530426!
+test06_finalizaCuandoMuereAlgunBando
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new.}.
+	bando2 := {Combatiente new. Combatiente new}.
+	combate := Combate entre: bando1 y: bando2.
+
+	bando1 do: [:combatiente | combatiente enfocarseEnElMasHerido ].
+	
+	combate desarollar . 
+	
+	
+	bando2 do: [:combatiente | self assert: combatiente estaMuerto ].! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:21:24' prior: 50530441!
+test06_finalizaCuandoMuereAlgunBando
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new.}.
+	bando2 := {Combatiente new. Combatiente new}.
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	bando2 do: [:combatiente | self assert: combatiente estaMuerto ].! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:21:43' prior: 50530456!
+test06_finalizaCuandoMuereAlgunBando
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new.}.
+	bando2 := {Combatiente new. Combatiente new}.
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	bando1 do: [:combatiente | self assert: combatiente estaMuerto ].! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:21:53' prior: 50530469!
+test06_finalizaCuandoMuereAlgunBando
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new.}.
+	bando2 := {Combatiente new. Combatiente new}.
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	bando1 do: [:combatiente | self assert: combatiente estaMuerto ].! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 16:23:07' prior: 50530150!
+desarollar
+	[
+		(primerBando allSatisfy: [:combatiente | combatiente estaMuerto ]) | (segundoBando allSatisfy: [:combatiente | combatiente estaMuerto ]) 
+	] whileFalse: [
+		self desarollarRonda.
+	]
+	
+	! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 16:23:29' prior: 50530494!
+desarollar
+	[
+		(primerBando allSatisfy: [:combatiente | combatiente estaMuerto ]) 
+		|
+		(segundoBando allSatisfy: [:combatiente | combatiente estaMuerto ]) 
+	] whileFalse: [
+		self desarollarRonda.
+	]
+	
+	! !
+
+!testRun: #CombateTest #test06_finalizaCuandoMuereAlgunBando stamp: 'mg 3/25/2024 16:23:39'!
+PASSED!
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 3/25/2024 16:23:39'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/25/2024 16:23:39'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 16:23:39'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerteCombatienteBando2 stamp: 'mg 3/25/2024 16:23:39'!
+PASSED!
+
+!testRun: #CombateTest #test05_CombatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/25/2024 16:23:39'!
+PASSED!
+
+!testRun: #CombateTest #test06_combateTerminaCuandoTodosLosDeUnBandoMueren stamp: 'mg 3/25/2024 16:23:39'!
+PASSED!
+
+!testRun: #CombateTest #test06_finalizaCuandoMuereAlgunBando stamp: 'mg 3/25/2024 16:23:39'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:23:50'!
+test07_finalizaCuandoMuereAlgunBando
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new.}.
+	bando2 := {Combatiente new. Combatiente new}.
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	bando1 do: [:combatiente | self assert: combatiente estaMuerto ].! !
+
+!methodRemoval: CombateTest #test06_finalizaCuandoMuereAlgunBando stamp: 'mg 3/25/2024 16:23:50'!
+test06_finalizaCuandoMuereAlgunBando
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new.}.
+	bando2 := {Combatiente new. Combatiente new}.
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	bando1 do: [:combatiente | self assert: combatiente estaMuerto ].!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:24:32'!
+test08_xxx
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new.}.
+	bando2 := {Combatiente new. Combatiente new}.
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	bando1 do: [:combatiente | self assert: combatiente estaMuerto ].! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:24:36'!
+test05_combatienteBando1ViveSiMatoAlBando2
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self deny: (bando1 first estaMuerto)! !
+
+!methodRemoval: CombateTest #test05_CombatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/25/2024 16:24:37'!
+test05_CombatienteBando1ViveSiMatoAlBando2
+	|bando1 bando2 combate |
+	
+	bando1 := {Combatiente new}.
+	bando2 := {Combatiente new}.
+	
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self deny: (bando1 first estaMuerto)!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:26:21' prior: 50530561!
+test08_xxx
+	|bando1 bando2 combate |	
+	
+	bando1 := {Combatiente new.}.
+	bando2 := {Combatiente new.}.
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self assert: combate obtenerRondas = 5.! !
+
+!classDefinition: #Combate category: #Ejercicio01 stamp: 'mg 3/25/2024 16:26:44'!
+Object subclass: #Combate
+	instanceVariableNames: 'primerBando segundoBando rondas'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Ejercicio01'!
+!Combate methodsFor: 'nil' stamp: 'mg 3/25/2024 16:26:38'!
+obtenerRondas
+	^rondas! !
+
+!testRun: #CombateTest #test08_xxx stamp: 'mg 3/25/2024 16:26:56'!
+FAILURE!
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 16:27:26' prior: 50530503!
+desarollar
+	[
+		(primerBando allSatisfy: [:combatiente | combatiente estaMuerto ]) 
+		|
+		(segundoBando allSatisfy: [:combatiente | combatiente estaMuerto ]) 
+	] whileFalse: [
+		self desarollarRonda.
+		rondas := rondas +1
+	]
+	
+	! !
+!Combate methodsFor: 'initialization' stamp: 'mg 3/25/2024 16:27:39' prior: 50530145!
+initializeEntre: bando1 y: bando2 
+	
+	primerBando := bando1.
+	segundoBando := bando2.
+	
+	rondas :=0! !
+
+!testRun: #CombateTest #test08_xxx stamp: 'mg 3/25/2024 16:27:48'!
+PASSED!
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 3/25/2024 16:27:48'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/25/2024 16:27:48'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 16:27:48'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerteCombatienteBando2 stamp: 'mg 3/25/2024 16:27:48'!
+PASSED!
+
+!testRun: #CombateTest #test05_combatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/25/2024 16:27:48'!
+PASSED!
+
+!testRun: #CombateTest #test06_combateTerminaCuandoTodosLosDeUnBandoMueren stamp: 'mg 3/25/2024 16:27:48'!
+PASSED!
+
+!testRun: #CombateTest #test07_finalizaCuandoMuereAlgunBando stamp: 'mg 3/25/2024 16:27:48'!
+PASSED!
+
+!testRun: #CombateTest #test08_xxx stamp: 'mg 3/25/2024 16:27:48'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:27:54'!
+test08_obtenerRondas
+	|bando1 bando2 combate |	
+	
+	bando1 := {Combatiente new.}.
+	bando2 := {Combatiente new.}.
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self assert: combate obtenerRondas = 5.! !
+
+!methodRemoval: CombateTest #test08_xxx stamp: 'mg 3/25/2024 16:28:02'!
+test08_xxx
+	|bando1 bando2 combate |	
+	
+	bando1 := {Combatiente new.}.
+	bando2 := {Combatiente new.}.
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	
+	self assert: combate obtenerRondas = 5.!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:28:23'!
+test08_obtenerGanador
+	|bando1 bando2 combate ganador |	
+	
+	bando1 := {Combatiente new.}.
+	bando2 := {Combatiente new.}.
+	combate := Combate entre: bando1 y: bando2.
+	
+	ganador := combate desarollar . 
+	
+	
+	self assert: combate obtenerRondas = 5.! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:28:36' prior: 50530681!
+test08_obtenerGanador
+	|bando1 bando2 combate ganador |	
+	
+	bando1 := {Combatiente new.}.
+	bando2 := {Combatiente new.}.
+	combate := Combate entre: bando1 y: bando2.
+	
+	ganador := combate desarollar . 
+	
+	
+	self assert: ganador = bando1! !
+
+!testRun: #CombateTest #test08_obtenerGanador stamp: 'mg 3/25/2024 16:28:41'!
+FAILURE!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:28:59'!
+test09_obtenerGanador
+	|bando1 bando2 combate ganador |	
+	
+	bando1 := {Combatiente new.}.
+	bando2 := {Combatiente new.}.
+	combate := Combate entre: bando1 y: bando2.
+	
+	ganador := combate desarollar . 
+	
+	
+	self assert: ganador = bando1! !
+
+!methodRemoval: CombateTest #test08_obtenerGanador stamp: 'mg 3/25/2024 16:28:59'!
+test08_obtenerGanador
+	|bando1 bando2 combate ganador |	
+	
+	bando1 := {Combatiente new.}.
+	bando2 := {Combatiente new.}.
+	combate := Combate entre: bando1 y: bando2.
+	
+	ganador := combate desarollar . 
+	
+	
+	self assert: ganador = bando1!
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 16:30:31' prior: 50530618!
+desarollar
+	[
+		(primerBando allSatisfy: [:combatiente | combatiente estaMuerto ]) 
+		|
+		(segundoBando allSatisfy: [:combatiente | combatiente estaMuerto ]) 
+	] whileFalse: [
+		self desarollarRonda.
+		rondas := rondas +1
+	].
+
+	(primerBando allSatisfy: [:combatiente | combatiente estaMuerto ]) ifTrue: [^segundoBando ] ifFalse: [^primerBando]
+	
+	! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 16:31:14' prior: 50530726!
+desarollar
+	[
+		(primerBando allSatisfy: [:combatiente | combatiente estaMuerto ]) 
+		|
+		(segundoBando allSatisfy: [:combatiente | combatiente estaMuerto ]) 
+	] whileFalse: [
+		self desarollarRonda.
+		rondas := rondas +1
+	].
+
+	(primerBando allSatisfy: [:combatiente | combatiente estaMuerto ])
+		ifTrue: [^segundoBando ]
+		ifFalse: [^primerBando]
+	
+	! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 16:32:07'!
+estaMuerto
+
+	^ primerBando allSatisfy: [:combatiente | combatiente estaMuerto ]! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 16:32:08' prior: 50530740!
+desarollar
+	[
+		(self estaMuerto) 
+		|
+		(segundoBando allSatisfy: [:combatiente | combatiente estaMuerto ]) 
+	] whileFalse: [
+		self desarollarRonda.
+		rondas := rondas +1
+	].
+
+	(primerBando allSatisfy: [:combatiente | combatiente estaMuerto ])
+		ifTrue: [^segundoBando ]
+		ifFalse: [^primerBando]
+	
+	! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 16:32:08' prior: 50530760!
+desarollar
+	[
+		(self estaMuerto) 
+		|
+		(segundoBando allSatisfy: [:combatiente | combatiente estaMuerto ]) 
+	] whileFalse: [
+		self desarollarRonda.
+		rondas := rondas +1
+	].
+
+	(self estaMuerto)
+		ifTrue: [^segundoBando ]
+		ifFalse: [^primerBando]
+	
+	! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 16:32:18'!
+estaMuerto: bando
+
+	^ bando allSatisfy: [:combatiente | combatiente estaMuerto ]! !
+
+!methodRemoval: Combate #estaMuerto stamp: 'mg 3/25/2024 16:32:22'!
+estaMuerto
+
+	^ primerBando allSatisfy: [:combatiente | combatiente estaMuerto ]!
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 16:33:26' prior: 50530773!
+desarollar
+	[ (self estaMuerto: primerBando	)	| (self estaMuerto: segundoBando)	] whileFalse: [
+		self desarollarRonda.
+		rondas := rondas +1
+	].
+
+	(self estaMuerto)
+		ifTrue: [^segundoBando ]
+		ifFalse: [^primerBando]
+	
+	! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 16:33:36' prior: 50530793!
+desarollar
+	[ (self estaMuerto: primerBando	)	| (self estaMuerto: segundoBando)	] 
+		whileFalse: [
+			self desarollarRonda.
+			rondas := rondas +1
+		].
+
+	(self estaMuerto)
+		ifTrue: [^segundoBando ]
+		ifFalse: [^primerBando]
+	
+	! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 16:33:47' prior: 50530803!
+desarollar
+	[ (self estaMuerto: primerBando	)	| (self estaMuerto: segundoBando)	] 
+		whileFalse: [
+			self desarollarRonda.
+			rondas := rondas +1
+		].
+
+	(self estaMuerto: primerBando	)
+		ifTrue: [^segundoBando ]
+		ifFalse: [^primerBando]
+	
+	! !
+
+!testRun: #CombateTest #test09_obtenerGanador stamp: 'mg 3/25/2024 16:33:54'!
+PASSED!
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 3/25/2024 16:33:54'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/25/2024 16:33:54'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 16:33:54'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerteCombatienteBando2 stamp: 'mg 3/25/2024 16:33:55'!
+PASSED!
+
+!testRun: #CombateTest #test05_combatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/25/2024 16:33:55'!
+PASSED!
+
+!testRun: #CombateTest #test06_combateTerminaCuandoTodosLosDeUnBandoMueren stamp: 'mg 3/25/2024 16:33:55'!
+PASSED!
+
+!testRun: #CombateTest #test07_finalizaCuandoMuereAlgunBando stamp: 'mg 3/25/2024 16:33:55'!
+PASSED!
+
+!testRun: #CombateTest #test08_obtenerRondas stamp: 'mg 3/25/2024 16:33:55'!
+PASSED!
+
+!testRun: #CombateTest #test09_obtenerGanador stamp: 'mg 3/25/2024 16:33:55'!
+PASSED!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:39:24'!
+test10_cuanBienGano
+	|bando1 bando2 combate promedio |	
+	
+	bando1 := {Combatiente new. Combatiente new.}.
+	bando2 := {Combatiente new. }.
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	promedio  := combate promedioVidaGanador
+	
+	
+	self assert: promedio = 16! !
+!Combate methodsFor: 'nil' stamp: 'mg 3/25/2024 16:40:41'!
+anali! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:40:49'!
+test10_promedioVidaGanador
+	|bando1 bando2 combate promedio |	
+	
+	bando1 := {Combatiente new. Combatiente new.}.
+	bando2 := {Combatiente new. }.
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	promedio  := combate promedioVidaGanador
+	
+	
+	self assert: promedio = 16! !
+
+!methodRemoval: CombateTest #test10_cuanBienGano stamp: 'mg 3/25/2024 16:40:52'!
+test10_cuanBienGano
+	|bando1 bando2 combate promedio |	
+	
+	bando1 := {Combatiente new. Combatiente new.}.
+	bando2 := {Combatiente new. }.
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 
+	
+	promedio  := combate promedioVidaGanador
+	
+	
+	self assert: promedio = 16!
+!Combate methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:40:57'!
+promedioVidaGanador! !
+
+!methodRemoval: Combate #anali stamp: 'mg 3/25/2024 16:40:58'!
+anali!
+!Combate methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:41:56' prior: 50530892!
+promedioVidaGanador
+
+	(self estaMuerto: primerBando) ifTrue: [].
+	(self estaMuerto: segundoBando) ifTrue: [].! !
+!Combate methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:43:44' prior: 50530898!
+promedioVidaGanador
+
+	(self estaMuerto: primerBando) ifTrue: [
+		^primerBando average: [:combatiente | ^20 - combatiente dañoRecibido ]
+		].
+	(self estaMuerto: segundoBando) ifTrue: [].! !
+!Combate methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:44:07' prior: 50530905!
+promedioVidaGanador
+
+	(self estaMuerto: primerBando) ifTrue: [
+		^primerBando average: [:combatiente | ^20 - combatiente dañoRecibido ]
+		].
+	(self estaMuerto: segundoBando) ifTrue: [
+		^segundoBando average: [:combatiente | ^20 - combatiente dañoRecibido ]
+		].! !
+!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 16:44:40'!
+test_11_ObtenerVida
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	david asignarEnemigos: {goliat}.
+
+	2 timesRepeat: [
+    		david atacar.
+	].
+	
+	goliat asignarEnemigos: {david}.
+	goliat atacar.
+	
+	self assert: david estaSano
+! !
+!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 16:45:41' prior: 50530925!
+test_11_ObtenerVida
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	david asignarEnemigos: {goliat}.
+
+	2 timesRepeat: [
+    		david atacar.
+	].	
+	self assert: (goliat  = 12)
+! !
+!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 16:46:01' prior: 50530937!
+test_11_ObtenerVida
+
+	| david goliat |
+	david := Combatiente new.
+	goliat := Combatiente new.
+	david asignarEnemigos: {goliat}.
+
+	2 timesRepeat: [
+    		david atacar.
+	].	
+	self assert: (goliat vidaActual  = 12)
+! !
+
+!testRun: #CombatientesTest #test_11_ObtenerVida stamp: 'mg 3/25/2024 16:46:06'!
+ERROR!
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:46:14'!
+vidaActual
+	self shouldBeImplemented.! !
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:46:38' prior: 50530959!
+vidaActual
+	^20 - self dañoRecibido! !
+
+!testRun: #CombatientesTest #test_11_ObtenerVida stamp: 'mg 3/25/2024 16:46:44'!
+PASSED!
+
+!testRun: #CombatientesTest #test01PuedoDefinirleUnaEstrategiaADavid stamp: 'mg 3/25/2024 16:46:44'!
+PASSED!
+
+!testRun: #CombatientesTest #test02EnfocarseEnElMasSanoAtacaAlMenosDañado stamp: 'mg 3/25/2024 16:46:44'!
+PASSED!
+
+!testRun: #CombatientesTest #test03EnfocarseEnElMasSanoAtacaAlMenosDañadoNoImportaElOrden stamp: 'mg 3/25/2024 16:46:44'!
+PASSED!
+
+!testRun: #CombatientesTest #test04EnfocarseEnElMasHeridoAtacaAlMasDañado stamp: 'mg 3/25/2024 16:46:44'!
+PASSED!
+
+!testRun: #CombatientesTest #test05NoSeEnfocaSiEstaMuerto stamp: 'mg 3/25/2024 16:46:44'!
+PASSED!
+
+!testRun: #CombatientesTest #test_01_GoliatEmpiezaSano stamp: 'mg 3/25/2024 16:46:44'!
+PASSED!
+
+!testRun: #CombatientesTest #test_02_GoliatNoEstaSanoSiRecibeDaño stamp: 'mg 3/25/2024 16:46:44'!
+PASSED!
+
+!testRun: #CombatientesTest #test_03_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/25/2024 16:46:44'!
+PASSED!
+
+!testRun: #CombatientesTest #test_04_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/25/2024 16:46:44'!
+PASSED!
+
+!testRun: #CombatientesTest #test_05_GoliatPuedeRecibirDañoMultiplesVeces stamp: 'mg 3/25/2024 16:46:44'!
+PASSED!
+
+!testRun: #CombatientesTest #test_06_DavidPuedeAtacarAAlguien stamp: 'mg 3/25/2024 16:46:44'!
+PASSED!
+
+!testRun: #CombatientesTest #test_07_DavidPuedeAtacarEnemigosAsignados stamp: 'mg 3/25/2024 16:46:44'!
+PASSED!
+
+!testRun: #CombatientesTest #test_08_DavidNoAtacaAUnEnemigoNoAsignado stamp: 'mg 3/25/2024 16:46:44'!
+PASSED!
+
+!testRun: #CombatientesTest #test_09_MuereCuandoRecibe20DeDaño stamp: 'mg 3/25/2024 16:46:44'!
+PASSED!
+
+!testRun: #CombatientesTest #test_10_NoAtacaSiEstaMuerto stamp: 'mg 3/25/2024 16:46:44'!
+PASSED!
+
+!testRun: #CombatientesTest #test_11_ObtenerVida stamp: 'mg 3/25/2024 16:46:44'!
+PASSED!
+!Combate methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:47:05' prior: 50530914!
+promedioVidaGanador
+
+	(self estaMuerto: primerBando) ifTrue: [
+		^primerBando average: [:combatiente | ^combatiente  vidaActual ]
+		].
+	(self estaMuerto: segundoBando) ifTrue: [
+		^segundoBando average: [:combatiente | ^20 - combatiente dañoRecibido ]
+		].! !
+!Combate methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:47:09' prior: 50531025!
+promedioVidaGanador
+
+	(self estaMuerto: primerBando) ifTrue: [
+		^primerBando average: [:combatiente | ^combatiente  vidaActual ]
+		].
+	(self estaMuerto: segundoBando) ifTrue: [
+		^segundoBando average: [:combatiente | ^combatiente  vidaActual ]
+		].! !
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:47:26' prior: 50530301!
+estaMuerto
+	^self vida = 0. ! !
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:48:17' prior: 50530868!
+test10_promedioVidaGanador
+	|bando1 bando2 combate |	
+	
+	bando1 := {Combatiente new. Combatiente new.}.
+	bando2 := {Combatiente new. }.
+	combate := Combate entre: bando1 y: bando2.
+	
+	combate desarollar . 	
+	
+	self assert: combate promedioVidaGanador = 16.! !
+
+!testRun: #CombateTest #test10_promedioVidaGanador stamp: 'mg 3/25/2024 16:48:31'!
+ERROR!
+!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:48:48' prior: 50531047!
+estaMuerto
+	^self vidaActual = 0. ! !
+
+!testRun: #CombateTest #test10_promedioVidaGanador stamp: 'mg 3/25/2024 16:48:53'!
+FAILURE!
+!Combate methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:49:26' prior: 50531036!
+promedioVidaGanador
+
+	(self estaMuerto: primerBando) ifTrue: [
+		^segundoBando average: [:combatiente | ^combatiente  vidaActual ]
+		].
+	(self estaMuerto: segundoBando) ifTrue: [
+		^primerBando average: [:combatiente | ^combatiente  vidaActual ]
+		].! !
+
+!testRun: #CombateTest #test10_promedioVidaGanador stamp: 'mg 3/25/2024 16:49:31'!
+PASSED!
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 3/25/2024 16:49:31'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/25/2024 16:49:31'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/25/2024 16:49:31'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerteCombatienteBando2 stamp: 'mg 3/25/2024 16:49:31'!
+PASSED!
+
+!testRun: #CombateTest #test05_combatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/25/2024 16:49:31'!
+PASSED!
+
+!testRun: #CombateTest #test06_combateTerminaCuandoTodosLosDeUnBandoMueren stamp: 'mg 3/25/2024 16:49:31'!
+PASSED!
+
+!testRun: #CombateTest #test07_finalizaCuandoMuereAlgunBando stamp: 'mg 3/25/2024 16:49:31'!
+PASSED!
+
+!testRun: #CombateTest #test08_obtenerRondas stamp: 'mg 3/25/2024 16:49:31'!
+PASSED!
+
+!testRun: #CombateTest #test09_obtenerGanador stamp: 'mg 3/25/2024 16:49:32'!
+PASSED!
+
+!testRun: #CombateTest #test10_promedioVidaGanador stamp: 'mg 3/25/2024 16:49:32'!
+PASSED!
+!Combate methodsFor: 'nil' stamp: 'mg 3/25/2024 16:51:01'!
+ganador
+	! !
+!Combate methodsFor: 'public' stamp: 'mg 3/25/2024 16:51:22' prior: 50530813!
+desarollar
+	[ (self estaMuerto: primerBando	)	| (self estaMuerto: segundoBando)	] 
+		whileFalse: [
+			self desarollarRonda.
+			rondas := rondas +1
+		].
+
+	^self ganador
+	
+	! !
+!Combate methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:51:45' prior: 50531115!
+ganador
+	(self estaMuerto: primerBando	)
+		ifTrue: [^segundoBando ].
+		
+	(self estaMuerto: primerBando	)
+		ifTrue: [^primerBando ]		! !
+!Combate methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:51:58' prior: 50531127!
+ganador
+	(self estaMuerto: primerBando	)
+		ifTrue: [^segundoBando ].
+		
+	(self estaMuerto: segundoBando	)
+		ifTrue: [^primerBando ]		! !
+!Combate methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:52:28' prior: 50531072!
+promedioVidaGanador
+	^self ganador average: [:combatiente | ^combatiente  vidaActual ]! !
+!Combate methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:52:58' prior: 50531143!
+promedioVidaGanador
+	
+	self ganador = nil ifTrue: [^self].
+
+	^self ganador average: [:combatiente | ^combatiente  vidaActual ]! !
+!Combate methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:53:27' prior: 50531149!
+promedioVidaGanador
+	
+	self ganador = nil ifTrue: [^self].
+	^self ganador average: [:combatiente | ^combatiente  vidaActual ]! !
+!Combate methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:53:32' prior: 50531156!
+promedioVidaGanador
+	
+	self ganador = nil ifTrue: [^self].
+	
+	^self ganador average: [:combatiente | ^combatiente  vidaActual ]! !
+
+!testRun: #CombatientesTest #test_11_ObtenerVida stamp: 'mg 3/25/2024 16:53:38'!
+PASSED!
+
+!testRun: #CombatientesTest #test01PuedoDefinirleUnaEstrategiaADavid stamp: 'mg 3/25/2024 16:53:38'!
+PASSED!
+
+!testRun: #CombatientesTest #test02EnfocarseEnElMasSanoAtacaAlMenosDañado stamp: 'mg 3/25/2024 16:53:39'!
+PASSED!
+
+!testRun: #CombatientesTest #test03EnfocarseEnElMasSanoAtacaAlMenosDañadoNoImportaElOrden stamp: 'mg 3/25/2024 16:53:39'!
+PASSED!
+
+!testRun: #CombatientesTest #test04EnfocarseEnElMasHeridoAtacaAlMasDañado stamp: 'mg 3/25/2024 16:53:39'!
+PASSED!
+
+!testRun: #CombatientesTest #test05NoSeEnfocaSiEstaMuerto stamp: 'mg 3/25/2024 16:53:39'!
+PASSED!
+
+!testRun: #CombatientesTest #test_01_GoliatEmpiezaSano stamp: 'mg 3/25/2024 16:53:39'!
+PASSED!
+
+!testRun: #CombatientesTest #test_02_GoliatNoEstaSanoSiRecibeDaño stamp: 'mg 3/25/2024 16:53:39'!
+PASSED!
+
+!testRun: #CombatientesTest #test_03_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/25/2024 16:53:39'!
+PASSED!
+
+!testRun: #CombatientesTest #test_04_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/25/2024 16:53:39'!
+PASSED!
+
+!testRun: #CombatientesTest #test_05_GoliatPuedeRecibirDañoMultiplesVeces stamp: 'mg 3/25/2024 16:53:39'!
+PASSED!
+
+!testRun: #CombatientesTest #test_06_DavidPuedeAtacarAAlguien stamp: 'mg 3/25/2024 16:53:39'!
+PASSED!
+
+!testRun: #CombatientesTest #test_07_DavidPuedeAtacarEnemigosAsignados stamp: 'mg 3/25/2024 16:53:39'!
+PASSED!
+
+!testRun: #CombatientesTest #test_08_DavidNoAtacaAUnEnemigoNoAsignado stamp: 'mg 3/25/2024 16:53:39'!
+PASSED!
+
+!testRun: #CombatientesTest #test_09_MuereCuandoRecibe20DeDaño stamp: 'mg 3/25/2024 16:53:39'!
+PASSED!
+
+!testRun: #CombatientesTest #test_10_NoAtacaSiEstaMuerto stamp: 'mg 3/25/2024 16:53:39'!
+PASSED!
+
+!testRun: #CombatientesTest #test_11_ObtenerVida stamp: 'mg 3/25/2024 16:53:39'!
+PASSED!
