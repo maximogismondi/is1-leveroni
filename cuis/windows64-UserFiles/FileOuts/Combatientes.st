@@ -370,6 +370,61 @@ test05NoSeEnfocaSiEstaMuerto
 ! !
 
 
+!classDefinition: #MagoTest category: #Combatientes!
+TestCase subclass: #MagoTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Combatientes'!
+
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:50:54'!
+test_01_magoAtacaALos6MasSanos
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := Array new: 7.
+	
+	enemigos at: 1 put: Humano new.
+	2 to: 7 do: [:i | enemigos at: i put: Ogro new].
+
+	mago asignarEnemigos: enemigos.
+	
+	mago atacar.
+	
+	self assert: (enemigos at: 1) estaSano.
+	2 to: 7 do: [:indice | self deny: (enemigos at: indice) estaSano].! !
+
+
+!classDefinition: #OgroTest category: #Combatientes!
+TestCase subclass: #OgroTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Combatientes'!
+
+!OgroTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:00:49'!
+test01_hace8DeDaño
+	| humano ogro |
+	ogro := Ogro new.
+	humano := Humano new.
+	
+	ogro asignarEnemigos: {humano}.
+	ogro atacar.
+	
+	self assert: humano dañoRecibido = 8
+	
+	! !
+
+!OgroTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:02:45'!
+test02_tiene40PuntosDeVida
+	| ogro |
+	ogro := Ogro new.
+	
+	self assert: ogro vidaActual = 40
+	
+	! !
+
+
 !classDefinition: #Combate category: #Combatientes!
 Object subclass: #Combate
 	instanceVariableNames: 'primerBando segundoBando rondas'
@@ -505,7 +560,7 @@ initialize
 recibirDaño: unaCantidadDeDaño
 	dañoRecibido := dañoRecibido + unaCantidadDeDaño.! !
 
-!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:46:38'!
+!Combatiente methodsFor: 'public' stamp: 'mg 3/26/2024 21:03:29'!
 vidaActual
 	^20 - self dañoRecibido! !
 
@@ -570,6 +625,77 @@ initialize
 recibirDaño: unaCantidadDeDaño
 	dañoRecibido := dañoRecibido + unaCantidadDeDaño.! !
 
-!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:46:38'!
+!Combatiente methodsFor: 'public' stamp: 'mg 3/26/2024 21:03:29'!
 vidaActual
 	^20 - self dañoRecibido! !
+
+
+!classDefinition: #Humano category: #Combatientes!
+Combatiente subclass: #Humano
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Combatientes'!
+
+
+!classDefinition: #Mago category: #Combatientes!
+Combatiente subclass: #Mago
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Combatientes'!
+
+!Mago methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:37:20'!
+atacar
+	| victimasElegidas |
+	self estaMuerto ifTrue: [^self].
+	
+	victimasElegidas := self elegirVictima.
+	(victimasElegidas isEmpty) ifTrue: [^self].
+
+	victimasElegidas do: [:victimaElegida | self atacarA: victimaElegida]
+! !
+
+!Mago methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:24:48'!
+initialize
+	enemigos := #().
+	dañoRecibido := 0.
+	self enfocarseEnLos6MasSanos.! !
+
+
+!Mago methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:37:20'!
+atacar
+	| victimasElegidas |
+	self estaMuerto ifTrue: [^self].
+	
+	victimasElegidas := self elegirVictima.
+	(victimasElegidas isEmpty) ifTrue: [^self].
+
+	victimasElegidas do: [:victimaElegida | self atacarA: victimaElegida]
+! !
+
+!Mago methodsFor: '-- all --' stamp: 'mg 3/26/2024 21:32:47'!
+enfocarseEnLos6MasSanos
+	estrategia := [:candidatos | 		(candidatos sort: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual]) first: 6.		]! !
+
+!Mago methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:24:48'!
+initialize
+	enemigos := #().
+	dañoRecibido := 0.
+	self enfocarseEnLos6MasSanos.! !
+
+
+!classDefinition: #Ogro category: #Combatientes!
+Combatiente subclass: #Ogro
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Combatientes'!
+
+!Ogro methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:01:32'!
+atacarA: unCombatiente
+	unCombatiente recibirDaño: 8.! !
+
+!Ogro methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:03:48'!
+vidaActual
+	^40 - self dañoRecibido! !

@@ -4187,3 +4187,714 @@ PASSED!
 
 !testRun: #CombatientesTest #test_11_ObtenerVida stamp: 'mg 3/25/2024 16:53:39'!
 PASSED!
+
+----STARTUP---- (26 March 2024 20:57:34) as C:\GITHUB\is1-leveroni\cuis\windows64\CuisUniversity-6169.image!
+
+
+----End fileIn of C:\GITHUB\is1-leveroni\ejs\combatientes\Combatientes.st----!
+
+TestCase subclass: #OgroTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Combatientes'!
+
+!classDefinition: #OgroTest category: #Combatientes stamp: 'mg 3/26/2024 21:00:42'!
+TestCase subclass: #OgroTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Combatientes'!
+
+!classDefinition: #Ogro category: #Combatientes stamp: 'mg 3/26/2024 21:01:08'!
+Combatiente subclass: #Ogro
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Combatientes'!
+
+!classDefinition: #Humano category: #Combatientes stamp: 'mg 3/26/2024 21:01:16'!
+Combatiente subclass: #Humano
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Combatientes'!
+!OgroTest methodsFor: 'nil' stamp: 'mg 3/26/2024 21:00:49'!
+test01_hace8DeDaño
+	| humano ogro |
+	ogro := Ogro new.
+	humano := Humano new.
+	
+	ogro asignarEnemigos: {humano}.
+	ogro atacar.
+	
+	self assert: humano dañoRecibido = 8
+	
+	! !
+!Ogro methodsFor: 'nil' stamp: 'mg 3/26/2024 21:01:32' overrides: 50528055!
+atacarA: unCombatiente
+	unCombatiente recibirDaño: 8.! !
+
+!testRun: #OgroTest #test01_hace8DeDaño stamp: 'mg 3/26/2024 21:01:38'!
+PASSED!
+
+!testRun: #OgroTest #test01_hace8DeDaño stamp: 'mg 3/26/2024 21:01:38'!
+PASSED!
+!OgroTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:02:06'!
+test02_tiene40PuntosDeVida
+	| ogro |
+	ogro := Ogro new.
+	
+	self assert: ogro 
+	
+	! !
+!OgroTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:02:37' prior: 50528160!
+test02_tiene40PuntosDeVida
+	| ogro |
+	ogro := Ogro new.
+	
+	self assert: ogro vidaActual  = 40
+	
+	! !
+
+!testRun: #OgroTest #test02_tiene40PuntosDeVida stamp: 'mg 3/26/2024 21:02:38'!
+FAILURE!
+!OgroTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:02:45' prior: 50528166!
+test02_tiene40PuntosDeVida
+	| ogro |
+	ogro := Ogro new.
+	
+	self assert: ogro vidaActual = 40
+	
+	! !
+
+!testRun: #OgroTest #test02_tiene40PuntosDeVida stamp: 'mg 3/26/2024 21:02:45'!
+FAILURE!
+!Combatiente methodsFor: 'public' stamp: 'mg 3/26/2024 21:03:19' prior: 50528112!
+vidaActual
+	^40 - self dañoRecibido! !
+!Combatiente methodsFor: 'public' stamp: 'mg 3/26/2024 21:03:29' prior: 50528184!
+vidaActual
+	^20 - self dañoRecibido! !
+!Ogro methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:03:48' overrides: 50528188!
+vidaActual
+	^40 - self dañoRecibido! !
+
+!testRun: #OgroTest #test02_tiene40PuntosDeVida stamp: 'mg 3/26/2024 21:03:52'!
+PASSED!
+
+!testRun: #OgroTest #test01_hace8DeDaño stamp: 'mg 3/26/2024 21:03:52'!
+PASSED!
+
+!testRun: #OgroTest #test02_tiene40PuntosDeVida stamp: 'mg 3/26/2024 21:03:52'!
+PASSED!
+
+TestCase subclass: #MagoTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Combatientes'!
+
+!classDefinition: #MagoTest category: #Combatientes stamp: 'mg 3/26/2024 21:04:42'!
+TestCase subclass: #MagoTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Combatientes'!
+
+!classDefinition: #Mago category: #Combatientes stamp: 'mg 3/26/2024 21:12:54'!
+Combatiente subclass: #Mago
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Combatientes'!
+!MagoTest methodsFor: 'nil' stamp: 'mg 3/26/2024 21:12:43'!
+test_01_magoAtacaALos6MasSanos
+	| enemigos humanos mago ogros |
+	mago := Mago new.
+	
+	humanos := Array new: 6.
+	6 timesRepeat: [humanos add: Humano new].
+	
+	ogros := {Ogro new}.
+	
+	enemigos := Array new: 7.
+	humanos do: [:humano | enemigos add: humano].
+	ogros do: [:ogro | enemigos add: ogro].
+	
+	mago asignarEnemigos: enemigos.
+	
+	ogros do: [:ogro | self assert: ogro estaSano]
+	humanos do: [:humano | self deny: humano estaSano]! !
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:13:21'!
+ERROR!
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:14:26' prior: 50528222!
+test_01_magoAtacaALos6MasSanos
+	| enemigos humanos mago ogros |
+	mago := Mago new.
+	
+	humanos := {Humano new. Humano new. Humano new. Humano new. Humano new. Humano new}.
+	ogros := {Ogro new}.
+	
+	enemigos := Array new: 7.
+	humanos do: [:humano | enemigos add: humano].
+	ogros do: [:ogro | enemigos add: ogro].
+	
+	mago asignarEnemigos: enemigos.
+	
+	ogros do: [:ogro | self assert: ogro estaSano]
+	humanos do: [:humano | self deny: humano estaSano]! !
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:14:27'!
+ERROR!
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:17:56' prior: 50528242!
+test_01_magoAtacaALos6MasSanos
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := {Ogro new. Humano new. Humano new. Humano new. Humano new. Humano new. Humano new}.
+	
+	mago asignarEnemigos: enemigos.
+	
+	self assert: enemigos first estaSano.
+	6 timesRepeat: [:i | self assert: (enemigos at:i+1  estaSano)]! !
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:19:30' prior: 50528262!
+test_01_magoAtacaALos6MasSanos
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := {Ogro new. Humano new. Humano new. Humano new. Humano new. Humano new. Humano new}.
+	
+	mago asignarEnemigos: enemigos.
+	
+	self assert: enemigos first estaSano.
+	1 to: 7 do: [:i | 
+        self assert: (enemigos at: i) estaSano].! !
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:20:07' prior: 50528275!
+test_01_magoAtacaALos6MasSanos
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := (Array new: 7) 
+        		at: 1 put: Ogro new; 
+	        atAll: (2 to: 7) put: Humano new; 
+	        yourself.
+	
+	mago asignarEnemigos: enemigos.
+	
+	self assert: enemigos first estaSano.
+	1 to: 7 do: [:i | 
+        self assert: (enemigos at: i) estaSano].! !
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:20:10'!
+PASSED!
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:20:10'!
+PASSED!
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:20:59' prior: 50528288!
+test_01_magoAtacaALos6MasSanos
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := (Array new: 7) 
+        		at: 1 put: Ogro new; 
+	        atAll: (2 to: 7) put: Humano new; 
+	        yourself.
+	
+	mago asignarEnemigos: enemigos.
+	
+	self assert: (enemigos at: 1) estaSano.
+	
+	2 to: 7 do: [:i | 
+	        self assert: (enemigos at: i) estaSano].! !
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:21:07' prior: 50528308!
+test_01_magoAtacaALos6MasSanos
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := (Array new: 7) 
+        		at: 1 put: Ogro new; 
+	        atAll: (2 to: 7) put: Humano new; 
+	        yourself.
+	
+	mago asignarEnemigos: enemigos.
+	
+	self assert: (enemigos at: 1) estaSano.
+	
+	2 to: 7 do: [:i | self assert: (enemigos at: i) estaSano].! !
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:21:37' prior: 50528322!
+test_01_magoAtacaALos6MasSanos
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := (Array new: 7) 
+        		at: 1 put: Ogro new; 
+	        atAll: (2 to: 7) put: Humano new; 
+	        yourself.
+	
+	mago asignarEnemigos: enemigos.
+	
+	self assert: (enemigos at: 1) estaSano.
+	2 to: 7 do: [:indice | self assert: (enemigos at: indice) estaSano].! !
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:21:38'!
+PASSED!
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:21:38'!
+PASSED!
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:21:47' prior: 50528336!
+test_01_magoAtacaALos6MasSanos
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := (Array new: 7) 
+        		at: 1 put: Ogro new; 
+	        atAll: (2 to: 7) put: Humano new; 
+	        yourself.
+	
+	mago asignarEnemigos: enemigos.
+	
+	self assert: (enemigos at: 1) estaSano.
+	2 to: 7 do: [:indice | self deny: (enemigos at: indice) estaSano].! !
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:21:48'!
+FAILURE!
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:21:58' prior: 50528356!
+test_01_magoAtacaALos6MasSanos
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := (Array new: 7) 
+        		at: 1 put: Ogro new; 
+	        atAll: (2 to: 7) put: Humano new; 
+	        yourself.
+	
+	mago asignarEnemigos: enemigos.
+	
+	mago atacar
+	
+	self assert: (enemigos at: 1) estaSano.
+	2 to: 7 do: [:indice | self deny: (enemigos at: indice) estaSano].! !
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:22:01' prior: 50528373!
+test_01_magoAtacaALos6MasSanos
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := (Array new: 7) 
+        		at: 1 put: Ogro new; 
+	        atAll: (2 to: 7) put: Humano new; 
+	        yourself.
+	
+	mago asignarEnemigos: enemigos.
+	
+	mago atacar.
+	
+	self assert: (enemigos at: 1) estaSano.
+	2 to: 7 do: [:indice | self deny: (enemigos at: indice) estaSano].! !
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:22:01'!
+FAILURE!
+!Mago methodsFor: 'nil' stamp: 'mg 3/26/2024 21:22:48' overrides: 50528100!
+initialize
+	! !
+!Mago methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:23:29' prior: 50528405 overrides: 50528100!
+initialize
+	enemigos := #().
+	dañoRecibido := 0.
+	self enfocarseEnElMasSano.! !
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerteCombatienteBando2 stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombateTest #test05_combatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombateTest #test06_combateTerminaCuandoTodosLosDeUnBandoMueren stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombateTest #test07_finalizaCuandoMuereAlgunBando stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombateTest #test08_obtenerRondas stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombateTest #test09_obtenerGanador stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombateTest #test10_promedioVidaGanador stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombatientesTest #test01PuedoDefinirleUnaEstrategiaADavid stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombatientesTest #test02EnfocarseEnElMasSanoAtacaAlMenosDañado stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombatientesTest #test03EnfocarseEnElMasSanoAtacaAlMenosDañadoNoImportaElOrden stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombatientesTest #test04EnfocarseEnElMasHeridoAtacaAlMasDañado stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombatientesTest #test05NoSeEnfocaSiEstaMuerto stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombatientesTest #test_01_GoliatEmpiezaSano stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombatientesTest #test_02_GoliatNoEstaSanoSiRecibeDaño stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombatientesTest #test_03_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombatientesTest #test_04_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/26/2024 21:23:29'!
+PASSED!
+
+!testRun: #CombatientesTest #test_05_GoliatPuedeRecibirDañoMultiplesVeces stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_06_DavidPuedeAtacarAAlguien stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_07_DavidPuedeAtacarEnemigosAsignados stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_08_DavidNoAtacaAUnEnemigoNoAsignado stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_09_MuereCuandoRecibe20DeDaño stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_10_NoAtacaSiEstaMuerto stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_11_ObtenerVida stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:23:30'!
+FAILURE!
+
+!testRun: #OgroTest #test01_hace8DeDaño stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #OgroTest #test02_tiene40PuntosDeVida stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:23:30'!
+FAILURE!
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerteCombatienteBando2 stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombateTest #test05_combatienteBando1ViveSiMatoAlBando2 stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombateTest #test06_combateTerminaCuandoTodosLosDeUnBandoMueren stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombateTest #test07_finalizaCuandoMuereAlgunBando stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombateTest #test08_obtenerRondas stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombateTest #test09_obtenerGanador stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombateTest #test10_promedioVidaGanador stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test01PuedoDefinirleUnaEstrategiaADavid stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test02EnfocarseEnElMasSanoAtacaAlMenosDañado stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test03EnfocarseEnElMasSanoAtacaAlMenosDañadoNoImportaElOrden stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test04EnfocarseEnElMasHeridoAtacaAlMasDañado stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test05NoSeEnfocaSiEstaMuerto stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_01_GoliatEmpiezaSano stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_02_GoliatNoEstaSanoSiRecibeDaño stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_03_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_04_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_05_GoliatPuedeRecibirDañoMultiplesVeces stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_06_DavidPuedeAtacarAAlguien stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_07_DavidPuedeAtacarEnemigosAsignados stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_08_DavidNoAtacaAUnEnemigoNoAsignado stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_09_MuereCuandoRecibe20DeDaño stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_10_NoAtacaSiEstaMuerto stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #CombatientesTest #test_11_ObtenerVida stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:23:30'!
+FAILURE!
+
+!testRun: #OgroTest #test01_hace8DeDaño stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #OgroTest #test02_tiene40PuntosDeVida stamp: 'mg 3/26/2024 21:23:30'!
+PASSED!
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:23:30'!
+FAILURE!
+!Mago methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:24:48' prior: 50528409 overrides: 50528100!
+initialize
+	enemigos := #().
+	dañoRecibido := 0.
+	self enfocarseEnLos6MasSanos.! !
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:26:01'!
+ERROR!
+!Mago methodsFor: '-- all --' stamp: 'mg 3/26/2024 21:26:16'!
+enfocarseEnLos6MasSanos
+	self shouldBeImplemented.! !
+!Mago methodsFor: '-- all --' stamp: 'mg 3/26/2024 21:26:51' prior: 50528616!
+enfocarseEnLos6MasSanos
+	estrategia := [
+		]! !
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:27:07' prior: 50528388!
+test_01_magoAtacaALos6MasSanos
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := (Array new: 7) 
+        		at: 1 put: Humano new; 
+	        atAll: (2 to: 7) put: Ogro new; 
+	        yourself.
+	
+	mago asignarEnemigos: enemigos.
+	
+	mago atacar.
+	
+	self assert: (enemigos at: 1) estaSano.
+	2 to: 7 do: [:indice | self deny: (enemigos at: indice) estaSano].! !
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:28:28' prior: 50528626!
+test_01_magoAtacaALos6MasSanos
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := (Array new: 7) 
+        		at: 1 put: Humano new; 
+	        atAll: (2 to: 7) put: Ogro new; 
+	        yourself.
+	
+	mago asignarEnemigos: enemigos.
+	
+	mago atacar.
+	
+	self assert: (enemigos at: 1) estaSano.
+	2 to: 7 do: [:indice | self deny: (enemigos at: indice) estaSano].! !
+!Mago methodsFor: '-- all --' stamp: 'mg 3/26/2024 21:30:11' prior: 50528621!
+enfocarseEnLos6MasSanos
+	estrategia := [
+		^(enemigos sort: [:combatiente1 :combatiente2 | combatiente1 vidaActual > combatiente2 vidaActual]) first: 6.
+		]! !
+!Mago methodsFor: '-- all --' stamp: 'mg 3/26/2024 21:30:50' prior: 50528655!
+enfocarseEnLos6MasSanos
+	estrategia := [
+		^(enemigos sort: [:combatiente1 :combatiente2 | combatiente1 vidaActual > combatiente2 vidaActual]) first: 6.
+		]! !
+!Mago methodsFor: '-- all --' stamp: 'mg 3/26/2024 21:30:55' prior: 50528663!
+enfocarseEnLos6MasSanos
+	estrategia := [
+		
+		^(enemigos sort: [:combatiente1 :combatiente2 | combatiente1 vidaActual > combatiente2 vidaActual]) first: 6.
+		
+		]! !
+!Mago methodsFor: '-- all --' stamp: 'mg 3/26/2024 21:30:59' prior: 50528671!
+enfocarseEnLos6MasSanos
+	estrategia := [
+		^(enemigos sort: [:combatiente1 :combatiente2 | combatiente1 vidaActual > combatiente2 vidaActual]) first: 6.
+		]! !
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:31:07'!
+ERROR!
+!Mago methodsFor: '-- all --' stamp: 'mg 3/26/2024 21:31:56' prior: 50528679!
+enfocarseEnLos6MasSanos
+	estrategia := [:enemigos2 |
+		^(enemigos2 sort: [:combatiente1 :combatiente2 | combatiente1 vidaActual > combatiente2 vidaActual]) first: 6.
+		]! !
+!Mago methodsFor: '-- all --' stamp: 'mg 3/26/2024 21:32:27' prior: 50528690!
+enfocarseEnLos6MasSanos
+	estrategia := [:candidatos | 		^(candidatos sort: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual]) first: 6.		]! !
+!Mago methodsFor: '-- all --' stamp: 'mg 3/26/2024 21:32:47' prior: 50528698!
+enfocarseEnLos6MasSanos
+	estrategia := [:candidatos | 		(candidatos sort: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual]) first: 6.		]! !
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:33:25'!
+ERROR!
+!Mago methodsFor: 'nil' stamp: 'mg 3/26/2024 21:35:03' overrides: 50528046!
+atacar
+	| victimaElegida |
+	self estaMuerto ifTrue: [^self].
+	
+	victimaElegida := self elegirVictima.
+	(victimaElegida == nil) ifTrue: [^self].
+
+	self atacarA: victimaElegida.
+! !
+!Mago methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:35:55' prior: 50528717 overrides: 50528046!
+atacar
+	| victimasElegidas |
+	self estaMuerto ifTrue: [^self].
+	
+	victimasElegidas := self elegirVictima.
+	(victimasElegidas == nil) ifTrue: [^self].
+
+	victimasElegidas do: [:victimaElegida | self atacarA: victimaElegida]
+! !
+!Mago methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:37:20' prior: 50528726 overrides: 50528046!
+atacar
+	| victimasElegidas |
+	self estaMuerto ifTrue: [^self].
+	
+	victimasElegidas := self elegirVictima.
+	(victimasElegidas isEmpty) ifTrue: [^self].
+
+	victimasElegidas do: [:victimaElegida | self atacarA: victimaElegida]
+! !
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:38:07'!
+FAILURE!
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:39:16' prior: 50528641!
+test_01_magoAtacaALos6MasSanos
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := (Array new: 7) 
+        		at: 1 put: Humano new; 
+	        atAll: (2 to: 7) put: Ogro new; 
+	        yourself.
+	
+	mago asignarEnemigos: enemigos.
+	
+	mago atacar.
+	
+	self assert: (enemigos at: 0) estaSano.
+	1 to: 6 do: [:indice | self deny: (enemigos at: indice) estaSano].! !
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:39:17'!
+ERROR!
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:42:10' prior: 50528750!
+test_01_magoAtacaALos6MasSanos
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := Array new: 7.
+	
+	enemigos at: 1 put: Ogro new.
+	
+	2 to: 7 do: [:i | enemigos at: i put: Humano new].
+
+	
+	mago asignarEnemigos: enemigos.
+	
+	mago atacar.
+	
+	self assert: (enemigos at: 1) estaSano.
+	2 to: 7 do: [:indice | self deny: (enemigos at: indice) estaSano].! !
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:42:12' prior: 50528767!
+test_01_magoAtacaALos6MasSanos
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := Array new: 7.
+	
+	enemigos at: 1 put: Ogro new.
+	2 to: 7 do: [:i | enemigos at: i put: Humano new].
+
+	
+	mago asignarEnemigos: enemigos.
+	
+	mago atacar.
+	
+	self assert: (enemigos at: 1) estaSano.
+	2 to: 7 do: [:indice | self deny: (enemigos at: indice) estaSano].! !
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:42:13'!
+FAILURE!
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:42:36'!
+FAILURE!
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:50:51' prior: 50528781!
+test_01_magoAtacaALos6MasSanos
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := Array new: 7.
+	
+	enemigos at: 1 put: Humano new.
+	2 to: 7 do: [:i | enemigos at: i put: Ogro new].
+
+	
+	mago asignarEnemigos: enemigos.
+	
+	mago atacar.
+	
+	self assert: (enemigos at: 1) estaSano.
+	2 to: 7 do: [:indice | self deny: (enemigos at: indice) estaSano].! !
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:50:54' prior: 50528801!
+test_01_magoAtacaALos6MasSanos
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := Array new: 7.
+	
+	enemigos at: 1 put: Humano new.
+	2 to: 7 do: [:i | enemigos at: i put: Ogro new].
+
+	mago asignarEnemigos: enemigos.
+	
+	mago atacar.
+	
+	self assert: (enemigos at: 1) estaSano.
+	2 to: 7 do: [:indice | self deny: (enemigos at: indice) estaSano].! !
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:50:55'!
+FAILURE!
