@@ -4898,3 +4898,905 @@ test_01_magoAtacaALos6MasSanos
 
 !testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 3/26/2024 21:50:55'!
 FAILURE!
+
+----STARTUP---- (4 April 2024 14:46:23) as C:\GITHUB\is1-leveroni\cuis\windows64\CuisUniversity-6169.image!
+
+
+----End fileIn of C:\Users\mgismondi\Downloads\Combatientes_refactor2.st----!
+
+----STARTUP---- (5 April 2024 08:45:54) as C:\GITHUB\is1-leveroni\cuis\windows64\CuisUniversity-6169.image!
+
+
+----End fileIn of C:\Users\mgismondi\Downloads\Combatiente_refactor3.st----!
+
+Object subclass: #Combatiente
+	instanceVariableNames: 'enemigos estrategia dañoRecibido vidaActual dañoAProvocar'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Combatientes'!
+
+!classDefinition: #Combatiente category: #Combatientes stamp: 'mg 4/5/2024 08:47:31'!
+Object subclass: #Combatiente
+	instanceVariableNames: 'enemigos estrategia dañoRecibido vidaActual dañoAProvocar'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Combatientes'!
+!Combatiente methodsFor: 'accessing' stamp: 'mg 4/5/2024 08:47:56' prior: 50530212!
+recibirDaño: unaCantidadDeDaño
+	dañoRecibido := dañoRecibido + unaCantidadDeDaño.
+	vidaActual := vidaActual - unaCantidadDeDaño.! !
+!Combatiente methodsFor: 'private' stamp: 'mg 4/5/2024 08:48:12' prior: 50530219!
+vidaActual
+	^vidaActual. ! !
+!Combatiente methodsFor: 'comparing' stamp: 'mg 4/5/2024 08:48:32' prior: 50530199!
+estaMuerto
+	^vidaActual = 0. ! !
+!Combatiente methodsFor: 'comparing' stamp: 'mg 4/5/2024 08:48:41' prior: 50530203!
+estaSano
+	^dañoRecibido = 0.! !
+!Ogro methodsFor: 'initialization' stamp: 'mg 4/5/2024 08:48:58' prior: 50530445 overrides: 50530208!
+initialize
+	enemigos := #().
+	dañoRecibido := 0. 
+	vidaActual := 40.
+	dañoAProvocar := 8.
+	self enfocarseEnElMasSano.! !
+!Mago methodsFor: 'initialization' stamp: 'mg 4/5/2024 08:49:02' prior: 50530372 overrides: 50530208!
+initialize
+	enemigos := #().
+	dañoRecibido := 0. 
+	vidaActual := 20.	
+	dañoAProvocar := 2.
+	self enfocarseEnLos6MasSanos.! !
+!Humano methodsFor: 'initialization' stamp: 'mg 4/5/2024 08:49:05' prior: 50530311 overrides: 50530208!
+initialize
+	enemigos := #().
+	dañoRecibido := 0.
+	vidaActual := 20.
+	dañoAProvocar := 4.
+	self enfocarseEnElMasSano.! !
+!Hostigador methodsFor: 'initialization' stamp: 'mg 4/5/2024 08:49:12' prior: 50530293 overrides: 50530208!
+initialize
+	enemigos := #().
+	dañoRecibido := 0.
+	vidaActual := 20.
+	dañoAProvocar := 4.
+	self enfocarseEnElMasSano. 
+
+! !
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 08:50:32' prior: 50530243!
+alternarEnfoque
+
+	(estrategiaActual  =  #atacarAlMasSano ) 
+		ifTrue: [self enfocarseEnElMasHerido.] 
+		ifFalse:  [self enfocarseEnElMasSano.].
+	! !
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 08:50:33' prior: 50530520!
+alternarEnfoque
+
+	(estrategiaActual  =  #atacarAlMasSano ) 
+		ifTrue: [self enfocarseEnElMasHerido.]
+		ifFalse:  [self enfocarseEnElMasSano.].
+	! !
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 08:50:35' prior: 50530528!
+alternarEnfoque
+
+	(estrategiaActual  =  #atacarAlMasSano )
+		ifTrue: [self enfocarseEnElMasHerido.]
+		ifFalse:  [self enfocarseEnElMasSano.].
+	! !
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 08:50:37' prior: 50530536!
+alternarEnfoque
+
+	(estrategiaActual  =  #atacarAlMasSano)
+		ifTrue: [self enfocarseEnElMasHerido.]
+		ifFalse:  [self enfocarseEnElMasSano.].
+	! !
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 08:52:38' prior: 50530250!
+enfocarseEnElMasHerido
+	estrategiaActual := #atacarAlMasHerido.
+	
+	estrategia := [:candidatos | |candidatosFiltrados|
+			 		candidatosFiltrados := candidatos select: [:candidato | candidato estaMuerto not ].
+					candidatosFiltrados isEmpty ifTrue:[ candidatosFiltrados ].
+					
+					(candidatosFiltrados 
+						sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual < candidatos2 vidaActual])
+						first: 1.] 
+					
+! !
+
+!testRun: #HostigadorTest #test01_HostigadorAtacaAlMasSano stamp: 'mg 4/5/2024 08:52:39'!
+PASSED!
+
+!testRun: #HostigadorTest #test02_HostigadorAtacaAlMasSanoAlternaEstrategiaYAtacaAlMasHerido stamp: 'mg 4/5/2024 08:52:39'!
+PASSED!
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 08:52:46' prior: 50530552!
+enfocarseEnElMasHerido
+	estrategiaActual := #atacarAlMasHerido.
+	
+	estrategia := [:candidatos | |candidatosFiltrados|
+			 		candidatosFiltrados := candidatos select: [:candidato | candidato estaMuerto not ].					
+					(candidatosFiltrados 
+						sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual < candidatos2 vidaActual])
+						first: 1.] 
+					
+! !
+
+!testRun: #HostigadorTest #test01_HostigadorAtacaAlMasSano stamp: 'mg 4/5/2024 08:52:46'!
+PASSED!
+
+!testRun: #HostigadorTest #test02_HostigadorAtacaAlMasSanoAlternaEstrategiaYAtacaAlMasHerido stamp: 'mg 4/5/2024 08:52:46'!
+PASSED!
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 08:52:56' prior: 50530576!
+enfocarseEnElMasHerido
+	estrategiaActual := #atacarAlMasHerido.
+	
+	estrategia := [:candidatos | |candidatosFiltrados|
+			 		candidatosFiltrados := candidatos select: [:candidato | candidato estaMuerto not ].					
+					(candidatosFiltrados sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual < candidatos2 vidaActual])
+						first: 1.] 
+					
+! !
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 08:53:11' prior: 50530598!
+enfocarseEnElMasHerido
+	estrategiaActual := #atacarAlMasHerido.
+	
+	estrategia := [:candidatos | |candidatosFiltrados|
+			 		candidatosFiltrados := candidatos select: [:candidato | candidato estaMuerto not ].					
+					
+					(candidatosFiltrados 
+						sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual < candidatos2 vidaActual])
+						first: 1.] 
+					
+! !
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 08:53:19' prior: 50530612!
+enfocarseEnElMasHerido
+	estrategiaActual := #atacarAlMasHerido.
+	
+	estrategia := [:candidatos | |candidatosFiltrados|
+		
+			 		candidatosFiltrados := candidatos select: [:candidato | candidato estaMuerto not ].					
+					
+					(candidatosFiltrados 
+						sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual < candidatos2 vidaActual])
+						first: 1.] 
+					
+! !
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 08:53:33' prior: 50530627!
+enfocarseEnElMasHerido
+	estrategiaActual := #atacarAlMasHerido.
+	
+	estrategia := 			[:candidatos | |candidatosFiltrados|
+		
+			 		candidatosFiltrados := candidatos select: [:candidato | candidato estaMuerto not ].					
+					
+					(candidatosFiltrados 
+						sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual < candidatos2 vidaActual])
+						first: 1.
+				]
+					
+! !
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 08:53:50' prior: 50530642!
+enfocarseEnElMasHerido
+	estrategiaActual := #atacarAlMasHerido.
+	
+	estrategia := [:candidatos | |candidatosFiltrados|
+		
+			 		candidatosFiltrados := candidatos select: [:candidato | candidato estaMuerto not ].					
+					
+					(candidatosFiltrados 
+						sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual < candidatos2 vidaActual])
+						first: 1.
+				]
+					
+! !
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 08:54:22' prior: 50530269!
+enfocarseEnElMasSano
+	estrategiaActual := #atacarAlMasSano.
+	
+	estrategia := [:candidatos | |candidatosFiltrados|
+		
+			 		candidatosFiltrados := candidatos select: [:candidato | candidato estaMuerto not ].					
+					
+					(candidatosFiltrados 
+						sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual])
+						first: 1.
+				]
+! !
+
+!testRun: #HostigadorTest #test01_HostigadorAtacaAlMasSano stamp: 'mg 4/5/2024 08:54:28'!
+PASSED!
+
+!testRun: #HostigadorTest #test02_HostigadorAtacaAlMasSanoAlternaEstrategiaYAtacaAlMasHerido stamp: 'mg 4/5/2024 08:54:28'!
+PASSED!
+!Humano methodsFor: 'strategy' stamp: 'mg 4/5/2024 08:55:03' prior: 50530317!
+enfocarseEnElMasHerido
+	"estrategia := [:candidatos | (candidatos select: [:candidato | candidato estaMuerto not ]) 	detectMin: [:combatiente | combatiente vidaActual ]]."
+	
+		estrategia := [:candidatos | |candidatosFiltrados|
+		
+			 		candidatosFiltrados := candidatos select: [:candidato | candidato estaMuerto not ].					
+					
+					(candidatosFiltrados 
+						sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual < candidatos2 vidaActual])
+						first: 1.
+				]
+! !
+!Humano methodsFor: 'strategy' stamp: 'mg 4/5/2024 08:55:12' prior: 50530339!
+enfocarseEnElMasSano
+	"estrategia := [:candidatos | (candidatos select: [:candidato | candidato estaMuerto not ]) 	detectMax: [:combatiente | combatiente vidaActual]]."
+		estrategia := [:candidatos | |candidatosFiltrados|
+		
+			 		candidatosFiltrados := candidatos select: [:candidato | candidato estaMuerto not ].					
+					
+					(candidatosFiltrados 
+						sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual])
+						first: 1.
+				]
+				
+				! !
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 4/5/2024 08:56:00'!
+PASSED!
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 4/5/2024 08:56:00'!
+PASSED!
+
+!testRun: #MagoTest #test_02_magoAtacaALos6MasSanosPor2DeVida stamp: 'mg 4/5/2024 08:56:00'!
+PASSED!
+
+!testRun: #MagoTest #test_03_magoAtacaALos5Sobrevivientes stamp: 'mg 4/5/2024 08:56:00'!
+PASSED!
+
+!testRun: #MagoTest #test_04_magoNoAtacaPorqueEstanTodosSusEnemigosMuertos stamp: 'mg 4/5/2024 08:56:00'!
+PASSED!
+!Mago methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:00:30' prior: 50530378!
+enfocarseEnLos6MasSanos
+	estrategia := [:candidatos | 
+		
+		((candidatos select: [:candidato | candidato estaMuerto not ]) sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual])first: 6].
+		! !
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 4/5/2024 09:00:31'!
+PASSED!
+
+!testRun: #MagoTest #test_02_magoAtacaALos6MasSanosPor2DeVida stamp: 'mg 4/5/2024 09:00:31'!
+PASSED!
+
+!testRun: #MagoTest #test_03_magoAtacaALos5Sobrevivientes stamp: 'mg 4/5/2024 09:00:31'!
+ERROR!
+
+!testRun: #MagoTest #test_04_magoNoAtacaPorqueEstanTodosSusEnemigosMuertos stamp: 'mg 4/5/2024 09:00:31'!
+ERROR!
+!Mago methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:01:01' prior: 50530745!
+enfocarseEnLos6MasSanos
+	estrategia := [:candidatos | 
+					((candidatos select: [:candidato | candidato estaMuerto not ]) 
+					sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual])
+					first: 6
+		].
+		! !
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 4/5/2024 09:01:08'!
+PASSED!
+
+!testRun: #MagoTest #test_02_magoAtacaALos6MasSanosPor2DeVida stamp: 'mg 4/5/2024 09:01:08'!
+PASSED!
+
+!testRun: #MagoTest #test_03_magoAtacaALos5Sobrevivientes stamp: 'mg 4/5/2024 09:01:08'!
+ERROR!
+
+!testRun: #MagoTest #test_04_magoNoAtacaPorqueEstanTodosSusEnemigosMuertos stamp: 'mg 4/5/2024 09:01:08'!
+ERROR!
+
+!testRun: #MagoTest #test_03_magoAtacaALos5Sobrevivientes stamp: 'mg 4/5/2024 09:01:10'!
+ERROR!
+!Mago methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:06:39' prior: 50530768!
+enfocarseEnLos6MasSanos
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual].
+		
+		candidatosVivos size < 6 ifTrue: [^candidatosOrdenados].
+		candidatosOrdenados 		first: 6.
+		
+		].
+		! !
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:08:14' prior: 50530672!
+enfocarseEnElMasSano
+	estrategiaActual := #atacarAlMasSano.
+	
+	estrategia := [:candidatos | 
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual].
+		
+		candidatosVivos isEmpty ifTrue: [^candidatosOrdenados].
+		candidatosOrdenados 		first: 1.
+		
+	].
+! !
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:08:27' prior: 50530657!
+enfocarseEnElMasHerido
+	estrategiaActual := #atacarAlMasHerido.
+	
+	estrategia := [:candidatos | 
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual < candidatos2 vidaActual].
+		
+		candidatosVivos isEmpty ifTrue: [^candidatosOrdenados].
+		candidatosOrdenados 		first: 1.
+		
+	].
+					
+! !
+
+!testRun: #HostigadorTest #test01_HostigadorAtacaAlMasSano stamp: 'mg 4/5/2024 09:08:32'!
+PASSED!
+
+!testRun: #HostigadorTest #test02_HostigadorAtacaAlMasSanoAlternaEstrategiaYAtacaAlMasHerido stamp: 'mg 4/5/2024 09:08:32'!
+PASSED!
+
+!testRun: #MagoTest #test_02_magoAtacaALos6MasSanosPor2DeVida stamp: 'mg 4/5/2024 09:08:36'!
+PASSED!
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 4/5/2024 09:08:36'!
+PASSED!
+
+!testRun: #MagoTest #test_02_magoAtacaALos6MasSanosPor2DeVida stamp: 'mg 4/5/2024 09:08:36'!
+PASSED!
+
+!testRun: #MagoTest #test_03_magoAtacaALos5Sobrevivientes stamp: 'mg 4/5/2024 09:08:36'!
+ERROR!
+
+!testRun: #MagoTest #test_04_magoNoAtacaPorqueEstanTodosSusEnemigosMuertos stamp: 'mg 4/5/2024 09:08:36'!
+ERROR!
+
+!testRun: #MagoTest #test_03_magoAtacaALos5Sobrevivientes stamp: 'mg 4/5/2024 09:08:43'!
+ERROR!
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 4/5/2024 09:09:07'!
+PASSED!
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 4/5/2024 09:09:07'!
+PASSED!
+
+!testRun: #MagoTest #test_02_magoAtacaALos6MasSanosPor2DeVida stamp: 'mg 4/5/2024 09:09:07'!
+PASSED!
+
+!testRun: #MagoTest #test_03_magoAtacaALos5Sobrevivientes stamp: 'mg 4/5/2024 09:09:07'!
+ERROR!
+
+!testRun: #MagoTest #test_04_magoNoAtacaPorqueEstanTodosSusEnemigosMuertos stamp: 'mg 4/5/2024 09:09:07'!
+ERROR!
+
+!testRun: #MagoTest #test_03_magoAtacaALos5Sobrevivientes stamp: 'mg 4/5/2024 09:09:10'!
+ERROR!
+
+!testRun: #MagoTest #test_03_magoAtacaALos5Sobrevivientes stamp: 'mg 4/5/2024 09:10:11'!
+ERROR!
+
+!testRun: #MagoTest #test_03_magoAtacaALos5Sobrevivientes stamp: 'mg 4/5/2024 09:10:30'!
+ERROR!
+!Mago methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:34:09' prior: 50530794!
+enfocarseEnLos6MasSanos
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual].
+		
+		candidatosVivos size < 6 ifTrue: [candidatosOrdenados] ifFalse: [candidatosOrdenados first: 6]		
+		].
+		! !
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 4/5/2024 09:34:10'!
+PASSED!
+
+!testRun: #MagoTest #test_02_magoAtacaALos6MasSanosPor2DeVida stamp: 'mg 4/5/2024 09:34:10'!
+PASSED!
+
+!testRun: #MagoTest #test_03_magoAtacaALos5Sobrevivientes stamp: 'mg 4/5/2024 09:34:10'!
+PASSED!
+
+!testRun: #MagoTest #test_04_magoNoAtacaPorqueEstanTodosSusEnemigosMuertos stamp: 'mg 4/5/2024 09:34:10'!
+PASSED!
+!Mago methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:34:20' prior: 50530895!
+enfocarseEnLos6MasSanos
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual].
+		
+		candidatosVivos size < 6 
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 6]		
+		].
+		! !
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 4/5/2024 09:34:21'!
+PASSED!
+
+!testRun: #MagoTest #test_02_magoAtacaALos6MasSanosPor2DeVida stamp: 'mg 4/5/2024 09:34:21'!
+PASSED!
+
+!testRun: #MagoTest #test_03_magoAtacaALos5Sobrevivientes stamp: 'mg 4/5/2024 09:34:21'!
+PASSED!
+
+!testRun: #MagoTest #test_04_magoNoAtacaPorqueEstanTodosSusEnemigosMuertos stamp: 'mg 4/5/2024 09:34:21'!
+PASSED!
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 4/5/2024 09:34:35'!
+PASSED!
+
+!testRun: #MagoTest #test_02_magoAtacaALos6MasSanosPor2DeVida stamp: 'mg 4/5/2024 09:34:35'!
+PASSED!
+
+!testRun: #MagoTest #test_03_magoAtacaALos5Sobrevivientes stamp: 'mg 4/5/2024 09:34:35'!
+PASSED!
+
+!testRun: #MagoTest #test_04_magoNoAtacaPorqueEstanTodosSusEnemigosMuertos stamp: 'mg 4/5/2024 09:34:35'!
+PASSED!
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:34:54' prior: 50530827!
+enfocarseEnElMasHerido
+	estrategiaActual := #atacarAlMasHerido.
+	
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual].
+		
+		candidatosVivos size < 6 
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
+					
+! !
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:34:58' prior: 50530966!
+enfocarseEnElMasHerido
+	estrategiaActual := #atacarAlMasHerido.
+	
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual].
+		
+		candidatosVivos size < 1
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
+					
+! !
+
+!testRun: #HostigadorTest #test01_HostigadorAtacaAlMasSano stamp: 'mg 4/5/2024 09:35:07'!
+PASSED!
+
+!testRun: #HostigadorTest #test02_HostigadorAtacaAlMasSanoAlternaEstrategiaYAtacaAlMasHerido stamp: 'mg 4/5/2024 09:35:07'!
+FAILURE!
+
+!testRun: #HostigadorTest #test02_HostigadorAtacaAlMasSanoAlternaEstrategiaYAtacaAlMasHerido stamp: 'mg 4/5/2024 09:35:07'!
+FAILURE!
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:35:20' prior: 50530984!
+enfocarseEnElMasHerido
+	estrategiaActual := #atacarAlMasHerido.
+	
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual < candidatos2 vidaActual].
+		
+		candidatosVivos size < 1
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
+					
+! !
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:35:36' prior: 50530810!
+enfocarseEnElMasSano
+	estrategiaActual := #atacarAlMasSano.
+	
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual].
+		
+		candidatosVivos isEmpty
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
+! !
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:35:45' prior: 50531013!
+enfocarseEnElMasHerido
+	estrategiaActual := #atacarAlMasHerido.
+	
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual < candidatos2 vidaActual].
+		
+		candidatosVivos isEmpty
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
+					
+! !
+
+!testRun: #HostigadorTest #test01_HostigadorAtacaAlMasSano stamp: 'mg 4/5/2024 09:35:48'!
+PASSED!
+
+!testRun: #HostigadorTest #test02_HostigadorAtacaAlMasSanoAlternaEstrategiaYAtacaAlMasHerido stamp: 'mg 4/5/2024 09:35:48'!
+PASSED!
+!Mago methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:35:54' prior: 50530924!
+enfocarseEnLos6MasSanos
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual].
+		
+		candidatosVivos size < 6 
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 6]		
+	].
+		! !
+!Humano methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:36:08' prior: 50530694!
+enfocarseEnElMasHerido
+	"estrategia := [:candidatos | (candidatos select: [:candidato | candidato estaMuerto not ]) 	detectMin: [:combatiente | combatiente vidaActual ]]."
+	
+		estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual < candidatos2 vidaActual].
+		
+		candidatosVivos isEmpty
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
+! !
+!Humano methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:36:14' prior: 50531090!
+enfocarseEnElMasHerido
+	"estrategia := [:candidatos | (candidatos select: [:candidato | candidato estaMuerto not ]) 	detectMin: [:combatiente | combatiente vidaActual ]]."
+	
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual < candidatos2 vidaActual].
+		
+		candidatosVivos isEmpty
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
+! !
+
+!testRun: #HumanoTest #test01PuedoDefinirleUnaEstrategiaADavid stamp: 'mg 4/5/2024 09:36:16'!
+PASSED!
+
+!testRun: #HumanoTest #test02EnfocarseEnElMasSanoAtacaAlMenosDañado stamp: 'mg 4/5/2024 09:36:16'!
+PASSED!
+
+!testRun: #HumanoTest #test03EnfocarseEnElMasSanoAtacaAlMenosDañadoNoImportaElOrden stamp: 'mg 4/5/2024 09:36:16'!
+PASSED!
+
+!testRun: #HumanoTest #test04EnfocarseEnElMasHeridoAtacaAlMasDañado stamp: 'mg 4/5/2024 09:36:16'!
+PASSED!
+
+!testRun: #HumanoTest #test05NoSeEnfocaSiEstaMuerto stamp: 'mg 4/5/2024 09:36:16'!
+ERROR!
+
+!testRun: #HumanoTest #test_01_GoliatEmpiezaSano stamp: 'mg 4/5/2024 09:36:16'!
+PASSED!
+
+!testRun: #HumanoTest #test_02_GoliatNoEstaSanoSiRecibeDaño stamp: 'mg 4/5/2024 09:36:16'!
+PASSED!
+
+!testRun: #HumanoTest #test_03_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 4/5/2024 09:36:16'!
+PASSED!
+
+!testRun: #HumanoTest #test_04_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 4/5/2024 09:36:16'!
+PASSED!
+
+!testRun: #HumanoTest #test_05_GoliatPuedeRecibirDañoMultiplesVeces stamp: 'mg 4/5/2024 09:36:16'!
+PASSED!
+
+!testRun: #HumanoTest #test_06_DavidPuedeAtacarAAlguien stamp: 'mg 4/5/2024 09:36:16'!
+PASSED!
+
+!testRun: #HumanoTest #test_07_DavidPuedeAtacarEnemigosAsignados stamp: 'mg 4/5/2024 09:36:16'!
+PASSED!
+
+!testRun: #HumanoTest #test_08_DavidNoAtacaAUnEnemigoNoAsignado stamp: 'mg 4/5/2024 09:36:16'!
+ERROR!
+
+!testRun: #HumanoTest #test_09_MuereCuandoRecibe20DeDaño stamp: 'mg 4/5/2024 09:36:16'!
+PASSED!
+
+!testRun: #HumanoTest #test_10_NoAtacaSiEstaMuerto stamp: 'mg 4/5/2024 09:36:16'!
+PASSED!
+!Humano methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:36:38' prior: 50530712!
+enfocarseEnElMasSano
+	"estrategia := [:candidatos | (candidatos select: [:candidato | candidato estaMuerto not ]) 	detectMax: [:combatiente | combatiente vidaActual]]."
+		estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual].
+		
+		candidatosVivos isEmpty
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
+				
+				! !
+
+!testRun: #HumanoTest #test01PuedoDefinirleUnaEstrategiaADavid stamp: 'mg 4/5/2024 09:36:39'!
+PASSED!
+
+!testRun: #HumanoTest #test02EnfocarseEnElMasSanoAtacaAlMenosDañado stamp: 'mg 4/5/2024 09:36:39'!
+PASSED!
+
+!testRun: #HumanoTest #test03EnfocarseEnElMasSanoAtacaAlMenosDañadoNoImportaElOrden stamp: 'mg 4/5/2024 09:36:39'!
+PASSED!
+
+!testRun: #HumanoTest #test04EnfocarseEnElMasHeridoAtacaAlMasDañado stamp: 'mg 4/5/2024 09:36:39'!
+PASSED!
+
+!testRun: #HumanoTest #test05NoSeEnfocaSiEstaMuerto stamp: 'mg 4/5/2024 09:36:39'!
+PASSED!
+
+!testRun: #HumanoTest #test_01_GoliatEmpiezaSano stamp: 'mg 4/5/2024 09:36:39'!
+PASSED!
+
+!testRun: #HumanoTest #test_02_GoliatNoEstaSanoSiRecibeDaño stamp: 'mg 4/5/2024 09:36:39'!
+PASSED!
+
+!testRun: #HumanoTest #test_03_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 4/5/2024 09:36:39'!
+PASSED!
+
+!testRun: #HumanoTest #test_04_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 4/5/2024 09:36:39'!
+PASSED!
+
+!testRun: #HumanoTest #test_05_GoliatPuedeRecibirDañoMultiplesVeces stamp: 'mg 4/5/2024 09:36:39'!
+PASSED!
+
+!testRun: #HumanoTest #test_06_DavidPuedeAtacarAAlguien stamp: 'mg 4/5/2024 09:36:39'!
+PASSED!
+
+!testRun: #HumanoTest #test_07_DavidPuedeAtacarEnemigosAsignados stamp: 'mg 4/5/2024 09:36:39'!
+PASSED!
+
+!testRun: #HumanoTest #test_08_DavidNoAtacaAUnEnemigoNoAsignado stamp: 'mg 4/5/2024 09:36:39'!
+PASSED!
+
+!testRun: #HumanoTest #test_09_MuereCuandoRecibe20DeDaño stamp: 'mg 4/5/2024 09:36:39'!
+PASSED!
+
+!testRun: #HumanoTest #test_10_NoAtacaSiEstaMuerto stamp: 'mg 4/5/2024 09:36:39'!
+PASSED!
+!Humano methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:36:43' prior: 50531181!
+enfocarseEnElMasSano
+	"estrategia := [:candidatos | (candidatos select: [:candidato | candidato estaMuerto not ]) 	detectMax: [:combatiente | combatiente vidaActual]]."
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual].
+		
+		candidatosVivos isEmpty
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
+				
+				! !
+
+!testRun: #HumanoTest #test01PuedoDefinirleUnaEstrategiaADavid stamp: 'mg 4/5/2024 09:36:44'!
+PASSED!
+
+!testRun: #HumanoTest #test02EnfocarseEnElMasSanoAtacaAlMenosDañado stamp: 'mg 4/5/2024 09:36:44'!
+PASSED!
+
+!testRun: #HumanoTest #test03EnfocarseEnElMasSanoAtacaAlMenosDañadoNoImportaElOrden stamp: 'mg 4/5/2024 09:36:44'!
+PASSED!
+
+!testRun: #HumanoTest #test04EnfocarseEnElMasHeridoAtacaAlMasDañado stamp: 'mg 4/5/2024 09:36:44'!
+PASSED!
+
+!testRun: #HumanoTest #test05NoSeEnfocaSiEstaMuerto stamp: 'mg 4/5/2024 09:36:44'!
+PASSED!
+
+!testRun: #HumanoTest #test_01_GoliatEmpiezaSano stamp: 'mg 4/5/2024 09:36:44'!
+PASSED!
+
+!testRun: #HumanoTest #test_02_GoliatNoEstaSanoSiRecibeDaño stamp: 'mg 4/5/2024 09:36:44'!
+PASSED!
+
+!testRun: #HumanoTest #test_03_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 4/5/2024 09:36:44'!
+PASSED!
+
+!testRun: #HumanoTest #test_04_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 4/5/2024 09:36:44'!
+PASSED!
+
+!testRun: #HumanoTest #test_05_GoliatPuedeRecibirDañoMultiplesVeces stamp: 'mg 4/5/2024 09:36:44'!
+PASSED!
+
+!testRun: #HumanoTest #test_06_DavidPuedeAtacarAAlguien stamp: 'mg 4/5/2024 09:36:44'!
+PASSED!
+
+!testRun: #HumanoTest #test_07_DavidPuedeAtacarEnemigosAsignados stamp: 'mg 4/5/2024 09:36:44'!
+PASSED!
+
+!testRun: #HumanoTest #test_08_DavidNoAtacaAUnEnemigoNoAsignado stamp: 'mg 4/5/2024 09:36:44'!
+PASSED!
+
+!testRun: #HumanoTest #test_09_MuereCuandoRecibe20DeDaño stamp: 'mg 4/5/2024 09:36:44'!
+PASSED!
+
+!testRun: #HumanoTest #test_10_NoAtacaSiEstaMuerto stamp: 'mg 4/5/2024 09:36:44'!
+PASSED!
+!Humano methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:36:51' prior: 50531251!
+enfocarseEnElMasSano
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual].
+		
+		candidatosVivos isEmpty
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
+				
+				! !
+!Humano methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:36:54' prior: 50531111!
+enfocarseEnElMasHerido	
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual < candidatos2 vidaActual].
+		
+		candidatosVivos isEmpty
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
+! !
+!Ogro methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:37:20' prior: 50530410!
+enfocarseEnElMasHerido
+	
+		estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual < candidatos2 vidaActual].
+		
+		candidatosVivos isEmpty
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
+! !
+!Ogro methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:37:25' prior: 50530427!
+enfocarseEnElMasSano
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual].
+		
+		candidatosVivos isEmpty
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
+				
+! !
+
+!testRun: #CombateTest #test01_ataquesCruzados stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #CombateTest #test02_atacanTodosLosCombatientes stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #CombateTest #test03_rondas stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #CombateTest #test04_hastaLaMuerteCombatienteBando2 stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #CombateTest #test05_combatienteBando1ViveSiMatoAlBando2 stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #CombateTest #test06_combateTerminaCuandoTodosLosDeUnBandoMueren stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #CombateTest #test07_finalizaCuandoMuereAlgunBando stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #CombateTest #test08_obtenerRondas stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #CombateTest #test09_obtenerGanador stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #CombateTest #test10_promedioVidaGanador stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #HostigadorTest #test01_HostigadorAtacaAlMasSano stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #HostigadorTest #test02_HostigadorAtacaAlMasSanoAlternaEstrategiaYAtacaAlMasHerido stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #HumanoTest #test01PuedoDefinirleUnaEstrategiaADavid stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #HumanoTest #test02EnfocarseEnElMasSanoAtacaAlMenosDañado stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #HumanoTest #test03EnfocarseEnElMasSanoAtacaAlMenosDañadoNoImportaElOrden stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #HumanoTest #test04EnfocarseEnElMasHeridoAtacaAlMasDañado stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #HumanoTest #test05NoSeEnfocaSiEstaMuerto stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #HumanoTest #test_01_GoliatEmpiezaSano stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #HumanoTest #test_02_GoliatNoEstaSanoSiRecibeDaño stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #HumanoTest #test_03_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #HumanoTest #test_04_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #HumanoTest #test_05_GoliatPuedeRecibirDañoMultiplesVeces stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #HumanoTest #test_06_DavidPuedeAtacarAAlguien stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #HumanoTest #test_07_DavidPuedeAtacarEnemigosAsignados stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #HumanoTest #test_08_DavidNoAtacaAUnEnemigoNoAsignado stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #HumanoTest #test_09_MuereCuandoRecibe20DeDaño stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #HumanoTest #test_10_NoAtacaSiEstaMuerto stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #MagoTest #test_01_magoAtacaALos6MasSanos stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #MagoTest #test_02_magoAtacaALos6MasSanosPor2DeVida stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #MagoTest #test_03_magoAtacaALos5Sobrevivientes stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #MagoTest #test_04_magoNoAtacaPorqueEstanTodosSusEnemigosMuertos stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #OgroTest #test01_hace8DeDaño stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!
+
+!testRun: #OgroTest #test02_tiene40PuntosDeVida stamp: 'mg 4/5/2024 09:39:45'!
+PASSED!

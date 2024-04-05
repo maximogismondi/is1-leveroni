@@ -5,12 +5,12 @@ TestCase subclass: #CombateTest
 	poolDictionaries: ''
 	category: 'Combatientes'!
 
-!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:19:25'!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mc 4/3/2024 15:29:41'!
 test01_ataquesCruzados
 	|bando1 bando2 combate |
 	
-	bando1 := {Combatiente new}.
-	bando2 := {Combatiente new}.
+	bando1 := {Humano new}.
+	bando2 := {Humano new}.
 	
 	combate := Combate entre: bando1 y: bando2.
 	
@@ -19,12 +19,12 @@ test01_ataquesCruzados
 	self deny: bando1 first estaSano.
 	self deny: bando2 first estaSano.	! !
 
-!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:20:05'!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mc 4/3/2024 15:29:50'!
 test02_atacanTodosLosCombatientes
 	|bando1 bando2 combate |
 	
-	bando1 := {Combatiente new. Combatiente new}.
-	bando2 := {Combatiente new. Combatiente new}.
+	bando1 := {Humano new. Humano new}.
+	bando2 := {Humano new. Humano new}.
 	
 	combate := Combate entre: bando1 y: bando2.
 	
@@ -33,12 +33,12 @@ test02_atacanTodosLosCombatientes
 	bando1 do: [ :combatiente | self deny: combatiente estaSano.	 ].
 	bando2 do: [ :combatiente | self deny: combatiente estaSano.	 ].! !
 
-!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:28:21'!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mc 4/3/2024 15:29:56'!
 test03_rondas
 	|bando1 bando2 combate |
 	
-	bando1 := {Combatiente new}.
-	bando2 := {Combatiente new}.
+	bando1 := {Humano new}.
+	bando2 := {Humano new}.
 	
 	combate := Combate entre: bando1 y: bando2.
 	
@@ -49,12 +49,12 @@ test03_rondas
 	self assert: (bando1 first estaDañadoPor: 8).
 	self assert: (bando2 first estaDañadoPor: 8).! !
 
-!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:31:09'!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mc 4/3/2024 15:30:02'!
 test04_hastaLaMuerteCombatienteBando2
 	|bando1 bando2 combate |
 	
-	bando1 := {Combatiente new}.
-	bando2 := {Combatiente new}.
+	bando1 := {Humano new}.
+	bando2 := {Humano new}.
 	
 	combate := Combate entre: bando1 y: bando2.
 	
@@ -63,12 +63,12 @@ test04_hastaLaMuerteCombatienteBando2
 	
 	self assert: (bando2 first estaMuerto).! !
 
-!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:24:36'!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mc 4/3/2024 15:30:07'!
 test05_combatienteBando1ViveSiMatoAlBando2
 	|bando1 bando2 combate |
 	
-	bando1 := {Combatiente new}.
-	bando2 := {Combatiente new}.
+	bando1 := {Humano new}.
+	bando2 := {Humano new}.
 	
 	combate := Combate entre: bando1 y: bando2.
 	
@@ -77,12 +77,12 @@ test05_combatienteBando1ViveSiMatoAlBando2
 	
 	self deny: (bando1 first estaMuerto)! !
 
-!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 15:58:32'!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mc 4/3/2024 15:30:18'!
 test06_combateTerminaCuandoTodosLosDeUnBandoMueren
 	|bando1 bando2 combate |
 	
-	bando1 := {Combatiente new. Combatiente new}.
-	bando2 := {Combatiente new. Combatiente new}.
+	bando1 := {Humano new. Humano new}.
+	bando2 := {Humano new. Humano new}.
 	combate := Combate entre: bando1 y: bando2.
 
 	bando1 do: [:combatiente | combatiente enfocarseEnElMasHerido ].
@@ -92,12 +92,12 @@ test06_combateTerminaCuandoTodosLosDeUnBandoMueren
 	
 	bando2 do: [:combatiente | self assert: combatiente estaMuerto ].! !
 
-!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:23:50'!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mc 4/3/2024 15:30:30'!
 test07_finalizaCuandoMuereAlgunBando
 	|bando1 bando2 combate |
 	
-	bando1 := {Combatiente new.}.
-	bando2 := {Combatiente new. Combatiente new}.
+	bando1 := {Humano new.}.
+	bando2 := {Humano new. Humano new}.
 	combate := Combate entre: bando1 y: bando2.
 	
 	combate desarollar . 
@@ -105,13 +105,13 @@ test07_finalizaCuandoMuereAlgunBando
 	
 	bando1 do: [:combatiente | self assert: combatiente estaMuerto ].! !
 
-!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:27:54'!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mc 4/3/2024 15:30:38'!
 test08_obtenerRondas
 	|bando1 bando2 combate |
 	
 	
-	bando1 := {Combatiente new.}.
-	bando2 := {Combatiente new.}.
+	bando1 := {Humano new.}.
+	bando2 := {Humano new.}.
 	combate := Combate entre: bando1 y: bando2.
 	
 	combate desarollar . 
@@ -119,13 +119,13 @@ test08_obtenerRondas
 	
 	self assert: combate obtenerRondas = 5.! !
 
-!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:28:59'!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mc 4/3/2024 15:30:59'!
 test09_obtenerGanador
 	|bando1 bando2 combate ganador |
 	
 	
-	bando1 := {Combatiente new.}.
-	bando2 := {Combatiente new.}.
+	bando1 := {Humano new.}.
+	bando2 := {Humano new.}.
 	combate := Combate entre: bando1 y: bando2.
 	
 	ganador := combate desarollar . 
@@ -133,13 +133,13 @@ test09_obtenerGanador
 	
 	self assert: ganador = bando1! !
 
-!CombateTest methodsFor: 'as yet unclassified' stamp: 'mg 3/25/2024 16:48:17'!
+!CombateTest methodsFor: 'as yet unclassified' stamp: 'mc 4/3/2024 15:31:07'!
 test10_promedioVidaGanador
 	|bando1 bando2 combate |
 	
 	
-	bando1 := {Combatiente new. Combatiente new.}.
-	bando2 := {Combatiente new. }.
+	bando1 := {Humano new. Humano new.}.
+	bando2 := {Humano new. }.
 	combate := Combate entre: bando1 y: bando2.
 	
 	combate desarollar . 	
@@ -147,59 +147,106 @@ test10_promedioVidaGanador
 	self assert: combate promedioVidaGanador = 16.! !
 
 
-!classDefinition: #CombatientesTest category: #Combatientes!
-TestCase subclass: #CombatientesTest
+!classDefinition: #HostigadorTest category: #Combatientes!
+TestCase subclass: #HostigadorTest
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Combatientes'!
 
-!CombatientesTest methodsFor: 'tests-combatir' stamp: 'SF 3/20/2024 19:37:20'!
+!HostigadorTest methodsFor: 'as yet unclassified' stamp: 'mc 4/3/2024 15:47:18'!
+test01_HostigadorAtacaAlMasSano
+
+	|humano hostigador ogro |
+	
+	humano := Humano new.
+	ogro := Ogro new.
+	hostigador := Hostigador new.
+	
+	hostigador asignarEnemigos: {humano. ogro }.
+	
+	hostigador atacar.
+	
+	self assert: humano estaSano.	 
+	self deny: ogro estaSano. ! !
+
+!HostigadorTest methodsFor: 'as yet unclassified' stamp: 'mc 4/3/2024 16:36:15'!
+test02_HostigadorAtacaAlMasSanoAlternaEstrategiaYAtacaAlMasHerido
+
+	|humano hostigador ogro |
+	
+	humano := Humano new.
+	ogro := Ogro new.
+	hostigador := Hostigador new.
+	
+	hostigador asignarEnemigos: {humano. ogro }.
+	
+	hostigador atacar.
+	
+	self assert: humano estaSano.	 
+	self deny: ogro estaSano. 
+	
+	hostigador atacar.
+		 
+	self deny: humano estaSano. 
+	
+	
+! !
+
+
+!classDefinition: #HumanoTest category: #Combatientes!
+TestCase subclass: #HumanoTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Combatientes'!
+
+!HumanoTest methodsFor: 'tests-combatir' stamp: 'mc 4/3/2024 15:24:01'!
 test_01_GoliatEmpiezaSano
 
 	| goliat |
-	goliat := Combatiente new.
+	goliat := Humano new.
 		
 	self assert: goliat estaSano.
 ! !
 
-!CombatientesTest methodsFor: 'tests-combatir' stamp: 'SF 3/20/2024 19:37:46'!
+!HumanoTest methodsFor: 'tests-combatir' stamp: 'mc 4/3/2024 15:24:05'!
 test_02_GoliatNoEstaSanoSiRecibeDaño
 
 	| goliat |
-	goliat := Combatiente new.
+	goliat := Humano new.
 
 	goliat recibirDaño: 2.
 
 	self deny: goliat estaSano.
 ! !
 
-!CombatientesTest methodsFor: 'tests-combatir' stamp: 'SF 3/20/2024 19:38:27'!
+!HumanoTest methodsFor: 'tests-combatir' stamp: 'mc 4/3/2024 15:24:12'!
 test_03_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño
 
 	| goliat |
-	goliat := Combatiente new.
+	goliat := Humano new.
 
 	goliat recibirDaño: 4.
 	
 	self assert: (goliat estaDañadoPor: 4).
 ! !
 
-!CombatientesTest methodsFor: 'tests-combatir' stamp: 'SF 3/20/2024 19:39:17'!
+!HumanoTest methodsFor: 'tests-combatir' stamp: 'mc 4/3/2024 15:24:16'!
 test_04_CuandoSeDañaAAlguienEsPorUnaCantidadDeDaño
 
 	| goliat |
-	goliat := Combatiente new.
+	goliat := Humano new.
 	goliat recibirDaño: 4.
 	
 	self deny: (goliat estaDañadoPor: 8).
 ! !
 
-!CombatientesTest methodsFor: 'tests-combatir' stamp: 'SF 3/20/2024 19:40:00'!
+!HumanoTest methodsFor: 'tests-combatir' stamp: 'mc 4/3/2024 15:24:21'!
 test_05_GoliatPuedeRecibirDañoMultiplesVeces
 
 	| goliat |
-	goliat := Combatiente new.
+	goliat := Humano new.
 
 	goliat recibirDaño: 4.
 	goliat recibirDaño: 4.
@@ -207,24 +254,24 @@ test_05_GoliatPuedeRecibirDañoMultiplesVeces
 	self assert: (goliat estaDañadoPor: 8).
 ! !
 
-!CombatientesTest methodsFor: 'tests-combatir' stamp: 'SF 3/20/2024 19:40:33'!
+!HumanoTest methodsFor: 'tests-combatir' stamp: 'mc 4/3/2024 15:24:27'!
 test_06_DavidPuedeAtacarAAlguien
 
 	| david goliat |
-	david := Combatiente new.
-	goliat := Combatiente new.
+	david := Humano new.
+	goliat := Humano new.
 	
 	david atacarA: goliat.
 	
 	self assert: (goliat estaDañadoPor: 4).
 ! !
 
-!CombatientesTest methodsFor: 'tests-combatir' stamp: 'SF 3/20/2024 19:41:20'!
+!HumanoTest methodsFor: 'tests-combatir' stamp: 'mc 4/3/2024 15:24:33'!
 test_07_DavidPuedeAtacarEnemigosAsignados
 
 	| david goliat |
-	david := Combatiente new.
-	goliat := Combatiente new.
+	david := Humano new.
+	goliat := Humano new.
 		
 	david asignarEnemigos: {goliat}.
 	david atacar.
@@ -233,24 +280,24 @@ test_07_DavidPuedeAtacarEnemigosAsignados
 	self assert: (goliat estaDañadoPor: 4).
 ! !
 
-!CombatientesTest methodsFor: 'tests-combatir' stamp: 'SF 3/20/2024 19:44:09'!
+!HumanoTest methodsFor: 'tests-combatir' stamp: 'mc 4/3/2024 15:24:38'!
 test_08_DavidNoAtacaAUnEnemigoNoAsignado
 
 	| david goliat |
-	david := Combatiente new.
-	goliat := Combatiente new.
+	david := Humano new.
+	goliat := Humano new.
 		
 	david atacar.
 	
 	self assert: goliat estaSano.
 ! !
 
-!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 15:35:48'!
+!HumanoTest methodsFor: 'tests-combatir' stamp: 'mc 4/3/2024 15:24:41'!
 test_09_MuereCuandoRecibe20DeDaño
 
 	| david goliat |
-	david := Combatiente new.
-	goliat := Combatiente new.
+	david := Humano new.
+	goliat := Humano new.
 	
 	self deny: goliat estaMuerto.
 
@@ -262,12 +309,12 @@ test_09_MuereCuandoRecibe20DeDaño
 	self assert: goliat estaMuerto.
 ! !
 
-!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 15:36:39'!
+!HumanoTest methodsFor: 'tests-combatir' stamp: 'mc 4/3/2024 15:24:47'!
 test_10_NoAtacaSiEstaMuerto
 
 	| david goliat |
-	david := Combatiente new.
-	goliat := Combatiente new.
+	david := Humano new.
+	goliat := Humano new.
 	david asignarEnemigos: {goliat}.
 
 	5 timesRepeat: [
@@ -280,27 +327,13 @@ test_10_NoAtacaSiEstaMuerto
 	self assert: david estaSano
 ! !
 
-!CombatientesTest methodsFor: 'tests-combatir' stamp: 'mg 3/25/2024 16:46:01'!
-test_11_ObtenerVida
 
-	| david goliat |
-	david := Combatiente new.
-	goliat := Combatiente new.
-	david asignarEnemigos: {goliat}.
-
-	2 timesRepeat: [
-    		david atacar.
-	].	
-	self assert: (goliat vidaActual  = 12)
-! !
-
-
-!CombatientesTest methodsFor: 'tests-estrategia' stamp: 'SF 3/20/2024 19:34:11'!
+!HumanoTest methodsFor: 'tests-estrategia' stamp: 'mc 4/3/2024 15:23:24'!
 test01PuedoDefinirleUnaEstrategiaADavid
 
 	| goliat david |
-	goliat := Combatiente new.
-	david := Combatiente new.
+	goliat := Humano new.
+	david := Humano new.
 	
 	david enfocarseEnElMasSano.
 	david asignarEnemigos: {goliat}.
@@ -309,14 +342,14 @@ test01PuedoDefinirleUnaEstrategiaADavid
 	self deny: goliat estaSano.
 	self assert: (goliat estaDañadoPor: 4).! !
 
-!CombatientesTest methodsFor: 'tests-estrategia' stamp: 'SF 3/20/2024 19:35:34'!
+!HumanoTest methodsFor: 'tests-estrategia' stamp: 'mc 4/3/2024 15:23:34'!
 test02EnfocarseEnElMasSanoAtacaAlMenosDañado
 
 	| david goliat isaac |
-	david := Combatiente new.
-	goliat := Combatiente new.
+	david := Humano new.
+	goliat := Humano new.
 	goliat recibirDaño: 2.
-	isaac := Combatiente new.
+	isaac := Humano new.
 	
 	david enfocarseEnElMasSano.
 	david asignarEnemigos: {goliat. isaac.}.
@@ -324,14 +357,14 @@ test02EnfocarseEnElMasSanoAtacaAlMenosDañado
 	
 	self assert: (isaac estaDañadoPor: 4).! !
 
-!CombatientesTest methodsFor: 'tests-estrategia' stamp: 'SF 3/20/2024 19:36:21'!
+!HumanoTest methodsFor: 'tests-estrategia' stamp: 'mc 4/3/2024 15:23:40'!
 test03EnfocarseEnElMasSanoAtacaAlMenosDañadoNoImportaElOrden
 
 	| david goliat isaac |
-	david := Combatiente new.
-	goliat := Combatiente new.
+	david := Humano new.
+	goliat := Humano new.
 	goliat recibirDaño: 2.
-	isaac := Combatiente new.
+	isaac := Humano new.
 	
 	david enfocarseEnElMasSano.
 	david asignarEnemigos: {isaac. goliat.}.
@@ -339,14 +372,14 @@ test03EnfocarseEnElMasSanoAtacaAlMenosDañadoNoImportaElOrden
 	
 	self assert: (isaac estaDañadoPor: 4).! !
 
-!CombatientesTest methodsFor: 'tests-estrategia' stamp: 'SF 3/20/2024 19:36:55'!
+!HumanoTest methodsFor: 'tests-estrategia' stamp: 'mc 4/3/2024 15:23:49'!
 test04EnfocarseEnElMasHeridoAtacaAlMasDañado
 
 	| david goliat isaac |
-	david := Combatiente new.
-	goliat := Combatiente new.
+	david := Humano new.
+	goliat := Humano new.
 	goliat recibirDaño: 2.
-	isaac := Combatiente new.
+	isaac := Humano new.
 	
 	david enfocarseEnElMasHerido.
 	david asignarEnemigos: {goliat. isaac.}.
@@ -354,17 +387,15 @@ test04EnfocarseEnElMasHeridoAtacaAlMasDañado
 	
 	self assert: (goliat estaDañadoPor: 6).! !
 
-!CombatientesTest methodsFor: 'tests-estrategia' stamp: 'mg 3/25/2024 16:09:38'!
+!HumanoTest methodsFor: 'tests-estrategia' stamp: 'mc 4/4/2024 12:42:04'!
 test05NoSeEnfocaSiEstaMuerto
 
 	| david goliat |
-	david := Combatiente new.
-	goliat := Combatiente new.
+	david := Humano new.
+	goliat := Humano new.
 	david asignarEnemigos: {goliat}.
 
-	6 timesRepeat: [
-    		david atacar.
-	].
+	6 timesRepeat: [ david atacar].
 		
 	self assert: (goliat estaDañadoPor: 20).
 ! !
@@ -377,15 +408,16 @@ TestCase subclass: #MagoTest
 	poolDictionaries: ''
 	category: 'Combatientes'!
 
-!MagoTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:50:54'!
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mc 4/4/2024 12:43:14'!
 test_01_magoAtacaALos6MasSanos
+	
 	| enemigos mago |
 	mago := Mago new.
 	
 	enemigos := Array new: 7.
 	
 	enemigos at: 1 put: Humano new.
-	2 to: 7 do: [:i | enemigos at: i put: Ogro new].
+	2 to: 7 do: [:indice | enemigos at: indice put: Ogro new].
 
 	mago asignarEnemigos: enemigos.
 	
@@ -393,6 +425,44 @@ test_01_magoAtacaALos6MasSanos
 	
 	self assert: (enemigos at: 1) estaSano.
 	2 to: 7 do: [:indice | self deny: (enemigos at: indice) estaSano].! !
+
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mc 4/4/2024 12:43:26'!
+test_02_magoAtacaALos6MasSanosPor2DeVida
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := Array new: 6.
+	1 to: 6 do: [:indice | enemigos at: indice put: Ogro new].
+	
+	mago asignarEnemigos: enemigos.
+	mago atacar.
+	
+	1 to: 6 do: [:indice | self assert: ((enemigos at: indice) estaDañadoPor: 2)].! !
+
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mc 4/4/2024 16:37:43'!
+test_03_magoAtacaALos5Sobrevivientes
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := Array new: 5.
+	1 to: 5 do: [:indice | enemigos at: indice put: Ogro new].
+	
+	mago asignarEnemigos: enemigos.
+	mago atacar.
+	
+	1 to: 5 do: [:indice | self assert: ((enemigos at: indice) estaDañadoPor: 2)].! !
+
+!MagoTest methodsFor: 'as yet unclassified' stamp: 'mc 4/4/2024 17:00:17'!
+test_04_magoNoAtacaPorqueEstanTodosSusEnemigosMuertos
+	| enemigos mago |
+	mago := Mago new.
+	
+	enemigos := {Humano new. Humano new}.
+	
+	mago asignarEnemigos: enemigos.
+	11 timesRepeat:[mago atacar].
+	
+	1 to: 2 do: [:indice | self assert: ((enemigos at: indice) estaDañadoPor: 20)].! !
 
 
 !classDefinition: #OgroTest category: #Combatientes!
@@ -402,7 +472,7 @@ TestCase subclass: #OgroTest
 	poolDictionaries: ''
 	category: 'Combatientes'!
 
-!OgroTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:00:49'!
+!OgroTest methodsFor: 'as yet unclassified' stamp: 'mc 4/4/2024 11:58:53'!
 test01_hace8DeDaño
 	| humano ogro |
 	ogro := Ogro new.
@@ -411,17 +481,29 @@ test01_hace8DeDaño
 	ogro asignarEnemigos: {humano}.
 	ogro atacar.
 	
-	self assert: humano dañoRecibido = 8
+	self assert: (humano  estaDañadoPor: 8).
+	
 	
 	! !
 
-!OgroTest methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:02:45'!
+!OgroTest methodsFor: 'as yet unclassified' stamp: 'mc 4/4/2024 11:59:02'!
 test02_tiene40PuntosDeVida
-	| ogro |
+	
+	| ogro humano |
+	
 	ogro := Ogro new.
+	humano := Humano new.
 	
-	self assert: ogro vidaActual = 40
+	humano asignarEnemigos: {ogro}.
+	ogro asignarEnemigos: {humano}.
 	
+	9 timesRepeat: [humano atacar].
+	ogro atacar.
+	
+	humano atacar.
+	ogro atacar.
+	
+	self assert: (humano estaDañadoPor: 8).
 	! !
 
 
@@ -500,134 +582,140 @@ entre: bando1 y: bando2
 
 !classDefinition: #Combatiente category: #Combatientes!
 Object subclass: #Combatiente
-	instanceVariableNames: 'enemigos estrategia dañoRecibido'
+	instanceVariableNames: 'enemigos estrategia dañoRecibido vidaActual dañoAProvocar'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Combatientes'!
 
-!Combatiente methodsFor: 'public' stamp: 'SF 3/20/2024 19:25:43'!
-asignarEnemigos: unConjuntoDeCombatientes 
-	enemigos := unConjuntoDeCombatientes.! !
-
-!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:16:49'!
-atacar
-	| victimaElegida |
-	self estaMuerto ifTrue: [^self].
-	
-	victimaElegida := self elegirVictima.
-	(victimaElegida == nil) ifTrue: [^self].
-
-	self atacarA: victimaElegida.
-! !
-
-!Combatiente methodsFor: 'public' stamp: 'SF 3/20/2024 19:25:43'!
-atacarA: unCombatiente
-	unCombatiente recibirDaño: 4.! !
-
-!Combatiente methodsFor: 'public' stamp: 'SF 3/20/2024 19:29:48'!
-dañoRecibido
-	^dañoRecibido! !
-
-!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:19:30'!
-enfocarseEnElMasHerido
-	estrategia := [:candidatos | (candidatos select: [:candidato | candidato estaMuerto not ]) 	detectMax: [:combatiente | combatiente dañoRecibido]].
-! !
-
-!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:10:08'!
-enfocarseEnElMasSano
-	estrategia := [:candidatos | (candidatos select: [:candidato | candidato estaMuerto not ]) 	detectMin: [:combatiente | combatiente dañoRecibido]].
-! !
-
-!Combatiente methodsFor: 'public' stamp: 'SF 3/20/2024 19:30:07'!
+!Combatiente methodsFor: 'comparing' stamp: 'SF 3/20/2024 19:30:07'!
 estaDañadoPor: unaCantidadDeDaño
 	^dañoRecibido = unaCantidadDeDaño.! !
 
-!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:48:48'!
+!Combatiente methodsFor: 'comparing' stamp: 'mg 4/5/2024 08:48:32'!
 estaMuerto
-	^self vidaActual = 0. ! !
+	^vidaActual = 0. ! !
 
-!Combatiente methodsFor: 'public' stamp: 'SF 3/20/2024 19:30:36'!
+!Combatiente methodsFor: 'comparing' stamp: 'mg 4/5/2024 08:48:41'!
 estaSano
 	^dañoRecibido = 0.! !
 
-!Combatiente methodsFor: 'public' stamp: 'SF 3/20/2024 19:43:20'!
-initialize
-	enemigos := #().
-	dañoRecibido := 0.
-	self enfocarseEnElMasSano.! !
 
-!Combatiente methodsFor: 'public' stamp: 'SF 3/20/2024 19:30:46'!
-recibirDaño: unaCantidadDeDaño
-	dañoRecibido := dañoRecibido + unaCantidadDeDaño.! !
-
-!Combatiente methodsFor: 'public' stamp: 'mg 3/26/2024 21:03:29'!
-vidaActual
-	^20 - self dañoRecibido! !
-
-
-!Combatiente methodsFor: 'public' stamp: 'SF 3/20/2024 19:25:43'!
+!Combatiente methodsFor: 'accessing' stamp: 'SF 3/20/2024 19:25:43'!
 asignarEnemigos: unConjuntoDeCombatientes 
 	enemigos := unConjuntoDeCombatientes.! !
 
-!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:16:49'!
-atacar
-	| victimaElegida |
-	self estaMuerto ifTrue: [^self].
-	
-	victimaElegida := self elegirVictima.
-	(victimaElegida == nil) ifTrue: [^self].
+!Combatiente methodsFor: 'accessing' stamp: 'mg 4/5/2024 08:47:56'!
+recibirDaño: unaCantidadDeDaño
+	dañoRecibido := dañoRecibido + unaCantidadDeDaño.
+	vidaActual := vidaActual - unaCantidadDeDaño.! !
 
-	self atacarA: victimaElegida.
-! !
 
-!Combatiente methodsFor: 'public' stamp: 'SF 3/20/2024 19:25:43'!
+!Combatiente methodsFor: 'private' stamp: 'mc 4/4/2024 12:17:18'!
 atacarA: unCombatiente
-	unCombatiente recibirDaño: 4.! !
+	unCombatiente recibirDaño: dañoAProvocar.! !
 
-!Combatiente methodsFor: 'public' stamp: 'SF 3/20/2024 19:29:48'!
+!Combatiente methodsFor: 'private' stamp: 'SF 3/20/2024 19:29:48'!
 dañoRecibido
 	^dañoRecibido! !
 
-!Combatiente methodsFor: '-- all --' stamp: 'SF 3/20/2024 19:25:43'!
+!Combatiente methodsFor: 'private' stamp: 'mg 4/5/2024 08:48:12'!
+vidaActual
+	^vidaActual. ! !
+
+
+!Combatiente methodsFor: 'public' stamp: 'mc 4/4/2024 16:20:08'!
+atacar
+	| victimasElegidas |
+	self estaMuerto ifTrue: [^self].
+	
+	victimasElegidas := self elegirVictima.
+	(victimasElegidas isEmpty) ifTrue: [^self].
+
+	victimasElegidas do: [:victimaElegida | self atacarA: victimaElegida]! !
+
+!Combatiente methodsFor: 'public' stamp: 'mc 4/3/2024 16:30:11'!
 elegirVictima
 	^estrategia value: enemigos.
 ! !
 
-!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:19:30'!
+
+!Combatiente methodsFor: 'initialization' stamp: 'mc 4/4/2024 16:49:20'!
+initialize
+	self subclassResponsibility.! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'Combatiente class' category: #Combatientes!
+Combatiente class
+	instanceVariableNames: 'daño vida'!
+
+
+!classDefinition: #Hostigador category: #Combatientes!
+Combatiente subclass: #Hostigador
+	instanceVariableNames: 'estrategiaActual'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Combatientes'!
+
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 08:50:37'!
+alternarEnfoque
+
+	(estrategiaActual  =  #atacarAlMasSano)
+		ifTrue: [self enfocarseEnElMasHerido.]
+		ifFalse:  [self enfocarseEnElMasSano.].
+	! !
+
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:35:45'!
 enfocarseEnElMasHerido
-	estrategia := [:candidatos | (candidatos select: [:candidato | candidato estaMuerto not ]) 	detectMax: [:combatiente | combatiente dañoRecibido]].
+	estrategiaActual := #atacarAlMasHerido.
+	
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual < candidatos2 vidaActual].
+		
+		candidatosVivos isEmpty
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
+					
 ! !
 
-!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:10:08'!
+!Hostigador methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:35:36'!
 enfocarseEnElMasSano
-	estrategia := [:candidatos | (candidatos select: [:candidato | candidato estaMuerto not ]) 	detectMin: [:combatiente | combatiente dañoRecibido]].
+	estrategiaActual := #atacarAlMasSano.
+	
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual].
+		
+		candidatosVivos isEmpty
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
 ! !
 
-!Combatiente methodsFor: 'public' stamp: 'SF 3/20/2024 19:30:07'!
-estaDañadoPor: unaCantidadDeDaño
-	^dañoRecibido = unaCantidadDeDaño.! !
 
-!Combatiente methodsFor: 'public' stamp: 'mg 3/25/2024 16:48:48'!
-estaMuerto
-	^self vidaActual = 0. ! !
+!Hostigador methodsFor: 'public' stamp: 'mc 4/4/2024 16:25:07'!
+atacar
+	super atacar.
+	self alternarEnfoque.
 
-!Combatiente methodsFor: 'public' stamp: 'SF 3/20/2024 19:30:36'!
-estaSano
-	^dañoRecibido = 0.! !
+! !
 
-!Combatiente methodsFor: 'public' stamp: 'SF 3/20/2024 19:43:20'!
+
+!Hostigador methodsFor: 'initialization' stamp: 'mg 4/5/2024 08:49:12'!
 initialize
 	enemigos := #().
 	dañoRecibido := 0.
-	self enfocarseEnElMasSano.! !
+	vidaActual := 20.
+	dañoAProvocar := 4.
+	self enfocarseEnElMasSano. 
 
-!Combatiente methodsFor: 'public' stamp: 'SF 3/20/2024 19:30:46'!
-recibirDaño: unaCantidadDeDaño
-	dañoRecibido := dañoRecibido + unaCantidadDeDaño.! !
-
-!Combatiente methodsFor: 'public' stamp: 'mg 3/26/2024 21:03:29'!
-vidaActual
-	^20 - self dañoRecibido! !
+! !
 
 
 !classDefinition: #Humano category: #Combatientes!
@@ -637,6 +725,45 @@ Combatiente subclass: #Humano
 	poolDictionaries: ''
 	category: 'Combatientes'!
 
+!Humano methodsFor: 'initialization' stamp: 'mg 4/5/2024 08:49:05'!
+initialize
+	enemigos := #().
+	dañoRecibido := 0.
+	vidaActual := 20.
+	dañoAProvocar := 4.
+	self enfocarseEnElMasSano.! !
+
+
+
+!Humano methodsFor: 'public' stamp: 'mg 4/5/2024 09:36:54'!
+enfocarseEnElMasHerido	
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual < candidatos2 vidaActual].
+		
+		candidatosVivos isEmpty
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
+! !
+
+!Humano methodsFor: 'public' stamp: 'mg 4/5/2024 09:36:51'!
+enfocarseEnElMasSano
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual].
+		
+		candidatosVivos isEmpty
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
+				
+				! !
+
 
 !classDefinition: #Mago category: #Combatientes!
 Combatiente subclass: #Mago
@@ -645,44 +772,28 @@ Combatiente subclass: #Mago
 	poolDictionaries: ''
 	category: 'Combatientes'!
 
-!Mago methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:37:20'!
-atacar
-	| victimasElegidas |
-	self estaMuerto ifTrue: [^self].
-	
-	victimasElegidas := self elegirVictima.
-	(victimasElegidas isEmpty) ifTrue: [^self].
-
-	victimasElegidas do: [:victimaElegida | self atacarA: victimaElegida]
-! !
-
-!Mago methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:24:48'!
+!Mago methodsFor: 'initialization' stamp: 'mg 4/5/2024 08:49:02'!
 initialize
 	enemigos := #().
-	dañoRecibido := 0.
+	dañoRecibido := 0. 
+	vidaActual := 20.	
+	dañoAProvocar := 2.
 	self enfocarseEnLos6MasSanos.! !
 
 
-!Mago methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:37:20'!
-atacar
-	| victimasElegidas |
-	self estaMuerto ifTrue: [^self].
-	
-	victimasElegidas := self elegirVictima.
-	(victimasElegidas isEmpty) ifTrue: [^self].
-
-	victimasElegidas do: [:victimaElegida | self atacarA: victimaElegida]
-! !
-
-!Mago methodsFor: '-- all --' stamp: 'mg 3/26/2024 21:32:47'!
+!Mago methodsFor: 'strategy' stamp: 'mg 4/5/2024 09:35:54'!
 enfocarseEnLos6MasSanos
-	estrategia := [:candidatos | 		(candidatos sort: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual]) first: 6.		]! !
-
-!Mago methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:24:48'!
-initialize
-	enemigos := #().
-	dañoRecibido := 0.
-	self enfocarseEnLos6MasSanos.! !
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual].
+		
+		candidatosVivos size < 6 
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 6]		
+	].
+		! !
 
 
 !classDefinition: #Ogro category: #Combatientes!
@@ -692,10 +803,42 @@ Combatiente subclass: #Ogro
 	poolDictionaries: ''
 	category: 'Combatientes'!
 
-!Ogro methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:01:32'!
-atacarA: unCombatiente
-	unCombatiente recibirDaño: 8.! !
+!Ogro methodsFor: 'public' stamp: 'mg 4/5/2024 09:37:20'!
+enfocarseEnElMasHerido
+	
+		estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual < candidatos2 vidaActual].
+		
+		candidatosVivos isEmpty
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
+! !
 
-!Ogro methodsFor: 'as yet unclassified' stamp: 'mg 3/26/2024 21:03:48'!
-vidaActual
-	^40 - self dañoRecibido! !
+!Ogro methodsFor: 'public' stamp: 'mg 4/5/2024 09:37:25'!
+enfocarseEnElMasSano
+	estrategia := [:candidatos |  	
+		| candidatosVivos candidatosOrdenados |
+		
+		candidatosVivos := candidatos select: [:candidato | candidato estaMuerto not ].
+		candidatosOrdenados := candidatosVivos sorted: [:candidatos1 :candidatos2 | candidatos1 vidaActual > candidatos2 vidaActual].
+		
+		candidatosVivos isEmpty
+			ifTrue: [candidatosOrdenados] 
+			ifFalse: [candidatosOrdenados first: 1]		
+	].
+				
+! !
+
+
+
+!Ogro methodsFor: 'initialization' stamp: 'mg 4/5/2024 08:48:58'!
+initialize
+	enemigos := #().
+	dañoRecibido := 0. 
+	vidaActual := 40.
+	dañoAProvocar := 8.
+	self enfocarseEnElMasSano.! !
