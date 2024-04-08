@@ -79,7 +79,7 @@ test04CanNotRemoveAnInvalidCustomer
 			[:anError | customerBook includesCustomerNamed: johnLennon ]
 		} ! !
 
-!CustomerBookTest methodsFor: 'testing' stamp: 'mg 4/6/2024 18:18:42'!
+!CustomerBookTest methodsFor: 'testing' stamp: 'mg 4/8/2024 15:06:39'!
 test05SuspendingACustomerShouldNotRemoveItFromCustomerBook
 
 	| customerBook paulMcCartney|
@@ -92,14 +92,14 @@ test05SuspendingACustomerShouldNotRemoveItFromCustomerBook
 	
 	self
 		assert: customerBook
-		includes: {}
-		hasSuspended: {paulMcCartney}
-		andNotHave: {}
+		includesActive: {}
+		includesSuspended: {paulMcCartney}
+		notIncludes: {}
 		
 	
 ! !
 
-!CustomerBookTest methodsFor: 'testing' stamp: 'mg 4/6/2024 18:15:11'!
+!CustomerBookTest methodsFor: 'testing' stamp: 'mg 4/8/2024 15:06:39'!
 test06RemovingASuspendedCustomerShouldRemoveItFromCustomerBook
 
 	| customerBook paulMcCartney|
@@ -113,12 +113,12 @@ test06RemovingASuspendedCustomerShouldRemoveItFromCustomerBook
 	
 	self
 		assert: customerBook
-		includes: {}
-		hasSuspended: {}
-		andNotHave: {paulMcCartney}
+		includesActive: {}
+		includesSuspended: {}
+		notIncludes: {paulMcCartney}
 ! !
 
-!CustomerBookTest methodsFor: 'testing' stamp: 'mg 4/5/2024 18:28:37'!
+!CustomerBookTest methodsFor: 'testing' stamp: 'mg 4/8/2024 15:10:27'!
 test07CanNotSuspendAnInvalidCustomer
 	
 	| customerBook johnLennon |
@@ -155,8 +155,8 @@ test08CanNotSuspendAnAlreadySuspendedCustomer
 		}! !
 
 
-!CustomerBookTest methodsFor: 'private' stamp: 'mg 4/6/2024 18:19:12'!
-assert: aCustomerBook includes: aCollectionOfActiveCustomers hasSuspended: aCollectionOfSuspendedCustomers andNotHave: aCollectionOfDeletedCustomers
+!CustomerBookTest methodsFor: 'private' stamp: 'mg 4/8/2024 15:06:39'!
+assert: aCustomerBook includesActive: aCollectionOfActiveCustomers includesSuspended: aCollectionOfSuspendedCustomers notIncludes: aCollectionOfDeletedCustomers
 
 	self assert: (aCollectionOfActiveCustomers size = aCustomerBook numberOfActiveCustomers).
 	self assert: (aCollectionOfSuspendedCustomers size = aCustomerBook numberOfSuspendedCustomers).
@@ -246,26 +246,10 @@ numberOfSuspendedCustomers
 	
 	^suspended size! !
 
-!CustomerBook methodsFor: 'customer management' stamp: 'NR 4/3/2019 10:14:26'!
+!CustomerBook methodsFor: 'customer management' stamp: 'mg 4/8/2024 15:24:31'!
 removeCustomerNamed: aName 
- 
-	1 to: active size do: 
-	[ :index |
-		aName = (active at: index)
-			ifTrue: [
-				active removeAt: index.
-				^ aName 
-			] 
-	].
-
-	1 to: suspended size do: 	
-	[ :index |
-		aName = (suspended at: index)
-			ifTrue: [
-				suspended removeAt: index.
-				^ aName 
-			] 
-	].
+	(self remove: aName from: active)	 ifTrue: [^aName].
+	(self remove: aName from: suspended)	 ifTrue: [^aName].
 	
 	^ NotFound signal.
 ! !
@@ -289,6 +273,21 @@ suspendCustomerNamed: aName
 	
 	suspended add: aName
 ! !
+
+
+!CustomerBook methodsFor: 'private' stamp: 'mg 4/8/2024 15:26:29'!
+remove: aName from: aCollectionOfCustomers
+
+	1 to: aCollectionOfCustomers size do: 
+	[ :index |
+		aName = (aCollectionOfCustomers at: index)
+			ifTrue: [
+				aCollectionOfCustomers removeAt: index.
+				^ true.
+			] 
+	].
+
+	^false.! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
