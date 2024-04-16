@@ -7045,3 +7045,4914 @@ PASSED!
 
 !testRun: #CustomerBookTest #test08CanNotSuspendAnAlreadySuspendedCustomer stamp: 'mg 4/6/2024 18:19:13'!
 PASSED!
+
+----STARTUP---- (9 April 2024 19:46:40) as C:\GITHUB\is1-leveroni\cuis\windows64\CuisUniversity-6169.image!
+
+
+5 == 6!
+
+5!
+
+5!
+
+----STARTUP---- (12 April 2024 18:52:10) as C:\GITHUB\is1-leveroni\cuis\windows64\CuisUniversity-6169.image!
+
+
+----End fileIn of C:\GITHUB\is1-leveroni\ejs\numeros\Numeros-Parte1-Ejercicio.st----!
+
+Numero subclass: #AAA
+	instanceVariableNames: 'type value numerator denominator'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numeros-Parte1-Ejercicio'!
+
+Numero subclass: #AAA
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numeros-Parte1-Ejercicio'!
+
+!classDefinition: #AAA category: #'Numeros-Parte1-Ejercicio' stamp: 'mg 4/12/2024 18:57:27'!
+Numero subclass: #AAA
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numeros-Parte1-Ejercicio'!
+
+Numero subclass: #BBB
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numeros-Parte1-Ejercicio'!
+
+!classDefinition: #BBB category: #'Numeros-Parte1-Ejercicio' stamp: 'mg 4/12/2024 18:57:30'!
+Numero subclass: #BBB
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numeros-Parte1-Ejercicio'!
+!BBB methodsFor: 'nil' stamp: 'mg 4/12/2024 18:58:00'!
+xxx! !
+!AAA methodsFor: 'nil' stamp: 'mg 4/12/2024 18:58:27'!
+xxx
+	^value < 0! !
+!BBB methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 18:58:42' prior: 50533558!
+xxx
+	^denominator < 0! !
+!AAA methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 18:59:08' overrides: 50533386!
+isNegative
+	^value < 0! !
+!AAA methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 18:59:15' prior: 50533568 overrides: 50533386!
+isNegative
+	^value < 0! !
+
+!methodRemoval: AAA #xxx stamp: 'mg 4/12/2024 18:59:20'!
+xxx
+	^value < 0!
+!BBB methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 18:59:36' overrides: 50533386!
+isNegative
+	^denominator < 0! !
+
+!methodRemoval: BBB #xxx stamp: 'mg 4/12/2024 18:59:36'!
+xxx
+	^denominator < 0!
+
+!classRenamed: #AAA as: #Entero stamp: 'mg 4/12/2024 18:59:55'!
+Smalltalk renameClassNamed: #AAA as: #Entero!
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 18:59:55' prior: 50533360!
++ anAdder 
+	
+	(type = #Entero and: [anAdder type = #Entero]) ifTrue:
+		[ ^self class with: value + anAdder integerValue ].
+	
+	(type = #Fraccion and: [anAdder type = #Fraccion]) ifTrue:
+		[ | newNumerator newDenominator |
+		
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.
+		
+		^ self class with: newNumerator over: newDenominator ].
+	
+	self error: 'Tipo de número no soportado'
+	! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 18:59:55' prior: 50533460 overrides: 16913626!
+hash
+	type = #Entero ifTrue:
+		[ ^value hash ].
+	type = #Fraccion ifTrue:
+		[ ^(numerator hash / denominator hash) hash ].! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 18:59:55' prior: 50533440 overrides: 16914834!
+printOn: aStream
+	
+	type = #Entero ifTrue:
+		[ aStream print: value ].
+	
+	type = #Fraccion ifTrue:
+		[ aStream 
+			print: numerator;
+			nextPut: $/;
+			print: denominator ].! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 18:59:55' prior: 50533392!
+isOne
+
+	type = #Entero ifTrue:
+		[ ^value = 1 ].
+	type = #Fraccion ifTrue:
+		[ ^false ].! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 18:59:55' prior: 50533403!
+initializeWith: aValue
+	
+	type := #Entero.
+	value := aValue! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 18:59:55' prior: 50533467!
+// aDivisor 
+	
+	type = #Entero ifTrue:
+		[ ^self class with: value // aDivisor integerValue ].
+		
+	self error: 'Tipo de número no soportado'! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 18:59:55' prior: 50533386!
+isNegative
+	
+	type = #Entero ifTrue:
+		[ ^value < 0 ].
+	type = #Fraccion ifTrue:
+		[ ^denominator < 0 ].! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 18:59:55' prior: 50533449 overrides: 16913610!
+= anObject
+
+	^(anObject isKindOf: self class) and: [ type = anObject type and: 
+		[ type = #Entero ifTrue: [ value = anObject integerValue] 
+		ifFalse: [ type = #Fraccion ifTrue:
+			[ (numerator * anObject denominator) = (denominator * anObject numerator) ]]]]! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 18:59:55' prior: 50533397!
+isZero
+
+	type = #Entero ifTrue:
+		[ ^value = 0 ].
+	type = #Fraccion ifTrue:
+		[ ^false ].! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 18:59:55' prior: 50533378!
+negated
+	
+	type = #Entero ifTrue:
+		[ ^self * (self class with: -1) ].
+	type = #Fraccion ifTrue:
+		[ ^self class with: numerator * (self class with: -1) over: denominator ].! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 18:59:56' prior: 50533346!
+* aMultiplier 
+
+	(type = #Entero and: [aMultiplier type = #Entero]) ifTrue:	
+		[ ^self class with: value * aMultiplier integerValue ].
+		
+	(type = #Fraccion and: [aMultiplier type = #Fraccion]) ifTrue:
+		[ ^self class with: (numerator * aMultiplier numerator) over: (denominator * aMultiplier denominator) ].
+		
+	self error: 'Tipo de número no soportado'
+	! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 18:59:56' prior: 50533475!
+greatestCommonDivisorWith: anEntero 
+	
+	type = #Entero ifTrue:
+		[^self class with: (value gcd: anEntero integerValue)].
+		
+	self error: 'Tipo de número no soportado'! !
+
+!classRenamed: #Entero as: #Fraccion stamp: 'mg 4/12/2024 19:00:10'!
+Smalltalk renameClassNamed: #Entero as: #Fraccion!
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:10' prior: 50533678!
+* aMultiplier 
+
+	(type = #Fraccion and: [aMultiplier type = #Fraccion]) ifTrue:	
+		[ ^self class with: value * aMultiplier integerValue ].
+		
+	(type = #Fraccion and: [aMultiplier type = #Fraccion]) ifTrue:
+		[ ^self class with: (numerator * aMultiplier numerator) over: (denominator * aMultiplier denominator) ].
+		
+	self error: 'Tipo de número no soportado'
+	! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:10' prior: 50533636!
+// aDivisor 
+	
+	type = #Fraccion ifTrue:
+		[ ^self class with: value // aDivisor integerValue ].
+		
+	self error: 'Tipo de número no soportado'! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:10' prior: 50533669!
+negated
+	
+	type = #Fraccion ifTrue:
+		[ ^self * (self class with: -1) ].
+	type = #Fraccion ifTrue:
+		[ ^self class with: numerator * (self class with: -1) over: denominator ].! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:10' prior: 50533408!
+initializeWith: aNumerator over: aDenominator
+
+	"Estas precondiciones estan por si se comenten errores en la implementacion - Hernan"
+	aNumerator isZero ifTrue: [ self error: 'una fraccion no puede ser cero' ].
+	aDenominator isOne ifTrue: [ self error: 'una fraccion no puede tener denominador 1 porque sino es un entero' ].
+	
+	type:=#Fraccion.
+	numerator := aNumerator.
+	denominator := aDenominator ! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:10' prior: 50533631!
+initializeWith: aValue
+	
+	type := #Fraccion.
+	value := aValue! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:10' prior: 50533644!
+isNegative
+	
+	type = #Fraccion ifTrue:
+		[ ^value < 0 ].
+	type = #Fraccion ifTrue:
+		[ ^denominator < 0 ].! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:10' prior: 50533663!
+isZero
+
+	type = #Fraccion ifTrue:
+		[ ^value = 0 ].
+	type = #Fraccion ifTrue:
+		[ ^false ].! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:10' prior: 50533625!
+isOne
+
+	type = #Fraccion ifTrue:
+		[ ^value = 1 ].
+	type = #Fraccion ifTrue:
+		[ ^false ].! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:10' prior: 50533589!
++ anAdder 
+	
+	(type = #Fraccion and: [anAdder type = #Fraccion]) ifTrue:
+		[ ^self class with: value + anAdder integerValue ].
+	
+	(type = #Fraccion and: [anAdder type = #Fraccion]) ifTrue:
+		[ | newNumerator newDenominator |
+		
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.
+		
+		^ self class with: newNumerator over: newDenominator ].
+	
+	self error: 'Tipo de número no soportado'
+	! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:10' prior: 50533608 overrides: 16913626!
+hash
+	type = #Fraccion ifTrue:
+		[ ^value hash ].
+	type = #Fraccion ifTrue:
+		[ ^(numerator hash / denominator hash) hash ].! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:10' prior: 50533651 overrides: 16913610!
+= anObject
+
+	^(anObject isKindOf: self class) and: [ type = anObject type and: 
+		[ type = #Fraccion ifTrue: [ value = anObject integerValue] 
+		ifFalse: [ type = #Fraccion ifTrue:
+			[ (numerator * anObject denominator) = (denominator * anObject numerator) ]]]]! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:10' prior: 50533616 overrides: 16914834!
+printOn: aStream
+	
+	type = #Fraccion ifTrue:
+		[ aStream print: value ].
+	
+	type = #Fraccion ifTrue:
+		[ aStream 
+			print: numerator;
+			nextPut: $/;
+			print: denominator ].! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:10' prior: 50533693!
+greatestCommonDivisorWith: anEntero 
+	
+	type = #Fraccion ifTrue:
+		[^self class with: (value gcd: anEntero integerValue)].
+		
+	self error: 'Tipo de número no soportado'! !
+
+!classRenamed: #Fraccion as: #Entero stamp: 'mg 4/12/2024 19:00:20'!
+Smalltalk renameClassNamed: #Fraccion as: #Entero!
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:20' prior: 50533720!
+// aDivisor 
+	
+	type = #Entero ifTrue:
+		[ ^self class with: value // aDivisor integerValue ].
+		
+	self error: 'Tipo de número no soportado'! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:20' prior: 50533728!
+negated
+	
+	type = #Entero ifTrue:
+		[ ^self * (self class with: -1) ].
+	type = #Entero ifTrue:
+		[ ^self class with: numerator * (self class with: -1) over: denominator ].! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:20' prior: 50533825!
+greatestCommonDivisorWith: anEntero 
+	
+	type = #Entero ifTrue:
+		[^self class with: (value gcd: anEntero integerValue)].
+		
+	self error: 'Tipo de número no soportado'! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:20' prior: 50533737!
+initializeWith: aNumerator over: aDenominator
+
+	"Estas precondiciones estan por si se comenten errores en la implementacion - Hernan"
+	aNumerator isZero ifTrue: [ self error: 'una fraccion no puede ser cero' ].
+	aDenominator isOne ifTrue: [ self error: 'una fraccion no puede tener denominador 1 porque sino es un entero' ].
+	
+	type:=#Entero.
+	numerator := aNumerator.
+	denominator := aDenominator ! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:20' prior: 50533816 overrides: 16914834!
+printOn: aStream
+	
+	type = #Entero ifTrue:
+		[ aStream print: value ].
+	
+	type = #Entero ifTrue:
+		[ aStream 
+			print: numerator;
+			nextPut: $/;
+			print: denominator ].! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:20' prior: 50533796 overrides: 16913626!
+hash
+	type = #Entero ifTrue:
+		[ ^value hash ].
+	type = #Entero ifTrue:
+		[ ^(numerator hash / denominator hash) hash ].! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:20' prior: 50533765!
+isZero
+
+	type = #Entero ifTrue:
+		[ ^value = 0 ].
+	type = #Entero ifTrue:
+		[ ^false ].! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:20' prior: 50533804 overrides: 16913610!
+= anObject
+
+	^(anObject isKindOf: self class) and: [ type = anObject type and: 
+		[ type = #Entero ifTrue: [ value = anObject integerValue] 
+		ifFalse: [ type = #Entero ifTrue:
+			[ (numerator * anObject denominator) = (denominator * anObject numerator) ]]]]! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:20' prior: 50533771!
+isOne
+
+	type = #Entero ifTrue:
+		[ ^value = 1 ].
+	type = #Entero ifTrue:
+		[ ^false ].! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:20' prior: 50533758!
+isNegative
+	
+	type = #Entero ifTrue:
+		[ ^value < 0 ].
+	type = #Entero ifTrue:
+		[ ^denominator < 0 ].! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:20' prior: 50533705!
+* aMultiplier 
+
+	(type = #Entero and: [aMultiplier type = #Entero]) ifTrue:	
+		[ ^self class with: value * aMultiplier integerValue ].
+		
+	(type = #Entero and: [aMultiplier type = #Entero]) ifTrue:
+		[ ^self class with: (numerator * aMultiplier numerator) over: (denominator * aMultiplier denominator) ].
+		
+	self error: 'Tipo de número no soportado'
+	! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:20' prior: 50533753!
+initializeWith: aValue
+	
+	type := #Entero.
+	value := aValue! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:00:20' prior: 50533777!
++ anAdder 
+	
+	(type = #Entero and: [anAdder type = #Entero]) ifTrue:
+		[ ^self class with: value + anAdder integerValue ].
+	
+	(type = #Entero and: [anAdder type = #Entero]) ifTrue:
+		[ | newNumerator newDenominator |
+		
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.
+		
+		^ self class with: newNumerator over: newDenominator ].
+	
+	self error: 'Tipo de número no soportado'
+	! !
+
+!classRenamed: #BBB as: #Fraccion stamp: 'mg 4/12/2024 19:01:22'!
+Smalltalk renameClassNamed: #BBB as: #Fraccion!
+!Numero methodsFor: 'testing' stamp: 'mg 4/12/2024 19:01:52' prior: 50533919!
+isNegative
+	
+	self subclassResponsibility ! !
+!Numero methodsFor: 'testing' stamp: 'mg 4/12/2024 19:01:54' prior: 50533966!
+isNegative
+	self subclassResponsibility ! !
+!Numero methodsFor: 'testing' stamp: 'mg 4/12/2024 19:02:35' prior: 50533913!
+isOne
+
+	type = #Entero ifTrue:
+		[ ^value = 1 ].
+	type = #Fraccion ifTrue:
+		[ ^false ].! !
+!Numero methodsFor: 'testing' stamp: 'mg 4/12/2024 19:02:38' prior: 50533895!
+isZero
+
+	type = #Entero ifTrue:
+		[ ^value = 0 ].
+	type = #Fraccion ifTrue:
+		[ ^false ].! !
+
+!methodRemoval: Numero #denominator stamp: 'mg 4/12/2024 19:03:06'!
+denominator
+
+	^denominator!
+
+!classRemoval: #Fraccion stamp: 'mg 4/12/2024 19:03:22'!
+Numero subclass: #Fraccion
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numeros-Parte1-Ejercicio'!
+
+!classRemoval: #Entero stamp: 'mg 4/12/2024 19:03:22'!
+Numero subclass: #Entero
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numeros-Parte1-Ejercicio'!
+
+!classRemoval: #Numero stamp: 'mg 4/12/2024 19:03:22'!
+Object subclass: #Numero
+	instanceVariableNames: 'type value numerator denominator'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numeros-Parte1-Ejercicio'!
+
+!classRemoval: #NumeroTest stamp: 'mg 4/12/2024 19:03:23'!
+TestCase subclass: #NumeroTest
+	instanceVariableNames: 'zero one two four oneFifth oneHalf five twoFifth twoTwentyfifth fiveHalfs three eight negativeOne negativeTwo'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numeros-Parte1-Ejercicio'!
+
+----End fileIn of C:\GITHUB\is1-leveroni\ejs\numeros\Numeros-Parte1-Ejercicio.st----!
+
+Numero subclass: #Entero
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numeros-Parte1-Ejercicio'!
+
+!classDefinition: #Entero category: #'Numeros-Parte1-Ejercicio' stamp: 'mg 4/12/2024 19:03:55'!
+Numero subclass: #Entero
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numeros-Parte1-Ejercicio'!
+
+Numero subclass: #Fraccion
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numeros-Parte1-Ejercicio'!
+
+!classDefinition: #Fraccion category: #'Numeros-Parte1-Ejercicio' stamp: 'mg 4/12/2024 19:03:59'!
+Numero subclass: #Fraccion
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numeros-Parte1-Ejercicio'!
+!Fraccion methodsFor: 'nil' stamp: 'mg 4/12/2024 19:04:06' overrides: 50534208!
+isNegative
+	! !
+!Fraccion methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:04:17' prior: 50534376 overrides: 50534208!
+isNegative
+	^denominator < 0! !
+!Numero methodsFor: 'testing' stamp: 'mg 4/12/2024 19:04:33' prior: 50534208!
+isNegative
+	self subclassResponsibility ! !
+!Entero methodsFor: 'nil' stamp: 'mg 4/12/2024 19:04:43' overrides: 50534384!
+isNegative
+	^value < 0 ! !
+!Numero class methodsFor: 'instance creation' stamp: 'mg 4/12/2024 19:06:15' prior: 50534318!
+with: aValue 
+	
+	"Esta verificacion esta puesta por si se equivocan y quieren crear un Entero pasando otra cosa que un Integer - Hernan"
+	aValue isInteger ifFalse: [  self error: 'aValue debe ser anInteger' ].
+	
+	^Entero new initializeWith: aValue! !
+!Numero class methodsFor: 'instance creation' stamp: 'mg 4/12/2024 19:06:22' prior: 50534329!
+with: aDividend over: aDivisor
+
+	| greatestCommonDivisor numerator denominator |
+	
+	aDivisor isZero ifTrue: [ self error: self canNotDivideByZeroErrorDescription ].
+	aDividend isZero ifTrue: [ ^aDividend ].
+	
+	aDivisor isNegative ifTrue: [ ^self with: aDividend negated over: aDivisor negated].
+	
+	greatestCommonDivisor := aDividend greatestCommonDivisorWith: aDivisor. 
+	numerator := aDividend // greatestCommonDivisor.
+	denominator := aDivisor // greatestCommonDivisor.
+	
+	denominator isOne ifTrue: [ ^numerator ].
+
+	^Fraccion new initializeWith: numerator over: denominator! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 19:06:25'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 19:06:25'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 19:06:26'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 19:06:26'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 19:06:26'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 19:06:26'!
+PASSED!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 19:06:26'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 19:06:26'!
+PASSED!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 19:06:26'!
+PASSED!
+
+!testRun: #NumeroTest #test10AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:06:26'!
+PASSED!
+
+!testRun: #NumeroTest #test11MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:06:26'!
+PASSED!
+
+!testRun: #NumeroTest #test12AFraccionCanNotBeZero stamp: 'mg 4/12/2024 19:06:26'!
+PASSED!
+
+!testRun: #NumeroTest #test13AFraccionCanNotBeOne stamp: 'mg 4/12/2024 19:06:26'!
+PASSED!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 19:06:26'!
+PASSED!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 19:06:26'!
+PASSED!
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 19:06:26'!
+PASSED!
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 19:06:26'!
+PASSED!
+!Entero methodsFor: 'initialization' stamp: 'mg 4/12/2024 19:07:31' overrides: 50534225!
+initializeWith: aValue
+	
+	type := #Entero.
+	value := aValue! !
+
+!methodRemoval: Numero #initializeWith: stamp: 'mg 4/12/2024 19:07:31'!
+initializeWith: aValue
+	
+	type := #Entero.
+	value := aValue!
+!Fraccion methodsFor: 'initialization' stamp: 'mg 4/12/2024 19:07:38' overrides: 50534230!
+initializeWith: aNumerator over: aDenominator
+
+	"Estas precondiciones estan por si se comenten errores en la implementacion - Hernan"
+	aNumerator isZero ifTrue: [ self error: 'una fraccion no puede ser cero' ].
+	aDenominator isOne ifTrue: [ self error: 'una fraccion no puede tener denominador 1 porque sino es un entero' ].
+	
+	type:=#Fraccion.
+	numerator := aNumerator.
+	denominator := aDenominator ! !
+
+!methodRemoval: Numero #initializeWith:over: stamp: 'mg 4/12/2024 19:07:38'!
+initializeWith: aNumerator over: aDenominator
+
+	"Estas precondiciones estan por si se comenten errores en la implementacion - Hernan"
+	aNumerator isZero ifTrue: [ self error: 'una fraccion no puede ser cero' ].
+	aDenominator isOne ifTrue: [ self error: 'una fraccion no puede tener denominador 1 porque sino es un entero' ].
+	
+	type:=#Fraccion.
+	numerator := aNumerator.
+	denominator := aDenominator !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 19:07:40'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 19:07:40'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 19:07:40'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 19:07:40'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 19:07:40'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 19:07:40'!
+PASSED!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 19:07:40'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 19:07:40'!
+PASSED!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 19:07:40'!
+PASSED!
+
+!testRun: #NumeroTest #test10AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:07:40'!
+PASSED!
+
+!testRun: #NumeroTest #test11MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:07:40'!
+PASSED!
+
+!testRun: #NumeroTest #test12AFraccionCanNotBeZero stamp: 'mg 4/12/2024 19:07:40'!
+PASSED!
+
+!testRun: #NumeroTest #test13AFraccionCanNotBeOne stamp: 'mg 4/12/2024 19:07:40'!
+PASSED!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 19:07:40'!
+PASSED!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 19:07:40'!
+PASSED!
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 19:07:41'!
+PASSED!
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 19:07:41'!
+PASSED!
+!Numero methodsFor: 'testing' stamp: 'mg 4/12/2024 19:09:59' prior: 50534214!
+isOne
+
+	self subclassResponsibility 
+	type = #Entero ifTrue:
+		[ ^value = 1 ].
+	type = #Fraccion ifTrue:
+		[ ^false ].! !
+!Entero methodsFor: 'initialization' stamp: 'mg 4/12/2024 19:10:15' overrides: 50534575!
+isOne
+	^value = 1! !
+!Fraccion methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:10:23' overrides: 50534575!
+isOne
+	^false! !
+!Numero methodsFor: 'testing' stamp: 'mg 4/12/2024 19:10:31' prior: 50534575!
+isOne
+
+	self subclassResponsibility! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 19:10:32'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 19:10:32'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 19:10:32'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 19:10:32'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 19:10:32'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 19:10:32'!
+PASSED!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 19:10:32'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 19:10:32'!
+PASSED!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 19:10:32'!
+PASSED!
+
+!testRun: #NumeroTest #test10AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:10:32'!
+PASSED!
+
+!testRun: #NumeroTest #test11MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:10:32'!
+PASSED!
+
+!testRun: #NumeroTest #test12AFraccionCanNotBeZero stamp: 'mg 4/12/2024 19:10:32'!
+PASSED!
+
+!testRun: #NumeroTest #test13AFraccionCanNotBeOne stamp: 'mg 4/12/2024 19:10:32'!
+PASSED!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 19:10:32'!
+PASSED!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 19:10:32'!
+PASSED!
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 19:10:32'!
+PASSED!
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 19:10:32'!
+PASSED!
+!Numero methodsFor: 'testing' stamp: 'mg 4/12/2024 19:10:34' prior: 50534589!
+isOne
+	self subclassResponsibility! !
+!Numero methodsFor: 'testing' stamp: 'mg 4/12/2024 19:10:49' prior: 50534219!
+isZero
+	self subclassResponsibility! !
+!Entero methodsFor: 'initialization' stamp: 'mg 4/12/2024 19:11:00' overrides: 50534652!
+isZero
+	^value = 0! !
+!Fraccion methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:11:08' overrides: 50534652!
+isZero
+	^false! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 19:11:12'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 19:11:12'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 19:11:12'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 19:11:12'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 19:11:12'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 19:11:12'!
+PASSED!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 19:11:12'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 19:11:12'!
+PASSED!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 19:11:12'!
+PASSED!
+
+!testRun: #NumeroTest #test10AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:11:12'!
+PASSED!
+
+!testRun: #NumeroTest #test11MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:11:12'!
+PASSED!
+
+!testRun: #NumeroTest #test12AFraccionCanNotBeZero stamp: 'mg 4/12/2024 19:11:12'!
+PASSED!
+
+!testRun: #NumeroTest #test13AFraccionCanNotBeOne stamp: 'mg 4/12/2024 19:11:12'!
+PASSED!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 19:11:12'!
+PASSED!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 19:11:12'!
+PASSED!
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 19:11:12'!
+PASSED!
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 19:11:12'!
+PASSED!
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 19:16:44' prior: 50534168!
+* aMultiplier 
+
+	(type = #Entero) ifTrue:	
+		[(aMultiplier type = #Entero)ifTrue: [
+				^self class with: value * aMultiplier integerValue]
+		].
+		
+	(type = #Fraccion) ifTrue:
+		[(aMultiplier type = #Fraccion) ifTrue: [
+			 ^self class with: (numerator * aMultiplier numerator) over: (denominator * aMultiplier denominator)]
+		].
+		
+	self error: 'Tipo de número no soportado'.! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 19:16:46'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 19:16:46'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 19:16:46'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 19:16:46'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 19:16:46'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 19:16:46'!
+PASSED!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 19:16:46'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 19:16:46'!
+PASSED!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 19:16:46'!
+PASSED!
+
+!testRun: #NumeroTest #test10AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:16:46'!
+PASSED!
+
+!testRun: #NumeroTest #test11MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:16:46'!
+PASSED!
+
+!testRun: #NumeroTest #test12AFraccionCanNotBeZero stamp: 'mg 4/12/2024 19:16:46'!
+PASSED!
+
+!testRun: #NumeroTest #test13AFraccionCanNotBeOne stamp: 'mg 4/12/2024 19:16:46'!
+PASSED!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 19:16:46'!
+PASSED!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 19:16:46'!
+PASSED!
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 19:16:46'!
+PASSED!
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 19:16:46'!
+PASSED!
+!Entero methodsFor: 'nil' stamp: 'mg 4/12/2024 19:17:36' overrides: 50534719!
+* aMultiplier
+
+	[(aMultiplier type = #Entero)ifTrue: [
+				^self class with: value * aMultiplier integerValue]
+	].! !
+!Entero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:17:41' prior: 50534789 overrides: 50534719!
+* aMultiplier
+	[(aMultiplier type = #Entero) ifTrue: [
+				^self class with: value * aMultiplier integerValue]
+	].! !
+!Fraccion methodsFor: 'initialization' stamp: 'mg 4/12/2024 19:18:30' overrides: 50534719!
+* aMultiplier
+	[(aMultiplier type = #Fraccion) ifTrue: [
+			 ^self class with: (numerator * aMultiplier numerator) over: (denominator * aMultiplier denominator)]
+	].! !
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 19:18:42' prior: 50534719!
+* aMultiplier 
+	self subclassResponsibility ! !
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 19:18:50'!
+PASSED!
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 19:18:50'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 19:18:50'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 19:18:50'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 19:18:50'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 19:18:50'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 19:18:50'!
+FAILURE!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 19:18:50'!
+FAILURE!
+
+!testRun: #NumeroTest #test08FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 19:18:50'!
+FAILURE!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 19:18:50'!
+FAILURE!
+
+!testRun: #NumeroTest #test10AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:18:50'!
+FAILURE!
+
+!testRun: #NumeroTest #test11MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:18:50'!
+FAILURE!
+
+!testRun: #NumeroTest #test12AFraccionCanNotBeZero stamp: 'mg 4/12/2024 19:18:50'!
+PASSED!
+
+!testRun: #NumeroTest #test13AFraccionCanNotBeOne stamp: 'mg 4/12/2024 19:18:50'!
+PASSED!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 19:18:50'!
+FAILURE!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 19:18:50'!
+FAILURE!
+!Entero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:19:05' prior: 50534797 overrides: 50534813!
+* aMultiplier
+	[(aMultiplier type = #Entero) ifTrue: [
+		^self class with: value * aMultiplier integerValue]
+	].! !
+!Entero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:19:32' prior: 50534869 overrides: 50534813!
+* aMultiplier
+
+	^self class with: value * aMultiplier integerValue! !
+!Fraccion methodsFor: 'initialization' stamp: 'mg 4/12/2024 19:19:54' prior: 50534804 overrides: 50534813!
+* aMultiplier
+	 ^self class with: (numerator * aMultiplier numerator) over: (denominator * aMultiplier denominator)! !
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 19:19:57'!
+PASSED!
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 19:20:00'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 19:20:00'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 19:20:00'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 19:20:00'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 19:20:00'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 19:20:00'!
+PASSED!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 19:20:00'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 19:20:00'!
+PASSED!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 19:20:00'!
+PASSED!
+
+!testRun: #NumeroTest #test10AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:20:00'!
+PASSED!
+
+!testRun: #NumeroTest #test11MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:20:00'!
+PASSED!
+
+!testRun: #NumeroTest #test12AFraccionCanNotBeZero stamp: 'mg 4/12/2024 19:20:00'!
+PASSED!
+
+!testRun: #NumeroTest #test13AFraccionCanNotBeOne stamp: 'mg 4/12/2024 19:20:00'!
+PASSED!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 19:20:00'!
+PASSED!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 19:20:00'!
+PASSED!
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 19:20:01'!
+PASSED!
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 19:20:01'!
+PASSED!
+!Entero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:21:17' prior: 50534877 overrides: 50534813!
+* aMultiplier
+
+	^self class with: value * aMultiplier integerValue! !
+!Entero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:22:27' overrides: 50534182!
++ anAdder
+
+	^self class with: value + anAdder integerValue! !
+!Fraccion methodsFor: 'initialization' stamp: 'mg 4/12/2024 19:23:26' prior: 50534883 overrides: 50534813!
+* anAdder
+	| newNumerator newDenominator |
+	newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+	newDenominator := denominator * anAdder denominator.		
+
+	^ self class with: newNumerator over: newDenominator.! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 19:23:30'!
+PASSED!
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 19:23:30'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 19:23:30'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 19:23:30'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 19:23:30'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 19:23:30'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 19:23:30'!
+PASSED!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 19:23:30'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 19:23:30'!
+FAILURE!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 19:23:30'!
+PASSED!
+
+!testRun: #NumeroTest #test10AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:23:30'!
+PASSED!
+
+!testRun: #NumeroTest #test11MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:23:30'!
+FAILURE!
+
+!testRun: #NumeroTest #test12AFraccionCanNotBeZero stamp: 'mg 4/12/2024 19:23:30'!
+PASSED!
+
+!testRun: #NumeroTest #test13AFraccionCanNotBeOne stamp: 'mg 4/12/2024 19:23:30'!
+PASSED!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 19:23:30'!
+PASSED!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 19:23:30'!
+PASSED!
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 19:23:30'!
+PASSED!
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 19:23:30'!
+PASSED!
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 19:23:44' prior: 50534182!
++ anAdder 
+
+	! !
+!Numero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:23:55' prior: 50535031!
++ anAdder
+
+	self subclassResponsibility! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 19:23:57'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 19:23:57'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 19:23:57'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 19:23:57'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 19:23:57'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 19:23:58'!
+PASSED!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 19:23:58'!
+ERROR!
+
+!testRun: #NumeroTest #test08FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 19:23:58'!
+FAILURE!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 19:23:58'!
+PASSED!
+
+!testRun: #NumeroTest #test10AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:23:58'!
+ERROR!
+
+!testRun: #NumeroTest #test11MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:23:58'!
+FAILURE!
+
+!testRun: #NumeroTest #test12AFraccionCanNotBeZero stamp: 'mg 4/12/2024 19:23:58'!
+PASSED!
+
+!testRun: #NumeroTest #test13AFraccionCanNotBeOne stamp: 'mg 4/12/2024 19:23:58'!
+PASSED!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 19:23:58'!
+PASSED!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 19:23:58'!
+PASSED!
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 19:23:58'!
+PASSED!
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 19:23:58'!
+PASSED!
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 19:24:39' prior: 50535035!
++ anAdders
+
+	self subclassResponsibility! !
+!Fraccion methodsFor: 'initialization' stamp: 'mg 4/12/2024 19:23:26' prior: 50534961 overrides: 50534813!
+* anAdder
+	| newNumerator newDenominator |
+	newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+	newDenominator := denominator * anAdder denominator.		
+
+	^ self class with: newNumerator over: newDenominator.! !
+!Fraccion methodsFor: 'initialization' stamp: 'mg 4/12/2024 19:19:54' prior: 50535100 overrides: 50534813!
+* aMultiplier
+	 ^self class with: (numerator * aMultiplier numerator) over: (denominator * aMultiplier denominator)! !
+!Fraccion methodsFor: 'initialization' stamp: 'mg 4/12/2024 19:25:29' overrides: 50535095!
++ anAdder
+	[ | newNumerator newDenominator |
+
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.
+		
+		^ self class with: newNumerator over: newDenominator ].! !
+!Fraccion methodsFor: 'initialization' stamp: 'mg 4/12/2024 19:25:41' prior: 50535119 overrides: 50535095!
++ anAdder
+	| newNumerator newDenominator |
+
+	newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+	newDenominator := denominator * anAdder denominator.
+		
+		^ self class with: newNumerator over: newDenominator .! !
+!Fraccion methodsFor: 'initialization' stamp: 'mg 4/12/2024 19:25:44' prior: 50535131 overrides: 50535095!
++ anAdder
+	| newNumerator newDenominator |
+
+	newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+	newDenominator := denominator * anAdder denominator.
+		
+	^ self class with: newNumerator over: newDenominator .! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 19:25:48'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 19:25:48'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 19:25:48'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 19:25:48'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 19:25:48'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 19:25:48'!
+PASSED!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 19:25:48'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 19:25:48'!
+PASSED!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 19:25:48'!
+PASSED!
+
+!testRun: #NumeroTest #test10AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:25:48'!
+PASSED!
+
+!testRun: #NumeroTest #test11MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:25:48'!
+PASSED!
+
+!testRun: #NumeroTest #test12AFraccionCanNotBeZero stamp: 'mg 4/12/2024 19:25:48'!
+PASSED!
+
+!testRun: #NumeroTest #test13AFraccionCanNotBeOne stamp: 'mg 4/12/2024 19:25:48'!
+PASSED!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 19:25:48'!
+PASSED!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 19:25:48'!
+PASSED!
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 19:25:48'!
+PASSED!
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 19:25:48'!
+PASSED!
+!Entero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:26:46' overrides: 50534289!
+// aDivisor
+
+	^self class with: value // aDivisor integerValue ! !
+!Entero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:26:47' prior: 50535209 overrides: 50534289!
+// aDivisor
+	^self class with: value // aDivisor integerValue ! !
+!Fraccion methodsFor: 'initialization' stamp: 'mg 4/12/2024 19:27:06' overrides: 50534289!
+// aDivisor
+	! !
+!Fraccion methodsFor: 'initialization' stamp: 'mg 4/12/2024 19:27:21' prior: 50535220 overrides: 50534289!
+// aDivisor
+	self error: 'Tipo de número no soportado'! !
+!Numero methodsFor: 'arithmetic operations - private' stamp: 'mg 4/12/2024 19:27:31' prior: 50534289!
+// aDivisor 
+	self subclassResponsibility ! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 19:27:31'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 19:27:31'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 19:27:31'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 19:27:31'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 19:27:31'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 19:27:31'!
+PASSED!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 19:27:31'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 19:27:31'!
+PASSED!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 19:27:32'!
+PASSED!
+
+!testRun: #NumeroTest #test10AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:27:32'!
+PASSED!
+
+!testRun: #NumeroTest #test11MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:27:32'!
+PASSED!
+
+!testRun: #NumeroTest #test12AFraccionCanNotBeZero stamp: 'mg 4/12/2024 19:27:32'!
+PASSED!
+
+!testRun: #NumeroTest #test13AFraccionCanNotBeOne stamp: 'mg 4/12/2024 19:27:32'!
+PASSED!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 19:27:32'!
+PASSED!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 19:27:32'!
+PASSED!
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 19:27:32'!
+PASSED!
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 19:27:32'!
+PASSED!
+!Entero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:28:03' overrides: 50534271!
+= anObject
+	! !
+!Fraccion methodsFor: 'initialization' stamp: 'mg 4/12/2024 19:28:07' overrides: 50534271!
+= anObject! !
+!Entero class methodsFor: 'instance creation' stamp: 'mg 4/12/2024 19:37:52' overrides: 50534392!
+with: aValue 
+	
+	"Esta verificacion esta puesta por si se equivocan y quieren crear un Entero pasando otra cosa que un Integer - Hernan"
+	aValue isInteger ifFalse: [  self error: 'aValue debe ser anInteger' ].
+	
+	^Entero new initializeWith: aValue! !
+
+!methodRemoval: Numero class #with: stamp: 'mg 4/12/2024 19:37:52'!
+with: aValue 
+	
+	"Esta verificacion esta puesta por si se equivocan y quieren crear un Entero pasando otra cosa que un Integer - Hernan"
+	aValue isInteger ifFalse: [  self error: 'aValue debe ser anInteger' ].
+	
+	^Entero new initializeWith: aValue!
+!Fraccion class methodsFor: 'instance creation' stamp: 'mg 4/12/2024 19:38:08' overrides: 50534403!
+with: aDividend over: aDivisor
+
+	| greatestCommonDivisor numerator denominator |
+	
+	aDivisor isZero ifTrue: [ self error: self canNotDivideByZeroErrorDescription ].
+	aDividend isZero ifTrue: [ ^aDividend ].
+	
+	aDivisor isNegative ifTrue: [ ^self with: aDividend negated over: aDivisor negated].
+	
+	greatestCommonDivisor := aDividend greatestCommonDivisorWith: aDivisor. 
+	numerator := aDividend // greatestCommonDivisor.
+	denominator := aDivisor // greatestCommonDivisor.
+	
+	denominator isOne ifTrue: [ ^numerator ].
+
+	^Fraccion new initializeWith: numerator over: denominator! !
+
+!methodRemoval: Numero class #with:over: stamp: 'mg 4/12/2024 19:38:08'!
+with: aDividend over: aDivisor
+
+	| greatestCommonDivisor numerator denominator |
+	
+	aDivisor isZero ifTrue: [ self error: self canNotDivideByZeroErrorDescription ].
+	aDividend isZero ifTrue: [ ^aDividend ].
+	
+	aDivisor isNegative ifTrue: [ ^self with: aDividend negated over: aDivisor negated].
+	
+	greatestCommonDivisor := aDividend greatestCommonDivisorWith: aDivisor. 
+	numerator := aDividend // greatestCommonDivisor.
+	denominator := aDivisor // greatestCommonDivisor.
+	
+	denominator isOne ifTrue: [ ^numerator ].
+
+	^Fraccion new initializeWith: numerator over: denominator!
+!Entero class methodsFor: 'instance creation' stamp: 'mg 4/12/2024 19:38:34' prior: 50535298!
+with: aValue 
+	
+	"Esta verificacion esta puesta por si se equivocan y quieren crear un Entero pasando otra cosa que un Integer - Hernan"
+	aValue isInteger ifFalse: [  self error: 'aValue debe ser anInteger' ].
+	
+	^self new initializeWith: aValue! !
+!Fraccion class methodsFor: 'instance creation' stamp: 'mg 4/12/2024 19:38:39' prior: 50535319!
+with: aDividend over: aDivisor
+
+	| greatestCommonDivisor numerator denominator |
+	
+	aDivisor isZero ifTrue: [ self error: self canNotDivideByZeroErrorDescription ].
+	aDividend isZero ifTrue: [ ^aDividend ].
+	
+	aDivisor isNegative ifTrue: [ ^self with: aDividend negated over: aDivisor negated].
+	
+	greatestCommonDivisor := aDividend greatestCommonDivisorWith: aDivisor. 
+	numerator := aDividend // greatestCommonDivisor.
+	denominator := aDivisor // greatestCommonDivisor.
+	
+	denominator isOne ifTrue: [ ^numerator ].
+
+	^self new initializeWith: numerator over: denominator! !
+!Numero methodsFor: 'comparing' stamp: 'mg 4/12/2024 19:48:22' prior: 50534271 overrides: 16913610!
+= anObject
+
+	^(anObject isKindOf: self class) ifTrue:[
+		
+		type = anObject type ifTrue:[
+			[ type = #Entero ifTrue: [ 
+				value = anObject integerValue] 
+		ifFalse: [ type = #Fraccion ifTrue:
+			[ (numerator * anObject denominator) = (denominator * anObject numerator) ]]]]
+]    ! !
+!Numero methodsFor: 'comparing' stamp: 'mg 4/12/2024 19:48:30' prior: 50535394 overrides: 16913610!
+= anObject
+
+	^(anObject isKindOf: self class) ifTrue:[
+		
+		type = anObject type ifTrue:[
+			 type = #Entero ifTrue: [ 
+				value = anObject integerValue] 
+		ifFalse: [ type = #Fraccion ifTrue:
+			[ (numerator * anObject denominator) = (denominator * anObject numerator) ]]]
+]    ! !
+!Entero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 19:49:09' prior: 50535290 overrides: 50535407!
+= anObject
+	^value = anObject integerValue
+	! !
+!Fraccion methodsFor: 'initialization' stamp: 'mg 4/12/2024 19:50:27' prior: 50535294 overrides: 50535407!
+= anObject
+	^(numerator * anObject denominator) = (denominator * anObject numerator)! !
+!Numero methodsFor: 'comparing' stamp: 'mg 4/12/2024 19:56:09' prior: 50535407 overrides: 16913610!
+= anObject
+	self subclassResponsibility ! !
+
+Numero!
+!NumeroTest methodsFor: 'setup' stamp: 'mg 4/12/2024 19:57:17' prior: 50534136 overrides: 16975661!
+setUp
+
+	zero := Entero with: 0.
+	one := Entero with: 1.
+	two := Entero with: 2.
+	three:= Entero with: 3.
+	four := Entero with: 4.
+	five := Entero with: 5.
+	eight := Entero with: 8.
+	negativeOne := Entero with: -1.
+	negativeTwo := Entero with: -2.
+	
+	oneHalf := Fraccion with: one over: two.
+	oneFifth := Fraccion with: one over: five.
+	twoFifth := Fraccion with: two over: five.
+	twoTwentyfifth := Fraccion with: two over: (Entero with: 25).
+	fiveHalfs := Fraccion with: five over: two.
+	! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 19:57:26'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 19:57:26'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 19:57:26'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 19:57:26'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 19:57:26'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 19:57:26'!
+PASSED!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 19:57:26'!
+ERROR!
+
+!testRun: #NumeroTest #test08FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 19:57:26'!
+PASSED!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 19:57:26'!
+ERROR!
+
+!testRun: #NumeroTest #test10AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:57:26'!
+PASSED!
+
+!testRun: #NumeroTest #test11MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 19:57:26'!
+PASSED!
+
+!testRun: #NumeroTest #test12AFraccionCanNotBeZero stamp: 'mg 4/12/2024 19:57:26'!
+PASSED!
+
+!testRun: #NumeroTest #test13AFraccionCanNotBeOne stamp: 'mg 4/12/2024 19:57:26'!
+PASSED!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 19:57:26'!
+PASSED!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 19:57:26'!
+ERROR!
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 19:57:26'!
+ERROR!
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 19:57:26'!
+ERROR!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 19:57:30'!
+ERROR!
+!NumeroTest methodsFor: 'tests' stamp: 'mg 4/12/2024 19:58:06' prior: 50534065!
+test07FraccionAddsWithFraccionCorrectly
+"
+    La suma de fracciones es:
+	 
+	a/b + c/d = (a.d + c.b) / (b.d)
+	 
+	SI ESTAN PENSANDO EN LA REDUCCION DE FRACCIONES NO SE PREOCUPEN!!
+	TODAVIA NO SE ESTA TESTEANDO ESE CASO
+"
+	| sevenTenths |
+
+	sevenTenths := Fraccion with: (Entero with: 7) over: (Entero with: 10).
+
+	self assert: oneFifth + oneHalf equals: sevenTenths! !
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 19:58:08'!
+PASSED!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 19:58:09'!
+ERROR!
+!NumeroTest methodsFor: 'tests' stamp: 'mg 4/12/2024 19:58:17' prior: 50534087!
+test09AparentFraccionesAreEqual
+
+	self assert: oneHalf equals: (Fraccion with: two over: four)! !
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 19:58:18'!
+PASSED!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 19:58:19'!
+ERROR!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 19:58:21'!
+ERROR!
+!NumeroTest methodsFor: 'tests' stamp: 'mg 4/12/2024 19:58:31' prior: 50534116!
+test15NegationOfFraccionIsCorrect
+
+	self assert: oneHalf negated equals: (Fraccion with: negativeOne over: two)! !
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 19:58:32'!
+ERROR!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 19:58:47'!
+ERROR!
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:01:43' prior: 50534200!
+negated
+	
+	type = #Entero ifTrue:
+		[ ^self * (self class with: -1) ].
+	type = #Fraccion ifTrue:
+		[ ^Fraccion with: numerator * (self class with: -1) over: denominator ].! !
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:01:59' prior: 50535562!
+negated
+	
+	type = #Entero ifTrue:
+		[ ^Entero * (Entero with: -1) ].
+	type = #Fraccion ifTrue:
+		[ ^Fraccion with: numerator * (self class with: -1) over: denominator ].! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:02:03'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:02:03'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:02:03'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:02:03'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:02:03'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:02:03'!
+PASSED!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:02:03'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:02:03'!
+PASSED!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:02:03'!
+PASSED!
+
+!testRun: #NumeroTest #test10AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:02:03'!
+PASSED!
+
+!testRun: #NumeroTest #test11MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:02:03'!
+PASSED!
+
+!testRun: #NumeroTest #test12AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:02:03'!
+PASSED!
+
+!testRun: #NumeroTest #test13AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:02:03'!
+PASSED!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:02:03'!
+ERROR!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:02:03'!
+ERROR!
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:02:03'!
+ERROR!
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:02:03'!
+ERROR!
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:02:16'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:02:16'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:02:16'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:02:16'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:02:16'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:02:16'!
+PASSED!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:02:16'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:02:16'!
+PASSED!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:02:16'!
+PASSED!
+
+!testRun: #NumeroTest #test10AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:02:16'!
+PASSED!
+
+!testRun: #NumeroTest #test11MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:02:16'!
+PASSED!
+
+!testRun: #NumeroTest #test12AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:02:16'!
+PASSED!
+
+!testRun: #NumeroTest #test13AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:02:16'!
+PASSED!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:02:16'!
+ERROR!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:02:16'!
+ERROR!
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:02:16'!
+ERROR!
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:02:16'!
+ERROR!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:02:18'!
+ERROR!
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:02:42' prior: 50535571!
+negated
+	
+	type = #Entero ifTrue:
+		[ ^Entero * (Entero with: -1) ].
+	type = #Fraccion ifTrue:
+		[ ^Fraccion with: numerator * (self class with: -1) over: denominator ].! !
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:03:37' prior: 50535693!
+negated
+	
+	type = #Entero ifTrue:
+		[ ^self * (self class with: -1) ].
+	type = #Fraccion ifTrue:
+		[ ^Fraccion with: numerator * (self class with: -1) over: denominator ].! !
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:03:56' prior: 50535702!
+negated
+	
+	type = #Entero ifTrue:
+		[ ^self * (self class with: -1) ].
+	type = #Fraccion ifTrue:
+		[ ^self class  with: numerator * (self class with: -1) over: denominator ].! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:03:59'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:03:59'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:03:59'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:03:59'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:04:00'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:04:00'!
+PASSED!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:04:00'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:04:00'!
+PASSED!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:04:00'!
+PASSED!
+
+!testRun: #NumeroTest #test10AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:04:00'!
+PASSED!
+
+!testRun: #NumeroTest #test11MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:04:00'!
+PASSED!
+
+!testRun: #NumeroTest #test12AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:04:00'!
+PASSED!
+
+!testRun: #NumeroTest #test13AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:04:00'!
+PASSED!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:04:00'!
+PASSED!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:04:00'!
+ERROR!
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:04:00'!
+ERROR!
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:04:00'!
+ERROR!
+!Entero methodsFor: 'nil' stamp: 'mg 4/12/2024 20:04:32' overrides: 50535711!
+negated
+	^self * (self class with: -1)! !
+!Fraccion methodsFor: 'initialization' stamp: 'mg 4/12/2024 20:04:56' overrides: 50535711!
+negated
+	^self class  with: numerator * (self class with: -1) over: denominator! !
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:05:11' prior: 50535711!
+negated
+	
+	self subclassResponsibility ! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:05:14'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:05:14'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:05:14'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:05:14'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:05:14'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:05:14'!
+PASSED!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:05:14'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:05:14'!
+PASSED!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:05:14'!
+PASSED!
+
+!testRun: #NumeroTest #test10AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:05:14'!
+PASSED!
+
+!testRun: #NumeroTest #test11MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:05:14'!
+PASSED!
+
+!testRun: #NumeroTest #test12AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:05:14'!
+PASSED!
+
+!testRun: #NumeroTest #test13AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:05:14'!
+PASSED!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:05:14'!
+PASSED!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:05:14'!
+ERROR!
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:05:14'!
+ERROR!
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:05:14'!
+ERROR!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:05:16'!
+ERROR!
+!Fraccion methodsFor: 'initialization' stamp: 'mg 4/12/2024 20:05:45' prior: 50535780 overrides: 50535786!
+negated
+	^self class  with: numerator * (Entero with: -1) over: denominator! !
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:05:46'!
+PASSED!
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:05:48'!
+ERROR!
+!NumeroTest methodsFor: 'tests' stamp: 'mg 4/12/2024 20:05:59' prior: 50534122!
+test16SignIsCorrectlyAssignedToFractionWithTwoNegatives
+
+	self assert: oneHalf equals: (Fraccion with: negativeOne over: negativeTwo)! !
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:06:01'!
+PASSED!
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:06:02'!
+ERROR!
+!NumeroTest methodsFor: 'tests' stamp: 'mg 4/12/2024 20:06:11' prior: 50534129!
+test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor
+
+	self assert: oneHalf negated equals: (Fraccion with: one over: negativeTwo)! !
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:06:12'!
+PASSED!
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:06:16'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:06:16'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:06:17'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:06:17'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:06:17'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:06:17'!
+PASSED!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:06:17'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:06:17'!
+PASSED!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:06:17'!
+PASSED!
+
+!testRun: #NumeroTest #test10AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:06:17'!
+PASSED!
+
+!testRun: #NumeroTest #test11MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:06:17'!
+PASSED!
+
+!testRun: #NumeroTest #test12AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:06:17'!
+PASSED!
+
+!testRun: #NumeroTest #test13AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:06:17'!
+PASSED!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:06:17'!
+PASSED!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:06:17'!
+PASSED!
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:06:17'!
+PASSED!
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:06:17'!
+PASSED!
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:06:38' prior: 50535095!
++ anAdders
+	self subclassResponsibility! !
+!Entero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 20:07:38' overrides: 50534297!
+greatestCommonDivisorWith: anEntero ! !
+!Entero methodsFor: 'as yet unclassified' stamp: 'mg 4/12/2024 20:07:51' prior: 50535948 overrides: 50534297!
+greatestCommonDivisorWith: anEntero 
+	^self class with: (value gcd: anEntero integerValue)! !
+!Fraccion methodsFor: 'initialization' stamp: 'mg 4/12/2024 20:08:36' overrides: 50534297!
+greatestCommonDivisorWith: anEntero ! !
+!Fraccion methodsFor: 'initialization' stamp: 'mg 4/12/2024 20:08:43' prior: 50535959 overrides: 50534297!
+greatestCommonDivisorWith: anEntero 
+! !
+!Fraccion methodsFor: 'initialization' stamp: 'mg 4/12/2024 20:09:01' prior: 50535964 overrides: 50534297!
+greatestCommonDivisorWith: anEntero 
+	^self error: 'Tipo de número no soportado'! !
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:09:17' prior: 50534297!
+greatestCommonDivisorWith: anEntero 
+	^self subclassResponsibility ! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:09:20'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:09:20'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:09:20'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:09:20'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:09:20'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:09:20'!
+PASSED!
+
+!testRun: #NumeroTest #test07FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:09:20'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:09:20'!
+PASSED!
+
+!testRun: #NumeroTest #test09AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:09:20'!
+PASSED!
+
+!testRun: #NumeroTest #test10AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:09:20'!
+PASSED!
+
+!testRun: #NumeroTest #test11MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:09:20'!
+PASSED!
+
+!testRun: #NumeroTest #test12AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:09:20'!
+PASSED!
+
+!testRun: #NumeroTest #test13AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:09:20'!
+PASSED!
+
+!testRun: #NumeroTest #test14NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:09:20'!
+PASSED!
+
+!testRun: #NumeroTest #test15NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:09:20'!
+PASSED!
+
+!testRun: #NumeroTest #test16SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:09:20'!
+PASSED!
+
+!testRun: #NumeroTest #test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:09:20'!
+PASSED!
+
+!classRemoval: #Fraccion stamp: 'mg 4/12/2024 20:14:31'!
+Numero subclass: #Fraccion
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numeros-Parte1-Ejercicio'!
+
+!classRemoval: #Entero stamp: 'mg 4/12/2024 20:14:31'!
+Numero subclass: #Entero
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numeros-Parte1-Ejercicio'!
+
+!classRemoval: #Numero stamp: 'mg 4/12/2024 20:14:31'!
+Object subclass: #Numero
+	instanceVariableNames: 'type value numerator denominator'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numeros-Parte1-Ejercicio'!
+
+!classRemoval: #NumeroTest stamp: 'mg 4/12/2024 20:14:32'!
+TestCase subclass: #NumeroTest
+	instanceVariableNames: 'zero one two four oneFifth oneHalf five twoFifth twoTwentyfifth fiveHalfs three eight negativeOne negativeTwo'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numeros-Parte1-Ejercicio'!
+
+----End fileIn of C:\GITHUB\is1-leveroni\ejs\numeros\Numeros-Parte2-Ejercicio.st----!
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:18:34'!
+ERROR!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 20:18:34'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 20:18:34'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 20:18:34'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:18:34'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:18:34'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 20:18:34'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:18:34'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:18:35'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:18:35'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:18:35'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:18:35'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:18:35'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 20:18:35'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 20:18:35'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 20:18:35'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 20:18:35'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 20:18:35'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 20:18:35'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 20:18:35'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:18:35'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:18:35'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:18:35'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:18:35'!
+ERROR!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:18:40'!
+ERROR!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:19:28'!
+ERROR!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:21:14'!
+ERROR!
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:30:10' prior: 50536443 overrides: 50536372!
++ anAdder 
+	 (anAdder isKindOf: Entero) ifTrue: [
+		^self class with: value + anAdder integerValue
+	]! !
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:30:29' prior: 50536825 overrides: 50536372!
++ anAdder 
+	 (anAdder isKindOf: Entero) ifTrue: [
+		^self class with: value + anAdder integerValue
+	].
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		^self class with: value + anAdder integerValue
+	]! !
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:33:13' prior: 50536832 overrides: 50536372!
++ anAdder 
+	 (anAdder isKindOf: Entero) ifTrue: [
+		^self class with: value + anAdder integerValue
+	].
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		| numerator |
+		numerator := anAdder numerator + (anAdder denominator * value)
+		^Fraccion with: numerator  over: anAdder denominator
+	]! !
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:33:16' prior: 50536842 overrides: 50536372!
++ anAdder 
+	 (anAdder isKindOf: Entero) ifTrue: [
+		^self class with: value + anAdder integerValue
+	].
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		| numerator |
+		numerator := anAdder numerator + (anAdder denominator * value)
+		^Fraccion with: numerator over: anAdder denominator
+	]! !
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:33:23' prior: 50536855 overrides: 50536372!
++ anAdder 
+	 (anAdder isKindOf: Entero) ifTrue: [
+		^self class with: value + anAdder integerValue
+	].
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		| numerator |
+		numerator := anAdder numerator + (anAdder denominator * value)
+		^Fraccion with: numerator over: anAdder denominator
+	]! !
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:33:28' prior: 50536868 overrides: 50536372!
++ anAdder 
+	 (anAdder isKindOf: Entero) ifTrue: [
+		^self class with: value + anAdder integerValue
+	].
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		| numerator |
+		numerator := anAdder numerator + (anAdder denominator * value).
+		^Fraccion with: numerator over: anAdder denominator
+	]! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:33:29'!
+ERROR!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 20:33:29'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 20:33:29'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 20:33:29'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:33:29'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:33:29'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 20:33:29'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:33:29'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:33:29'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 20:33:29'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:33:29'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:33:29'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:33:29'!
+ERROR!
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:34:10' prior: 50536881 overrides: 50536372!
++ anAdder 
+	 (anAdder isKindOf: Entero) ifTrue: [
+		^self class with: value + anAdder integerValue
+	].
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		| numerator |
+		numerator := anAdder numerator + (anAdder denominator * value).
+		^Fraccion with: numerator over: anAdder denominator
+	]! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:34:12'!
+ERROR!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 20:34:12'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 20:34:12'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 20:34:12'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:34:12'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:34:12'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 20:34:12'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:34:12'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:34:12'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 20:34:12'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:34:12'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:34:12'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:34:12'!
+ERROR!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:34:14'!
+ERROR!
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:34:48' prior: 50537030 overrides: 50536372!
++ anAdder 
+	 (anAdder isKindOf: Entero) ifTrue: [
+		^self class with: value + anAdder integerValue
+	].
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		| numerator |
+		numerator := anAdder numerator + (anAdder denominator * self integerValue ).
+		^Fraccion with: numerator over: anAdder denominator
+	]! !
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:34:49' prior: 50537182 overrides: 50536372!
++ anAdder 
+	 (anAdder isKindOf: Entero) ifTrue: [
+		^self class with: value + anAdder integerValue
+	].
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		| numerator |
+		numerator := anAdder numerator + (anAdder denominator * self integerValue).
+		^Fraccion with: numerator over: anAdder denominator
+	]! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:34:50'!
+ERROR!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 20:34:50'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 20:34:50'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 20:34:50'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:34:50'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:34:50'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 20:34:50'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:34:50'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:34:50'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 20:34:50'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:34:50'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:34:50'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:34:50'!
+ERROR!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:34:52'!
+ERROR!
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:35:48'!
+ERROR!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 20:35:48'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 20:35:48'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 20:35:48'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:35:48'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:35:48'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 20:35:48'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:35:48'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:35:48'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 20:35:48'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:35:48'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:35:48'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:35:48'!
+ERROR!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:35:50'!
+ERROR!
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:36:22' prior: 50537195 overrides: 50536372!
++ anAdder 
+	 (anAdder isKindOf: Entero) ifTrue: [
+		^self class with: value + anAdder integerValue
+	].
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		| numerator |
+		numerator := anAdder numerator + (anAdder denominator * self).
+		^Fraccion with: numerator over: anAdder denominator
+	]! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:36:22'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:36:22'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:36:22'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:36:22'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:36:22'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:36:22'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:36:22'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:36:22'!
+PASSED!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:36:22'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:36:22'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:36:22'!
+PASSED!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 20:36:23'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 20:36:23'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 20:36:23'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:36:23'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:36:23'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 20:36:23'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:36:23'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:36:23'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 20:36:23'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:36:23'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:36:23'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:36:23'!
+ERROR!
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 20:37:25'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 20:37:25'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 20:37:25'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:37:25'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:37:25'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 20:37:25'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:37:25'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:37:25'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 20:37:25'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 20:37:25'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:37:26'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:37:26'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:37:26'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:37:26'!
+ERROR!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 20:37:30'!
+ERROR!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:38:21' prior: 50536567 overrides: 50536372!
++ anAdder 
+	
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		
+	].
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.
+		
+		^newNumerator / newDenominator 
+	]! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:39:06' prior: 50537774 overrides: 50536372!
++ anAdder 
+	
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator
+	].
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.
+	]
+
+	^newNumerator / newDenominator ! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:39:15'!
+ERROR!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 20:39:15'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 20:39:15'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 20:39:15'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:39:15'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:39:15'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:39:15'!
+ERROR!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 20:39:15'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:39:15'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:39:15'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:39:16'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:39:16'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 20:39:16'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 20:39:16'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 20:39:16'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 20:39:16'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 20:39:16'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 20:39:16'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 20:39:16'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:39:16'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:39:16'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:39:16'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:39:16'!
+ERROR!
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:39:32' prior: 50537486 overrides: 50536372!
++ anAdder 
+	 (anAdder isKindOf: Entero) ifTrue: [
+		^self class with: value + anAdder integerValue
+	].
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		| newNumerator |
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		^Fraccion with: newNumerator over: anAdder denominator
+	]! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:39:33'!
+ERROR!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 20:39:33'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 20:39:33'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 20:39:33'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:39:33'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:39:33'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:39:33'!
+ERROR!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 20:39:33'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:39:33'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:39:33'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 20:39:33'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:39:33'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:39:33'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:39:33'!
+ERROR!
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:39:48' prior: 50537941 overrides: 50536372!
++ anAdder 
+	 (anAdder isKindOf: Entero) ifTrue: [
+		^self class with: value + anAdder integerValue
+	].
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		| newNumerator |
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newNumerator / anAdder denominator
+	]! !
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:39:55' prior: 50538090 overrides: 50536372!
++ anAdder 
+	 (anAdder isKindOf: Entero) ifTrue: [
+		^self class with: value + anAdder integerValue
+	].
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		| newNumerator |
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		^newNumerator / anAdder denominator
+	]! !
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:40:19' prior: 50538103 overrides: 50536372!
++ anAdder 
+	 (anAdder isKindOf: Entero) ifTrue: [
+		^self class with: value + anAdder integerValue
+	].
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		| newNumerator newDenominator|
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator  := anAdder denominator.
+		
+		^newNumerator / newDenominator.
+	]! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:40:21'!
+ERROR!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 20:40:21'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 20:40:21'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 20:40:21'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:40:21'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:40:21'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:40:21'!
+ERROR!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 20:40:21'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:40:21'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:40:21'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 20:40:21'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:40:21'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:40:21'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:40:21'!
+ERROR!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:40:25'!
+ERROR!
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:41:04'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:41:04'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:41:04'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:41:04'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:41:04'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:41:04'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:41:04'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:41:04'!
+ERROR!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:41:04'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:41:04'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 20:41:05'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 20:41:05'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 20:41:05'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:41:05'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:41:05'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:41:05'!
+ERROR!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 20:41:05'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:41:05'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:41:05'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 20:41:05'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:41:05'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:41:05'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:41:05'!
+ERROR!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:41:06'!
+ERROR!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:41:40' prior: 50537788 overrides: 50536372!
++ anAdder 
+	
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator
+	].
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.
+	]
+
+	^(newNumerator / newDenominator)! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:41:45'!
+ERROR!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 20:41:45'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 20:41:45'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 20:41:45'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:41:45'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:41:45'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:41:45'!
+ERROR!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 20:41:45'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:41:45'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:41:45'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 20:41:45'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:41:45'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:41:45'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:41:45'!
+ERROR!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:41:47'!
+ERROR!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 23:14' prior: 50538408 overrides: 50536372!
++ anAdder 
+	
+	| newNumerator newDenominator |
+	
+	newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+	newDenominator := denominator * anAdder denominator.
+	
+	^newNumerator / newDenominator ! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:42:48'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:42:48'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:42:48'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:42:48'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:42:48'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:42:48'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:42:48'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:42:48'!
+PASSED!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 20:42:49'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 20:42:49'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 20:42:49'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:42:49'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:42:49'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 20:42:49'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:42:49'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:42:49'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 20:42:49'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:42:49'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:42:49'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:42:49'!
+ERROR!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 20:42:55'!
+ERROR!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:43:42' prior: 50538565 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator
+	].
+
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.
+	]
+
+	^newNumerator / newDenominator ! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:43:47'!
+ERROR!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 20:43:47'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 20:43:47'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 20:43:47'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:43:47'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:43:47'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:43:47'!
+ERROR!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 20:43:47'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:43:47'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:43:47'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 20:43:47'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:43:47'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:43:47'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:43:47'!
+ERROR!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:44:06'!
+ERROR!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:44:48' prior: 50538715 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator
+	].
+
+	(anAdder isKindOf: self) ifTrue: [
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.
+	]
+
+	^newNumerator / newDenominator ! !
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:44:55'!
+ERROR!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:44:58'!
+ERROR!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:46:58' prior: 50538871 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator
+	].
+
+	(anAdder isKindOf: self class) ifTrue: [
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.
+	]
+
+	^newNumerator / newDenominator ! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:48:11' prior: 50538895 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator
+		^newNumerator / newDenominator 
+	].
+
+
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.
+
+
+	^newNumerator / newDenominator ! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:48:58' prior: 50538912 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator.
+		^newNumerator / newDenominator .
+	].
+
+	newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+	newDenominator := denominator * anAdder denominator.
+	
+	^newNumerator / newDenominator .! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 20:49:01'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 20:49:01'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 20:49:01'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:49:01'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:49:01'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 20:49:01'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:49:01'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:49:01'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 20:49:01'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:49:01'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:49:01'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:49:01'!
+ERROR!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:48:11' prior: 50538929 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator
+		^newNumerator / newDenominator 
+	].
+
+
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.
+
+
+	^newNumerator / newDenominator ! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:46:58' prior: 50539082 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator
+	].
+
+	(anAdder isKindOf: self class) ifTrue: [
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.
+	]
+
+	^newNumerator / newDenominator ! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:50:26' prior: 50539099 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator
+	].
+
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.
+	]
+
+	^newNumerator / newDenominator ! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:50:42'!
+ERROR!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 20:50:42'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 20:50:42'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 20:50:42'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 20:50:42'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 20:50:42'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:50:42'!
+ERROR!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 20:50:42'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 20:50:42'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 20:50:42'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 20:50:42'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 20:50:42'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 20:50:42'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 20:50:42'!
+ERROR!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:50:50'!
+ERROR!
+
+anAdder!
+
+anAdder isKindOf: Fraccion!
+
+(anAdder isKindOf: Fraccion)!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:54:09' prior: 50539116 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator
+	].
+
+	(anAdder isKindOf: self class) ifTrue: [
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.
+	]
+
+	^newNumerator / newDenominator ! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:54:31' prior: 50539274 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator
+	].
+
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.
+	]
+
+	^newNumerator / newDenominator ! !
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:55:07'!
+ERROR!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:55:12'!
+ERROR!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:55:18'!
+ERROR!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:56:40'!
+ERROR!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 20:56:51'!
+ERROR!
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:59:20' prior: 50538116 overrides: 50536372!
++ anAdder 
+	 (anAdder isKindOf: Entero) ifTrue: [
+		^self class with: value + anAdder integerValue
+	].
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		| newNumerator newDenominator|
+		
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator  := anAdder denominator.
+		
+		^newNumerator / newDenominator.
+	]! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 20:59:52' prior: 50539291 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator.
+		
+		^newNumerator / newDenominator 
+	].
+
+	
+	newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+	newDenominator := denominator * anAdder denominator.
+	
+
+	^newNumerator / newDenominator ! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 21:00:00' prior: 50539338 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator.
+		
+		^newNumerator / newDenominator 
+	].
+
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.
+	]
+
+	^newNumerator / newDenominator ! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 21:00:04'!
+ERROR!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 21:00:04'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 21:00:04'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 21:00:04'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 21:00:04'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 21:00:04'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 21:00:04'!
+ERROR!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 21:00:04'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 21:00:04'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 21:00:04'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 21:00:04'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 21:00:04'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 21:00:04'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 21:00:04'!
+ERROR!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 21:00:07'!
+ERROR!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 21:00:23' prior: 50539355 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator.
+		
+		^newNumerator / newDenominator 
+	].
+
+	newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+	newDenominator := denominator * anAdder denominator.	
+
+	^newNumerator / newDenominator ! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 21:00:33'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 21:00:33'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 21:00:33'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 21:00:33'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 21:00:33'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 21:00:33'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 21:00:33'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 21:00:33'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 21:00:33'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 21:00:33'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 21:00:33'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 21:00:33'!
+ERROR!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 21:01:19' prior: 50539512 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator.
+		
+		^newNumerator / newDenominator 
+	].
+
+	(anAdder isKindOf: Fraccion ) ifTrue: [
+
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.	
+	]
+
+	^newNumerator / newDenominator ! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 21:01:27' prior: 50539665 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator.
+	].
+
+	(anAdder isKindOf: Fraccion) ifTrue: [
+
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.	
+	]
+
+	^newNumerator / newDenominator ! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 21:01:31' prior: 50539684 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator.
+	].
+
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.	
+	]
+
+	^newNumerator / newDenominator ! !
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 21:01:53'!
+ERROR!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 21:01:53'!
+ERROR!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 21:02:07' prior: 50539701 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator.
+	].
+
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.	
+	]
+
+	^ newNumerator / newDenominator ! !
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 21:02:13'!
+ERROR!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 21:02:36' prior: 50539725 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator.
+	].
+
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.	
+	]
+
+	^newNumerator / newDenominator ! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/12/2024 21:03:05' prior: 50539746 overrides: 50536372!
++ anAdder 
+
+	| newNumerator newDenominator |
+	
+	(anAdder isKindOf: Entero) ifTrue: [
+		newNumerator := anAdder numerator + (anAdder denominator * self).
+		newDenominator := anAdder denominator.
+	].
+
+	(anAdder isKindOf: Fraccion) ifTrue: [
+		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+		newDenominator := denominator * anAdder denominator.	
+	].
+
+	^newNumerator / newDenominator ! !
+
+!testRun: #NumeroTest #test01isZeroReturnsTrueWhenAskToZero stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test02isZeroReturnsFalseWhenAskToOthersButZero stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test03isOneReturnsTrueWhenAskToOne stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test04isOneReturnsFalseWhenAskToOtherThanOne stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test05EnteroAddsWithEnteroCorrectly stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test06EnteroMultipliesWithEnteroCorrectly stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test07EnteroDividesEnteroCorrectly stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test08FraccionAddsWithFraccionCorrectly stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test09FraccionMultipliesWithFraccionCorrectly stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test10FraccionDividesFraccionCorrectly stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test11EnteroAddsFraccionCorrectly stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test12FraccionAddsEnteroCorrectly stamp: 'mg 4/12/2024 21:03:08'!
+ERROR!
+
+!testRun: #NumeroTest #test13EnteroMultipliesFraccionCorrectly stamp: 'mg 4/12/2024 21:03:08'!
+ERROR!
+
+!testRun: #NumeroTest #test14FraccionMultipliesEnteroCorrectly stamp: 'mg 4/12/2024 21:03:08'!
+ERROR!
+
+!testRun: #NumeroTest #test15EnteroDividesFraccionCorrectly stamp: 'mg 4/12/2024 21:03:08'!
+ERROR!
+
+!testRun: #NumeroTest #test16FraccionDividesEnteroCorrectly stamp: 'mg 4/12/2024 21:03:08'!
+ERROR!
+
+!testRun: #NumeroTest #test17AFraccionCanBeEqualToAnEntero stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test18AparentFraccionesAreEqual stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test19AddingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test20MultiplyingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test21DividingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test22DividingEnterosCanReturnAFraccion stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test23CanNotDivideEnteroByZero stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test24CanNotDivideFraccionByZero stamp: 'mg 4/12/2024 21:03:08'!
+FAILURE!
+
+!testRun: #NumeroTest #test25AFraccionCanNotBeZero stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test26AFraccionCanNotBeOne stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test27EnteroSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test28FraccionSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test29EnteroSubstractsFraccionCorrectly stamp: 'mg 4/12/2024 21:03:08'!
+ERROR!
+
+!testRun: #NumeroTest #test30FraccionSubstractsEnteroCorrectly stamp: 'mg 4/12/2024 21:03:08'!
+ERROR!
+
+!testRun: #NumeroTest #test31SubstractingFraccionesCanReturnAnEntero stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test32SubstractingSameEnterosReturnsZero stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test33SubstractingSameFraccionesReturnsZero stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test34SubstractingAHigherValueToANumberReturnsANegativeNumber stamp: 'mg 4/12/2024 21:03:08'!
+ERROR!
+
+!testRun: #NumeroTest #test35FibonacciZeroIsOne stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test36FibonacciOneIsOne stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test37FibonacciEnteroReturnsAddingPreviousTwoFibonacciEnteros stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test38FibonacciNotDefinedForNegativeNumbers stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test39NegationOfEnteroIsCorrect stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test40NegationOfFraccionIsCorrect stamp: 'mg 4/12/2024 21:03:08'!
+ERROR!
+
+!testRun: #NumeroTest #test41SignIsCorrectlyAssignedToFractionWithTwoNegatives stamp: 'mg 4/12/2024 21:03:08'!
+PASSED!
+
+!testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 21:03:08'!
+ERROR!
