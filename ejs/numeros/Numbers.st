@@ -1,4 +1,4 @@
-!classDefinition: #NumeroTest category: 'Numbers'!
+!classDefinition: #NumeroTest category: #Numbers!
 TestCase subclass: #NumeroTest
 	instanceVariableNames: 'zero one two four oneFifth oneHalf five twoFifth twoTwentyfifth fiveHalfs three eight negativeOne negativeTwo'
 	classVariableNames: ''
@@ -266,9 +266,8 @@ test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor
 	self assert: oneHalf negated equals: (one / negativeTwo)! !
 
 
-!NumeroTest methodsFor: 'setup' stamp: 'mc 4/15/2024 23:27:33'!
+!NumeroTest methodsFor: 'setup' stamp: 'mg 4/16/2024 20:20:57'!
 setUp
-
 	zero := Entero with: 0.
 	one := Entero with: 1.
 	two := Entero with: 2.
@@ -287,7 +286,7 @@ setUp
 	! !
 
 
-!classDefinition: #Numero category: 'Numbers'!
+!classDefinition: #Numero category: #Numbers!
 Object subclass: #Numero
 	instanceVariableNames: ''
 	classVariableNames: ''
@@ -295,21 +294,23 @@ Object subclass: #Numero
 	category: 'Numbers'!
 
 !Numero methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 22:48'!
-* aMultiplier
+* aMultiplicand
 
 	self subclassResponsibility ! !
 
-!Numero methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 22:49'!
-+ anAdder
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:49:12'!
++ anAddend
 
 	self subclassResponsibility ! !
 
-!Numero methodsFor: 'arithmetic operations' stamp: 'mc 4/15/2024 17:35:02'!
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:38:58'!
 - aSubtrahend
 
-	^ self  + aSubtrahend negated.! !
+	"self subclassResponsibility"
 
-!Numero methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 22:49'!
+	^ self  + aSubtrahend negated! !
+
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:39:07'!
 / aDivisor
 
 	self subclassResponsibility ! !
@@ -357,6 +358,11 @@ addAnInteger: aAugend
 
 	self subclassResponsibility! !
 
+!Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:21:36'!
+divideAFraction: aDividend
+
+	self subclassResponsibility! !
+
 !Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/15/2024 23:57:29'!
 divideAnInteger: aDividend
 
@@ -372,9 +378,19 @@ multiplyAnInteger: aMultiplier
 
 	self subclassResponsibility! !
 
+!Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:32:17'!
+subtractFromFraction: aMinuend
+
+	self subclassResponsibility! !
+
+!Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:32:33'!
+subtractFromInteger: aMinuend
+
+	self subclassResponsibility! !
+
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'Numero class' category: 'Numbers'!
+!classDefinition: 'Numero class' category: #Numbers!
 Numero class
 	instanceVariableNames: ''!
 
@@ -389,7 +405,7 @@ invalidNumberTypeErrorDescription
 	^ 'Tipo de Número Inválido'! !
 
 
-!classDefinition: #Entero category: 'Numbers'!
+!classDefinition: #Entero category: #Numbers!
 Numero subclass: #Entero
 	instanceVariableNames: 'value'
 	classVariableNames: ''
@@ -397,16 +413,21 @@ Numero subclass: #Entero
 	category: 'Numbers'!
 
 !Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/15/2024 23:56:31'!
-* aMultiplier 
+* aMultiplicand 
  
-	^aMultiplier multiplyAnInteger: self.! !
+	^aMultiplicand multiplyAnInteger: self.! !
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 00:02:35'!
-+ anAdder 
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 20:26:00'!
++ anAddend 
 
-	^anAdder addAnInteger: self.! !
+	^anAddend addAnInteger: self.! !
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/15/2024 23:54:19'!
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:33:17'!
+- aSubtrahend
+
+	"aSubtrahend  subtractFromInteger: self"! !
+
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:36:20'!
 / aDivisor
 
 	^aDivisor divideAnInteger: self! !
@@ -492,6 +513,12 @@ addAnInteger: aAugend
 	^self class with: aAugend  integerValue + value.
 ! !
 
+!Entero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:21:15'!
+divideAFraction: aDividend
+	
+	^(aDividend numerator) / (self * aDividend denominator)
+	! !
+
 !Entero methodsFor: 'arithmetic methods' stamp: 'mg 4/15/2024 23:54:34'!
 divideAnInteger: aDividend
 
@@ -510,9 +537,17 @@ multiplyAnInteger: aMultiplier
 	^self class with: value * aMultiplier integerValue. 
 	! !
 
+!Entero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:32:17'!
+subtractFromFraction: aMinuend
+	^(aMinuend numerator - (self * aMinuend denominator)) / (aMinuend denominator).	! !
+
+!Entero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:32:33'!
+subtractFromInteger: aMinuend
+	^self class with: aMinuend integerValue - value.! !
+
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'Entero class' category: 'Numbers'!
+!classDefinition: 'Entero class' category: #Numbers!
 Entero class
 	instanceVariableNames: ''!
 
@@ -536,55 +571,14 @@ with: aValue
 		:anIntegerSubclass | anIntegerSubclass canRepresent: aValue ] ) new initializeWith: aValue.! !
 
 
-!classDefinition: #EnteroCero category: 'Numbers'!
-Entero subclass: #EnteroCero
+!classDefinition: #IntegerGreaterThanOne category: #Numbers!
+Entero subclass: #IntegerGreaterThanOne
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Numbers'!
 
-!EnteroCero methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 00:06:13'!
-fibonacci
-
-	^Entero with: 1.
-
-		! !
-
-
-!EnteroCero methodsFor: 'testing' stamp: 'mg 4/16/2024 00:06:15'!
-isNegative
-
-	^false.! !
-
-!EnteroCero methodsFor: 'testing' stamp: 'mg 4/16/2024 00:06:18'!
-isOne
-
-	^false.! !
-
-!EnteroCero methodsFor: 'testing' stamp: 'mg 4/16/2024 00:06:20'!
-isZero
-
-	^true.! !
-
-"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
-
-!classDefinition: 'EnteroCero class' category: 'Numbers'!
-EnteroCero class
-	instanceVariableNames: ''!
-
-!EnteroCero class methodsFor: 'instance creation' stamp: 'mg 4/16/2024 00:11:53'!
-canRepresent: anInteger
-	^anInteger  = 0.! !
-
-
-!classDefinition: #EnteroMayorAUno category: 'Numbers'!
-Entero subclass: #EnteroMayorAUno
-	instanceVariableNames: ''
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Numbers'!
-
-!EnteroMayorAUno methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 00:06:31'!
+!IntegerGreaterThanOne methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 00:06:31'!
 fibonacci
 	| one two |
 	
@@ -595,40 +589,40 @@ fibonacci
 		! !
 
 
-!EnteroMayorAUno methodsFor: 'testing' stamp: 'mg 4/16/2024 00:06:34'!
+!IntegerGreaterThanOne methodsFor: 'testing' stamp: 'mg 4/16/2024 00:06:34'!
 isNegative
 
 	^false.! !
 
-!EnteroMayorAUno methodsFor: 'testing' stamp: 'mg 4/16/2024 00:06:38'!
+!IntegerGreaterThanOne methodsFor: 'testing' stamp: 'mg 4/16/2024 00:06:38'!
 isOne
 
 	^false.! !
 
-!EnteroMayorAUno methodsFor: 'testing' stamp: 'mg 4/16/2024 00:06:40'!
+!IntegerGreaterThanOne methodsFor: 'testing' stamp: 'mg 4/16/2024 00:06:40'!
 isZero
 
 	^false.! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'EnteroMayorAUno class' category: 'Numbers'!
-EnteroMayorAUno class
+!classDefinition: 'IntegerGreaterThanOne class' category: #Numbers!
+IntegerGreaterThanOne class
 	instanceVariableNames: ''!
 
-!EnteroMayorAUno class methodsFor: 'instance creation' stamp: 'mg 4/16/2024 00:12:03'!
+!IntegerGreaterThanOne class methodsFor: 'instance creation' stamp: 'mg 4/16/2024 00:12:03'!
 canRepresent: anInteger
 	^anInteger > 1.! !
 
 
-!classDefinition: #EnteroNegativo category: 'Numbers'!
-Entero subclass: #EnteroNegativo
+!classDefinition: #IntegerNegative category: #Numbers!
+Entero subclass: #IntegerNegative
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Numbers'!
 
-!EnteroNegativo methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 00:07:18'!
+!IntegerNegative methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 00:07:18'!
 fibonacci
 
 	^self error: Entero negativeFibonacciErrorDescription
@@ -636,40 +630,40 @@ fibonacci
 		! !
 
 
-!EnteroNegativo methodsFor: 'testing' stamp: 'mg 4/16/2024 00:07:20'!
+!IntegerNegative methodsFor: 'testing' stamp: 'mg 4/16/2024 00:07:20'!
 isNegative
 
 	^true! !
 
-!EnteroNegativo methodsFor: 'testing' stamp: 'mg 4/16/2024 00:07:23'!
+!IntegerNegative methodsFor: 'testing' stamp: 'mg 4/16/2024 00:07:23'!
 isOne
 
 	^false.! !
 
-!EnteroNegativo methodsFor: 'testing' stamp: 'mg 4/16/2024 00:07:25'!
+!IntegerNegative methodsFor: 'testing' stamp: 'mg 4/16/2024 00:07:25'!
 isZero
 
 	^false.! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'EnteroNegativo class' category: 'Numbers'!
-EnteroNegativo class
+!classDefinition: 'IntegerNegative class' category: #Numbers!
+IntegerNegative class
 	instanceVariableNames: ''!
 
-!EnteroNegativo class methodsFor: 'instance creation' stamp: 'mg 4/16/2024 00:12:11'!
+!IntegerNegative class methodsFor: 'instance creation' stamp: 'mg 4/16/2024 00:12:11'!
 canRepresent: anInteger
 	^anInteger  < 0.! !
 
 
-!classDefinition: #EnteroUno category: 'Numbers'!
-Entero subclass: #EnteroUno
+!classDefinition: #IntegerOne category: #Numbers!
+Entero subclass: #IntegerOne
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Numbers'!
 
-!EnteroUno methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 00:07:28'!
+!IntegerOne methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 00:07:28'!
 fibonacci
 
 	^Entero with: 1.
@@ -677,33 +671,74 @@ fibonacci
 		! !
 
 
-!EnteroUno methodsFor: 'testing' stamp: 'mg 4/16/2024 00:07:31'!
+!IntegerOne methodsFor: 'testing' stamp: 'mg 4/16/2024 00:07:31'!
 isNegative
 
 	^false.! !
 
-!EnteroUno methodsFor: 'testing' stamp: 'mg 4/16/2024 00:07:35'!
+!IntegerOne methodsFor: 'testing' stamp: 'mg 4/16/2024 00:07:35'!
 isOne
 
 	^true.! !
 
-!EnteroUno methodsFor: 'testing' stamp: 'mg 4/16/2024 00:07:37'!
+!IntegerOne methodsFor: 'testing' stamp: 'mg 4/16/2024 00:07:37'!
 isZero
 
 	^false.! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'EnteroUno class' category: 'Numbers'!
-EnteroUno class
+!classDefinition: 'IntegerOne class' category: #Numbers!
+IntegerOne class
 	instanceVariableNames: ''!
 
-!EnteroUno class methodsFor: 'instance creation' stamp: 'mg 4/16/2024 00:12:19'!
+!IntegerOne class methodsFor: 'instance creation' stamp: 'mg 4/16/2024 00:12:19'!
 canRepresent: anInteger
 	^anInteger = 1.! !
 
 
-!classDefinition: #Fraccion category: 'Numbers'!
+!classDefinition: #IntegerZero category: #Numbers!
+Entero subclass: #IntegerZero
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numbers'!
+
+!IntegerZero methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 00:06:13'!
+fibonacci
+
+	^Entero with: 1.
+
+		! !
+
+
+!IntegerZero methodsFor: 'testing' stamp: 'mg 4/16/2024 00:06:15'!
+isNegative
+
+	^false.! !
+
+!IntegerZero methodsFor: 'testing' stamp: 'mg 4/16/2024 00:06:18'!
+isOne
+
+	^false.! !
+
+!IntegerZero methodsFor: 'testing' stamp: 'mg 4/16/2024 00:06:20'!
+isZero
+
+	^true.! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'IntegerZero class' category: #Numbers!
+IntegerZero class
+	instanceVariableNames: ''!
+
+!IntegerZero class methodsFor: 'instance creation' stamp: 'mg 4/16/2024 00:11:53'!
+canRepresent: anInteger
+	^anInteger  = 0.! !
+
+
+!classDefinition: #Fraccion category: #Numbers!
 Numero subclass: #Fraccion
 	instanceVariableNames: 'numerator denominator'
 	classVariableNames: ''
@@ -711,19 +746,26 @@ Numero subclass: #Fraccion
 	category: 'Numbers'!
 
 !Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 00:07:45'!
-* aMultiplier
+* aMultiplicand
 
-	^aMultiplier multiplyAFraction: self.
+	^aMultiplicand multiplyAFraction: self.
 	! !
 
 !Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 00:07:48'!
-+ anAdder 
++ anAddend 
 
-	^anAdder addAFraction: self! !
+	^anAddend addAFraction: self! !
 
-!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 00:07:51'!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:33:48'!
+- aSubtrahend
+
+	^aSubtrahend subtractFromFraction: self! !
+
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:35:45'!
 / aDivisor
- 
+	
+	"^aDivisor divideAnInteger: self"
+
 	^self * aDivisor inverse.! !
 
 !Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 00:08:05'!
@@ -804,10 +846,15 @@ addAnInteger: aAugend
 	
 	! !
 
-!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/15/2024 23:59:20'!
-divideAnInteger: anInteger
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:19:30'!
+divideAFraction: aDividend
 
-	^(denominator * anInteger) / numerator.! !
+	^(aDividend numerator * denominator) /  (aDividend denominator * numerator).! !
+
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:19:51'!
+divideAnInteger: aDividend
+
+	^(denominator * aDividend) / numerator.! !
 
 !Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/16/2024 00:02:12'!
 multiplyAFraction: aMultiplier
@@ -819,9 +866,19 @@ multiplyAnInteger: aMultiplier
 
 	^self * aMultiplier.! !
 
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:32:17'!
+subtractFromFraction: aMinuend
+
+	^((aMinuend numerator * denominator) - (aMinuend denominator * numerator)) / (aMinuend denominator * denominator)	! !
+
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:32:33'!
+subtractFromInteger: aMinuend
+
+	^((denominator * aMinuend) - numerator) / denominator	! !
+
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'Fraccion class' category: 'Numbers'!
+!classDefinition: 'Fraccion class' category: #Numbers!
 Fraccion class
 	instanceVariableNames: ''!
 

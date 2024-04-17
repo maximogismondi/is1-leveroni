@@ -294,21 +294,23 @@ Object subclass: #Numero
 	category: 'Numbers'!
 
 !Numero methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 22:48'!
-* aMultiplier
+* aMultiplicand
 
 	self subclassResponsibility ! !
 
-!Numero methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 22:49'!
-+ anAdder
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:49:12'!
++ anAddend
 
 	self subclassResponsibility ! !
 
-!Numero methodsFor: 'arithmetic operations' stamp: 'mc 4/15/2024 17:35:02'!
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:38:58'!
 - aSubtrahend
 
-	^ self  + aSubtrahend negated.! !
+	"self subclassResponsibility"
 
-!Numero methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 22:49'!
+	^ self  + aSubtrahend negated! !
+
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:39:07'!
 / aDivisor
 
 	self subclassResponsibility ! !
@@ -356,6 +358,11 @@ addAnInteger: aAugend
 
 	self subclassResponsibility! !
 
+!Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:21:36'!
+divideAFraction: aDividend
+
+	self subclassResponsibility! !
+
 !Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/15/2024 23:57:29'!
 divideAnInteger: aDividend
 
@@ -368,6 +375,16 @@ multiplyAFraction: aMultiplier
 
 !Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/16/2024 00:01:54'!
 multiplyAnInteger: aMultiplier
+
+	self subclassResponsibility! !
+
+!Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:32:17'!
+subtractFromFraction: aMinuend
+
+	self subclassResponsibility! !
+
+!Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:32:33'!
+subtractFromInteger: aMinuend
 
 	self subclassResponsibility! !
 
@@ -396,16 +413,21 @@ Numero subclass: #Entero
 	category: 'Numbers'!
 
 !Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/15/2024 23:56:31'!
-* aMultiplier 
+* aMultiplicand 
  
-	^aMultiplier multiplyAnInteger: self.! !
+	^aMultiplicand multiplyAnInteger: self.! !
 
 !Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 20:26:00'!
-+ anAdder 
++ anAddend 
 
-	^anAdder addAnInteger: self.! !
+	^anAddend addAnInteger: self.! !
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/15/2024 23:54:19'!
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:33:17'!
+- aSubtrahend
+
+	"aSubtrahend  subtractFromInteger: self"! !
+
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:36:20'!
 / aDivisor
 
 	^aDivisor divideAnInteger: self! !
@@ -491,6 +513,12 @@ addAnInteger: aAugend
 	^self class with: aAugend  integerValue + value.
 ! !
 
+!Entero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:21:15'!
+divideAFraction: aDividend
+	
+	^(aDividend numerator) / (self * aDividend denominator)
+	! !
+
 !Entero methodsFor: 'arithmetic methods' stamp: 'mg 4/15/2024 23:54:34'!
 divideAnInteger: aDividend
 
@@ -508,6 +536,14 @@ multiplyAnInteger: aMultiplier
 
 	^self class with: value * aMultiplier integerValue. 
 	! !
+
+!Entero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:32:17'!
+subtractFromFraction: aMinuend
+	^(aMinuend numerator - (self * aMinuend denominator)) / (aMinuend denominator).	! !
+
+!Entero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:32:33'!
+subtractFromInteger: aMinuend
+	^self class with: aMinuend integerValue - value.! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -710,19 +746,26 @@ Numero subclass: #Fraccion
 	category: 'Numbers'!
 
 !Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 00:07:45'!
-* aMultiplier
+* aMultiplicand
 
-	^aMultiplier multiplyAFraction: self.
+	^aMultiplicand multiplyAFraction: self.
 	! !
 
 !Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 00:07:48'!
-+ anAdder 
++ anAddend 
 
-	^anAdder addAFraction: self! !
+	^anAddend addAFraction: self! !
 
-!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 00:07:51'!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:33:48'!
+- aSubtrahend
+
+	^aSubtrahend subtractFromFraction: self! !
+
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:35:45'!
 / aDivisor
- 
+	
+	"^aDivisor divideAnInteger: self"
+
 	^self * aDivisor inverse.! !
 
 !Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/16/2024 00:08:05'!
@@ -803,10 +846,15 @@ addAnInteger: aAugend
 	
 	! !
 
-!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/15/2024 23:59:20'!
-divideAnInteger: anInteger
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:19:30'!
+divideAFraction: aDividend
 
-	^(denominator * anInteger) / numerator.! !
+	^(aDividend numerator * denominator) /  (aDividend denominator * numerator).! !
+
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:19:51'!
+divideAnInteger: aDividend
+
+	^(denominator * aDividend) / numerator.! !
 
 !Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/16/2024 00:02:12'!
 multiplyAFraction: aMultiplier
@@ -817,6 +865,16 @@ multiplyAFraction: aMultiplier
 multiplyAnInteger: aMultiplier
 
 	^self * aMultiplier.! !
+
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:32:17'!
+subtractFromFraction: aMinuend
+
+	^((aMinuend numerator * denominator) - (aMinuend denominator * numerator)) / (aMinuend denominator * denominator)	! !
+
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:32:33'!
+subtractFromInteger: aMinuend
+
+	^((denominator * aMinuend) - numerator) / denominator	! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 

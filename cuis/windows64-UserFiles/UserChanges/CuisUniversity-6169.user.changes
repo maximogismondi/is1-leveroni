@@ -11956,3 +11956,345 @@ PASSED!
 
 !testRun: #NumeroTest #test42SignIsCorrectlyAssignedToFractionWithNegativeDivisor stamp: 'mg 4/12/2024 21:03:08'!
 ERROR!
+
+----STARTUP---- (17 April 2024 09:59:17) as C:\GITHUB\is1-leveroni\cuis\windows64\CuisUniversity-6169.image!
+
+
+----End fileIn of C:\GITHUB\is1-leveroni\ejs\numeros\Numbers.st----!
+
+!classRemoval: #Fraccion stamp: 'mg 4/17/2024 10:00:32'!
+Numero subclass: #Fraccion
+	instanceVariableNames: 'numerator denominator'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numbers'!
+
+!classRemoval: #EnteroUno stamp: 'mg 4/17/2024 10:00:32'!
+Entero subclass: #EnteroUno
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numbers'!
+
+!classRemoval: #EnteroNegativo stamp: 'mg 4/17/2024 10:00:32'!
+Entero subclass: #EnteroNegativo
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numbers'!
+
+!classRemoval: #EnteroMayorAUno stamp: 'mg 4/17/2024 10:00:33'!
+Entero subclass: #EnteroMayorAUno
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numbers'!
+
+!classRemoval: #EnteroCero stamp: 'mg 4/17/2024 10:00:33'!
+Entero subclass: #EnteroCero
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numbers'!
+
+!classRemoval: #Entero stamp: 'mg 4/17/2024 10:00:34'!
+Numero subclass: #Entero
+	instanceVariableNames: 'value'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numbers'!
+
+!classRemoval: #Numero stamp: 'mg 4/17/2024 10:00:34'!
+Object subclass: #Numero
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numbers'!
+
+!classRemoval: #NumeroTest stamp: 'mg 4/17/2024 10:00:34'!
+TestCase subclass: #NumeroTest
+	instanceVariableNames: 'zero one two four oneFifth oneHalf five twoFifth twoTwentyfifth fiveHalfs three eight negativeOne negativeTwo'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numbers'!
+
+----End fileIn of C:\GITHUB\is1-leveroni\cuis\windows64-UserFiles\FileOuts\Numbers.st----!
+!Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:03:09'!
+divideAFraction: aFraction
+
+	self subclassResponsibility! !
+!Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:03:17' prior: 50542580!
+divideAFraction: aDividend
+
+	self subclassResponsibility! !
+!Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:12:21'!
+xxxIneger: aSubtrahend
+
+	self subclassResponsibility! !
+!Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:12:29'!
+xxxInteger: aSubtrahend
+
+	self subclassResponsibility! !
+
+!methodRemoval: Numero #xxxIneger: stamp: 'mg 4/17/2024 10:12:30'!
+xxxIneger: aSubtrahend
+
+	self subclassResponsibility!
+!Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:12:59'!
+xxxFraction: aSubtrahend
+
+	self subclassResponsibility! !
+!Entero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:15:15' overrides: 50542603!
+xxxFraction: aSubtrahend
+	^(aSubtrahend numerator - (self * aSubtrahend denominator)) / (aSubtrahend denominator).	! !
+!Entero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:16:01' overrides: 50542595!
+xxxInteger: aSubtrahend
+	^self class with: aSubtrahend integerValue - value.! !
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:17:19' overrides: 50542603!
+xxxFraction: aSubtrahend
+
+	^ (aSubtrahend numerator * denominator) - (aSubtrahend denominator * numerator) / (aSubtrahend denominator * denominator)	! !
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:17:20' prior: 50542621 overrides: 50542603!
+xxxFraction: aSubtrahend
+
+	^(aSubtrahend numerator * denominator) - (aSubtrahend denominator * numerator) / (aSubtrahend denominator * denominator)	! !
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:17:31' prior: 50542630 overrides: 50542603!
+xxxFraction: aSubtrahend
+
+	^ ((aSubtrahend numerator * denominator) - (aSubtrahend denominator * numerator)) / (aSubtrahend denominator * denominator)	! !
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:17:40' overrides: 50542595!
+xxxInteger: aSubtrahend
+
+	^ ((aSubtrahend numerator * denominator) - (aSubtrahend denominator * numerator)) / (aSubtrahend denominator * denominator)	! !
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:18:11' prior: 50542647 overrides: 50542595!
+xxxInteger: aSubtrahend
+
+	^  ((denominator * aSubtrahend) - numerator) / (aSubtrahend denominator * denominator)	! !
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:18:16' prior: 50542656 overrides: 50542595!
+xxxInteger: aSubtrahend
+
+	^  ((denominator * aSubtrahend) - numerator) / denominator	! !
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:18:22' prior: 50542664 overrides: 50542595!
+xxxInteger: aSubtrahend
+
+	^((denominator * aSubtrahend) - numerator) / denominator	! !
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:18:25' prior: 50542639 overrides: 50542603!
+xxxFraction: aSubtrahend
+
+	^((aSubtrahend numerator * denominator) - (aSubtrahend denominator * numerator)) / (aSubtrahend denominator * denominator)	! !
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:19:28' overrides: 50542585!
+divideAFraction: aDividend
+	^(aDividend numerator * denominator) /  (aDividend denominator * numerator).! !
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:19:30' prior: 50542686 overrides: 50542585!
+divideAFraction: aDividend
+
+	^(aDividend numerator * denominator) /  (aDividend denominator * numerator).! !
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:19:51' prior: 50542531 overrides: 50542091!
+divideAnInteger: aDividend
+
+	^(denominator * aDividend) / numerator.! !
+!Entero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:20:09' overrides: 50542585!
+divideAFraction: aDividend
+
+	^Fraccion with: aDividend over: self.
+	! !
+!Entero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:21:15' prior: 50542706 overrides: 50542585!
+divideAFraction: aDividend	
+	^(aDividend numerator) / (self * aDividend denominator)
+	! !
+!Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:21:36' prior: 50542585!
+divideAFraction: aDividend
+
+	self subclassResponsibility! !
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:23:23' prior: 50542047!
+- aSubtrahend
+
+	self subclassResponsibility
+
+	^ self  + aSubtrahend negated.! !
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:23:26' prior: 50542723!
+- aSubtrahend
+
+	"self subclassResponsibility"
+
+	^ self  + aSubtrahend negated.! !
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:23:46' overrides: 50542729!
+- aSubtrahend
+
+	"self subclassResponsibility"
+
+	^ self  + aSubtrahend negated.! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:23:46' overrides: 50542729!
+- aSubtrahend
+
+	"self subclassResponsibility"
+
+	^ self  + aSubtrahend negated.! !
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:23:46' prior: 50542729!
+- aSubtrahend
+
+	self subclassResponsibility! !
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:24:09' prior: 50542747!
+- aSubtrahend
+
+	"self subclassResponsibility"
+
+	^ self  + aSubtrahend negated! !
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:25:05' prior: 50542735 overrides: 50542752!
+- aSubtrahend
+
+	^ self  + aSubtrahend negated.! !
+!Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:26:26' prior: 50542603!
+xxxFraction: aMinuend
+
+	self subclassResponsibility! !
+!Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:26:30' prior: 50542595!
+xxxInteger: aMinuend
+
+	self subclassResponsibility! !
+!Entero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:26:45' prior: 50542608 overrides: 50542764!
+xxxFraction: aMinuend
+	^(aMinuend numerator - (self * aMinuend denominator)) / (aMinuend denominator).	! !
+!Entero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:26:56' prior: 50542615 overrides: 50542769!
+xxxInteger: aMinuend
+	^self class with: aMinuend integerValue - value.! !
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:27:07' prior: 50542678 overrides: 50542764!
+xxxFraction: aMinuend
+
+	^((aMinuend numerator * denominator) - (aMinuend denominator * numerator)) / (aMinuend denominator * denominator)	! !
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:27:18' prior: 50542671 overrides: 50542769!
+xxxInteger: aMinuend
+
+	^((denominator * aMinuend) - numerator) / denominator	! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:29:10' prior: 50542741 overrides: 50542752!
+- aSubtrahend
+
+	"^aSubtrahend xxxFraction: self"
+
+	^ self  + aSubtrahend negated.! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:29:13' prior: 50542803 overrides: 50542752!
+- aSubtrahend
+
+	"^aSubtrahend xxxFraction: self"
+
+	^self  + aSubtrahend negated.! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:29:36' prior: 50542810 overrides: 50542752!
+- aSubtrahend
+
+	"^aSubtrahend xxxFraction: self"
+
+	super! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:31:31' prior: 50542817 overrides: 50542752!
+- aSubtrahend
+
+	"^aSubtrahend xxxFraction: self"
+
+	super! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:31:42' prior: 50542823 overrides: 50542752!
+- aSubtrahend
+
+	"^aSubtrahend xxxFraction: self"! !
+!Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:32:17'!
+subtractFromFraction: aMinuend
+
+	self subclassResponsibility! !
+!Entero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:32:17' overrides: 50542833!
+subtractFromFraction: aMinuend
+	^(aMinuend numerator - (self * aMinuend denominator)) / (aMinuend denominator).	! !
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:32:17' overrides: 50542833!
+subtractFromFraction: aMinuend
+
+	^((aMinuend numerator * denominator) - (aMinuend denominator * numerator)) / (aMinuend denominator * denominator)	! !
+
+!methodRemoval: Numero #xxxFraction: stamp: 'mg 4/17/2024 10:32:17'!
+xxxFraction: aMinuend
+
+	self subclassResponsibility!
+
+!methodRemoval: Entero #xxxFraction: stamp: 'mg 4/17/2024 10:32:17'!
+xxxFraction: aMinuend
+	^(aMinuend numerator - (self * aMinuend denominator)) / (aMinuend denominator).	!
+
+!methodRemoval: Fraccion #xxxFraction: stamp: 'mg 4/17/2024 10:32:17'!
+xxxFraction: aMinuend
+
+	^((aMinuend numerator * denominator) - (aMinuend denominator * numerator)) / (aMinuend denominator * denominator)	!
+!Numero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:32:33'!
+subtractFromInteger: aMinuend
+
+	self subclassResponsibility! !
+!Entero methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:32:33' overrides: 50542869!
+subtractFromInteger: aMinuend
+	^self class with: aMinuend integerValue - value.! !
+!Fraccion methodsFor: 'arithmetic methods' stamp: 'mg 4/17/2024 10:32:33' overrides: 50542869!
+subtractFromInteger: aMinuend
+
+	^((denominator * aMinuend) - numerator) / denominator	! !
+
+!methodRemoval: Numero #xxxInteger: stamp: 'mg 4/17/2024 10:32:33'!
+xxxInteger: aMinuend
+
+	self subclassResponsibility!
+
+!methodRemoval: Entero #xxxInteger: stamp: 'mg 4/17/2024 10:32:33'!
+xxxInteger: aMinuend
+	^self class with: aMinuend integerValue - value.!
+
+!methodRemoval: Fraccion #xxxInteger: stamp: 'mg 4/17/2024 10:32:33'!
+xxxInteger: aMinuend
+
+	^((denominator * aMinuend) - numerator) / denominator	!
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:33:16' prior: 50542759 overrides: 50542752!
+- aSubtrahend
+
+	aSubtrahend  subtractFromInteger: self! !
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:33:17' prior: 50542900 overrides: 50542752!
+- aSubtrahend
+
+	"aSubtrahend  subtractFromInteger: self"! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:33:41' prior: 50542829 overrides: 50542752!
+- aSubtrahend
+
+	^aSubtrahend xxxFraction: self! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:33:48' prior: 50542912 overrides: 50542752!
+- aSubtrahend
+
+	^aSubtrahend subtractFromFraction: self! !
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:35:45' prior: 50542454 overrides: 50542052!
+/ aDivisor
+	
+	"^aDivisor divideAnInteger: self"
+
+	^self * aDivisor inverse.! !
+!Entero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:36:20' prior: 50542144 overrides: 50542052!
+/ aDivisor
+
+	^aDivisor divideAnInteger: self! !
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:37:14' prior: 50542752!
+- aSubtrahender
+
+	"self subclassResponsibility"
+
+	^ self  + aSubtrahender negated! !
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:37:22' prior: 50542052!
+/ aDiviser
+
+	self subclassResponsibility ! !
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:37:25' prior: 50542941!
+/ aDivider
+
+	self subclassResponsibility ! !
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:38:58' prior: 50542935!
+- aSubtrahend
+
+	"self subclassResponsibility"
+
+	^ self  + aSubtrahend negated! !
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:39:07' prior: 50542946!
+/ aDividend
+
+	self subclassResponsibility ! !
+!Numero methodsFor: 'arithmetic operations' stamp: 'mg 4/17/2024 10:49:12' prior: 50542043!
++ anAddend
+
+	self subclassResponsibility ! !
