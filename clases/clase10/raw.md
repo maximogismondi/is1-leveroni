@@ -47,3 +47,7 @@ Es una técnica que a primera vista puede parecer contraintuitiva, pero que a la
 
 - Verificar que el resultado es el esperado
 - Post condiciones
+
+## Aplicacion
+
+- Si tenemos test que nos damos cuentan que sobran ya que otros tests cubren su funcionalidad, los podemos borrar mantener bajo el numero de tests sin alterar la verificación de la funcionalida, hará que sea más fácil mantener el sistema a largo plazo.
