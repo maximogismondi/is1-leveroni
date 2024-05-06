@@ -12298,3 +12298,5828 @@ xxxInteger: aMinuend
 + anAddend
 
 	self subclassResponsibility ! !
+
+----STARTUP---- (6 May 2024 09:58:35) as G:\is1-leveroni\cuis\windows64\CuisUniversity-6169.image!
+
+
+----End fileIn of G:\is1-leveroni\ejs\servicios_financieros\ServiciosFinancieros.st----!
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 10:00:37'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 10:00:37'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 10:00:37'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 10:00:37'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 10:00:37'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 10:00:37'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 10:00:37'!
+PASSED!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 10:03:44' prior: 50539116!
+test06_xxx
+
+	| portfolio account |
+	
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	portfolio register: account.
+
+	
+	self should: [portfolio register: account]
+	raise: Error 
+	withExceptionDo:  [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 10:03:52' prior: 50539661!
+test06_xxx
+
+	| portfolio account |
+	
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	portfolio register: account.
+	
+	self should: [portfolio register: account]
+	raise: Error 
+	withExceptionDo:  [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 10:10:23'!
+test08_xxx
+
+	| portfolio1 portfolio2 |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	
+	portfolio1 register: portfolio2.
+
+	self should: [portfolio1 register: portfolio2]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 10:10:28'!
+FAILURE!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 10:11:03' prior: 50539685!
+test08_xxx
+
+	| portfolio1 portfolio2 account |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	
+	portfolio2 register: account.
+	portfolio1 register: portfolio2.
+
+	self should: [portfolio1 register: account]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 10:11:21' prior: 50539700!
+test08_xxx
+
+	| portfolio1 portfolio2 account |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+	
+	portfolio2 register: account.
+	portfolio1 register: portfolio2.
+
+	self should: [portfolio1 register: account]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 10:11:32' prior: 50539714!
+test08_xxx
+
+	| portfolio1 portfolio2 account |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+	
+	portfolio2 register: account.
+	portfolio1 register: portfolio2.
+
+	self should: [portfolio1 register: portfolio2]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 10:11:36'!
+FAILURE!
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 10:12:09' prior: 50539493!
+alreadyContains: anAccount
+
+	anAccount  = self ifTrue: [^true].
+	
+	^accounts includes: anAccount.! !
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 10:12:16' prior: 50539746!
+alreadyContains: anAccount
+
+	anAccount = self ifTrue: [^true].
+	
+	^accounts includes: anAccount.! !
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 10:13:59'!
+PASSED!
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 10:13:59'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 10:13:59'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 10:13:59'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 10:13:59'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 10:13:59'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 10:14:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 10:14:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 10:14:00'!
+PASSED!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 10:14:07' prior: 50539729!
+test08_xxx
+
+	| portfolio1 portfolio2 |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+
+	portfolio1 register: portfolio2.
+
+	self should: [portfolio1 register: portfolio2]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 10:14:07'!
+PASSED!
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 10:14:07'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 10:14:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 10:14:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 10:14:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 10:14:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 10:14:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 10:14:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 10:14:08'!
+PASSED!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 10:15:15'!
+test09_xxx
+
+	| portfolio1 portfolio2 portfolio3 account |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	portfolio3 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+	
+	portfolio3 register: account.
+	portfolio2 register:  portfolio3.
+	portfolio1 register: portfolio2.
+
+	self should: [portfolio1 register: account]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 10:15:21'!
+FAILURE!
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 10:16:56' prior: 50539752!
+alreadyContains: anAccount
+
+	anAccount = self ifTrue: [^true].
+	
+	accounts do: [:account | (account alreadyContains: anAccount) ifTrue: [^true]]! !
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 10:17:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 10:17:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 10:17:27'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 10:17:27'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 10:17:27'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 10:17:27'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 10:17:27'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 10:17:27'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 10:17:27'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 10:17:27'!
+PASSED!
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 10:17:42' prior: 50539834!
+alreadyContains: anAccount
+
+	anAccount = self ifTrue: [^true].
+	
+	accounts anySatisfy: [:account | account alreadyContains: anAccount]! !
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 10:17:46'!
+FAILURE!
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 10:17:56' prior: 50539866!
+alreadyContains: anAccount
+
+	anAccount = self ifTrue: [^true].
+	
+	^accounts anySatisfy: [:account | account alreadyContains: anAccount]! !
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 10:18:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 10:18:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 10:18:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 10:18:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 10:18:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 10:18:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 10:18:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 10:18:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 10:18:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 10:18:00'!
+PASSED!
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 10:19:12' prior: 50539514!
+register: anAccount 
+	
+	(self alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	accounts add: anAccount.
+	! !
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 10:19:16'!
+PASSED!
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 10:19:16'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 10:19:16'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 10:19:16'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 10:19:16'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 10:19:16'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 10:19:16'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 10:19:16'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 10:19:16'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 10:19:16'!
+PASSED!
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 10:21:42' prior: 50539908!
+register: anAccount 
+	
+	anAccount = self ifTrue: [^true].
+	(self alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	accounts add: anAccount.
+	! !
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 10:34:19' prior: 50539940!
+register: anAccount 
+	
+	(self alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	accounts add: anAccount.! !
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 10:39:43'!
+test10_xxx
+
+	| portfolio1 portfolio2 |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+		
+	portfolio2 register:  portfolio1.
+
+	self should: [portfolio1 register: portfolio2.]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 10:39:47' prior: 50539956!
+test10_xxx
+
+	| portfolio1 portfolio2 |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+		
+	portfolio2 register:  portfolio1.
+
+	self should: [portfolio1 register: portfolio2]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 10:39:52' prior: 50539969!
+test10_xxx
+
+	| portfolio1 portfolio2 |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+		
+	portfolio2 register: portfolio1.
+
+	self should: [portfolio1 register: portfolio2]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 10:39:58'!
+FAILURE!
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 10:41:02' prior: 50539949!
+register: anAccount 
+	
+	(self alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	(anAccount alreadyContains: self) ifTrue: [self error:  self class duplicateAccount].
+	accounts add: anAccount.! !
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 10:41:05'!
+PASSED!
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 10:41:05'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 10:41:05'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 10:41:05'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 10:41:05'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 10:41:05'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 10:41:06'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 10:41:06'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 10:41:06'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 10:41:06'!
+PASSED!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 10:41:06'!
+PASSED!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 10:43:40'!
+test11_xxx
+
+	| portfolio1 portfolio2 |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+		
+	portfolio2 register: portfolio1.
+
+	self should: [portfolio1 register: portfolio2]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 10:43:55' prior: 50539982!
+test10_xxx
+
+	| portfolio |
+	
+	portfolio := Portfolio new.
+
+	self should: [portfolio register: portfolio]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 10:43:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 10:43:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 10:43:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 10:43:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 10:43:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 10:43:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 10:43:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 10:43:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 10:43:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 10:43:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 10:43:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 10:43:56'!
+PASSED!
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 10:45:33' prior: 50539997!
+register: anAccount 
+	
+	(self alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	accounts add: anAccount.! !
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 10:45:59' prior: 50539876!
+alreadyContains: anAccount
+
+	anAccount = self ifTrue: [^true].
+	
+	
+	(accounts anySatisfy: [:account | account alreadyContains: anAccount]) ifTrue: [^true]! !
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 10:46:31' prior: 50540092!
+alreadyContains: anAccount
+
+	anAccount = self ifTrue: [^true].
+	
+	(accounts anySatisfy: [:account | account alreadyContains: anAccount]) ifTrue: [^true].
+	
+	^anAccount alreadyContains: self! !
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 10:47:10'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 10:47:10'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 10:47:10'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 10:47:10'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 10:47:10'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 10:47:10'!
+PASSED!
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 10:49:28' prior: 50540100!
+alreadyContains: anAccount
+
+	anAccount = self ifTrue: [^true].
+	
+	(accounts anySatisfy: [:account | account alreadyContains: anAccount]) ifTrue: [^true].
+	(accounts anySatisfy: [:account | anAccount alreadyContains: account ])ifTrue: [^true].
+	 
+	^false! !
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 10:49:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 10:49:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 10:49:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 10:49:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 10:49:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 10:49:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 10:49:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 10:49:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 10:49:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 10:49:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 10:49:39'!
+FAILURE!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 10:49:39'!
+FAILURE!
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 10:41:02' prior: 50540085!
+register: anAccount 
+	
+	(self alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	(anAccount alreadyContains: self) ifTrue: [self error:  self class duplicateAccount].
+	accounts add: anAccount.! !
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 10:50:28' prior: 50540163!
+register: anAccount 
+	
+	(self alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	(anAccount alreadyContains: self) ifTrue: [self error:  self class duplicateAccount].
+	
+	accounts add: anAccount.! !
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 10:56:05'!
+test12_xxx
+
+	| portfolio1 portfolio2 account|
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+		
+	portfolio2 register: portfolio1.
+
+	self should: [portfolio1 register: portfolio2]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 10:56:42' prior: 50540183!
+test12_xxx
+
+	| portfolio1 portfolio2 account|
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+		
+	portfolio1 register: account.
+	portfolio1 register: portfolio2.
+	
+	self should: [portfolio2 register: account]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 10:56:47'!
+FAILURE!
+
+Object subclass: #Portfolio
+	instanceVariableNames: 'accounts father'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #Portfolio category: #'ServiciosFinancieros-Ejercicio' stamp: 'mg 5/6/2024 10:57:06'!
+Object subclass: #Portfolio
+	instanceVariableNames: 'accounts father'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+Object subclass: #Portfolio
+	instanceVariableNames: 'accounts'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #Portfolio category: #'ServiciosFinancieros-Ejercicio' stamp: 'mg 5/6/2024 10:57:09'!
+Object subclass: #Portfolio
+	instanceVariableNames: 'accounts'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+Object subclass: #Portfolio
+	instanceVariableNames: 'accounts fatherPortfolio'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #Portfolio category: #'ServiciosFinancieros-Ejercicio' stamp: 'mg 5/6/2024 10:59:03'!
+Object subclass: #Portfolio
+	instanceVariableNames: 'accounts fatherPortfolio'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:01:16' prior: 50540173!
+register: anAccount 
+	
+	(self alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	(anAccount alreadyContains: self) ifTrue: [self error:  self class duplicateAccount].
+	
+	accounts add: anAccount.
+	
+	(anAccount isKindOf: Portfolio) ifTrue: []! !
+!Portfolio methodsFor: 'initialization' stamp: 'mg 5/6/2024 11:01:39' prior: 50539489 overrides: 16932297!
+initialize
+
+	accounts :=  OrderedCollection new.! !
+!Portfolio methodsFor: 'initialization' stamp: 'mg 5/6/2024 11:01:47' prior: 50540267 overrides: 16932297!
+initialize
+
+	accounts := OrderedCollection new.! !
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:09:30' prior: 50540255!
+register: anAccount 
+	
+	(self alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	(anAccount alreadyContains: self) ifTrue: [self error:  self class duplicateAccount].
+	
+	accounts add: anAccount.
+	
+	(anAccount isKindOf: Portfolio) ifTrue: [anAccount registerTo: self]! !
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 11:09:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 11:09:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 11:09:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 11:09:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 11:09:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 11:09:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 11:09:35'!
+ERROR!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 11:09:35'!
+ERROR!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 11:09:35'!
+ERROR!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 11:09:35'!
+PASSED!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 11:09:35'!
+ERROR!
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 11:09:35'!
+ERROR!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 11:09:37'!
+ERROR!
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 11:09:44'!
+registerTo: aPortfolio 
+	self shouldBeImplemented.! !
+
+Object subclass: #Portfolio
+	instanceVariableNames: 'accounts parentPortfolio'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #Portfolio category: #'ServiciosFinancieros-Ejercicio' stamp: 'mg 5/6/2024 11:10:18'!
+Object subclass: #Portfolio
+	instanceVariableNames: 'accounts parentPortfolio'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 11:10:31' prior: 50540320!
+registerTo: aPortfolio
+	
+	parentPortfolio := aPortfolio.! !
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mg 5/6/2024 11:10:36'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mg 5/6/2024 11:10:36'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 11:10:36'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 11:10:36'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mg 5/6/2024 11:10:36'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mg 5/6/2024 11:10:36'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mg 5/6/2024 11:10:36'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mg 5/6/2024 11:10:37'!
+PASSED!
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 11:10:40'!
+FAILURE!
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:13:02' prior: 50540277!
+register: anAccount 
+	
+	(self alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	(anAccount alreadyContains: self) ifTrue: [self error:  self class duplicateAccount].
+	
+	 
+	
+	accounts add: anAccount.
+	
+	(anAccount isKindOf: Portfolio) ifTrue: [anAccount registerTo: self]! !
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:13:34' prior: 50540376!
+register: anAccount 
+	
+	(self alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	(anAccount alreadyContains: self) ifTrue: [self error:  self class duplicateAccount].
+	
+	accounts add: anAccount.
+	(anAccount isKindOf: Portfolio) ifTrue: [anAccount registerTo: self]! !
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 11:13:53'!
+FAILURE!
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:15:11' prior: 50540389!
+register: anAccount 
+	
+	(parentPortfolio alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	(self alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	(anAccount alreadyContains: self) ifTrue: [self error:  self class duplicateAccount].
+	
+	accounts add: anAccount.
+	(anAccount isKindOf: Portfolio) ifTrue: [anAccount registerTo: self]! !
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:15:55' prior: 50540404!
+register: anAccount 
+	
+	
+	parentPortfolio ifNotNil: [(parentPortfolio alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount]].
+	(self alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	(anAccount alreadyContains: self) ifTrue: [self error:  self class duplicateAccount].
+	
+	accounts add: anAccount.
+	(anAccount isKindOf: Portfolio) ifTrue: [anAccount registerTo: self]! !
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:16:01' prior: 50540420!
+register: anAccount 
+	
+	parentPortfolio ifNotNil: [(parentPortfolio alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount]].
+	
+	(self alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	(anAccount alreadyContains: self) ifTrue: [self error:  self class duplicateAccount].
+	
+	accounts add: anAccount.
+	(anAccount isKindOf: Portfolio) ifTrue: [anAccount registerTo: self]! !
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 11:16:23'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 11:16:23'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 11:16:23'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 11:16:24'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 11:16:24'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 11:16:24'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 11:16:24'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 11:16:24'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 11:16:24'!
+PASSED!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 11:16:24'!
+PASSED!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 11:16:24'!
+PASSED!
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 11:16:24'!
+PASSED!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 11:17:32'!
+test13_xxx
+
+	| portfolio1 portfolio2 portfolio3 account|
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	portfolio3 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+		
+	portfolio1 register: account.
+	portfolio1 register: portfolio2.
+	
+	self should: [portfolio2 register: account]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 11:17:40' prior: 50540481!
+test13_xxx
+
+	| portfolio1 portfolio2 portfolio3 account|
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	portfolio3 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+		
+	portfolio1 register: account.
+	portfolio1 register: portfolio2.
+	portfolio2 register: portfolio3.
+	
+	self should: [portfolio2 register: account]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 11:17:50' prior: 50540497!
+test13_xxx
+
+	| portfolio1 portfolio2 portfolio3 account|
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	portfolio3 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+		
+	portfolio1 register: account.
+	portfolio1 register: portfolio2.
+	portfolio2 register: portfolio3.
+	
+	self should: [portfolio3 register: account]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 11:17:51'!
+FAILURE!
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 11:20:55'!
+xxx: anAccount
+! !
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:21:33' prior: 50540436!
+register: anAccount 
+	
+	self xxx: anAccount.
+	
+	(self alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	(anAccount alreadyContains: self) ifTrue: [self error:  self class duplicateAccount].
+	
+	accounts add: anAccount.
+	(anAccount isKindOf: Portfolio) ifTrue: [anAccount registerTo: self]! !
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 11:21:55' prior: 50540533!
+xxx: anAccount
+
+	parentPortfolio ifNil: [(parentPortfolio alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount]].! !
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 11:23:32' prior: 50540550!
+xxx: anAccount
+
+	parentPortfolio 
+		ifNil: [] 
+		ifNotNil: [(parentPortfolio xxx: anAccount) ifTrue: [^true]].
+	
+	[(parentPortfolio alreadyContains: anAccount) ifTrue: [self error:  self class duplicateAccount]].! !
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 11:24:28' prior: 50540557!
+xxx: anAccount
+
+	parentPortfolio ifNotNil: [(parentPortfolio xxx: anAccount) ifTrue: [^true]].
+	
+	(self alreadyContains: anAccount) ifTrue: [self error: self class duplicateAccount].! !
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 11:24:30' prior: 50540567!
+xxx: anAccount
+
+	parentPortfolio ifNotNil: [(parentPortfolio xxx: anAccount) ifTrue: [^true]].
+	(self alreadyContains: anAccount) ifTrue: [self error: self class duplicateAccount].! !
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:24:40' prior: 50540537!
+register: anAccount 
+	
+	self xxx: anAccount.
+	
+	(anAccount alreadyContains: self) ifTrue: [self error:  self class duplicateAccount].
+	
+	accounts add: anAccount.
+	(anAccount isKindOf: Portfolio) ifTrue: [anAccount registerTo: self]! !
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:24:48' prior: 50540585!
+register: anAccount 
+	
+	self xxx: anAccount.
+	
+	(anAccount alreadyContains: self) ifTrue: [self error:  self class duplicateAccount].
+	
+	accounts add: anAccount.
+	(anAccount isKindOf: Portfolio) ifTrue: [anAccount registerTo: self]! !
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 11:24:55' prior: 50540576!
+xxx: anAccount
+
+	parentPortfolio ifNotNil: [(parentPortfolio xxx: anAccount) ifTrue: [^true]].
+	
+	(self alreadyContains: anAccount) ifTrue: [self error: self class duplicateAccount].! !
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 11:25:02'!
+ERROR!
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 11:25:53' prior: 50540606!
+xxx: anAccount
+
+	parentPortfolio ifNotNil: [(parentPortfolio xxx: anAccount) ifTrue: [^true]].
+	
+	(self alreadyContains: anAccount) ifTrue: [^true].! !
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:26:08' prior: 50540596!
+register: anAccount 
+	
+	(self xxx: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	
+	(anAccount alreadyContains: self) ifTrue: [self error:  self class duplicateAccount].
+	
+	accounts add: anAccount.
+	(anAccount isKindOf: Portfolio) ifTrue: [anAccount registerTo: self]! !
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 11:26:11'!
+ERROR!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 11:26:11'!
+ERROR!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 11:26:22'!
+ERROR!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 11:27:10'!
+ERROR!
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 11:27:36' prior: 50540617!
+xxx: anAccount
+
+	parentPortfolio ifNotNil: [(parentPortfolio xxx: anAccount) ifTrue: [^true]].
+	
+	^self alreadyContains: anAccount.! !
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 11:27:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 11:27:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 11:27:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 11:27:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 11:27:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 11:27:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 11:27:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 11:27:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 11:27:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 11:27:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 11:27:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 11:27:39'!
+PASSED!
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 11:27:40'!
+PASSED!
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 11:27:40'!
+PASSED!
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 11:31:08'!
+alreadyInHierarchy: anAccount
+
+	parentPortfolio ifNotNil: [(parentPortfolio xxx: anAccount) ifTrue: [^true]].
+	
+	^self alreadyContains: anAccount.! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'mg 5/6/2024 11:31:08' prior: 50540646!
+xxx: anAccount
+
+	parentPortfolio ifNotNil: [(parentPortfolio alreadyInHierarchy: anAccount) ifTrue: [^true]].
+	
+	^self alreadyContains: anAccount.! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'mg 5/6/2024 11:31:08' prior: 50540625!
+register: anAccount 
+	
+	(self alreadyInHierarchy: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	
+	(anAccount alreadyContains: self) ifTrue: [self error:  self class duplicateAccount].
+	
+	accounts add: anAccount.
+	(anAccount isKindOf: Portfolio) ifTrue: [anAccount registerTo: self]! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'mg 5/6/2024 11:31:08' prior: 50540686!
+alreadyInHierarchy: anAccount
+
+	parentPortfolio ifNotNil: [(parentPortfolio alreadyInHierarchy: anAccount) ifTrue: [^true]].
+	
+	^self alreadyContains: anAccount.! !
+
+!methodRemoval: Portfolio #xxx: stamp: 'mg 5/6/2024 11:31:08'!
+xxx: anAccount
+
+	parentPortfolio ifNotNil: [(parentPortfolio alreadyInHierarchy: anAccount) ifTrue: [^true]].
+	
+	^self alreadyContains: anAccount.!
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 11:31:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 11:31:14'!
+PASSED!
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 11:31:14'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 11:31:14'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 11:31:14'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 11:31:14'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 11:31:14'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 11:31:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 11:31:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 11:31:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 11:31:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 11:31:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 11:31:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 11:31:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 11:31:15'!
+PASSED!
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:31:43' prior: 50540702!
+register: anAccount 
+	
+	(self alreadyInHierarchy: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	
+	
+	accounts add: anAccount.
+	(anAccount isKindOf: Portfolio) ifTrue: [anAccount registerTo: self]! !
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 11:31:47'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 11:31:47'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 11:31:47'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 11:31:47'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 11:31:47'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 11:31:47'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 11:31:47'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 11:31:47'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 11:31:47'!
+PASSED!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 11:31:47'!
+PASSED!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 11:31:47'!
+PASSED!
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 11:31:47'!
+PASSED!
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 11:31:47'!
+PASSED!
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 11:31:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 11:31:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 11:31:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 11:31:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 11:31:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 11:31:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 11:31:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 11:31:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 11:31:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 11:31:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 11:31:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 11:31:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 11:31:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 11:32:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 11:32:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 11:32:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 11:32:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 11:32:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 11:32:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 11:32:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 11:32:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 11:32:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 11:32:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 11:32:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 11:32:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 11:32:03'!
+PASSED!
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:32:21' prior: 50540766!
+register: anAccount 
+	
+	(self alreadyInHierarchy: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	
+	accounts add: anAccount.
+	(anAccount isKindOf: Portfolio) ifTrue: [anAccount registerTo: self]! !
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 11:35:22' prior: 50540123!
+alreadyContains: anAccount
+
+	anAccount = self ifTrue: [^true].
+	
+	(accounts anySatisfy: [:account | account alreadyContains: anAccount]) ifTrue: [^true].
+	(accounts anySatisfy: [:account | anAccount alreadyContains: account])ifTrue: [^true].
+	 
+	^false! !
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 11:35:25' prior: 50540880!
+alreadyContains: anAccount
+
+	anAccount = self ifTrue: [^true].
+	
+	(accounts anySatisfy: [:account | account alreadyContains: anAccount]) ifTrue: [^true].
+	(accounts anySatisfy: [:account | anAccount alreadyContains: account]) ifTrue: [^true].
+	 
+	^false! !
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 11:44:53'!
+test14_xxx
+
+	| portfolio1 portfolio2 account|
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+		
+	portfolio1 register: account.
+	portfolio2 register: account.
+	
+	self should: [portfolio2 register: portfolio1]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!testRun: #PortfolioTest #test14_xxx stamp: 'mg 5/6/2024 11:45:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 11:45:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 11:45:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 11:45:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 11:45:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 11:45:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 11:45:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 11:45:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 11:45:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 11:45:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 11:45:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 11:45:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 11:45:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 11:45:04'!
+PASSED!
+
+!testRun: #PortfolioTest #test14_xxx stamp: 'mg 5/6/2024 11:45:04'!
+PASSED!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 11:49:45' prior: 50540902!
+test14_xxx
+
+	| portfolio1 portfolio2 account portfolio3 |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	portfolio3 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+		
+	portfolio1 register: account.
+	portfolio3 register: account.
+	portfolio2 register: portfolio3.
+	
+	self should: [portfolio2 register: portfolio1]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!testRun: #PortfolioTest #test14_xxx stamp: 'mg 5/6/2024 11:49:52'!
+PASSED!
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 11:49:52'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 11:49:52'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 11:49:52'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 11:49:52'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 11:49:52'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 11:49:52'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 11:49:52'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 11:49:52'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 11:49:52'!
+PASSED!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 11:49:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 11:49:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 11:49:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 11:49:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test14_xxx stamp: 'mg 5/6/2024 11:49:53'!
+PASSED!
+
+!classDefinition: #Account category: #'ServiciosFinancieros-Ejercicio' stamp: 'mg 5/6/2024 11:52:27'!
+Object subclass: #Account
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #Portfolio category: #'ServiciosFinancieros-Ejercicio' stamp: 'mg 5/6/2024 11:52:28'!
+Account subclass: #Portfolio
+	instanceVariableNames: 'accounts parentPortfolio'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+Account subclass: #ReceptiveAccount
+	instanceVariableNames: 'transactions'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+
+!classDefinition: #ReceptiveAccount category: #'ServiciosFinancieros-Ejercicio' stamp: 'mg 5/6/2024 11:52:34'!
+Account subclass: #ReceptiveAccount
+	instanceVariableNames: 'transactions'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'ServiciosFinancieros-Ejercicio'!
+!Account methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:53:07'!
+balance
+
+	self subclassResponsibility! !
+!Account methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:53:22'!
+hasRegistered: aTransaction
+
+	self subclassResponsibility! !
+
+!methodRemoval: Portfolio #anAccountTransaction: stamp: 'mg 5/6/2024 11:53:36'!
+anAccountTransaction: account 
+
+	self shouldBeImplemented.!
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 11:54:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 11:54:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 11:54:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 11:54:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 11:54:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 11:54:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 11:54:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 11:54:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 11:54:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 11:54:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 11:54:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 11:54:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 11:54:09'!
+PASSED!
+
+!testRun: #PortfolioTest #test14_xxx stamp: 'mg 5/6/2024 11:54:09'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mg 5/6/2024 11:54:09'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 11:54:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 11:54:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mg 5/6/2024 11:54:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mg 5/6/2024 11:54:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mg 5/6/2024 11:54:10'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mg 5/6/2024 11:54:10'!
+PASSED!
+
+!testRun: #TransferenceTest #test01_transferenceExtractMoneyFromOriginAccount stamp: 'mg 5/6/2024 11:54:10'!
+PASSED!
+
+!testRun: #TransferenceTest #test02_transferenceDepositMoneyToDestinyAccount stamp: 'mg 5/6/2024 11:54:10'!
+PASSED!
+
+!testRun: #TransferenceTest #test03_transferenceKnowsTheValueOfInterAccountOperation stamp: 'mg 5/6/2024 11:54:10'!
+PASSED!
+
+!testRun: #TransferenceTest #test04_transferenceWithdrawKnowsHisCounterParty stamp: 'mg 5/6/2024 11:54:10'!
+PASSED!
+
+!testRun: #TransferenceTest #test05_transferenceDepositKnowsHisCounterParty stamp: 'mg 5/6/2024 11:54:10'!
+PASSED!
+!Account methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:54:31'!
+register: anAccount
+
+	self subclassResponsibility! !
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:54:46' prior: 50539522!
+transactions
+	
+	|  transactions |
+	
+	transactions := accounts collect: [:anAccount | anAccount transactions].
+	^transactions flatten. ! !
+!Account methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:54:52'!
+transactions
+
+	self subclassResponsibility! !
+!Account methodsFor: 'private' stamp: 'mg 5/6/2024 11:55:50'!
+registerTo: aPortfolio
+
+	self subclassResponsibility! !
+!Account methodsFor: 'private' stamp: 'mg 5/6/2024 11:56:01' prior: 50541143!
+registerTo: aPortfolio
+	! !
+!Portfolio methodsFor: 'main protocol' stamp: 'mg 5/6/2024 11:56:23' prior: 50540870 overrides: 50541127!
+register: anAccount 
+	
+	(self alreadyInHierarchy: anAccount) ifTrue: [self error:  self class duplicateAccount].
+	
+	accounts add: anAccount.
+	anAccount registerTo: self.! !
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 11:56:42'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 11:56:42'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 11:56:42'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #PortfolioTest #test14_xxx stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #TransferenceTest #test01_transferenceExtractMoneyFromOriginAccount stamp: 'mg 5/6/2024 11:56:43'!
+PASSED!
+
+!testRun: #TransferenceTest #test02_transferenceDepositMoneyToDestinyAccount stamp: 'mg 5/6/2024 11:56:44'!
+PASSED!
+
+!testRun: #TransferenceTest #test03_transferenceKnowsTheValueOfInterAccountOperation stamp: 'mg 5/6/2024 11:56:44'!
+PASSED!
+
+!testRun: #TransferenceTest #test04_transferenceWithdrawKnowsHisCounterParty stamp: 'mg 5/6/2024 11:56:44'!
+PASSED!
+
+!testRun: #TransferenceTest #test05_transferenceDepositKnowsHisCounterParty stamp: 'mg 5/6/2024 11:56:44'!
+PASSED!
+!Account methodsFor: 'initialization' stamp: 'mg 5/6/2024 11:57:17' overrides: 16932297!
+initialize
+
+	self subclassResponsibility! !
+!ReceptiveAccount methodsFor: 'private' stamp: 'mg 5/6/2024 11:57:58' prior: 50539561!
+alreadyContains: anAccount
+	
+	^anAccount  = self.! !
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 12:03:53' prior: 50540891!
+alreadyContains: anAccount
+	
+	(accounts anySatisfy: [:account | account alreadyContains: anAccount]) ifTrue: [^true].
+	(accounts anySatisfy: [:account | anAccount alreadyContains: account]) ifTrue: [^true].
+	 
+	^false! !
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 12:04:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 12:04:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 12:04:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 12:04:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 12:04:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 12:04:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 12:04:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 12:04:00'!
+FAILURE!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 12:04:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 12:04:01'!
+FAILURE!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 12:04:01'!
+FAILURE!
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 12:04:01'!
+PASSED!
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 12:04:01'!
+PASSED!
+
+!testRun: #PortfolioTest #test14_xxx stamp: 'mg 5/6/2024 12:04:01'!
+PASSED!
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 12:04:14' prior: 50541250!
+alreadyContains: anAccount
+	
+	anAccount = self ifTrue: [^true].
+	
+	(accounts anySatisfy: [:account | account alreadyContains: anAccount]) ifTrue: [^true].
+	(accounts anySatisfy: [:account | anAccount alreadyContains: account]) ifTrue: [^true].
+	 
+	^false! !
+!ReceptiveAccount methodsFor: 'private' stamp: 'mg 5/6/2024 12:04:32' prior: 50541245!
+alreadyContains: anAccount
+	
+	^anAccount = self.! !
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 12:05:17'!
+alreadyPresent: anAccount
+	
+	anAccount = self ifTrue: [^true].
+	
+	(accounts anySatisfy: [:account | account alreadyContains: anAccount]) ifTrue: [^true].
+	(accounts anySatisfy: [:account | anAccount alreadyContains: account]) ifTrue: [^true].
+	 
+	^false! !
+!ReceptiveAccount methodsFor: 'private' stamp: 'mg 5/6/2024 12:05:17'!
+alreadyPresent: anAccount
+	
+	^anAccount = self.! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'mg 5/6/2024 12:05:17' prior: 50541294!
+alreadyContains: anAccount
+	
+	anAccount = self ifTrue: [^true].
+	
+	(accounts anySatisfy: [:account | account alreadyPresent: anAccount]) ifTrue: [^true].
+	(accounts anySatisfy: [:account | anAccount alreadyPresent: account]) ifTrue: [^true].
+	 
+	^false! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'mg 5/6/2024 12:05:17' prior: 50540715!
+alreadyInHierarchy: anAccount
+
+	parentPortfolio ifNotNil: [(parentPortfolio alreadyInHierarchy: anAccount) ifTrue: [^true]].
+	
+	^self alreadyPresent: anAccount.! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'mg 5/6/2024 12:05:17' prior: 50541309!
+alreadyPresent: anAccount
+	
+	anAccount = self ifTrue: [^true].
+	
+	(accounts anySatisfy: [:account | account alreadyPresent: anAccount]) ifTrue: [^true].
+	(accounts anySatisfy: [:account | anAccount alreadyPresent: account]) ifTrue: [^true].
+	 
+	^false! !
+
+!methodRemoval: Portfolio #alreadyContains: stamp: 'mg 5/6/2024 12:05:17'!
+alreadyContains: anAccount
+	
+	anAccount = self ifTrue: [^true].
+	
+	(accounts anySatisfy: [:account | account alreadyPresent: anAccount]) ifTrue: [^true].
+	(accounts anySatisfy: [:account | anAccount alreadyPresent: account]) ifTrue: [^true].
+	 
+	^false!
+
+!methodRemoval: ReceptiveAccount #alreadyContains: stamp: 'mg 5/6/2024 12:05:17'!
+alreadyContains: anAccount
+	
+	^anAccount = self.!
+!Account methodsFor: 'private' stamp: 'mg 5/6/2024 12:07:40'!
+alreadyPresent: anAccount
+
+	self subclassResponsibility! !
+!Account methodsFor: 'private' stamp: 'mg 5/6/2024 12:07:54' prior: 50541369!
+alreadyPresent: anAccount
+
+	^self = anAccount ! !
+!Account methodsFor: 'private' stamp: 'mg 5/6/2024 12:07:55' prior: 50541374!
+alreadyPresent: anAccount
+
+	^self = anAccount! !
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 12:08:25' prior: 50541344 overrides: 50541378!
+alreadyPresent: anAccount
+	
+	super alreadyPresent: anAccount.
+	anAccount = self ifTrue: [^true].
+	
+	(accounts anySatisfy: [:account | account alreadyPresent: anAccount]) ifTrue: [^true].
+	(accounts anySatisfy: [:account | anAccount alreadyPresent: account]) ifTrue: [^true].
+	 
+	^false! !
+!Portfolio methodsFor: 'private' stamp: 'mg 5/6/2024 12:08:42' prior: 50541383 overrides: 50541378!
+alreadyPresent: anAccount
+	
+	anAccount = self ifTrue: [^true].
+	
+	(accounts anySatisfy: [:account | account alreadyPresent: anAccount]) ifTrue: [^true].
+	(accounts anySatisfy: [:account | anAccount alreadyPresent: account]) ifTrue: [^true].
+	 
+	^false! !
+!Account methodsFor: 'private' stamp: 'mg 5/6/2024 12:08:49' prior: 50541378!
+alreadyPresent: anAccount
+
+	self subclassResponsibility ! !
+!Account methodsFor: 'private' stamp: 'mg 5/6/2024 12:08:51' prior: 50541407!
+alreadyPresent: anAccount
+
+	self subclassResponsibility.! !
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 12:08:55'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 12:08:55'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 12:08:55'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 12:08:55'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 12:08:55'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 12:08:55'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 12:08:55'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 12:08:55'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 12:08:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 12:08:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 12:08:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 12:08:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 12:08:56'!
+PASSED!
+
+!testRun: #PortfolioTest #test14_xxx stamp: 'mg 5/6/2024 12:08:56'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mg 5/6/2024 12:08:56'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:08:56'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:08:56'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mg 5/6/2024 12:08:56'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mg 5/6/2024 12:08:56'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mg 5/6/2024 12:08:56'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mg 5/6/2024 12:08:56'!
+PASSED!
+
+!testRun: #TransferenceTest #test01_transferenceExtractMoneyFromOriginAccount stamp: 'mg 5/6/2024 12:08:56'!
+PASSED!
+
+!testRun: #TransferenceTest #test02_transferenceDepositMoneyToDestinyAccount stamp: 'mg 5/6/2024 12:08:56'!
+PASSED!
+
+!testRun: #TransferenceTest #test03_transferenceKnowsTheValueOfInterAccountOperation stamp: 'mg 5/6/2024 12:08:56'!
+PASSED!
+
+!testRun: #TransferenceTest #test04_transferenceWithdrawKnowsHisCounterParty stamp: 'mg 5/6/2024 12:08:56'!
+PASSED!
+
+!testRun: #TransferenceTest #test05_transferenceDepositKnowsHisCounterParty stamp: 'mg 5/6/2024 12:08:56'!
+PASSED!
+!Behavior method!
+register: aTransaction
+	#_coverageTracker7824066_ markAsExecuted.
+	[ | receiver1 |
+	receiver1 _ #_coverageTracker7824066_
+		cover: (28 to: 39)
+		declaredAt: (28 to: 39)
+		by: transactions.
+	#_coverageTracker7824066_
+		coverAll:
+			{41 to: 44}
+		evaluating: [
+			receiver1 add:
+				(#_coverageTracker7824066_
+					cover: (46 to: 57)
+					declaredAt: (11 to: 22)
+					by: aTransaction) ]
+		thatSends: #add:
+		to: receiver1 ] value.! !
+!Behavior method!
+impactOnBalance
+	#_coverageTracker7824123_ markAsExecuted.
+	^ #_coverageTracker7824123_
+		cover: (20 to: 24)
+		declaredAt: (20 to: 24)
+		by: value.! !
+!Behavior method!
+initializeFor: aValue
+	#_coverageTracker7824168_ markAsExecuted.
+	#_coverageTracker7824168_
+		cover: (25 to: 29)
+		declaredAt: (25 to: 29)
+		by:
+			(value _ #_coverageTracker7824168_
+				cover: (34 to: 39)
+				declaredAt: (16 to: 21)
+				by: aValue).! !
+!Behavior method!
+register: aValue on: account
+	| transaction |
+	#_coverageTracker7824201_ markAsExecuted.
+	#_coverageTracker7824201_
+		cover: (55 to: 65)
+		declaredAt: (36 to: 46)
+		by:
+			(transaction _ [ | receiver1 |
+			receiver1 _ #_coverageTracker7824201_
+				coverAll:
+					{70 to: 73}
+				byLiteralOrPseudoVariable: self.
+			#_coverageTracker7824201_
+				coverAll:
+					{75 to: 78}
+				evaluating: [
+					receiver1 for:
+						(#_coverageTracker7824201_
+							cover: (80 to: 85)
+							declaredAt: (11 to: 16)
+							by: aValue) ]
+				thatSends: #for:
+				to: receiver1 ] value).
+	[ | receiver2 |
+	receiver2 _ #_coverageTracker7824201_
+		cover: (90 to: 96)
+		declaredAt: (22 to: 28)
+		by: account.
+	#_coverageTracker7824201_
+		coverAll:
+			{98 to: 106}
+		evaluating: [
+			receiver2 register:
+				(#_coverageTracker7824201_
+					cover: (108 to: 118)
+					declaredAt: (36 to: 46)
+					by: transaction) ]
+		thatSends: #register:
+		to: receiver2 ] value.
+	^ #_coverageTracker7824201_
+		cover: (129 to: 139)
+		declaredAt: (36 to: 46)
+		by: transaction.! !
+!Behavior method!
+value
+	#_coverageTracker7824241_ markAsExecuted.
+	^ #_coverageTracker7824241_
+		cover: (10 to: 14)
+		declaredAt: (10 to: 14)
+		by: value.! !
+!Behavior method!
+initializeWithOriginLeg: aSenderLeg andDestinyLeg: aReceiverLeg withValue: aValue
+	#_coverageTracker7824282_ markAsExecuted.
+	#_coverageTracker7824282_
+		cover: (88 to: 96)
+		declaredAt: (88 to: 96)
+		by:
+			(senderLeg _ [ | receiver1 |
+			receiver1 _ #_coverageTracker7824282_
+				coverAll:
+					{100 to: 115}
+				by: TransferWithdraw.
+			#_coverageTracker7824282_
+				coverAll:
+					{117 to: 125. 135 to: 137}
+				evaluating: [
+					receiver1
+						register:
+							(#_coverageTracker7824282_
+								cover: (127 to: 132)
+								declaredAt: (76 to: 81)
+								by: aValue)
+						on:
+							(#_coverageTracker7824282_
+								cover: (139 to: 148)
+								declaredAt: (26 to: 35)
+								by: aSenderLeg) ]
+				thatSends: #register:on:
+				to: receiver1 ] value).
+	#_coverageTracker7824282_
+		cover: (152 to: 162)
+		declaredAt: (152 to: 162)
+		by:
+			(receiverLeg _ [ | receiver2 |
+			receiver2 _ #_coverageTracker7824282_
+				coverAll:
+					{167 to: 181}
+				by: TransferDeposit.
+			#_coverageTracker7824282_
+				coverAll:
+					{183 to: 191. 201 to: 203}
+				evaluating: [
+					receiver2
+						register:
+							(#_coverageTracker7824282_
+								cover: (193 to: 198)
+								declaredAt: (76 to: 81)
+								by: aValue)
+						on:
+							(#_coverageTracker7824282_
+								cover: (205 to: 216)
+								declaredAt: (52 to: 63)
+								by: aReceiverLeg) ]
+				thatSends: #register:on:
+				to: receiver2 ] value).
+	#_coverageTracker7824282_
+		cover: (220 to: 224)
+		declaredAt: (220 to: 224)
+		by:
+			(value _ #_coverageTracker7824282_
+				cover: (229 to: 234)
+				declaredAt: (76 to: 81)
+				by: aValue).
+	[ | receiver3 |
+	receiver3 _ #_coverageTracker7824282_
+		cover: (240 to: 248)
+		declaredAt: (88 to: 96)
+		by: senderLeg.
+	#_coverageTracker7824282_
+		coverAll:
+			{250 to: 275}
+		evaluating: [
+			receiver3 initializeCounterpartyLeg:
+				(#_coverageTracker7824282_
+					cover: (277 to: 287)
+					declaredAt: (152 to: 162)
+					by: receiverLeg) ]
+		thatSends: #initializeCounterpartyLeg:
+		to: receiver3 ] value.
+	[ | receiver4 |
+	receiver4 _ #_coverageTracker7824282_
+		cover: (292 to: 302)
+		declaredAt: (152 to: 162)
+		by: receiverLeg.
+	#_coverageTracker7824282_
+		coverAll:
+			{304 to: 329}
+		evaluating: [
+			receiver4 initializeCounterpartyLeg:
+				(#_coverageTracker7824282_
+					cover: (331 to: 339)
+					declaredAt: (88 to: 96)
+					by: senderLeg) ]
+		thatSends: #initializeCounterpartyLeg:
+		to: receiver4 ] value.! !
+!Behavior method!
+hasRegistered: aTransaction
+	#_coverageTracker7824322_ markAsExecuted.
+	^ [ | receiver2 |
+	receiver2 _ #_coverageTracker7824322_
+		cover: (33 to: 40)
+		declaredAt: (33 to: 40)
+		by: accounts.
+	#_coverageTracker7824322_
+		coverAll:
+			{42 to: 52}
+		evaluating: [
+			receiver2 anySatisfy: [ :anAccount |
+				[ | receiver1 |
+				receiver1 _ #_coverageTracker7824322_
+					cover: (68 to: 76)
+					declaredAt: (56 to: 64)
+					by: anAccount.
+				#_coverageTracker7824322_
+					coverAll:
+						{78 to: 91}
+					evaluating: [
+						receiver1 hasRegistered:
+							(#_coverageTracker7824322_
+								cover: (93 to: 104)
+								declaredAt: (16 to: 27)
+								by: aTransaction) ]
+					thatSends: #hasRegistered:
+					to: receiver1 ] value ]]
+		thatSends: #anySatisfy:
+		to: receiver2 ] value.! !
+!Behavior method!
+hasRegistered: aTransaction
+	#_coverageTracker7824362_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker7824362_
+		cover: (35 to: 46)
+		declaredAt: (35 to: 46)
+		by: transactions.
+	#_coverageTracker7824362_
+		coverAll:
+			{48 to: 56}
+		evaluating: [
+			receiver1 includes:
+				(#_coverageTracker7824362_
+					cover: (58 to: 69)
+					declaredAt: (16 to: 27)
+					by: aTransaction) ]
+		thatSends: #includes:
+		to: receiver1 ] value.! !
+!Behavior method!
+from: senderAccount to: receiverAccount for: aValue
+	#_coverageTracker7824400_ markAsExecuted.
+	^ [ | receiver2 |
+	receiver2 _ [ | receiver1 |
+	receiver1 _ #_coverageTracker7824400_
+		coverAll:
+			{58 to: 61}
+		byLiteralOrPseudoVariable: self.
+	#_coverageTracker7824400_
+		coverAll:
+			{63 to: 65}
+		evaluating: [ receiver1 new ]
+		thatSends: #new
+		to: receiver1 ] value.
+	#_coverageTracker7824400_
+		coverAll:
+			{67 to: 90. 106 to: 119. 137 to: 146}
+		evaluating: [
+			receiver2
+				initializeWithOriginLeg:
+					(#_coverageTracker7824400_
+						cover: (92 to: 104)
+						declaredAt: (7 to: 19)
+						by: senderAccount)
+				andDestinyLeg:
+					(#_coverageTracker7824400_
+						cover: (121 to: 135)
+						declaredAt: (25 to: 39)
+						by: receiverAccount)
+				withValue:
+					(#_coverageTracker7824400_
+						cover: (148 to: 153)
+						declaredAt: (46 to: 51)
+						by: aValue) ]
+		thatSends: #initializeWithOriginLeg:andDestinyLeg:withValue:
+		to: receiver2 ] value.! !
+!Behavior method!
+receiverLeg
+	#_coverageTracker7824439_ markAsExecuted.
+	^ #_coverageTracker7824439_
+		cover: (16 to: 26)
+		declaredAt: (16 to: 26)
+		by: receiverLeg.! !
+!Behavior method!
+registerTo: aPortfolio
+	#_coverageTracker7824482_ markAsExecuted.! !
+!Behavior method!
+counterparty
+	#_coverageTracker7824524_ markAsExecuted.
+	^ #_coverageTracker7824524_
+		cover: (17 to: 31)
+		declaredAt: (17 to: 31)
+		by: counterpartyLeg.! !
+!Behavior method!
+for: aValue
+	#_coverageTracker7824565_ markAsExecuted.
+	^ [ | receiver2 |
+	receiver2 _ [ | receiver1 |
+	receiver1 _ #_coverageTracker7824565_
+		coverAll:
+			{16 to: 19}
+		byLiteralOrPseudoVariable: self.
+	#_coverageTracker7824565_
+		coverAll:
+			{21 to: 23}
+		evaluating: [ receiver1 new ]
+		thatSends: #new
+		to: receiver1 ] value.
+	#_coverageTracker7824565_
+		coverAll:
+			{25 to: 38}
+		evaluating: [
+			receiver2 initializeFor:
+				(#_coverageTracker7824565_
+					cover: (40 to: 45)
+					declaredAt: (6 to: 11)
+					by: aValue) ]
+		thatSends: #initializeFor:
+		to: receiver2 ] value.! !
+!Behavior method!
+alreadyInHierarchy: anAccount
+	#_coverageTracker7824609_ markAsExecuted.
+	[ | receiver3 |
+	receiver3 _ #_coverageTracker7824609_
+		cover: (33 to: 47)
+		declaredAt: (33 to: 47)
+		by: parentPortfolio.
+	#_coverageTracker7824609_
+		coverAll:
+			{49 to: 57}
+		evaluating: [
+			receiver3 ifNotNil: [
+				[ | receiver2 |
+				receiver2 _ [ | receiver1 |
+				receiver1 _ #_coverageTracker7824609_
+					cover: (61 to: 75)
+					declaredAt: (33 to: 47)
+					by: parentPortfolio.
+				#_coverageTracker7824609_
+					coverAll:
+						{77 to: 95}
+					evaluating: [
+						receiver1 alreadyInHierarchy:
+							(#_coverageTracker7824609_
+								cover: (97 to: 105)
+								declaredAt: (21 to: 29)
+								by: anAccount) ]
+					thatSends: #alreadyInHierarchy:
+					to: receiver1 ] value.
+				#_coverageTracker7824609_
+					coverAll:
+						{108 to: 114}
+					evaluating: [ receiver2 ifTrue: [ ^ #_coverageTracker7824609_
+								coverAll:
+									{118 to: 121}
+								byLiteralOrPseudoVariable: true ]]
+					thatSends: #ifTrue:
+					to: receiver2 ] value ]]
+		thatSends: #ifNotNil:
+		to: receiver3 ] value.
+	^ [ | receiver4 |
+	receiver4 _ #_coverageTracker7824609_
+		coverAll:
+			{130 to: 133}
+		byLiteralOrPseudoVariable: self.
+	#_coverageTracker7824609_
+		coverAll:
+			{135 to: 149}
+		evaluating: [
+			receiver4 alreadyPresent:
+				(#_coverageTracker7824609_
+					cover: (151 to: 159)
+					declaredAt: (21 to: 29)
+					by: anAccount) ]
+		thatSends: #alreadyPresent:
+		to: receiver4 ] value.! !
+!Behavior method!
+impactOnBalance
+	#_coverageTracker7824655_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker7824655_
+		cover: (20 to: 24)
+		declaredAt: (20 to: 24)
+		by: value.
+	#_coverageTracker7824655_
+		coverAll:
+			{26 to: 32}
+		evaluating: [ receiver1 negated ]
+		thatSends: #negated
+		to: receiver1 ] value.! !
+!Behavior method!
+registerTo: aPortfolio
+	#_coverageTracker7824696_ markAsExecuted.
+	#_coverageTracker7824696_
+		cover: (27 to: 41)
+		declaredAt: (27 to: 41)
+		by:
+			(parentPortfolio _ #_coverageTracker7824696_
+				cover: (46 to: 55)
+				declaredAt: (13 to: 22)
+				by: aPortfolio).! !
+!Behavior method!
+senderLeg
+	#_coverageTracker7824736_ markAsExecuted.
+	^ #_coverageTracker7824736_
+		cover: (14 to: 22)
+		declaredAt: (14 to: 22)
+		by: senderLeg.! !
+!Behavior method!
+value
+	#_coverageTracker7824778_ markAsExecuted.
+	^ #_coverageTracker7824778_
+		cover: (11 to: 15)
+		declaredAt: (11 to: 15)
+		by: value.! !
+!Behavior method!
+duplicateAccount
+	#_coverageTracker7824818_ markAsExecuted.
+	^ #_coverageTracker7824818_
+		coverAll:
+			{21 to: 48}
+		byLiteralOrPseudoVariable: 'This account already exist'.! !
+!Behavior method!
+initialize
+	#_coverageTracker7824858_ markAsExecuted.
+	#_coverageTracker7824858_
+		cover: (14 to: 25)
+		declaredAt: (14 to: 25)
+		by:
+			(transactions _ [ | receiver1 |
+			receiver1 _ #_coverageTracker7824858_
+				coverAll:
+					{30 to: 46}
+				by: OrderedCollection.
+			#_coverageTracker7824858_
+				coverAll:
+					{48 to: 50}
+				evaluating: [ receiver1 new ]
+				thatSends: #new
+				to: receiver1 ] value).! !
+!Behavior method!
+alreadyPresent: anAccount
+	#_coverageTracker7824903_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker7824903_
+		cover: (31 to: 39)
+		declaredAt: (17 to: 25)
+		by: anAccount.
+	#_coverageTracker7824903_
+		coverAll:
+			{41 to: 41}
+		evaluating: [
+			receiver1 =
+				(#_coverageTracker7824903_
+					coverAll:
+						{43 to: 46}
+					byLiteralOrPseudoVariable: self) ]
+		thatSends: #=
+		to: receiver1 ] value.! !
+!Behavior method!
+alreadyPresent: anAccount
+	#_coverageTracker7824946_ markAsExecuted.
+	[ | receiver2 |
+	receiver2 _ [ | receiver1 |
+	receiver1 _ #_coverageTracker7824946_
+		cover: (30 to: 38)
+		declaredAt: (17 to: 25)
+		by: anAccount.
+	#_coverageTracker7824946_
+		coverAll:
+			{40 to: 40}
+		evaluating: [
+			receiver1 =
+				(#_coverageTracker7824946_
+					coverAll:
+						{42 to: 45}
+					byLiteralOrPseudoVariable: self) ]
+		thatSends: #=
+		to: receiver1 ] value.
+	#_coverageTracker7824946_
+		coverAll:
+			{47 to: 53}
+		evaluating: [ receiver2 ifTrue: [ ^ #_coverageTracker7824946_
+					coverAll:
+						{57 to: 60}
+					byLiteralOrPseudoVariable: true ]]
+		thatSends: #ifTrue:
+		to: receiver2 ] value.
+	[ | receiver5 |
+	receiver5 _ [ | receiver4 |
+	receiver4 _ #_coverageTracker7824946_
+		cover: (68 to: 75)
+		declaredAt: (68 to: 75)
+		by: accounts.
+	#_coverageTracker7824946_
+		coverAll:
+			{77 to: 87}
+		evaluating: [
+			receiver4 anySatisfy: [ :account |
+				[ | receiver3 |
+				receiver3 _ #_coverageTracker7824946_
+					cover: (101 to: 107)
+					declaredAt: (91 to: 97)
+					by: account.
+				#_coverageTracker7824946_
+					coverAll:
+						{109 to: 123}
+					evaluating: [
+						receiver3 alreadyPresent:
+							(#_coverageTracker7824946_
+								cover: (125 to: 133)
+								declaredAt: (17 to: 25)
+								by: anAccount) ]
+					thatSends: #alreadyPresent:
+					to: receiver3 ] value ]]
+		thatSends: #anySatisfy:
+		to: receiver4 ] value.
+	#_coverageTracker7824946_
+		coverAll:
+			{137 to: 143}
+		evaluating: [ receiver5 ifTrue: [ ^ #_coverageTracker7824946_
+					coverAll:
+						{147 to: 150}
+					byLiteralOrPseudoVariable: true ]]
+		thatSends: #ifTrue:
+		to: receiver5 ] value.
+	[ | receiver8 |
+	receiver8 _ [ | receiver7 |
+	receiver7 _ #_coverageTracker7824946_
+		cover: (156 to: 163)
+		declaredAt: (68 to: 75)
+		by: accounts.
+	#_coverageTracker7824946_
+		coverAll:
+			{165 to: 175}
+		evaluating: [
+			receiver7 anySatisfy: [ :account |
+				[ | receiver6 |
+				receiver6 _ #_coverageTracker7824946_
+					cover: (189 to: 197)
+					declaredAt: (17 to: 25)
+					by: anAccount.
+				#_coverageTracker7824946_
+					coverAll:
+						{199 to: 213}
+					evaluating: [
+						receiver6 alreadyPresent:
+							(#_coverageTracker7824946_
+								cover: (215 to: 221)
+								declaredAt: (179 to: 185)
+								by: account) ]
+					thatSends: #alreadyPresent:
+					to: receiver6 ] value ]]
+		thatSends: #anySatisfy:
+		to: receiver7 ] value.
+	#_coverageTracker7824946_
+		coverAll:
+			{225 to: 231}
+		evaluating: [ receiver8 ifTrue: [ ^ #_coverageTracker7824946_
+					coverAll:
+						{235 to: 238}
+					byLiteralOrPseudoVariable: true ]]
+		thatSends: #ifTrue:
+		to: receiver8 ] value.
+	^ #_coverageTracker7824946_
+		coverAll:
+			{247 to: 251}
+		byLiteralOrPseudoVariable: false.! !
+!Behavior method!
+initializeCounterpartyLeg: aLeg
+	#_coverageTracker7824984_ markAsExecuted.
+	#_coverageTracker7824984_
+		cover: (35 to: 49)
+		declaredAt: (35 to: 49)
+		by:
+			(counterpartyLeg _ #_coverageTracker7824984_
+				cover: (54 to: 57)
+				declaredAt: (28 to: 31)
+				by: aLeg).! !
+!Behavior method!
+initialize
+	#_coverageTracker7825030_ markAsExecuted.
+	#_coverageTracker7825030_
+		cover: (14 to: 21)
+		declaredAt: (14 to: 21)
+		by:
+			(accounts _ [ | receiver1 |
+			receiver1 _ #_coverageTracker7825030_
+				coverAll:
+					{26 to: 42}
+				by: OrderedCollection.
+			#_coverageTracker7825030_
+				coverAll:
+					{44 to: 46}
+				evaluating: [ receiver1 new ]
+				thatSends: #new
+				to: receiver1 ] value).! !
+!Behavior method!
+value
+	#_coverageTracker7825079_ markAsExecuted.
+	^ #_coverageTracker7825079_
+		cover: (11 to: 15)
+		declaredAt: (11 to: 15)
+		by: value.! !
+!Behavior method!
+transactions
+	#_coverageTracker7825119_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker7825119_
+		cover: (21 to: 32)
+		declaredAt: (21 to: 32)
+		by: transactions.
+	#_coverageTracker7825119_
+		coverAll:
+			{34 to: 37}
+		evaluating: [ receiver1 copy ]
+		thatSends: #copy
+		to: receiver1 ] value.! !
+!Behavior method!
+impactOnBalance
+	#_coverageTracker7825159_ markAsExecuted.
+	^ #_coverageTracker7825159_
+		cover: (20 to: 24)
+		declaredAt: (20 to: 24)
+		by: value.! !
+!Behavior method!
+register: anAccount
+	#_coverageTracker7825204_ markAsExecuted.
+	[ | receiver5 |
+	receiver5 _ [ | receiver1 |
+	receiver1 _ #_coverageTracker7825204_
+		coverAll:
+			{26 to: 29}
+		byLiteralOrPseudoVariable: self.
+	#_coverageTracker7825204_
+		coverAll:
+			{31 to: 49}
+		evaluating: [
+			receiver1 alreadyInHierarchy:
+				(#_coverageTracker7825204_
+					cover: (51 to: 59)
+					declaredAt: (11 to: 19)
+					by: anAccount) ]
+		thatSends: #alreadyInHierarchy:
+		to: receiver1 ] value.
+	#_coverageTracker7825204_
+		coverAll:
+			{62 to: 68}
+		evaluating: [
+			receiver5 ifTrue: [
+				[ | receiver4 |
+				receiver4 _ #_coverageTracker7825204_
+					coverAll:
+						{71 to: 74}
+					byLiteralOrPseudoVariable: self.
+				#_coverageTracker7825204_
+					coverAll:
+						{76 to: 81}
+					evaluating: [
+						receiver4 error:
+							[ | receiver3 |
+							receiver3 _ [ | receiver2 |
+							receiver2 _ #_coverageTracker7825204_
+								coverAll:
+									{84 to: 87}
+								byLiteralOrPseudoVariable: self.
+							#_coverageTracker7825204_
+								coverAll:
+									{89 to: 93}
+								evaluating: [ receiver2 class ]
+								thatSends: #class
+								to: receiver2 ] value.
+							#_coverageTracker7825204_
+								coverAll:
+									{95 to: 110}
+								evaluating: [ receiver3 duplicateAccount ]
+								thatSends: #duplicateAccount
+								to: receiver3 ] value ]
+					thatSends: #error:
+					to: receiver4 ] value ]]
+		thatSends: #ifTrue:
+		to: receiver5 ] value.
+	[ | receiver6 |
+	receiver6 _ #_coverageTracker7825204_
+		cover: (117 to: 124)
+		declaredAt: (117 to: 124)
+		by: accounts.
+	#_coverageTracker7825204_
+		coverAll:
+			{126 to: 129}
+		evaluating: [
+			receiver6 add:
+				(#_coverageTracker7825204_
+					cover: (131 to: 139)
+					declaredAt: (11 to: 19)
+					by: anAccount) ]
+		thatSends: #add:
+		to: receiver6 ] value.
+	[ | receiver7 |
+	receiver7 _ #_coverageTracker7825204_
+		cover: (143 to: 151)
+		declaredAt: (11 to: 19)
+		by: anAccount.
+	#_coverageTracker7825204_
+		coverAll:
+			{153 to: 163}
+		evaluating: [
+			receiver7 registerTo:
+				(#_coverageTracker7825204_
+					coverAll:
+						{165 to: 168}
+					byLiteralOrPseudoVariable: self) ]
+		thatSends: #registerTo:
+		to: receiver7 ] value.! !
+!Behavior method!
+impactOnBalance
+	#_coverageTracker7825246_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker7825246_
+		cover: (19 to: 23)
+		declaredAt: (19 to: 23)
+		by: value.
+	#_coverageTracker7825246_
+		coverAll:
+			{25 to: 31}
+		evaluating: [ receiver1 negated ]
+		thatSends: #negated
+		to: receiver1 ] value.! !
+!Behavior method!
+balance
+	#_coverageTracker7825291_ markAsExecuted.
+	^ [ | receiver2 |
+	receiver2 _ #_coverageTracker7825291_
+		cover: (12 to: 23)
+		declaredAt: (12 to: 23)
+		by: transactions.
+	#_coverageTracker7825291_
+		coverAll:
+			{25 to: 28. 79 to: 86}
+		evaluating: [
+			receiver2
+				sum: [ :aTransaction |
+					[ | receiver1 |
+					receiver1 _ #_coverageTracker7825291_
+						cover: (48 to: 59)
+						declaredAt: (33 to: 44)
+						by: aTransaction.
+					#_coverageTracker7825291_
+						coverAll:
+							{61 to: 75}
+						evaluating: [ receiver1 impactOnBalance ]
+						thatSends: #impactOnBalance
+						to: receiver1 ] value ]
+				ifEmpty: [
+					#_coverageTracker7825291_
+						coverAll:
+							{90 to: 90}
+						byLiteralOrPseudoVariable: 0 ]]
+		thatSends: #sum:ifEmpty:
+		to: receiver2 ] value.! !
+!Behavior method!
+transactions
+	| transactions |
+	#_coverageTracker7825335_ markAsExecuted.
+	#_coverageTracker7825335_
+		cover: (38 to: 49)
+		declaredAt: (20 to: 31)
+		by:
+			(transactions _ [ | receiver2 |
+			receiver2 _ #_coverageTracker7825335_
+				cover: (54 to: 61)
+				declaredAt: (54 to: 61)
+				by: accounts.
+			#_coverageTracker7825335_
+				coverAll:
+					{63 to: 70}
+				evaluating: [
+					receiver2 collect: [ :anAccount |
+						[ | receiver1 |
+						receiver1 _ #_coverageTracker7825335_
+							cover: (86 to: 94)
+							declaredAt: (74 to: 82)
+							by: anAccount.
+						#_coverageTracker7825335_
+							coverAll:
+								{96 to: 107}
+							evaluating: [ receiver1 transactions ]
+							thatSends: #transactions
+							to: receiver1 ] value ]]
+				thatSends: #collect:
+				to: receiver2 ] value).
+	^ [ | receiver3 |
+	receiver3 _ #_coverageTracker7825335_
+		cover: (113 to: 124)
+		declaredAt: (20 to: 31)
+		by: transactions.
+	#_coverageTracker7825335_
+		coverAll:
+			{126 to: 132}
+		evaluating: [ receiver3 flatten ]
+		thatSends: #flatten
+		to: receiver3 ] value.! !
+!Behavior method!
+balance
+	#_coverageTracker7825375_ markAsExecuted.
+	^ [ | receiver2 |
+	receiver2 _ #_coverageTracker7825375_
+		cover: (12 to: 19)
+		declaredAt: (12 to: 19)
+		by: accounts.
+	#_coverageTracker7825375_
+		coverAll:
+			{21 to: 24. 59 to: 66}
+		evaluating: [
+			receiver2
+				sum: [ :anAccount |
+					[ | receiver1 |
+					receiver1 _ #_coverageTracker7825375_
+						cover: (40 to: 48)
+						declaredAt: (28 to: 36)
+						by: anAccount.
+					#_coverageTracker7825375_
+						coverAll:
+							{50 to: 56}
+						evaluating: [ receiver1 balance ]
+						thatSends: #balance
+						to: receiver1 ] value ]
+				ifEmpty: [
+					#_coverageTracker7825375_
+						coverAll:
+							{69 to: 69}
+						byLiteralOrPseudoVariable: 0 ]]
+		thatSends: #sum:ifEmpty:
+		to: receiver2 ] value.! !
+
+!testRun: #PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 12:09:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 12:09:00'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 12:09:01'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 12:09:01'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 12:09:01'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 12:09:01'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 12:09:01'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 12:09:01'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 12:09:01'!
+PASSED!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 12:09:01'!
+PASSED!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 12:09:01'!
+PASSED!
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 12:09:01'!
+PASSED!
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 12:09:01'!
+PASSED!
+
+!testRun: #PortfolioTest #test14_xxx stamp: 'mg 5/6/2024 12:09:01'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mg 5/6/2024 12:09:01'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:09:01'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:09:01'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mg 5/6/2024 12:09:01'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mg 5/6/2024 12:09:02'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mg 5/6/2024 12:09:02'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mg 5/6/2024 12:09:02'!
+PASSED!
+
+!testRun: #TransferenceTest #test01_transferenceExtractMoneyFromOriginAccount stamp: 'mg 5/6/2024 12:09:02'!
+PASSED!
+
+!testRun: #TransferenceTest #test02_transferenceDepositMoneyToDestinyAccount stamp: 'mg 5/6/2024 12:09:02'!
+PASSED!
+
+!testRun: #TransferenceTest #test03_transferenceKnowsTheValueOfInterAccountOperation stamp: 'mg 5/6/2024 12:09:02'!
+PASSED!
+
+!testRun: #TransferenceTest #test04_transferenceWithdrawKnowsHisCounterParty stamp: 'mg 5/6/2024 12:09:02'!
+PASSED!
+
+!testRun: #TransferenceTest #test05_transferenceDepositKnowsHisCounterParty stamp: 'mg 5/6/2024 12:09:02'!
+PASSED!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:18:17' prior: 50539065!
+test01_xxx
+
+	| portfolio |
+	
+	portfolio := Portfolio new.
+	self assert: portfolio balance equals: 0 * peso.! !
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:19:13'!
+test01_anEmptyPortfolioHas0PesosBalance
+
+	| portfolio |
+	
+	portfolio := Portfolio new.
+	self assert: portfolio balance equals: 0 * peso.! !
+
+!methodRemoval: PortfolioTest #test01_xxx stamp: 'mg 5/6/2024 12:19:13'!
+test01_xxx
+
+	| portfolio |
+	
+	portfolio := Portfolio new.
+	self assert: portfolio balance equals: 0 * peso.!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:19:55'!
+test02_aPotfolioWithAReceptiveAccountCalculateBalanceInTermsOfReciptiveAccount
+
+	| portfolio account |
+	
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	portfolio register: account.
+	Deposit  register: 100 * peso on: account.
+	
+	self assert: portfolio balance equals: 100 * peso.! !
+
+!methodRemoval: PortfolioTest #test02_xxx stamp: 'mg 5/6/2024 12:19:55'!
+test02_xxx
+
+	| portfolio account |
+	
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	portfolio register: account.
+	Deposit  register: 100 * peso on: account.
+	
+	self assert: portfolio balance equals: 100 * peso.!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:20:56'!
+test02_aPotfolioWithMultipleReceptiveAccountsCalculateBalance
+
+	| portfolio account1 account2 |
+	
+	portfolio := Portfolio new.
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	portfolio register: account1.
+	portfolio register: account2.
+	
+	Deposit  register: 100 * peso on: account1.
+	Deposit  register: 100 * peso on: account2.
+	
+	self assert: portfolio balance equals: 200 * peso.! !
+
+!methodRemoval: PortfolioTest #test03_xxx stamp: 'mg 5/6/2024 12:20:57'!
+test03_xxx
+
+	| portfolio account1 account2 |
+	
+	portfolio := Portfolio new.
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	portfolio register: account1.
+	portfolio register: account2.
+	
+	Deposit  register: 100 * peso on: account1.
+	Deposit  register: 100 * peso on: account2.
+	
+	self assert: portfolio balance equals: 200 * peso.!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:21:03'!
+test02_aPotfolioWithAReceptiveAccountCalculateBalance
+
+	| portfolio account |
+	
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	portfolio register: account.
+	Deposit  register: 100 * peso on: account.
+	
+	self assert: portfolio balance equals: 100 * peso.! !
+
+!methodRemoval: PortfolioTest #test02_aPotfolioWithAReceptiveAccountCalculateBalanceInTermsOfReciptiveAccount stamp: 'mg 5/6/2024 12:21:03'!
+test02_aPotfolioWithAReceptiveAccountCalculateBalanceInTermsOfReciptiveAccount
+
+	| portfolio account |
+	
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	portfolio register: account.
+	Deposit  register: 100 * peso on: account.
+	
+	self assert: portfolio balance equals: 100 * peso.!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:22:45'!
+test04_aPotfolioWithAReceptiveAccountFindRegisteredReceptiveAccountTransactions
+
+	| portfolio account deposit |
+	
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	portfolio register: account.
+	
+	deposit := Deposit  register: 100 * peso on: account.
+	
+	self assert: (portfolio hasRegistered: deposit).! !
+
+!methodRemoval: PortfolioTest #test04_xxx stamp: 'mg 5/6/2024 12:22:45'!
+test04_xxx
+
+	| portfolio account deposit |
+	
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	portfolio register: account.
+	
+	deposit := Deposit  register: 100 * peso on: account.
+	
+	self assert: (portfolio hasRegistered: deposit).!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:22:50'!
+test03_aPotfolioWithMultipleReceptiveAccountsCalculateBalance
+
+	| portfolio account1 account2 |
+	
+	portfolio := Portfolio new.
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	portfolio register: account1.
+	portfolio register: account2.
+	
+	Deposit  register: 100 * peso on: account1.
+	Deposit  register: 100 * peso on: account2.
+	
+	self assert: portfolio balance equals: 200 * peso.! !
+
+!methodRemoval: PortfolioTest #test02_aPotfolioWithMultipleReceptiveAccountsCalculateBalance stamp: 'mg 5/6/2024 12:22:50'!
+test02_aPotfolioWithMultipleReceptiveAccountsCalculateBalance
+
+	| portfolio account1 account2 |
+	
+	portfolio := Portfolio new.
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	portfolio register: account1.
+	portfolio register: account2.
+	
+	Deposit  register: 100 * peso on: account1.
+	Deposit  register: 100 * peso on: account2.
+	
+	self assert: portfolio balance equals: 200 * peso.!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:24:04'!
+test05_aPotfolioAReceptiveAccountsListAllReceptiveAccountTransactions
+
+	| portfolio account deposit |
+	
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	portfolio register: account.
+	
+	deposit := Deposit  register: 100 * peso on: account.
+	
+	self assert: portfolio transactions first equals: deposit.! !
+
+!methodRemoval: PortfolioTest #test05_xxx stamp: 'mg 5/6/2024 12:24:04'!
+test05_xxx
+
+	| portfolio account deposit |
+	
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	portfolio register: account.
+	
+	deposit := Deposit  register: 100 * peso on: account.
+	
+	self assert: portfolio transactions first equals: deposit.!
+!ReceptiveAccount methodsFor: 'main protocol' stamp: 'mg 5/6/2024 12:33:22' prior: 50539566 overrides: 50541036!
+balance
+
+	^transactions sum: [ :aTransaction | | balance | balance := aTransaction impactOnBalance ] ifEmpty: [ 0 ].! !
+!AccountTransaction methodsFor: 'value' stamp: 'mg 5/6/2024 12:34:22'!
+impactOnBalance: aBalance
+
+	self subclassResponsibility.! !
+!Deposit methodsFor: 'value' stamp: 'mg 5/6/2024 12:34:22' overrides: 50542417!
+impactOnBalance: aBalance
+
+	^value.! !
+!InterAccountTransaction methodsFor: 'public' stamp: 'mg 5/6/2024 12:34:22' overrides: 50542417!
+impactOnBalance: aBalance
+
+	self subclassResponsibility.! !
+!TransferDeposit methodsFor: 'public' stamp: 'mg 5/6/2024 12:34:22' overrides: 50542427!
+impactOnBalance: aBalance
+
+	^value.! !
+!TransferWithdraw methodsFor: 'public' stamp: 'mg 5/6/2024 12:34:22' overrides: 50542427!
+impactOnBalance: aBalance
+
+	^value negated.! !
+!Withdraw methodsFor: 'value' stamp: 'mg 5/6/2024 12:34:22' overrides: 50542417!
+impactOnBalance: aBalance
+	^value negated.! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'mg 5/6/2024 12:34:22' prior: 50542411 overrides: 50541036!
+balance
+
+	^transactions sum: [ :aTransaction | | balance | balance := aTransaction impactOnBalance: balance ] ifEmpty: [ 0 ].! !
+
+!methodRemoval: AccountTransaction #impactOnBalance stamp: 'mg 5/6/2024 12:34:22'!
+impactOnBalance
+
+	self subclassResponsibility.!
+
+!methodRemoval: Deposit #impactOnBalance stamp: 'mg 5/6/2024 12:34:22'!
+impactOnBalance
+
+	^value.!
+
+!methodRemoval: InterAccountTransaction #impactOnBalance stamp: 'mg 5/6/2024 12:34:22'!
+impactOnBalance
+
+	self subclassResponsibility.!
+
+!methodRemoval: TransferDeposit #impactOnBalance stamp: 'mg 5/6/2024 12:34:22'!
+impactOnBalance
+
+	^value.!
+
+!methodRemoval: TransferWithdraw #impactOnBalance stamp: 'mg 5/6/2024 12:34:23'!
+impactOnBalance
+
+	^value negated.!
+
+!methodRemoval: Withdraw #impactOnBalance stamp: 'mg 5/6/2024 12:34:23'!
+impactOnBalance
+	^value negated.!
+!ReceptiveAccount methodsFor: 'main protocol' stamp: 'mg 5/6/2024 12:34:42' prior: 50542447 overrides: 50541036!
+balance
+
+	| balance |
+	
+	transactions do: [ :aTransaction | balance := aTransaction impactOnBalance: balance].
+	
+	^balance! !
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mg 5/6/2024 12:34:46'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:34:46'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:34:46'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mg 5/6/2024 12:34:46'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mg 5/6/2024 12:34:46'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mg 5/6/2024 12:34:46'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mg 5/6/2024 12:34:47'!
+PASSED!
+!Deposit methodsFor: 'value' stamp: 'mg 5/6/2024 12:35:04' prior: 50542422 overrides: 50542417!
+impactOnBalance: aBalance
+
+	^aBalance + value.! !
+!Withdraw methodsFor: 'value' stamp: 'mg 5/6/2024 12:35:16' prior: 50542441 overrides: 50542417!
+impactOnBalance: aBalance
+	
+	^ aBalance - value.! !
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mg 5/6/2024 12:35:18'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:35:18'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:35:18'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mg 5/6/2024 12:35:18'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mg 5/6/2024 12:35:18'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mg 5/6/2024 12:35:18'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mg 5/6/2024 12:35:18'!
+PASSED!
+!TransferWithdraw methodsFor: 'public' stamp: 'mg 5/6/2024 12:35:41' prior: 50542437 overrides: 50542427!
+impactOnBalance: aBalance
+
+	^aBalance - value ! !
+!TransferDeposit methodsFor: 'public' stamp: 'mg 5/6/2024 12:35:51' prior: 50542432 overrides: 50542427!
+impactOnBalance: aBalance
+
+	^aBalance + value! !
+
+!testRun: #PortfolioTest #test01_anEmptyPortfolioHas0PesosBalance stamp: 'mg 5/6/2024 12:35:58'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_aPotfolioWithAReceptiveAccountCalculateBalance stamp: 'mg 5/6/2024 12:35:58'!
+ERROR!
+
+!testRun: #PortfolioTest #test03_aPotfolioWithMultipleReceptiveAccountsCalculateBalance stamp: 'mg 5/6/2024 12:35:58'!
+ERROR!
+
+!testRun: #PortfolioTest #test04_aPotfolioWithAReceptiveAccountFindRegisteredReceptiveAccountTransactions stamp: 'mg 5/6/2024 12:35:58'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_aPotfolioAReceptiveAccountsListAllReceptiveAccountTransactions stamp: 'mg 5/6/2024 12:35:58'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 12:35:58'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 12:35:58'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 12:35:58'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 12:35:59'!
+PASSED!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 12:35:59'!
+PASSED!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 12:35:59'!
+PASSED!
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 12:35:59'!
+PASSED!
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 12:35:59'!
+PASSED!
+
+!testRun: #PortfolioTest #test14_xxx stamp: 'mg 5/6/2024 12:35:59'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mg 5/6/2024 12:35:59'!
+FAILURE!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:35:59'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:35:59'!
+ERROR!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mg 5/6/2024 12:35:59'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mg 5/6/2024 12:35:59'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mg 5/6/2024 12:35:59'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mg 5/6/2024 12:35:59'!
+PASSED!
+
+!testRun: #TransferenceTest #test01_transferenceExtractMoneyFromOriginAccount stamp: 'mg 5/6/2024 12:35:59'!
+ERROR!
+
+!testRun: #TransferenceTest #test02_transferenceDepositMoneyToDestinyAccount stamp: 'mg 5/6/2024 12:35:59'!
+ERROR!
+
+!testRun: #TransferenceTest #test03_transferenceKnowsTheValueOfInterAccountOperation stamp: 'mg 5/6/2024 12:35:59'!
+PASSED!
+
+!testRun: #TransferenceTest #test04_transferenceWithdrawKnowsHisCounterParty stamp: 'mg 5/6/2024 12:35:59'!
+PASSED!
+
+!testRun: #TransferenceTest #test05_transferenceDepositKnowsHisCounterParty stamp: 'mg 5/6/2024 12:36:00'!
+PASSED!
+!ReceptiveAccount methodsFor: 'main protocol' stamp: 'mg 5/6/2024 12:36:33' prior: 50542477 overrides: 50541036!
+balance
+
+	| balance |
+	
+	balance  := 	0.
+	transactions do: [ :aTransaction | balance := aTransaction impactOnBalance: balance].
+	
+	^balance! !
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mg 5/6/2024 12:36:34'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:36:34'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:36:34'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mg 5/6/2024 12:36:34'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mg 5/6/2024 12:36:34'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mg 5/6/2024 12:36:34'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mg 5/6/2024 12:36:34'!
+PASSED!
+!ReceptiveAccount methodsFor: 'main protocol' stamp: 'mg 5/6/2024 12:36:37' prior: 50542644 overrides: 50541036!
+balance
+
+	| balance |
+	
+	balance  := 	0.
+	
+	transactions do: [ :aTransaction | balance := aTransaction impactOnBalance: balance].
+	
+	^balance! !
+
+!testRun: #PortfolioTest #test01_anEmptyPortfolioHas0PesosBalance stamp: 'mg 5/6/2024 12:36:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test02_aPotfolioWithAReceptiveAccountCalculateBalance stamp: 'mg 5/6/2024 12:36:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test03_aPotfolioWithMultipleReceptiveAccountsCalculateBalance stamp: 'mg 5/6/2024 12:36:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test04_aPotfolioWithAReceptiveAccountFindRegisteredReceptiveAccountTransactions stamp: 'mg 5/6/2024 12:36:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test05_aPotfolioAReceptiveAccountsListAllReceptiveAccountTransactions stamp: 'mg 5/6/2024 12:36:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 12:36:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 12:36:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 12:36:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 12:36:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 12:36:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 12:36:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 12:36:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 12:36:41'!
+PASSED!
+
+!testRun: #PortfolioTest #test14_xxx stamp: 'mg 5/6/2024 12:36:41'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mg 5/6/2024 12:36:41'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:36:41'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:36:41'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mg 5/6/2024 12:36:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mg 5/6/2024 12:36:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mg 5/6/2024 12:36:42'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mg 5/6/2024 12:36:42'!
+PASSED!
+
+!testRun: #TransferenceTest #test01_transferenceExtractMoneyFromOriginAccount stamp: 'mg 5/6/2024 12:36:42'!
+PASSED!
+
+!testRun: #TransferenceTest #test02_transferenceDepositMoneyToDestinyAccount stamp: 'mg 5/6/2024 12:36:42'!
+PASSED!
+
+!testRun: #TransferenceTest #test03_transferenceKnowsTheValueOfInterAccountOperation stamp: 'mg 5/6/2024 12:36:42'!
+PASSED!
+
+!testRun: #TransferenceTest #test04_transferenceWithdrawKnowsHisCounterParty stamp: 'mg 5/6/2024 12:36:42'!
+PASSED!
+
+!testRun: #TransferenceTest #test05_transferenceDepositKnowsHisCounterParty stamp: 'mg 5/6/2024 12:36:42'!
+PASSED!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:37:19'!
+test01anEmptyPortfolioHas0PesosBalance
+
+	| portfolio |
+	
+	portfolio := Portfolio new.
+	self assert: portfolio balance equals: 0 * peso.! !
+
+!methodRemoval: PortfolioTest #test01_anEmptyPortfolioHas0PesosBalance stamp: 'mg 5/6/2024 12:37:19'!
+test01_anEmptyPortfolioHas0PesosBalance
+
+	| portfolio |
+	
+	portfolio := Portfolio new.
+	self assert: portfolio balance equals: 0 * peso.!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:37:32'!
+test01AnEmptyPortfolioHas0PesosBalance
+
+	| portfolio |
+	
+	portfolio := Portfolio new.
+	self assert: portfolio balance equals: 0 * peso.! !
+
+!methodRemoval: PortfolioTest #test01anEmptyPortfolioHas0PesosBalance stamp: 'mg 5/6/2024 12:37:32'!
+test01anEmptyPortfolioHas0PesosBalance
+
+	| portfolio |
+	
+	portfolio := Portfolio new.
+	self assert: portfolio balance equals: 0 * peso.!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:37:36'!
+test02APotfolioWithAReceptiveAccountCalculateBalance
+
+	| portfolio account |
+	
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	portfolio register: account.
+	Deposit  register: 100 * peso on: account.
+	
+	self assert: portfolio balance equals: 100 * peso.! !
+
+!methodRemoval: PortfolioTest #test02_aPotfolioWithAReceptiveAccountCalculateBalance stamp: 'mg 5/6/2024 12:37:36'!
+test02_aPotfolioWithAReceptiveAccountCalculateBalance
+
+	| portfolio account |
+	
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	portfolio register: account.
+	Deposit  register: 100 * peso on: account.
+	
+	self assert: portfolio balance equals: 100 * peso.!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:37:39'!
+test03APotfolioWithMultipleReceptiveAccountsCalculateBalance
+
+	| portfolio account1 account2 |
+	
+	portfolio := Portfolio new.
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	portfolio register: account1.
+	portfolio register: account2.
+	
+	Deposit  register: 100 * peso on: account1.
+	Deposit  register: 100 * peso on: account2.
+	
+	self assert: portfolio balance equals: 200 * peso.! !
+
+!methodRemoval: PortfolioTest #test03_aPotfolioWithMultipleReceptiveAccountsCalculateBalance stamp: 'mg 5/6/2024 12:37:39'!
+test03_aPotfolioWithMultipleReceptiveAccountsCalculateBalance
+
+	| portfolio account1 account2 |
+	
+	portfolio := Portfolio new.
+	account1 := ReceptiveAccount new.
+	account2 := ReceptiveAccount new.
+	
+	portfolio register: account1.
+	portfolio register: account2.
+	
+	Deposit  register: 100 * peso on: account1.
+	Deposit  register: 100 * peso on: account2.
+	
+	self assert: portfolio balance equals: 200 * peso.!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:37:43'!
+test04APotfolioWithAReceptiveAccountFindRegisteredReceptiveAccountTransactions
+
+	| portfolio account deposit |
+	
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	portfolio register: account.
+	
+	deposit := Deposit  register: 100 * peso on: account.
+	
+	self assert: (portfolio hasRegistered: deposit).! !
+
+!methodRemoval: PortfolioTest #test04_aPotfolioWithAReceptiveAccountFindRegisteredReceptiveAccountTransactions stamp: 'mg 5/6/2024 12:37:43'!
+test04_aPotfolioWithAReceptiveAccountFindRegisteredReceptiveAccountTransactions
+
+	| portfolio account deposit |
+	
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	portfolio register: account.
+	
+	deposit := Deposit  register: 100 * peso on: account.
+	
+	self assert: (portfolio hasRegistered: deposit).!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:37:48'!
+test05APotfolioAReceptiveAccountsListAllReceptiveAccountTransactions
+
+	| portfolio account deposit |
+	
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	portfolio register: account.
+	
+	deposit := Deposit  register: 100 * peso on: account.
+	
+	self assert: portfolio transactions first equals: deposit.! !
+
+!methodRemoval: PortfolioTest #test05_aPotfolioAReceptiveAccountsListAllReceptiveAccountTransactions stamp: 'mg 5/6/2024 12:37:48'!
+test05_aPotfolioAReceptiveAccountsListAllReceptiveAccountTransactions
+
+	| portfolio account deposit |
+	
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	portfolio register: account.
+	
+	deposit := Deposit  register: 100 * peso on: account.
+	
+	self assert: portfolio transactions first equals: deposit.!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:38:15'!
+test06APortfolioCannotRegisterAReceptiveAccountTwice
+
+	| portfolio account |
+	
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	portfolio register: account.
+	
+	self should: [portfolio register: account]
+	raise: Error 
+	withExceptionDo:  [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!methodRemoval: PortfolioTest #test06_xxx stamp: 'mg 5/6/2024 12:38:15'!
+test06_xxx
+
+	| portfolio account |
+	
+	portfolio := Portfolio new.
+	account := ReceptiveAccount new.
+	
+	portfolio register: account.
+	
+	self should: [portfolio register: account]
+	raise: Error 
+	withExceptionDo:  [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:39:59'!
+test07APortfolioCannotRegisterAReceptiveAccountRegisteredInRegisteredPorfolio
+
+	| portfolio1 portfolio2 account |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+	
+	portfolio2 register: account.
+	portfolio1 register: portfolio2.
+
+	self should: [portfolio1 register: account]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!methodRemoval: PortfolioTest #test07_xxx stamp: 'mg 5/6/2024 12:39:59'!
+test07_xxx
+
+	| portfolio1 portfolio2 account |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+	
+	portfolio2 register: account.
+	portfolio1 register: portfolio2.
+
+	self should: [portfolio1 register: account]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:40:50'!
+test08APortfolioCannotRegisterAPortfolioTwice
+
+	| portfolio1 portfolio2 |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+
+	portfolio1 register: portfolio2.
+
+	self should: [portfolio1 register: portfolio2]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!methodRemoval: PortfolioTest #test08_xxx stamp: 'mg 5/6/2024 12:40:51'!
+test08_xxx
+
+	| portfolio1 portfolio2 |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+
+	portfolio1 register: portfolio2.
+
+	self should: [portfolio1 register: portfolio2]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:41:33'!
+test09APortfolioCannotRegisterAnAlreadyRegisteredReceptiveAccountInHierarchy
+
+	| portfolio1 portfolio2 portfolio3 account |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	portfolio3 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+	
+	portfolio3 register: account.
+	portfolio2 register:  portfolio3.
+	portfolio1 register: portfolio2.
+
+	self should: [portfolio1 register: account]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!methodRemoval: PortfolioTest #test09_xxx stamp: 'mg 5/6/2024 12:41:33'!
+test09_xxx
+
+	| portfolio1 portfolio2 portfolio3 account |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	portfolio3 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+	
+	portfolio3 register: account.
+	portfolio2 register:  portfolio3.
+	portfolio1 register: portfolio2.
+
+	self should: [portfolio1 register: account]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:42:14'!
+test08APortfolioCannotRegisterHimSelf
+
+	| portfolio |
+	
+	portfolio := Portfolio new.
+
+	self should: [portfolio register: portfolio]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!methodRemoval: PortfolioTest #test10_xxx stamp: 'mg 5/6/2024 12:42:14'!
+test10_xxx
+
+	| portfolio |
+	
+	portfolio := Portfolio new.
+
+	self should: [portfolio register: portfolio]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:42:23'!
+test10APortfolioCannotRegisterHimSelf
+
+	| portfolio |
+	
+	portfolio := Portfolio new.
+
+	self should: [portfolio register: portfolio]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!methodRemoval: PortfolioTest #test08APortfolioCannotRegisterHimSelf stamp: 'mg 5/6/2024 12:42:23'!
+test08APortfolioCannotRegisterHimSelf
+
+	| portfolio |
+	
+	portfolio := Portfolio new.
+
+	self should: [portfolio register: portfolio]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:42:53'!
+test10APortfolioCannotRegisterItSelf
+
+	| portfolio |
+	
+	portfolio := Portfolio new.
+
+	self should: [portfolio register: portfolio]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!methodRemoval: PortfolioTest #test10APortfolioCannotRegisterHimSelf stamp: 'mg 5/6/2024 12:42:53'!
+test10APortfolioCannotRegisterHimSelf
+
+	| portfolio |
+	
+	portfolio := Portfolio new.
+
+	self should: [portfolio register: portfolio]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:44:26'!
+test11APortfolioCannotRegisterItsParentPortfolio
+
+	| portfolio1 portfolio2 |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+		
+	portfolio2 register: portfolio1.
+
+	self should: [portfolio1 register: portfolio2]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!methodRemoval: PortfolioTest #test11_xxx stamp: 'mg 5/6/2024 12:44:27'!
+test11_xxx
+
+	| portfolio1 portfolio2 |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+		
+	portfolio2 register: portfolio1.
+
+	self should: [portfolio1 register: portfolio2]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:46:24'!
+test12APortfolioCannotRegisterAnAlrealdyRegisteredReceptiveAccountInParentPortfolio
+
+	| portfolio1 portfolio2 account|
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+		
+	portfolio1 register: account.
+	portfolio1 register: portfolio2.
+	
+	self should: [portfolio2 register: account]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!methodRemoval: PortfolioTest #test12_xxx stamp: 'mg 5/6/2024 12:46:24'!
+test12_xxx
+
+	| portfolio1 portfolio2 account|
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+		
+	portfolio1 register: account.
+	portfolio1 register: portfolio2.
+	
+	self should: [portfolio2 register: account]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:47:27'!
+test13APortfolioCannotRegisterAnAlrealdyRegisteredReceptiveAccounInFullHierarchy
+
+	| portfolio1 portfolio2 portfolio3 account|
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	portfolio3 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+		
+	portfolio1 register: account.
+	portfolio1 register: portfolio2.
+	portfolio2 register: portfolio3.
+	
+	self should: [portfolio3 register: account]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].! !
+
+!methodRemoval: PortfolioTest #test13_xxx stamp: 'mg 5/6/2024 12:47:27'!
+test13_xxx
+
+	| portfolio1 portfolio2 portfolio3 account|
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	portfolio3 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+		
+	portfolio1 register: account.
+	portfolio1 register: portfolio2.
+	portfolio2 register: portfolio3.
+	
+	self should: [portfolio3 register: account]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText  equals:  Portfolio duplicateAccount].!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:48:29' prior: 50540953!
+test14_xxx
+
+	| portfolio1 portfolio2 account portfolio3 |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	portfolio3 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+		
+	portfolio1 register: account.
+	portfolio3 register: account.
+	portfolio2 register: portfolio3.
+	
+	self should: [portfolio2 register: portfolio1]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText equals: Portfolio duplicateAccount].! !
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:50:01'!
+test14APortfolioCannotRegisterAPortfolioIfBothIncludesTheSameAccountInItsHierarchy
+
+	| portfolio1 portfolio2 account portfolio3 |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	portfolio3 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+		
+	portfolio1 register: account.
+	portfolio3 register: account.
+	portfolio2 register: portfolio3.
+	
+	self should: [portfolio2 register: portfolio1]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText equals: Portfolio duplicateAccount].! !
+
+!methodRemoval: PortfolioTest #test14_xxx stamp: 'mg 5/6/2024 12:50:01'!
+test14_xxx
+
+	| portfolio1 portfolio2 account portfolio3 |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	portfolio3 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+		
+	portfolio1 register: account.
+	portfolio3 register: account.
+	portfolio2 register: portfolio3.
+	
+	self should: [portfolio2 register: portfolio1]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText equals: Portfolio duplicateAccount].!
+!PortfolioTest methodsFor: 'testing' stamp: 'mg 5/6/2024 12:53:07' prior: 50543196!
+test14APortfolioCannotRegisterAPortfolioIfBothIncludesTheSameAccountInItsHierarchy
+
+	| portfolio1 portfolio2 account |
+	
+	portfolio1 := Portfolio new.
+	portfolio2 := Portfolio new.
+	
+	account := ReceptiveAccount new.
+		
+	portfolio1 register: account.
+	portfolio2 register: account.
+	
+	self should: [portfolio2 register: portfolio1]
+	raise: Error
+	withExceptionDo: [:anError | self assert: anError messageText equals: Portfolio duplicateAccount].! !
+
+!testRun: #PortfolioTest #test14APortfolioCannotRegisterAPortfolioIfBothIncludesTheSameAccountInItsHierarchy stamp: 'mg 5/6/2024 12:53:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test01AnEmptyPortfolioHas0PesosBalance stamp: 'mg 5/6/2024 12:53:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test02APotfolioWithAReceptiveAccountCalculateBalance stamp: 'mg 5/6/2024 12:53:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test03APotfolioWithMultipleReceptiveAccountsCalculateBalance stamp: 'mg 5/6/2024 12:53:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test04APotfolioWithAReceptiveAccountFindRegisteredReceptiveAccountTransactions stamp: 'mg 5/6/2024 12:53:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test05APotfolioAReceptiveAccountsListAllReceptiveAccountTransactions stamp: 'mg 5/6/2024 12:53:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test06APortfolioCannotRegisterAReceptiveAccountTwice stamp: 'mg 5/6/2024 12:53:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test07APortfolioCannotRegisterAReceptiveAccountRegisteredInRegisteredPorfolio stamp: 'mg 5/6/2024 12:53:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test08APortfolioCannotRegisterAPortfolioTwice stamp: 'mg 5/6/2024 12:53:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test09APortfolioCannotRegisterAnAlreadyRegisteredReceptiveAccountInHierarchy stamp: 'mg 5/6/2024 12:53:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test10APortfolioCannotRegisterItSelf stamp: 'mg 5/6/2024 12:53:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test11APortfolioCannotRegisterItsParentPortfolio stamp: 'mg 5/6/2024 12:53:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test12APortfolioCannotRegisterAnAlrealdyRegisteredReceptiveAccountInParentPortfolio stamp: 'mg 5/6/2024 12:53:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test13APortfolioCannotRegisterAnAlrealdyRegisteredReceptiveAccounInFullHierarchy stamp: 'mg 5/6/2024 12:53:13'!
+PASSED!
+
+!testRun: #PortfolioTest #test14APortfolioCannotRegisterAPortfolioIfBothIncludesTheSameAccountInItsHierarchy stamp: 'mg 5/6/2024 12:53:14'!
+PASSED!
+
+!testRun: #PortfolioTest #test01AnEmptyPortfolioHas0PesosBalance stamp: 'mg 5/6/2024 12:53:21'!
+PASSED!
+
+!testRun: #PortfolioTest #test02APotfolioWithAReceptiveAccountCalculateBalance stamp: 'mg 5/6/2024 12:53:21'!
+PASSED!
+
+!testRun: #PortfolioTest #test03APotfolioWithMultipleReceptiveAccountsCalculateBalance stamp: 'mg 5/6/2024 12:53:21'!
+PASSED!
+
+!testRun: #PortfolioTest #test04APotfolioWithAReceptiveAccountFindRegisteredReceptiveAccountTransactions stamp: 'mg 5/6/2024 12:53:21'!
+PASSED!
+
+!testRun: #PortfolioTest #test05APotfolioAReceptiveAccountsListAllReceptiveAccountTransactions stamp: 'mg 5/6/2024 12:53:21'!
+PASSED!
+
+!testRun: #PortfolioTest #test06APortfolioCannotRegisterAReceptiveAccountTwice stamp: 'mg 5/6/2024 12:53:21'!
+PASSED!
+
+!testRun: #PortfolioTest #test07APortfolioCannotRegisterAReceptiveAccountRegisteredInRegisteredPorfolio stamp: 'mg 5/6/2024 12:53:21'!
+PASSED!
+
+!testRun: #PortfolioTest #test08APortfolioCannotRegisterAPortfolioTwice stamp: 'mg 5/6/2024 12:53:21'!
+PASSED!
+
+!testRun: #PortfolioTest #test09APortfolioCannotRegisterAnAlreadyRegisteredReceptiveAccountInHierarchy stamp: 'mg 5/6/2024 12:53:21'!
+PASSED!
+
+!testRun: #PortfolioTest #test10APortfolioCannotRegisterItSelf stamp: 'mg 5/6/2024 12:53:21'!
+PASSED!
+
+!testRun: #PortfolioTest #test11APortfolioCannotRegisterItsParentPortfolio stamp: 'mg 5/6/2024 12:53:21'!
+PASSED!
+
+!testRun: #PortfolioTest #test12APortfolioCannotRegisterAnAlrealdyRegisteredReceptiveAccountInParentPortfolio stamp: 'mg 5/6/2024 12:53:21'!
+PASSED!
+
+!testRun: #PortfolioTest #test13APortfolioCannotRegisterAnAlrealdyRegisteredReceptiveAccounInFullHierarchy stamp: 'mg 5/6/2024 12:53:22'!
+PASSED!
+
+!testRun: #PortfolioTest #test14APortfolioCannotRegisterAPortfolioIfBothIncludesTheSameAccountInItsHierarchy stamp: 'mg 5/6/2024 12:53:22'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mg 5/6/2024 12:53:22'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:53:22'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:53:22'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mg 5/6/2024 12:53:22'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mg 5/6/2024 12:53:22'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mg 5/6/2024 12:53:22'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mg 5/6/2024 12:53:22'!
+PASSED!
+
+!testRun: #TransferenceTest #test01_transferenceExtractMoneyFromOriginAccount stamp: 'mg 5/6/2024 12:53:22'!
+PASSED!
+
+!testRun: #TransferenceTest #test02_transferenceDepositMoneyToDestinyAccount stamp: 'mg 5/6/2024 12:53:22'!
+PASSED!
+
+!testRun: #TransferenceTest #test03_transferenceKnowsTheValueOfInterAccountOperation stamp: 'mg 5/6/2024 12:53:22'!
+PASSED!
+
+!testRun: #TransferenceTest #test04_transferenceWithdrawKnowsHisCounterParty stamp: 'mg 5/6/2024 12:53:22'!
+PASSED!
+
+!testRun: #TransferenceTest #test05_transferenceDepositKnowsHisCounterParty stamp: 'mg 5/6/2024 12:53:22'!
+PASSED!
+!Behavior method!
+register: aTransaction
+	#_coverageTracker10490461_ markAsExecuted.
+	[ | receiver1 |
+	receiver1 _ #_coverageTracker10490461_
+		cover: (28 to: 39)
+		declaredAt: (28 to: 39)
+		by: transactions.
+	#_coverageTracker10490461_
+		coverAll:
+			{41 to: 44}
+		evaluating: [
+			receiver1 add:
+				(#_coverageTracker10490461_
+					cover: (46 to: 57)
+					declaredAt: (11 to: 22)
+					by: aTransaction) ]
+		thatSends: #add:
+		to: receiver1 ] value.! !
+!Behavior method!
+initializeFor: aValue
+	#_coverageTracker10490586_ markAsExecuted.
+	#_coverageTracker10490586_
+		cover: (25 to: 29)
+		declaredAt: (25 to: 29)
+		by:
+			(value _ #_coverageTracker10490586_
+				cover: (34 to: 39)
+				declaredAt: (16 to: 21)
+				by: aValue).! !
+!Behavior method!
+register: aValue on: account
+	| transaction |
+	#_coverageTracker10490639_ markAsExecuted.
+	#_coverageTracker10490639_
+		cover: (55 to: 65)
+		declaredAt: (36 to: 46)
+		by:
+			(transaction _ [ | receiver1 |
+			receiver1 _ #_coverageTracker10490639_
+				coverAll:
+					{70 to: 73}
+				byLiteralOrPseudoVariable: self.
+			#_coverageTracker10490639_
+				coverAll:
+					{75 to: 78}
+				evaluating: [
+					receiver1 for:
+						(#_coverageTracker10490639_
+							cover: (80 to: 85)
+							declaredAt: (11 to: 16)
+							by: aValue) ]
+				thatSends: #for:
+				to: receiver1 ] value).
+	[ | receiver2 |
+	receiver2 _ #_coverageTracker10490639_
+		cover: (90 to: 96)
+		declaredAt: (22 to: 28)
+		by: account.
+	#_coverageTracker10490639_
+		coverAll:
+			{98 to: 106}
+		evaluating: [
+			receiver2 register:
+				(#_coverageTracker10490639_
+					cover: (108 to: 118)
+					declaredAt: (36 to: 46)
+					by: transaction) ]
+		thatSends: #register:
+		to: receiver2 ] value.
+	^ #_coverageTracker10490639_
+		cover: (129 to: 139)
+		declaredAt: (36 to: 46)
+		by: transaction.! !
+!Behavior method!
+value
+	#_coverageTracker10490683_ markAsExecuted.
+	^ #_coverageTracker10490683_
+		cover: (10 to: 14)
+		declaredAt: (10 to: 14)
+		by: value.! !
+!Behavior method!
+initializeWithOriginLeg: aSenderLeg andDestinyLeg: aReceiverLeg withValue: aValue
+	#_coverageTracker10490730_ markAsExecuted.
+	#_coverageTracker10490730_
+		cover: (88 to: 96)
+		declaredAt: (88 to: 96)
+		by:
+			(senderLeg _ [ | receiver1 |
+			receiver1 _ #_coverageTracker10490730_
+				coverAll:
+					{100 to: 115}
+				by: TransferWithdraw.
+			#_coverageTracker10490730_
+				coverAll:
+					{117 to: 125. 135 to: 137}
+				evaluating: [
+					receiver1
+						register:
+							(#_coverageTracker10490730_
+								cover: (127 to: 132)
+								declaredAt: (76 to: 81)
+								by: aValue)
+						on:
+							(#_coverageTracker10490730_
+								cover: (139 to: 148)
+								declaredAt: (26 to: 35)
+								by: aSenderLeg) ]
+				thatSends: #register:on:
+				to: receiver1 ] value).
+	#_coverageTracker10490730_
+		cover: (152 to: 162)
+		declaredAt: (152 to: 162)
+		by:
+			(receiverLeg _ [ | receiver2 |
+			receiver2 _ #_coverageTracker10490730_
+				coverAll:
+					{167 to: 181}
+				by: TransferDeposit.
+			#_coverageTracker10490730_
+				coverAll:
+					{183 to: 191. 201 to: 203}
+				evaluating: [
+					receiver2
+						register:
+							(#_coverageTracker10490730_
+								cover: (193 to: 198)
+								declaredAt: (76 to: 81)
+								by: aValue)
+						on:
+							(#_coverageTracker10490730_
+								cover: (205 to: 216)
+								declaredAt: (52 to: 63)
+								by: aReceiverLeg) ]
+				thatSends: #register:on:
+				to: receiver2 ] value).
+	#_coverageTracker10490730_
+		cover: (220 to: 224)
+		declaredAt: (220 to: 224)
+		by:
+			(value _ #_coverageTracker10490730_
+				cover: (229 to: 234)
+				declaredAt: (76 to: 81)
+				by: aValue).
+	[ | receiver3 |
+	receiver3 _ #_coverageTracker10490730_
+		cover: (240 to: 248)
+		declaredAt: (88 to: 96)
+		by: senderLeg.
+	#_coverageTracker10490730_
+		coverAll:
+			{250 to: 275}
+		evaluating: [
+			receiver3 initializeCounterpartyLeg:
+				(#_coverageTracker10490730_
+					cover: (277 to: 287)
+					declaredAt: (152 to: 162)
+					by: receiverLeg) ]
+		thatSends: #initializeCounterpartyLeg:
+		to: receiver3 ] value.
+	[ | receiver4 |
+	receiver4 _ #_coverageTracker10490730_
+		cover: (292 to: 302)
+		declaredAt: (152 to: 162)
+		by: receiverLeg.
+	#_coverageTracker10490730_
+		coverAll:
+			{304 to: 329}
+		evaluating: [
+			receiver4 initializeCounterpartyLeg:
+				(#_coverageTracker10490730_
+					cover: (331 to: 339)
+					declaredAt: (88 to: 96)
+					by: senderLeg) ]
+		thatSends: #initializeCounterpartyLeg:
+		to: receiver4 ] value.! !
+!Behavior method!
+hasRegistered: aTransaction
+	#_coverageTracker10490782_ markAsExecuted.
+	^ [ | receiver2 |
+	receiver2 _ #_coverageTracker10490782_
+		cover: (33 to: 40)
+		declaredAt: (33 to: 40)
+		by: accounts.
+	#_coverageTracker10490782_
+		coverAll:
+			{42 to: 52}
+		evaluating: [
+			receiver2 anySatisfy: [ :anAccount |
+				[ | receiver1 |
+				receiver1 _ #_coverageTracker10490782_
+					cover: (68 to: 76)
+					declaredAt: (56 to: 64)
+					by: anAccount.
+				#_coverageTracker10490782_
+					coverAll:
+						{78 to: 91}
+					evaluating: [
+						receiver1 hasRegistered:
+							(#_coverageTracker10490782_
+								cover: (93 to: 104)
+								declaredAt: (16 to: 27)
+								by: aTransaction) ]
+					thatSends: #hasRegistered:
+					to: receiver1 ] value ]]
+		thatSends: #anySatisfy:
+		to: receiver2 ] value.! !
+!Behavior method!
+hasRegistered: aTransaction
+	#_coverageTracker10490830_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker10490830_
+		cover: (35 to: 46)
+		declaredAt: (35 to: 46)
+		by: transactions.
+	#_coverageTracker10490830_
+		coverAll:
+			{48 to: 56}
+		evaluating: [
+			receiver1 includes:
+				(#_coverageTracker10490830_
+					cover: (58 to: 69)
+					declaredAt: (16 to: 27)
+					by: aTransaction) ]
+		thatSends: #includes:
+		to: receiver1 ] value.! !
+!Behavior method!
+from: senderAccount to: receiverAccount for: aValue
+	#_coverageTracker10490875_ markAsExecuted.
+	^ [ | receiver2 |
+	receiver2 _ [ | receiver1 |
+	receiver1 _ #_coverageTracker10490875_
+		coverAll:
+			{58 to: 61}
+		byLiteralOrPseudoVariable: self.
+	#_coverageTracker10490875_
+		coverAll:
+			{63 to: 65}
+		evaluating: [ receiver1 new ]
+		thatSends: #new
+		to: receiver1 ] value.
+	#_coverageTracker10490875_
+		coverAll:
+			{67 to: 90. 106 to: 119. 137 to: 146}
+		evaluating: [
+			receiver2
+				initializeWithOriginLeg:
+					(#_coverageTracker10490875_
+						cover: (92 to: 104)
+						declaredAt: (7 to: 19)
+						by: senderAccount)
+				andDestinyLeg:
+					(#_coverageTracker10490875_
+						cover: (121 to: 135)
+						declaredAt: (25 to: 39)
+						by: receiverAccount)
+				withValue:
+					(#_coverageTracker10490875_
+						cover: (148 to: 153)
+						declaredAt: (46 to: 51)
+						by: aValue) ]
+		thatSends: #initializeWithOriginLeg:andDestinyLeg:withValue:
+		to: receiver2 ] value.! !
+!Behavior method!
+receiverLeg
+	#_coverageTracker10490921_ markAsExecuted.
+	^ #_coverageTracker10490921_
+		cover: (16 to: 26)
+		declaredAt: (16 to: 26)
+		by: receiverLeg.! !
+!Behavior method!
+registerTo: aPortfolio
+	#_coverageTracker10490966_ markAsExecuted.! !
+!Behavior method!
+counterparty
+	#_coverageTracker10491011_ markAsExecuted.
+	^ #_coverageTracker10491011_
+		cover: (17 to: 31)
+		declaredAt: (17 to: 31)
+		by: counterpartyLeg.! !
+!Behavior method!
+impactOnBalance: aBalance
+	#_coverageTracker10491055_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker10491055_
+		cover: (30 to: 37)
+		declaredAt: (18 to: 25)
+		by: aBalance.
+	#_coverageTracker10491055_
+		coverAll:
+			{39 to: 39}
+		evaluating: [
+			receiver1 +
+				(#_coverageTracker10491055_
+					cover: (41 to: 45)
+					declaredAt: (41 to: 45)
+					by: value) ]
+		thatSends: #+
+		to: receiver1 ] value.! !
+!Behavior method!
+alreadyInHierarchy: anAccount
+	#_coverageTracker10491138_ markAsExecuted.
+	[ | receiver3 |
+	receiver3 _ #_coverageTracker10491138_
+		cover: (33 to: 47)
+		declaredAt: (33 to: 47)
+		by: parentPortfolio.
+	#_coverageTracker10491138_
+		coverAll:
+			{49 to: 57}
+		evaluating: [
+			receiver3 ifNotNil: [
+				[ | receiver2 |
+				receiver2 _ [ | receiver1 |
+				receiver1 _ #_coverageTracker10491138_
+					cover: (61 to: 75)
+					declaredAt: (33 to: 47)
+					by: parentPortfolio.
+				#_coverageTracker10491138_
+					coverAll:
+						{77 to: 95}
+					evaluating: [
+						receiver1 alreadyInHierarchy:
+							(#_coverageTracker10491138_
+								cover: (97 to: 105)
+								declaredAt: (21 to: 29)
+								by: anAccount) ]
+					thatSends: #alreadyInHierarchy:
+					to: receiver1 ] value.
+				#_coverageTracker10491138_
+					coverAll:
+						{108 to: 114}
+					evaluating: [ receiver2 ifTrue: [ ^ #_coverageTracker10491138_
+								coverAll:
+									{118 to: 121}
+								byLiteralOrPseudoVariable: true ]]
+					thatSends: #ifTrue:
+					to: receiver2 ] value ]]
+		thatSends: #ifNotNil:
+		to: receiver3 ] value.
+	^ [ | receiver4 |
+	receiver4 _ #_coverageTracker10491138_
+		coverAll:
+			{130 to: 133}
+		byLiteralOrPseudoVariable: self.
+	#_coverageTracker10491138_
+		coverAll:
+			{135 to: 149}
+		evaluating: [
+			receiver4 alreadyPresent:
+				(#_coverageTracker10491138_
+					cover: (151 to: 159)
+					declaredAt: (21 to: 29)
+					by: anAccount) ]
+		thatSends: #alreadyPresent:
+		to: receiver4 ] value.! !
+!Behavior method!
+for: aValue
+	#_coverageTracker10491192_ markAsExecuted.
+	^ [ | receiver2 |
+	receiver2 _ [ | receiver1 |
+	receiver1 _ #_coverageTracker10491192_
+		coverAll:
+			{16 to: 19}
+		byLiteralOrPseudoVariable: self.
+	#_coverageTracker10491192_
+		coverAll:
+			{21 to: 23}
+		evaluating: [ receiver1 new ]
+		thatSends: #new
+		to: receiver1 ] value.
+	#_coverageTracker10491192_
+		coverAll:
+			{25 to: 38}
+		evaluating: [
+			receiver2 initializeFor:
+				(#_coverageTracker10491192_
+					cover: (40 to: 45)
+					declaredAt: (6 to: 11)
+					by: aValue) ]
+		thatSends: #initializeFor:
+		to: receiver2 ] value.! !
+!Behavior method!
+registerTo: aPortfolio
+	#_coverageTracker10491241_ markAsExecuted.
+	#_coverageTracker10491241_
+		cover: (27 to: 41)
+		declaredAt: (27 to: 41)
+		by:
+			(parentPortfolio _ #_coverageTracker10491241_
+				cover: (46 to: 55)
+				declaredAt: (13 to: 22)
+				by: aPortfolio).! !
+!Behavior method!
+impactOnBalance: aBalance
+	#_coverageTracker10491305_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker10491305_
+		cover: (32 to: 39)
+		declaredAt: (18 to: 25)
+		by: aBalance.
+	#_coverageTracker10491305_
+		coverAll:
+			{41 to: 41}
+		evaluating: [
+			receiver1 -
+				(#_coverageTracker10491305_
+					cover: (43 to: 47)
+					declaredAt: (43 to: 47)
+					by: value) ]
+		thatSends: #-
+		to: receiver1 ] value.! !
+!Behavior method!
+senderLeg
+	#_coverageTracker10491354_ markAsExecuted.
+	^ #_coverageTracker10491354_
+		cover: (14 to: 22)
+		declaredAt: (14 to: 22)
+		by: senderLeg.! !
+!Behavior method!
+value
+	#_coverageTracker10491400_ markAsExecuted.
+	^ #_coverageTracker10491400_
+		cover: (11 to: 15)
+		declaredAt: (11 to: 15)
+		by: value.! !
+!Behavior method!
+duplicateAccount
+	#_coverageTracker10491448_ markAsExecuted.
+	^ #_coverageTracker10491448_
+		coverAll:
+			{21 to: 48}
+		byLiteralOrPseudoVariable: 'This account already exist'.! !
+!Behavior method!
+alreadyPresent: anAccount
+	#_coverageTracker10491500_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker10491500_
+		cover: (31 to: 39)
+		declaredAt: (17 to: 25)
+		by: anAccount.
+	#_coverageTracker10491500_
+		coverAll:
+			{41 to: 41}
+		evaluating: [
+			receiver1 =
+				(#_coverageTracker10491500_
+					coverAll:
+						{43 to: 46}
+					byLiteralOrPseudoVariable: self) ]
+		thatSends: #=
+		to: receiver1 ] value.! !
+!Behavior method!
+initialize
+	#_coverageTracker10491555_ markAsExecuted.
+	#_coverageTracker10491555_
+		cover: (14 to: 25)
+		declaredAt: (14 to: 25)
+		by:
+			(transactions _ [ | receiver1 |
+			receiver1 _ #_coverageTracker10491555_
+				coverAll:
+					{30 to: 46}
+				by: OrderedCollection.
+			#_coverageTracker10491555_
+				coverAll:
+					{48 to: 50}
+				evaluating: [ receiver1 new ]
+				thatSends: #new
+				to: receiver1 ] value).! !
+!Behavior method!
+alreadyPresent: anAccount
+	#_coverageTracker10491606_ markAsExecuted.
+	[ | receiver2 |
+	receiver2 _ [ | receiver1 |
+	receiver1 _ #_coverageTracker10491606_
+		cover: (30 to: 38)
+		declaredAt: (17 to: 25)
+		by: anAccount.
+	#_coverageTracker10491606_
+		coverAll:
+			{40 to: 40}
+		evaluating: [
+			receiver1 =
+				(#_coverageTracker10491606_
+					coverAll:
+						{42 to: 45}
+					byLiteralOrPseudoVariable: self) ]
+		thatSends: #=
+		to: receiver1 ] value.
+	#_coverageTracker10491606_
+		coverAll:
+			{47 to: 53}
+		evaluating: [ receiver2 ifTrue: [ ^ #_coverageTracker10491606_
+					coverAll:
+						{57 to: 60}
+					byLiteralOrPseudoVariable: true ]]
+		thatSends: #ifTrue:
+		to: receiver2 ] value.
+	[ | receiver5 |
+	receiver5 _ [ | receiver4 |
+	receiver4 _ #_coverageTracker10491606_
+		cover: (68 to: 75)
+		declaredAt: (68 to: 75)
+		by: accounts.
+	#_coverageTracker10491606_
+		coverAll:
+			{77 to: 87}
+		evaluating: [
+			receiver4 anySatisfy: [ :account |
+				[ | receiver3 |
+				receiver3 _ #_coverageTracker10491606_
+					cover: (101 to: 107)
+					declaredAt: (91 to: 97)
+					by: account.
+				#_coverageTracker10491606_
+					coverAll:
+						{109 to: 123}
+					evaluating: [
+						receiver3 alreadyPresent:
+							(#_coverageTracker10491606_
+								cover: (125 to: 133)
+								declaredAt: (17 to: 25)
+								by: anAccount) ]
+					thatSends: #alreadyPresent:
+					to: receiver3 ] value ]]
+		thatSends: #anySatisfy:
+		to: receiver4 ] value.
+	#_coverageTracker10491606_
+		coverAll:
+			{137 to: 143}
+		evaluating: [ receiver5 ifTrue: [ ^ #_coverageTracker10491606_
+					coverAll:
+						{147 to: 150}
+					byLiteralOrPseudoVariable: true ]]
+		thatSends: #ifTrue:
+		to: receiver5 ] value.
+	[ | receiver8 |
+	receiver8 _ [ | receiver7 |
+	receiver7 _ #_coverageTracker10491606_
+		cover: (156 to: 163)
+		declaredAt: (68 to: 75)
+		by: accounts.
+	#_coverageTracker10491606_
+		coverAll:
+			{165 to: 175}
+		evaluating: [
+			receiver7 anySatisfy: [ :account |
+				[ | receiver6 |
+				receiver6 _ #_coverageTracker10491606_
+					cover: (189 to: 197)
+					declaredAt: (17 to: 25)
+					by: anAccount.
+				#_coverageTracker10491606_
+					coverAll:
+						{199 to: 213}
+					evaluating: [
+						receiver6 alreadyPresent:
+							(#_coverageTracker10491606_
+								cover: (215 to: 221)
+								declaredAt: (179 to: 185)
+								by: account) ]
+					thatSends: #alreadyPresent:
+					to: receiver6 ] value ]]
+		thatSends: #anySatisfy:
+		to: receiver7 ] value.
+	#_coverageTracker10491606_
+		coverAll:
+			{225 to: 231}
+		evaluating: [ receiver8 ifTrue: [ ^ #_coverageTracker10491606_
+					coverAll:
+						{235 to: 238}
+					byLiteralOrPseudoVariable: true ]]
+		thatSends: #ifTrue:
+		to: receiver8 ] value.
+	^ #_coverageTracker10491606_
+		coverAll:
+			{247 to: 251}
+		byLiteralOrPseudoVariable: false.! !
+!Behavior method!
+initializeCounterpartyLeg: aLeg
+	#_coverageTracker10491667_ markAsExecuted.
+	#_coverageTracker10491667_
+		cover: (35 to: 49)
+		declaredAt: (35 to: 49)
+		by:
+			(counterpartyLeg _ #_coverageTracker10491667_
+				cover: (54 to: 57)
+				declaredAt: (28 to: 31)
+				by: aLeg).! !
+!Behavior method!
+balance
+	| balance |
+	#_coverageTracker10491720_ markAsExecuted.
+	#_coverageTracker10491720_
+		cover: (26 to: 32)
+		declaredAt: (13 to: 19)
+		by:
+			(balance _ #_coverageTracker10491720_
+				coverAll:
+					{39 to: 39}
+				byLiteralOrPseudoVariable: 0).
+	[ | receiver2 |
+	receiver2 _ #_coverageTracker10491720_
+		cover: (45 to: 56)
+		declaredAt: (45 to: 56)
+		by: transactions.
+	#_coverageTracker10491720_
+		coverAll:
+			{58 to: 60}
+		evaluating: [
+			receiver2 do: [ :aTransaction |
+				#_coverageTracker10491720_
+					cover: (121 to: 127)
+					declaredAt: (13 to: 19)
+					by:
+						(balance _ [ | receiver1 |
+						receiver1 _ #_coverageTracker10491720_
+							cover: (91 to: 102)
+							declaredAt: (65 to: 76)
+							by: aTransaction.
+						#_coverageTracker10491720_
+							coverAll:
+								{104 to: 119}
+							evaluating: [
+								receiver1 impactOnBalance:
+									(#_coverageTracker10491720_
+										cover: (80 to: 86)
+										declaredAt: (13 to: 19)
+										by: balance) ]
+							thatSends: #impactOnBalance:
+							to: receiver1 ] value) ]]
+		thatSends: #do:
+		to: receiver2 ] value.
+	^ #_coverageTracker10491720_
+		cover: (135 to: 141)
+		declaredAt: (13 to: 19)
+		by: balance.! !
+!Behavior method!
+initialize
+	#_coverageTracker10491771_ markAsExecuted.
+	#_coverageTracker10491771_
+		cover: (14 to: 21)
+		declaredAt: (14 to: 21)
+		by:
+			(accounts _ [ | receiver1 |
+			receiver1 _ #_coverageTracker10491771_
+				coverAll:
+					{26 to: 42}
+				by: OrderedCollection.
+			#_coverageTracker10491771_
+				coverAll:
+					{44 to: 46}
+				evaluating: [ receiver1 new ]
+				thatSends: #new
+				to: receiver1 ] value).! !
+!Behavior method!
+impactOnBalance: aBalance
+	#_coverageTracker10491844_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker10491844_
+		cover: (30 to: 37)
+		declaredAt: (18 to: 25)
+		by: aBalance.
+	#_coverageTracker10491844_
+		coverAll:
+			{39 to: 39}
+		evaluating: [
+			receiver1 -
+				(#_coverageTracker10491844_
+					cover: (41 to: 45)
+					declaredAt: (41 to: 45)
+					by: value) ]
+		thatSends: #-
+		to: receiver1 ] value.! !
+!Behavior method!
+value
+	#_coverageTracker10491904_ markAsExecuted.
+	^ #_coverageTracker10491904_
+		cover: (11 to: 15)
+		declaredAt: (11 to: 15)
+		by: value.! !
+!Behavior method!
+transactions
+	#_coverageTracker10491964_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker10491964_
+		cover: (21 to: 32)
+		declaredAt: (21 to: 32)
+		by: transactions.
+	#_coverageTracker10491964_
+		coverAll:
+			{34 to: 37}
+		evaluating: [ receiver1 copy ]
+		thatSends: #copy
+		to: receiver1 ] value.! !
+!Behavior method!
+impactOnBalance: aBalance
+	#_coverageTracker10492023_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker10492023_
+		cover: (30 to: 37)
+		declaredAt: (18 to: 25)
+		by: aBalance.
+	#_coverageTracker10492023_
+		coverAll:
+			{39 to: 39}
+		evaluating: [
+			receiver1 +
+				(#_coverageTracker10492023_
+					cover: (41 to: 45)
+					declaredAt: (41 to: 45)
+					by: value) ]
+		thatSends: #+
+		to: receiver1 ] value.! !
+!Behavior method!
+register: anAccount
+	#_coverageTracker10492086_ markAsExecuted.
+	[ | receiver5 |
+	receiver5 _ [ | receiver1 |
+	receiver1 _ #_coverageTracker10492086_
+		coverAll:
+			{26 to: 29}
+		byLiteralOrPseudoVariable: self.
+	#_coverageTracker10492086_
+		coverAll:
+			{31 to: 49}
+		evaluating: [
+			receiver1 alreadyInHierarchy:
+				(#_coverageTracker10492086_
+					cover: (51 to: 59)
+					declaredAt: (11 to: 19)
+					by: anAccount) ]
+		thatSends: #alreadyInHierarchy:
+		to: receiver1 ] value.
+	#_coverageTracker10492086_
+		coverAll:
+			{62 to: 68}
+		evaluating: [
+			receiver5 ifTrue: [
+				[ | receiver4 |
+				receiver4 _ #_coverageTracker10492086_
+					coverAll:
+						{71 to: 74}
+					byLiteralOrPseudoVariable: self.
+				#_coverageTracker10492086_
+					coverAll:
+						{76 to: 81}
+					evaluating: [
+						receiver4 error:
+							[ | receiver3 |
+							receiver3 _ [ | receiver2 |
+							receiver2 _ #_coverageTracker10492086_
+								coverAll:
+									{84 to: 87}
+								byLiteralOrPseudoVariable: self.
+							#_coverageTracker10492086_
+								coverAll:
+									{89 to: 93}
+								evaluating: [ receiver2 class ]
+								thatSends: #class
+								to: receiver2 ] value.
+							#_coverageTracker10492086_
+								coverAll:
+									{95 to: 110}
+								evaluating: [ receiver3 duplicateAccount ]
+								thatSends: #duplicateAccount
+								to: receiver3 ] value ]
+					thatSends: #error:
+					to: receiver4 ] value ]]
+		thatSends: #ifTrue:
+		to: receiver5 ] value.
+	[ | receiver6 |
+	receiver6 _ #_coverageTracker10492086_
+		cover: (117 to: 124)
+		declaredAt: (117 to: 124)
+		by: accounts.
+	#_coverageTracker10492086_
+		coverAll:
+			{126 to: 129}
+		evaluating: [
+			receiver6 add:
+				(#_coverageTracker10492086_
+					cover: (131 to: 139)
+					declaredAt: (11 to: 19)
+					by: anAccount) ]
+		thatSends: #add:
+		to: receiver6 ] value.
+	[ | receiver7 |
+	receiver7 _ #_coverageTracker10492086_
+		cover: (143 to: 151)
+		declaredAt: (11 to: 19)
+		by: anAccount.
+	#_coverageTracker10492086_
+		coverAll:
+			{153 to: 163}
+		evaluating: [
+			receiver7 registerTo:
+				(#_coverageTracker10492086_
+					coverAll:
+						{165 to: 168}
+					byLiteralOrPseudoVariable: self) ]
+		thatSends: #registerTo:
+		to: receiver7 ] value.! !
+!Behavior method!
+transactions
+	| transactions |
+	#_coverageTracker10492137_ markAsExecuted.
+	#_coverageTracker10492137_
+		cover: (38 to: 49)
+		declaredAt: (20 to: 31)
+		by:
+			(transactions _ [ | receiver2 |
+			receiver2 _ #_coverageTracker10492137_
+				cover: (54 to: 61)
+				declaredAt: (54 to: 61)
+				by: accounts.
+			#_coverageTracker10492137_
+				coverAll:
+					{63 to: 70}
+				evaluating: [
+					receiver2 collect: [ :anAccount |
+						[ | receiver1 |
+						receiver1 _ #_coverageTracker10492137_
+							cover: (86 to: 94)
+							declaredAt: (74 to: 82)
+							by: anAccount.
+						#_coverageTracker10492137_
+							coverAll:
+								{96 to: 107}
+							evaluating: [ receiver1 transactions ]
+							thatSends: #transactions
+							to: receiver1 ] value ]]
+				thatSends: #collect:
+				to: receiver2 ] value).
+	^ [ | receiver3 |
+	receiver3 _ #_coverageTracker10492137_
+		cover: (113 to: 124)
+		declaredAt: (20 to: 31)
+		by: transactions.
+	#_coverageTracker10492137_
+		coverAll:
+			{126 to: 132}
+		evaluating: [ receiver3 flatten ]
+		thatSends: #flatten
+		to: receiver3 ] value.! !
+!Behavior method!
+balance
+	#_coverageTracker10492198_ markAsExecuted.
+	^ [ | receiver2 |
+	receiver2 _ #_coverageTracker10492198_
+		cover: (12 to: 19)
+		declaredAt: (12 to: 19)
+		by: accounts.
+	#_coverageTracker10492198_
+		coverAll:
+			{21 to: 24. 59 to: 66}
+		evaluating: [
+			receiver2
+				sum: [ :anAccount |
+					[ | receiver1 |
+					receiver1 _ #_coverageTracker10492198_
+						cover: (40 to: 48)
+						declaredAt: (28 to: 36)
+						by: anAccount.
+					#_coverageTracker10492198_
+						coverAll:
+							{50 to: 56}
+						evaluating: [ receiver1 balance ]
+						thatSends: #balance
+						to: receiver1 ] value ]
+				ifEmpty: [
+					#_coverageTracker10492198_
+						coverAll:
+							{69 to: 69}
+						byLiteralOrPseudoVariable: 0 ]]
+		thatSends: #sum:ifEmpty:
+		to: receiver2 ] value.! !
+
+!testRun: #PortfolioTest #test01AnEmptyPortfolioHas0PesosBalance stamp: 'mg 5/6/2024 12:53:27'!
+PASSED!
+
+!testRun: #PortfolioTest #test02APotfolioWithAReceptiveAccountCalculateBalance stamp: 'mg 5/6/2024 12:53:27'!
+PASSED!
+
+!testRun: #PortfolioTest #test03APotfolioWithMultipleReceptiveAccountsCalculateBalance stamp: 'mg 5/6/2024 12:53:27'!
+PASSED!
+
+!testRun: #PortfolioTest #test04APotfolioWithAReceptiveAccountFindRegisteredReceptiveAccountTransactions stamp: 'mg 5/6/2024 12:53:27'!
+PASSED!
+
+!testRun: #PortfolioTest #test05APotfolioAReceptiveAccountsListAllReceptiveAccountTransactions stamp: 'mg 5/6/2024 12:53:28'!
+PASSED!
+
+!testRun: #PortfolioTest #test06APortfolioCannotRegisterAReceptiveAccountTwice stamp: 'mg 5/6/2024 12:53:28'!
+PASSED!
+
+!testRun: #PortfolioTest #test07APortfolioCannotRegisterAReceptiveAccountRegisteredInRegisteredPorfolio stamp: 'mg 5/6/2024 12:53:28'!
+PASSED!
+
+!testRun: #PortfolioTest #test08APortfolioCannotRegisterAPortfolioTwice stamp: 'mg 5/6/2024 12:53:28'!
+PASSED!
+
+!testRun: #PortfolioTest #test09APortfolioCannotRegisterAnAlreadyRegisteredReceptiveAccountInHierarchy stamp: 'mg 5/6/2024 12:53:28'!
+PASSED!
+
+!testRun: #PortfolioTest #test10APortfolioCannotRegisterItSelf stamp: 'mg 5/6/2024 12:53:28'!
+PASSED!
+
+!testRun: #PortfolioTest #test11APortfolioCannotRegisterItsParentPortfolio stamp: 'mg 5/6/2024 12:53:28'!
+PASSED!
+
+!testRun: #PortfolioTest #test12APortfolioCannotRegisterAnAlrealdyRegisteredReceptiveAccountInParentPortfolio stamp: 'mg 5/6/2024 12:53:28'!
+PASSED!
+
+!testRun: #PortfolioTest #test13APortfolioCannotRegisterAnAlrealdyRegisteredReceptiveAccounInFullHierarchy stamp: 'mg 5/6/2024 12:53:28'!
+PASSED!
+
+!testRun: #PortfolioTest #test14APortfolioCannotRegisterAPortfolioIfBothIncludesTheSameAccountInItsHierarchy stamp: 'mg 5/6/2024 12:53:28'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mg 5/6/2024 12:53:28'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:53:28'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:53:28'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mg 5/6/2024 12:53:28'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mg 5/6/2024 12:53:28'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mg 5/6/2024 12:53:29'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mg 5/6/2024 12:53:29'!
+PASSED!
+
+!testRun: #TransferenceTest #test01_transferenceExtractMoneyFromOriginAccount stamp: 'mg 5/6/2024 12:53:29'!
+PASSED!
+
+!testRun: #TransferenceTest #test02_transferenceDepositMoneyToDestinyAccount stamp: 'mg 5/6/2024 12:53:29'!
+PASSED!
+
+!testRun: #TransferenceTest #test03_transferenceKnowsTheValueOfInterAccountOperation stamp: 'mg 5/6/2024 12:53:29'!
+PASSED!
+
+!testRun: #TransferenceTest #test04_transferenceWithdrawKnowsHisCounterParty stamp: 'mg 5/6/2024 12:53:29'!
+PASSED!
+
+!testRun: #TransferenceTest #test05_transferenceDepositKnowsHisCounterParty stamp: 'mg 5/6/2024 12:53:29'!
+PASSED!
+!Account methodsFor: 'private' stamp: 'mg 5/6/2024 12:55:14' prior: 50541148!
+registerTo: aPortfolio
+	^self! !
+!Behavior method!
+register: aTransaction
+	#_coverageTracker10606076_ markAsExecuted.
+	[ | receiver1 |
+	receiver1 _ #_coverageTracker10606076_
+		cover: (28 to: 39)
+		declaredAt: (28 to: 39)
+		by: transactions.
+	#_coverageTracker10606076_
+		coverAll:
+			{41 to: 44}
+		evaluating: [
+			receiver1 add:
+				(#_coverageTracker10606076_
+					cover: (46 to: 57)
+					declaredAt: (11 to: 22)
+					by: aTransaction) ]
+		thatSends: #add:
+		to: receiver1 ] value.! !
+!Behavior method!
+initializeFor: aValue
+	#_coverageTracker10606113_ markAsExecuted.
+	#_coverageTracker10606113_
+		cover: (25 to: 29)
+		declaredAt: (25 to: 29)
+		by:
+			(value _ #_coverageTracker10606113_
+				cover: (34 to: 39)
+				declaredAt: (16 to: 21)
+				by: aValue).! !
+!Behavior method!
+register: aValue on: account
+	| transaction |
+	#_coverageTracker10606179_ markAsExecuted.
+	#_coverageTracker10606179_
+		cover: (55 to: 65)
+		declaredAt: (36 to: 46)
+		by:
+			(transaction _ [ | receiver1 |
+			receiver1 _ #_coverageTracker10606179_
+				coverAll:
+					{70 to: 73}
+				byLiteralOrPseudoVariable: self.
+			#_coverageTracker10606179_
+				coverAll:
+					{75 to: 78}
+				evaluating: [
+					receiver1 for:
+						(#_coverageTracker10606179_
+							cover: (80 to: 85)
+							declaredAt: (11 to: 16)
+							by: aValue) ]
+				thatSends: #for:
+				to: receiver1 ] value).
+	[ | receiver2 |
+	receiver2 _ #_coverageTracker10606179_
+		cover: (90 to: 96)
+		declaredAt: (22 to: 28)
+		by: account.
+	#_coverageTracker10606179_
+		coverAll:
+			{98 to: 106}
+		evaluating: [
+			receiver2 register:
+				(#_coverageTracker10606179_
+					cover: (108 to: 118)
+					declaredAt: (36 to: 46)
+					by: transaction) ]
+		thatSends: #register:
+		to: receiver2 ] value.
+	^ #_coverageTracker10606179_
+		cover: (129 to: 139)
+		declaredAt: (36 to: 46)
+		by: transaction.! !
+!Behavior method!
+value
+	#_coverageTracker10606217_ markAsExecuted.
+	^ #_coverageTracker10606217_
+		cover: (10 to: 14)
+		declaredAt: (10 to: 14)
+		by: value.! !
+!Behavior method!
+initializeWithOriginLeg: aSenderLeg andDestinyLeg: aReceiverLeg withValue: aValue
+	#_coverageTracker10606265_ markAsExecuted.
+	#_coverageTracker10606265_
+		cover: (88 to: 96)
+		declaredAt: (88 to: 96)
+		by:
+			(senderLeg _ [ | receiver1 |
+			receiver1 _ #_coverageTracker10606265_
+				coverAll:
+					{100 to: 115}
+				by: TransferWithdraw.
+			#_coverageTracker10606265_
+				coverAll:
+					{117 to: 125. 135 to: 137}
+				evaluating: [
+					receiver1
+						register:
+							(#_coverageTracker10606265_
+								cover: (127 to: 132)
+								declaredAt: (76 to: 81)
+								by: aValue)
+						on:
+							(#_coverageTracker10606265_
+								cover: (139 to: 148)
+								declaredAt: (26 to: 35)
+								by: aSenderLeg) ]
+				thatSends: #register:on:
+				to: receiver1 ] value).
+	#_coverageTracker10606265_
+		cover: (152 to: 162)
+		declaredAt: (152 to: 162)
+		by:
+			(receiverLeg _ [ | receiver2 |
+			receiver2 _ #_coverageTracker10606265_
+				coverAll:
+					{167 to: 181}
+				by: TransferDeposit.
+			#_coverageTracker10606265_
+				coverAll:
+					{183 to: 191. 201 to: 203}
+				evaluating: [
+					receiver2
+						register:
+							(#_coverageTracker10606265_
+								cover: (193 to: 198)
+								declaredAt: (76 to: 81)
+								by: aValue)
+						on:
+							(#_coverageTracker10606265_
+								cover: (205 to: 216)
+								declaredAt: (52 to: 63)
+								by: aReceiverLeg) ]
+				thatSends: #register:on:
+				to: receiver2 ] value).
+	#_coverageTracker10606265_
+		cover: (220 to: 224)
+		declaredAt: (220 to: 224)
+		by:
+			(value _ #_coverageTracker10606265_
+				cover: (229 to: 234)
+				declaredAt: (76 to: 81)
+				by: aValue).
+	[ | receiver3 |
+	receiver3 _ #_coverageTracker10606265_
+		cover: (240 to: 248)
+		declaredAt: (88 to: 96)
+		by: senderLeg.
+	#_coverageTracker10606265_
+		coverAll:
+			{250 to: 275}
+		evaluating: [
+			receiver3 initializeCounterpartyLeg:
+				(#_coverageTracker10606265_
+					cover: (277 to: 287)
+					declaredAt: (152 to: 162)
+					by: receiverLeg) ]
+		thatSends: #initializeCounterpartyLeg:
+		to: receiver3 ] value.
+	[ | receiver4 |
+	receiver4 _ #_coverageTracker10606265_
+		cover: (292 to: 302)
+		declaredAt: (152 to: 162)
+		by: receiverLeg.
+	#_coverageTracker10606265_
+		coverAll:
+			{304 to: 329}
+		evaluating: [
+			receiver4 initializeCounterpartyLeg:
+				(#_coverageTracker10606265_
+					cover: (331 to: 339)
+					declaredAt: (88 to: 96)
+					by: senderLeg) ]
+		thatSends: #initializeCounterpartyLeg:
+		to: receiver4 ] value.! !
+!Behavior method!
+hasRegistered: aTransaction
+	#_coverageTracker10606316_ markAsExecuted.
+	^ [ | receiver2 |
+	receiver2 _ #_coverageTracker10606316_
+		cover: (33 to: 40)
+		declaredAt: (33 to: 40)
+		by: accounts.
+	#_coverageTracker10606316_
+		coverAll:
+			{42 to: 52}
+		evaluating: [
+			receiver2 anySatisfy: [ :anAccount |
+				[ | receiver1 |
+				receiver1 _ #_coverageTracker10606316_
+					cover: (68 to: 76)
+					declaredAt: (56 to: 64)
+					by: anAccount.
+				#_coverageTracker10606316_
+					coverAll:
+						{78 to: 91}
+					evaluating: [
+						receiver1 hasRegistered:
+							(#_coverageTracker10606316_
+								cover: (93 to: 104)
+								declaredAt: (16 to: 27)
+								by: aTransaction) ]
+					thatSends: #hasRegistered:
+					to: receiver1 ] value ]]
+		thatSends: #anySatisfy:
+		to: receiver2 ] value.! !
+!Behavior method!
+hasRegistered: aTransaction
+	#_coverageTracker10606367_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker10606367_
+		cover: (35 to: 46)
+		declaredAt: (35 to: 46)
+		by: transactions.
+	#_coverageTracker10606367_
+		coverAll:
+			{48 to: 56}
+		evaluating: [
+			receiver1 includes:
+				(#_coverageTracker10606367_
+					cover: (58 to: 69)
+					declaredAt: (16 to: 27)
+					by: aTransaction) ]
+		thatSends: #includes:
+		to: receiver1 ] value.! !
+!Behavior method!
+registerTo: aPortfolio
+	#_coverageTracker10606413_ markAsExecuted.
+	^ #_coverageTracker10606413_
+		coverAll:
+			{26 to: 29}
+		byLiteralOrPseudoVariable: self.! !
+!Behavior method!
+from: senderAccount to: receiverAccount for: aValue
+	#_coverageTracker10606462_ markAsExecuted.
+	^ [ | receiver2 |
+	receiver2 _ [ | receiver1 |
+	receiver1 _ #_coverageTracker10606462_
+		coverAll:
+			{58 to: 61}
+		byLiteralOrPseudoVariable: self.
+	#_coverageTracker10606462_
+		coverAll:
+			{63 to: 65}
+		evaluating: [ receiver1 new ]
+		thatSends: #new
+		to: receiver1 ] value.
+	#_coverageTracker10606462_
+		coverAll:
+			{67 to: 90. 106 to: 119. 137 to: 146}
+		evaluating: [
+			receiver2
+				initializeWithOriginLeg:
+					(#_coverageTracker10606462_
+						cover: (92 to: 104)
+						declaredAt: (7 to: 19)
+						by: senderAccount)
+				andDestinyLeg:
+					(#_coverageTracker10606462_
+						cover: (121 to: 135)
+						declaredAt: (25 to: 39)
+						by: receiverAccount)
+				withValue:
+					(#_coverageTracker10606462_
+						cover: (148 to: 153)
+						declaredAt: (46 to: 51)
+						by: aValue) ]
+		thatSends: #initializeWithOriginLeg:andDestinyLeg:withValue:
+		to: receiver2 ] value.! !
+!Behavior method!
+receiverLeg
+	#_coverageTracker10606508_ markAsExecuted.
+	^ #_coverageTracker10606508_
+		cover: (16 to: 26)
+		declaredAt: (16 to: 26)
+		by: receiverLeg.! !
+!Behavior method!
+counterparty
+	#_coverageTracker10606557_ markAsExecuted.
+	^ #_coverageTracker10606557_
+		cover: (17 to: 31)
+		declaredAt: (17 to: 31)
+		by: counterpartyLeg.! !
+!Behavior method!
+impactOnBalance: aBalance
+	#_coverageTracker10606603_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker10606603_
+		cover: (32 to: 39)
+		declaredAt: (18 to: 25)
+		by: aBalance.
+	#_coverageTracker10606603_
+		coverAll:
+			{41 to: 41}
+		evaluating: [
+			receiver1 -
+				(#_coverageTracker10606603_
+					cover: (43 to: 47)
+					declaredAt: (43 to: 47)
+					by: value) ]
+		thatSends: #-
+		to: receiver1 ] value.! !
+!Behavior method!
+impactOnBalance: aBalance
+	#_coverageTracker10606652_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker10606652_
+		cover: (30 to: 37)
+		declaredAt: (18 to: 25)
+		by: aBalance.
+	#_coverageTracker10606652_
+		coverAll:
+			{39 to: 39}
+		evaluating: [
+			receiver1 +
+				(#_coverageTracker10606652_
+					cover: (41 to: 45)
+					declaredAt: (41 to: 45)
+					by: value) ]
+		thatSends: #+
+		to: receiver1 ] value.! !
+!Behavior method!
+alreadyInHierarchy: anAccount
+	#_coverageTracker10606700_ markAsExecuted.
+	[ | receiver3 |
+	receiver3 _ #_coverageTracker10606700_
+		cover: (33 to: 47)
+		declaredAt: (33 to: 47)
+		by: parentPortfolio.
+	#_coverageTracker10606700_
+		coverAll:
+			{49 to: 57}
+		evaluating: [
+			receiver3 ifNotNil: [
+				[ | receiver2 |
+				receiver2 _ [ | receiver1 |
+				receiver1 _ #_coverageTracker10606700_
+					cover: (61 to: 75)
+					declaredAt: (33 to: 47)
+					by: parentPortfolio.
+				#_coverageTracker10606700_
+					coverAll:
+						{77 to: 95}
+					evaluating: [
+						receiver1 alreadyInHierarchy:
+							(#_coverageTracker10606700_
+								cover: (97 to: 105)
+								declaredAt: (21 to: 29)
+								by: anAccount) ]
+					thatSends: #alreadyInHierarchy:
+					to: receiver1 ] value.
+				#_coverageTracker10606700_
+					coverAll:
+						{108 to: 114}
+					evaluating: [ receiver2 ifTrue: [ ^ #_coverageTracker10606700_
+								coverAll:
+									{118 to: 121}
+								byLiteralOrPseudoVariable: true ]]
+					thatSends: #ifTrue:
+					to: receiver2 ] value ]]
+		thatSends: #ifNotNil:
+		to: receiver3 ] value.
+	^ [ | receiver4 |
+	receiver4 _ #_coverageTracker10606700_
+		coverAll:
+			{130 to: 133}
+		byLiteralOrPseudoVariable: self.
+	#_coverageTracker10606700_
+		coverAll:
+			{135 to: 149}
+		evaluating: [
+			receiver4 alreadyPresent:
+				(#_coverageTracker10606700_
+					cover: (151 to: 159)
+					declaredAt: (21 to: 29)
+					by: anAccount) ]
+		thatSends: #alreadyPresent:
+		to: receiver4 ] value.! !
+!Behavior method!
+for: aValue
+	#_coverageTracker10606745_ markAsExecuted.
+	^ [ | receiver2 |
+	receiver2 _ [ | receiver1 |
+	receiver1 _ #_coverageTracker10606745_
+		coverAll:
+			{16 to: 19}
+		byLiteralOrPseudoVariable: self.
+	#_coverageTracker10606745_
+		coverAll:
+			{21 to: 23}
+		evaluating: [ receiver1 new ]
+		thatSends: #new
+		to: receiver1 ] value.
+	#_coverageTracker10606745_
+		coverAll:
+			{25 to: 38}
+		evaluating: [
+			receiver2 initializeFor:
+				(#_coverageTracker10606745_
+					cover: (40 to: 45)
+					declaredAt: (6 to: 11)
+					by: aValue) ]
+		thatSends: #initializeFor:
+		to: receiver2 ] value.! !
+!Behavior method!
+registerTo: aPortfolio
+	#_coverageTracker10606795_ markAsExecuted.
+	#_coverageTracker10606795_
+		cover: (27 to: 41)
+		declaredAt: (27 to: 41)
+		by:
+			(parentPortfolio _ #_coverageTracker10606795_
+				cover: (46 to: 55)
+				declaredAt: (13 to: 22)
+				by: aPortfolio).! !
+!Behavior method!
+senderLeg
+	#_coverageTracker10606840_ markAsExecuted.
+	^ #_coverageTracker10606840_
+		cover: (14 to: 22)
+		declaredAt: (14 to: 22)
+		by: senderLeg.! !
+!Behavior method!
+value
+	#_coverageTracker10606889_ markAsExecuted.
+	^ #_coverageTracker10606889_
+		cover: (11 to: 15)
+		declaredAt: (11 to: 15)
+		by: value.! !
+!Behavior method!
+duplicateAccount
+	#_coverageTracker10606937_ markAsExecuted.
+	^ #_coverageTracker10606937_
+		coverAll:
+			{21 to: 48}
+		byLiteralOrPseudoVariable: 'This account already exist'.! !
+!Behavior method!
+initialize
+	#_coverageTracker10606984_ markAsExecuted.
+	#_coverageTracker10606984_
+		cover: (14 to: 25)
+		declaredAt: (14 to: 25)
+		by:
+			(transactions _ [ | receiver1 |
+			receiver1 _ #_coverageTracker10606984_
+				coverAll:
+					{30 to: 46}
+				by: OrderedCollection.
+			#_coverageTracker10606984_
+				coverAll:
+					{48 to: 50}
+				evaluating: [ receiver1 new ]
+				thatSends: #new
+				to: receiver1 ] value).! !
+!Behavior method!
+alreadyPresent: anAccount
+	#_coverageTracker10607040_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker10607040_
+		cover: (31 to: 39)
+		declaredAt: (17 to: 25)
+		by: anAccount.
+	#_coverageTracker10607040_
+		coverAll:
+			{41 to: 41}
+		evaluating: [
+			receiver1 =
+				(#_coverageTracker10607040_
+					coverAll:
+						{43 to: 46}
+					byLiteralOrPseudoVariable: self) ]
+		thatSends: #=
+		to: receiver1 ] value.! !
+!Behavior method!
+alreadyPresent: anAccount
+	#_coverageTracker10607089_ markAsExecuted.
+	[ | receiver2 |
+	receiver2 _ [ | receiver1 |
+	receiver1 _ #_coverageTracker10607089_
+		cover: (30 to: 38)
+		declaredAt: (17 to: 25)
+		by: anAccount.
+	#_coverageTracker10607089_
+		coverAll:
+			{40 to: 40}
+		evaluating: [
+			receiver1 =
+				(#_coverageTracker10607089_
+					coverAll:
+						{42 to: 45}
+					byLiteralOrPseudoVariable: self) ]
+		thatSends: #=
+		to: receiver1 ] value.
+	#_coverageTracker10607089_
+		coverAll:
+			{47 to: 53}
+		evaluating: [ receiver2 ifTrue: [ ^ #_coverageTracker10607089_
+					coverAll:
+						{57 to: 60}
+					byLiteralOrPseudoVariable: true ]]
+		thatSends: #ifTrue:
+		to: receiver2 ] value.
+	[ | receiver5 |
+	receiver5 _ [ | receiver4 |
+	receiver4 _ #_coverageTracker10607089_
+		cover: (68 to: 75)
+		declaredAt: (68 to: 75)
+		by: accounts.
+	#_coverageTracker10607089_
+		coverAll:
+			{77 to: 87}
+		evaluating: [
+			receiver4 anySatisfy: [ :account |
+				[ | receiver3 |
+				receiver3 _ #_coverageTracker10607089_
+					cover: (101 to: 107)
+					declaredAt: (91 to: 97)
+					by: account.
+				#_coverageTracker10607089_
+					coverAll:
+						{109 to: 123}
+					evaluating: [
+						receiver3 alreadyPresent:
+							(#_coverageTracker10607089_
+								cover: (125 to: 133)
+								declaredAt: (17 to: 25)
+								by: anAccount) ]
+					thatSends: #alreadyPresent:
+					to: receiver3 ] value ]]
+		thatSends: #anySatisfy:
+		to: receiver4 ] value.
+	#_coverageTracker10607089_
+		coverAll:
+			{137 to: 143}
+		evaluating: [ receiver5 ifTrue: [ ^ #_coverageTracker10607089_
+					coverAll:
+						{147 to: 150}
+					byLiteralOrPseudoVariable: true ]]
+		thatSends: #ifTrue:
+		to: receiver5 ] value.
+	[ | receiver8 |
+	receiver8 _ [ | receiver7 |
+	receiver7 _ #_coverageTracker10607089_
+		cover: (156 to: 163)
+		declaredAt: (68 to: 75)
+		by: accounts.
+	#_coverageTracker10607089_
+		coverAll:
+			{165 to: 175}
+		evaluating: [
+			receiver7 anySatisfy: [ :account |
+				[ | receiver6 |
+				receiver6 _ #_coverageTracker10607089_
+					cover: (189 to: 197)
+					declaredAt: (17 to: 25)
+					by: anAccount.
+				#_coverageTracker10607089_
+					coverAll:
+						{199 to: 213}
+					evaluating: [
+						receiver6 alreadyPresent:
+							(#_coverageTracker10607089_
+								cover: (215 to: 221)
+								declaredAt: (179 to: 185)
+								by: account) ]
+					thatSends: #alreadyPresent:
+					to: receiver6 ] value ]]
+		thatSends: #anySatisfy:
+		to: receiver7 ] value.
+	#_coverageTracker10607089_
+		coverAll:
+			{225 to: 231}
+		evaluating: [ receiver8 ifTrue: [ ^ #_coverageTracker10607089_
+					coverAll:
+						{235 to: 238}
+					byLiteralOrPseudoVariable: true ]]
+		thatSends: #ifTrue:
+		to: receiver8 ] value.
+	^ #_coverageTracker10607089_
+		coverAll:
+			{247 to: 251}
+		byLiteralOrPseudoVariable: false.! !
+!Behavior method!
+initializeCounterpartyLeg: aLeg
+	#_coverageTracker10607139_ markAsExecuted.
+	#_coverageTracker10607139_
+		cover: (35 to: 49)
+		declaredAt: (35 to: 49)
+		by:
+			(counterpartyLeg _ #_coverageTracker10607139_
+				cover: (54 to: 57)
+				declaredAt: (28 to: 31)
+				by: aLeg).! !
+!Behavior method!
+initialize
+	#_coverageTracker10607186_ markAsExecuted.
+	#_coverageTracker10607186_
+		cover: (14 to: 21)
+		declaredAt: (14 to: 21)
+		by:
+			(accounts _ [ | receiver1 |
+			receiver1 _ #_coverageTracker10607186_
+				coverAll:
+					{26 to: 42}
+				by: OrderedCollection.
+			#_coverageTracker10607186_
+				coverAll:
+					{44 to: 46}
+				evaluating: [ receiver1 new ]
+				thatSends: #new
+				to: receiver1 ] value).! !
+!Behavior method!
+balance
+	| balance |
+	#_coverageTracker10607235_ markAsExecuted.
+	#_coverageTracker10607235_
+		cover: (26 to: 32)
+		declaredAt: (13 to: 19)
+		by:
+			(balance _ #_coverageTracker10607235_
+				coverAll:
+					{39 to: 39}
+				byLiteralOrPseudoVariable: 0).
+	[ | receiver2 |
+	receiver2 _ #_coverageTracker10607235_
+		cover: (45 to: 56)
+		declaredAt: (45 to: 56)
+		by: transactions.
+	#_coverageTracker10607235_
+		coverAll:
+			{58 to: 60}
+		evaluating: [
+			receiver2 do: [ :aTransaction |
+				#_coverageTracker10607235_
+					cover: (121 to: 127)
+					declaredAt: (13 to: 19)
+					by:
+						(balance _ [ | receiver1 |
+						receiver1 _ #_coverageTracker10607235_
+							cover: (91 to: 102)
+							declaredAt: (65 to: 76)
+							by: aTransaction.
+						#_coverageTracker10607235_
+							coverAll:
+								{104 to: 119}
+							evaluating: [
+								receiver1 impactOnBalance:
+									(#_coverageTracker10607235_
+										cover: (80 to: 86)
+										declaredAt: (13 to: 19)
+										by: balance) ]
+							thatSends: #impactOnBalance:
+							to: receiver1 ] value) ]]
+		thatSends: #do:
+		to: receiver2 ] value.
+	^ #_coverageTracker10607235_
+		cover: (135 to: 141)
+		declaredAt: (13 to: 19)
+		by: balance.! !
+!Behavior method!
+value
+	#_coverageTracker10607283_ markAsExecuted.
+	^ #_coverageTracker10607283_
+		cover: (11 to: 15)
+		declaredAt: (11 to: 15)
+		by: value.! !
+!Behavior method!
+impactOnBalance: aBalance
+	#_coverageTracker10607335_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker10607335_
+		cover: (30 to: 37)
+		declaredAt: (18 to: 25)
+		by: aBalance.
+	#_coverageTracker10607335_
+		coverAll:
+			{39 to: 39}
+		evaluating: [
+			receiver1 -
+				(#_coverageTracker10607335_
+					cover: (41 to: 45)
+					declaredAt: (41 to: 45)
+					by: value) ]
+		thatSends: #-
+		to: receiver1 ] value.! !
+!Behavior method!
+transactions
+	#_coverageTracker10607382_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker10607382_
+		cover: (21 to: 32)
+		declaredAt: (21 to: 32)
+		by: transactions.
+	#_coverageTracker10607382_
+		coverAll:
+			{34 to: 37}
+		evaluating: [ receiver1 copy ]
+		thatSends: #copy
+		to: receiver1 ] value.! !
+!Behavior method!
+impactOnBalance: aBalance
+	#_coverageTracker10607430_ markAsExecuted.
+	^ [ | receiver1 |
+	receiver1 _ #_coverageTracker10607430_
+		cover: (30 to: 37)
+		declaredAt: (18 to: 25)
+		by: aBalance.
+	#_coverageTracker10607430_
+		coverAll:
+			{39 to: 39}
+		evaluating: [
+			receiver1 +
+				(#_coverageTracker10607430_
+					cover: (41 to: 45)
+					declaredAt: (41 to: 45)
+					by: value) ]
+		thatSends: #+
+		to: receiver1 ] value.! !
+!Behavior method!
+register: anAccount
+	#_coverageTracker10607479_ markAsExecuted.
+	[ | receiver5 |
+	receiver5 _ [ | receiver1 |
+	receiver1 _ #_coverageTracker10607479_
+		coverAll:
+			{26 to: 29}
+		byLiteralOrPseudoVariable: self.
+	#_coverageTracker10607479_
+		coverAll:
+			{31 to: 49}
+		evaluating: [
+			receiver1 alreadyInHierarchy:
+				(#_coverageTracker10607479_
+					cover: (51 to: 59)
+					declaredAt: (11 to: 19)
+					by: anAccount) ]
+		thatSends: #alreadyInHierarchy:
+		to: receiver1 ] value.
+	#_coverageTracker10607479_
+		coverAll:
+			{62 to: 68}
+		evaluating: [
+			receiver5 ifTrue: [
+				[ | receiver4 |
+				receiver4 _ #_coverageTracker10607479_
+					coverAll:
+						{71 to: 74}
+					byLiteralOrPseudoVariable: self.
+				#_coverageTracker10607479_
+					coverAll:
+						{76 to: 81}
+					evaluating: [
+						receiver4 error:
+							[ | receiver3 |
+							receiver3 _ [ | receiver2 |
+							receiver2 _ #_coverageTracker10607479_
+								coverAll:
+									{84 to: 87}
+								byLiteralOrPseudoVariable: self.
+							#_coverageTracker10607479_
+								coverAll:
+									{89 to: 93}
+								evaluating: [ receiver2 class ]
+								thatSends: #class
+								to: receiver2 ] value.
+							#_coverageTracker10607479_
+								coverAll:
+									{95 to: 110}
+								evaluating: [ receiver3 duplicateAccount ]
+								thatSends: #duplicateAccount
+								to: receiver3 ] value ]
+					thatSends: #error:
+					to: receiver4 ] value ]]
+		thatSends: #ifTrue:
+		to: receiver5 ] value.
+	[ | receiver6 |
+	receiver6 _ #_coverageTracker10607479_
+		cover: (117 to: 124)
+		declaredAt: (117 to: 124)
+		by: accounts.
+	#_coverageTracker10607479_
+		coverAll:
+			{126 to: 129}
+		evaluating: [
+			receiver6 add:
+				(#_coverageTracker10607479_
+					cover: (131 to: 139)
+					declaredAt: (11 to: 19)
+					by: anAccount) ]
+		thatSends: #add:
+		to: receiver6 ] value.
+	[ | receiver7 |
+	receiver7 _ #_coverageTracker10607479_
+		cover: (143 to: 151)
+		declaredAt: (11 to: 19)
+		by: anAccount.
+	#_coverageTracker10607479_
+		coverAll:
+			{153 to: 163}
+		evaluating: [
+			receiver7 registerTo:
+				(#_coverageTracker10607479_
+					coverAll:
+						{165 to: 168}
+					byLiteralOrPseudoVariable: self) ]
+		thatSends: #registerTo:
+		to: receiver7 ] value.! !
+!Behavior method!
+transactions
+	| transactions |
+	#_coverageTracker10607532_ markAsExecuted.
+	#_coverageTracker10607532_
+		cover: (38 to: 49)
+		declaredAt: (20 to: 31)
+		by:
+			(transactions _ [ | receiver2 |
+			receiver2 _ #_coverageTracker10607532_
+				cover: (54 to: 61)
+				declaredAt: (54 to: 61)
+				by: accounts.
+			#_coverageTracker10607532_
+				coverAll:
+					{63 to: 70}
+				evaluating: [
+					receiver2 collect: [ :anAccount |
+						[ | receiver1 |
+						receiver1 _ #_coverageTracker10607532_
+							cover: (86 to: 94)
+							declaredAt: (74 to: 82)
+							by: anAccount.
+						#_coverageTracker10607532_
+							coverAll:
+								{96 to: 107}
+							evaluating: [ receiver1 transactions ]
+							thatSends: #transactions
+							to: receiver1 ] value ]]
+				thatSends: #collect:
+				to: receiver2 ] value).
+	^ [ | receiver3 |
+	receiver3 _ #_coverageTracker10607532_
+		cover: (113 to: 124)
+		declaredAt: (20 to: 31)
+		by: transactions.
+	#_coverageTracker10607532_
+		coverAll:
+			{126 to: 132}
+		evaluating: [ receiver3 flatten ]
+		thatSends: #flatten
+		to: receiver3 ] value.! !
+!Behavior method!
+balance
+	#_coverageTracker10607580_ markAsExecuted.
+	^ [ | receiver2 |
+	receiver2 _ #_coverageTracker10607580_
+		cover: (12 to: 19)
+		declaredAt: (12 to: 19)
+		by: accounts.
+	#_coverageTracker10607580_
+		coverAll:
+			{21 to: 24. 59 to: 66}
+		evaluating: [
+			receiver2
+				sum: [ :anAccount |
+					[ | receiver1 |
+					receiver1 _ #_coverageTracker10607580_
+						cover: (40 to: 48)
+						declaredAt: (28 to: 36)
+						by: anAccount.
+					#_coverageTracker10607580_
+						coverAll:
+							{50 to: 56}
+						evaluating: [ receiver1 balance ]
+						thatSends: #balance
+						to: receiver1 ] value ]
+				ifEmpty: [
+					#_coverageTracker10607580_
+						coverAll:
+							{69 to: 69}
+						byLiteralOrPseudoVariable: 0 ]]
+		thatSends: #sum:ifEmpty:
+		to: receiver2 ] value.! !
+
+!testRun: #PortfolioTest #test01AnEmptyPortfolioHas0PesosBalance stamp: 'mg 5/6/2024 12:55:23'!
+PASSED!
+
+!testRun: #PortfolioTest #test02APotfolioWithAReceptiveAccountCalculateBalance stamp: 'mg 5/6/2024 12:55:23'!
+PASSED!
+
+!testRun: #PortfolioTest #test03APotfolioWithMultipleReceptiveAccountsCalculateBalance stamp: 'mg 5/6/2024 12:55:23'!
+PASSED!
+
+!testRun: #PortfolioTest #test04APotfolioWithAReceptiveAccountFindRegisteredReceptiveAccountTransactions stamp: 'mg 5/6/2024 12:55:23'!
+PASSED!
+
+!testRun: #PortfolioTest #test05APotfolioAReceptiveAccountsListAllReceptiveAccountTransactions stamp: 'mg 5/6/2024 12:55:23'!
+PASSED!
+
+!testRun: #PortfolioTest #test06APortfolioCannotRegisterAReceptiveAccountTwice stamp: 'mg 5/6/2024 12:55:23'!
+PASSED!
+
+!testRun: #PortfolioTest #test07APortfolioCannotRegisterAReceptiveAccountRegisteredInRegisteredPorfolio stamp: 'mg 5/6/2024 12:55:23'!
+PASSED!
+
+!testRun: #PortfolioTest #test08APortfolioCannotRegisterAPortfolioTwice stamp: 'mg 5/6/2024 12:55:23'!
+PASSED!
+
+!testRun: #PortfolioTest #test09APortfolioCannotRegisterAnAlreadyRegisteredReceptiveAccountInHierarchy stamp: 'mg 5/6/2024 12:55:23'!
+PASSED!
+
+!testRun: #PortfolioTest #test10APortfolioCannotRegisterItSelf stamp: 'mg 5/6/2024 12:55:23'!
+PASSED!
+
+!testRun: #PortfolioTest #test11APortfolioCannotRegisterItsParentPortfolio stamp: 'mg 5/6/2024 12:55:23'!
+PASSED!
+
+!testRun: #PortfolioTest #test12APortfolioCannotRegisterAnAlrealdyRegisteredReceptiveAccountInParentPortfolio stamp: 'mg 5/6/2024 12:55:23'!
+PASSED!
+
+!testRun: #PortfolioTest #test13APortfolioCannotRegisterAnAlrealdyRegisteredReceptiveAccounInFullHierarchy stamp: 'mg 5/6/2024 12:55:23'!
+PASSED!
+
+!testRun: #PortfolioTest #test14APortfolioCannotRegisterAPortfolioIfBothIncludesTheSameAccountInItsHierarchy stamp: 'mg 5/6/2024 12:55:23'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'mg 5/6/2024 12:55:24'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:55:24'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'mg 5/6/2024 12:55:24'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'mg 5/6/2024 12:55:24'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'mg 5/6/2024 12:55:24'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'mg 5/6/2024 12:55:24'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'mg 5/6/2024 12:55:24'!
+PASSED!
+
+!testRun: #TransferenceTest #test01_transferenceExtractMoneyFromOriginAccount stamp: 'mg 5/6/2024 12:55:24'!
+PASSED!
+
+!testRun: #TransferenceTest #test02_transferenceDepositMoneyToDestinyAccount stamp: 'mg 5/6/2024 12:55:24'!
+PASSED!
+
+!testRun: #TransferenceTest #test03_transferenceKnowsTheValueOfInterAccountOperation stamp: 'mg 5/6/2024 12:55:24'!
+PASSED!
+
+!testRun: #TransferenceTest #test04_transferenceWithdrawKnowsHisCounterParty stamp: 'mg 5/6/2024 12:55:24'!
+PASSED!
+
+!testRun: #TransferenceTest #test05_transferenceDepositKnowsHisCounterParty stamp: 'mg 5/6/2024 12:55:24'!
+PASSED!
