@@ -697,8 +697,8 @@ test03TransferenceKnowsTheValueOfInterAccountOperation
 	
 	self assert: transaction value equals: 100 * peso.! !
 
-!TransferenceTest methodsFor: 'testing' stamp: 'mc 5/10/2024 01:13:15'!
-test04TransferenceWithdrawKnowsHisCounterParty
+!TransferenceTest methodsFor: 'testing' stamp: 'mg 5/10/2024 09:44:09'!
+test04TransferenceWithdrawKnowsHisCounterpart
 
 	| transaction transferDeposit transferWithdraw |
 	
@@ -710,8 +710,8 @@ test04TransferenceWithdrawKnowsHisCounterParty
 	
 	self assert: transferWithdraw counterpart equals: transferDeposit.! !
 
-!TransferenceTest methodsFor: 'testing' stamp: 'mc 5/10/2024 01:13:15'!
-test05TransferenceDepositKnowsHisCounterParty
+!TransferenceTest methodsFor: 'testing' stamp: 'mg 5/10/2024 09:44:18'!
+test05TransferenceDepositKnowsHisCounterpart
 
 	| transaction transferDeposit transferWithdraw |
 	
