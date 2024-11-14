@@ -7,9 +7,9 @@
 3. Verifique que tenga activado el plugin para baipasear las restricciones CORS
 
 ### Iniciar el frontend con `npm start`
-
 En el directorio del front (donde se encuentra el archivo package.json) evaluar `npm start`. Esto
 corre la aplicación en modo desarrollo, abriendo el navegador en [http://localhost:3000](http://localhost:3000).
+
 
 ## Configuración inicial
 
@@ -21,14 +21,12 @@ corre la aplicación en modo desarrollo, abriendo el navegador en [http://localh
 
 Si no lo tienen, deben instalarse [Node JS](https://nodejs.org/en/download). Buscar como
 instalarlo en su sistema operativo. Por ejemplo en ubuntu:
-
 - `sudo apt update`
 - `sudo apt install nodejs`
 - `node -v`
 - `npm -v`
 
 ### Instalar las dependencias del proyecto
-
 En el directorio del front (donde se encuentra el archivo package.json) evaluar `npm install`
 
 ### Instalar un plugin para baipasear las restricciones CORS

@@ -31,46 +31,46 @@ Lamentablemente el up-time del Merchant Processor no es muy bueno, por lo que si
 La interfaz Rest que ofrecerá el sistema debe permitir crear un carrito (el cual será válido durante 30 minutos luego de la última vez que se realizó alguna operación con él), agregar un libro con su cantidad al carrito ya creado, consultar el contenido de un carrito, hacer el check out y listar las compras de un cliente. Las interfaces son:
 
 - Recurso: /createCart
-  - Parámetros:
-    - `clientId`: ID del cliente que está creando el carrito
-    - `password`: Password del cliente que valida que puede operar con TusLibros.com
-  - Output:
-    - En caso de éxito: `0|ID_DEL_CARRITO`
-    - En caso de error: `1|DESCRIPCION_DE_ERROR`
+ 	- Parámetros:
+  		- `clientId`: ID del cliente que está creando el carrito
+  		- `password`: Password del cliente que valida que puede operar con TusLibros.com
+ 	- Output:
+  		- En caso de éxito: `0|ID_DEL_CARRITO`
+  		- En caso de error: `1|DESCRIPCION_DE_ERROR`
 
 - Recurso: /addToCart
-  - Parámetros:
-    - `cartId`: Id del carrito creado con /createCart
-    - `bookIsbn`: ISBN del libro que se desea agregar. Debe ser un ISBN de la editorial
-    - `bookQuantity`: Cantidad de libros que se desean agregar. Debe ser >= 1.
-  - Output:
-    - En caso de éxito: `0|OK`
-    - En caso de error: `1|DESCRIPCION_DE_ERROR`
+ 	- Parámetros:
+  		- `cartId`: Id del carrito creado con /createCart
+  		- `bookIsbn`: ISBN del libro que se desea agregar. Debe ser un ISBN de la editorial
+  		- `bookQuantity`: Cantidad de libros que se desean agregar. Debe ser >= 1.
+ 	- Output:
+  		- En caso de éxito: `0|OK`
+  		- En caso de error: `1|DESCRIPCION_DE_ERROR`
 
 - Recurso: /listCart
-  - Parámetros:
-    - `cartId`: Id del carrito creado con /createCart
-  - Output:
-    - En caso de éxito: `0|ISBN_1|QUANTITY_1|ISBN_2|QUANTITY_2|....|ISBN_N|QUANTITY_N`
-    - En caso de error: `1|DESCRIPCION_DE_ERROR`
+ 	- Parámetros:
+  		- `cartId`: Id del carrito creado con /createCart
+ 	- Output:
+  		- En caso de éxito: `0|ISBN_1|QUANTITY_1|ISBN_2|QUANTITY_2|....|ISBN_N|QUANTITY_N`
+  		- En caso de error: `1|DESCRIPCION_DE_ERROR`
 
 - Recurso: /checkOutCart
-  - Parámetros:
-    - `cartId`: Id del carrito creado con /createCart
-    - `ccn`: Número de tarjeta de credito
-    - `cced`: Fecha de expiración con 2 digitos para el mes y 4 para el año
-    - `cco`: Nombre del dueño de la tarjeta.
-  - Output:
-    - En caso de éxito: `0|TRANSACTION_ID`
-    - En caso de error: `1|DESCRIPCION_DE_ERROR`
+ 	- Parámetros:
+  		- `cartId`: Id del carrito creado con /createCart
+  		- `ccn`: Número de tarjeta de credito
+  		- `cced`: Fecha de expiración con 2 digitos para el mes y 4 para el año
+  		- `cco`: Nombre del dueño de la tarjeta.
+ 	- Output:
+  		- En caso de éxito: `0|TRANSACTION_ID`
+  		- En caso de error: `1|DESCRIPCION_DE_ERROR`
 
 - Recurso: /listPurchases
-  - Parámetros:
-    - `clientId`: ID del cliente que quiere ver que compras hizo
-    - `password`: Password del cliente que valida que puede operar con TusLibros.com
-  - Output:
-    - En caso de éxito: `0|ISBN_1|QUANTITY_1|....|ISBN_N|QUANTITY_N|TOTAL_AMOUNT`
-    - En caso de error: `1|DESCRIPCION_DE_ERROR`
+ 	- Parámetros:
+  		- `clientId`: ID del cliente que quiere ver que compras hizo
+  		- `password`: Password del cliente que valida que puede operar con TusLibros.com
+ 	- Output:
+  		- En caso de éxito: `0|ISBN_1|QUANTITY_1|....|ISBN_N|QUANTITY_N|TOTAL_AMOUNT`
+  		- En caso de error: `1|DESCRIPCION_DE_ERROR`
 
 Si el request realizado no cumple con las reglas sintácticas, se debe devolver como HTTP status el código 400 (Bad request). Si cumple con la sintaxis se debe devolver como HTTP status el código 200 (OK).
 
